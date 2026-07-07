@@ -58,7 +58,7 @@
 - [x] Expand into 10-page proposal structure.
 - [x] Add architecture diagram.
 - [x] Add evaluation plan.
-- [ ] Review against scoring criteria.
+- [x] Review against scoring criteria.
 
 ## Phase 4: Prototype
 
@@ -70,4 +70,5 @@
 - [x] Collect source-backed evidence for proposal expansion.
 - [x] Integrate source-backed evidence into the expanded proposal outline.
 - [x] Convert expanded proposal outline into polished Korean proposal draft.
-- [ ] Review Korean proposal draft against scoring criteria.
+- [x] Review Korean proposal draft against scoring criteria.
+- [ ] Revise Korean proposal draft using scoring review findings.

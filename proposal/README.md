@@ -15,6 +15,7 @@ Current proposal planning files:
 
 - `concept_note.md`
 - `proposal_draft_ko.md`
+- `proposal_draft_scoring_review.md`
 - `proposal_outline.md`
 - `rubric_mapping.md`
 - `scenario_001_evaluation_alignment.md`

@@ -47,6 +47,7 @@ GitHub repository:
 
 - `proposal/concept_note.md`
 - `proposal/proposal_draft_ko.md`
+- `proposal/proposal_draft_scoring_review.md`
 - `proposal/proposal_outline.md`
 - `proposal/rubric_mapping.md`
 - `proposal/scenario_001_evaluation_alignment.md`
