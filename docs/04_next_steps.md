@@ -71,4 +71,5 @@
 - [x] Integrate source-backed evidence into the expanded proposal outline.
 - [x] Convert expanded proposal outline into polished Korean proposal draft.
 - [x] Review Korean proposal draft against scoring criteria.
-- [ ] Revise Korean proposal draft using scoring review findings.
+- [x] Revise Korean proposal draft using scoring review findings.
+- [ ] Polish Korean proposal wording and citation formatting.

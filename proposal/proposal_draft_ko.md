@@ -118,6 +118,21 @@ flowchart TD
 
 이 방식은 단순 prompt 기반 답변보다 평가와 재현성이 높고, 대규모 의료 모델 학습보다 현실적인 MVP 구현이 가능하다.
 
+### 2.5 에이전트의 계획 및 도구 선택 로직
+
+본 시스템은 모든 입력에 대해 동일한 답변을 생성하는 방식이 아니라, 입력 상태와 중간 결과에 따라 다음 검토 단계를 선택한다. MVP에서는 이 로직을 규칙 기반으로 명시하고, 향후에는 LLM 기반 planning layer와 결합할 수 있다.
+
+| 조건 | 에이전트 판단 | 수행 동작 |
+| --- | --- | --- |
+| 질환명 또는 중재 개념이 누락됨 | 근거 검색이 불가능하거나 부정확함 | 사용자에게 clarification question 생성 |
+| 질환명과 중재 개념이 존재함 | 공개 trial registry 검색 가능 | ClinicalTrials.gov query 생성 |
+| 검색 결과가 적거나 관련성이 낮음 | query가 너무 좁거나 용어가 부정확할 수 있음 | 대표 약물명, drug class, 동의어로 query expansion |
+| safety-critical term이 존재함 | 안전성 검토가 필요함 | Critic / Safety Agent로 routing |
+| 데이터 항목이 research-only/manual에 가까움 | 병원 routine data만으로 수집이 어려울 수 있음 | 데이터 수집 준비도 위험으로 표시 |
+| 최종 보고서가 승인, 규제 보증, 치료 추천 표현을 포함함 | 안전 boundary 위반 가능성 | final report 생성 전 수정 요구 |
+
+따라서 본 시스템의 agentic 특성은 단순히 여러 문단을 생성하는 데 있지 않다. 입력 정규화, 공개 API 검색, query expansion, 병원 데이터 수집 준비도 분류, critic loop, 최종 보고서 생성을 조건부로 연결한다는 점에 있다.
+
 ## 3. 기술적 실현 가능성
 
 ### 3.1 현재 MVP 구현 상태
@@ -143,7 +158,22 @@ flowchart TD
 | SPIRIT, ICH, FDA, WHO 자료 | 설계 근거 및 안전 boundary 정의 | checklist rule로 구조화 |
 | DailyMed | Scenario 001 안전성 검토에 사용 | 약물 class별 safety lookup 확장 |
 
-### 3.3 구현 로드맵
+### 3.3 최종 라운드 구현 스택
+
+최종 라운드 데모는 현재 CLI MVP를 유지하면서, 필요한 경우 얇은 UI를 추가하는 방식이 적절하다. 핵심은 화려한 화면보다 agent step, source trace, limitation, critic 결과가 재현 가능하게 남는 것이다.
+
+| 구성요소 | 후보 기술 | 역할 |
+| --- | --- | --- |
+| Backend workflow | Python CLI 또는 Python service layer | 입력 정규화, checklist, API retrieval, report generation |
+| Public retrieval | ClinicalTrials.gov API v2, NCBI E-utilities | 유사 trial record 및 문헌 근거 검색 |
+| Local storage | JSON, Markdown | 중간 산출물, source trace, critic 결과 저장 |
+| Optional UI | Streamlit 또는 lightweight React | 최종 라운드 demo용 step-by-step visualization |
+| Evaluation | Scenario rubric files, critic output | missing-item detection, source relevance, safety boundary 평가 |
+| Version control | GitHub | 개발 과정, 산출물, 평가 흔적 공개 |
+
+MVP 단계에서는 외부 dependency를 최소화하고, 최종 라운드에서는 시각화가 필요한 부분만 UI로 감싼다. 이 접근은 구현 위험을 낮추고, 실제 동작하는 core workflow를 먼저 안정화한다는 장점이 있다.
+
+### 3.4 구현 로드맵
 
 | 단계 | 구현 범위 |
 | --- | --- |
@@ -153,7 +183,7 @@ flowchart TD
 | Phase 4 | UI 또는 dashboard를 추가해 demo presentation 강화 |
 | Phase 5 | 최종 라운드용 step-by-step visualization 및 report export 구현 |
 
-### 3.4 실현 가능성 경계
+### 3.5 실현 가능성 경계
 
 본 제안은 다음을 요구하지 않는다.
 
@@ -177,8 +207,10 @@ flowchart TD
 | 시나리오 | 도메인 | 목적 |
 | --- | --- | --- |
 | Scenario 001 | 제2형 당뇨병 / GLP-1 receptor agonist | 현재 구현된 기준 시나리오 |
-| Scenario 002 | TBD | 당뇨병 외 질환에서 workflow 일반화 가능성 확인 |
-| Scenario 003 | TBD | safety boundary 및 병원 데이터 readiness reasoning 검증 |
+| Scenario 002 | 종양 또는 심혈관계 Phase II/III 프로토콜 | 복잡한 eligibility, 병용약물, 안전성 모니터링 조건 검출 |
+| Scenario 003 | 감염성 질환 또는 희귀질환 프로토콜 | 모집 feasibility, 방문 일정, 연구 전용 데이터 수집 항목 검출 |
+
+Scenario 002와 Scenario 003은 아직 구현 전이지만, 평가 목적은 명확하다. Scenario 001이 당뇨병 중심의 비교적 명확한 대사질환 시나리오라면, Scenario 002는 복잡한 제외 기준과 안전성 검토를, Scenario 003은 모집 가능성과 데이터 수집 준비도 문제를 더 강하게 검증하기 위한 확장 시나리오로 설계한다.
 
 ### 4.3 평가 지표
 
@@ -241,6 +273,18 @@ flowchart TD
 - 병원 routine data와 research-only/manual data를 구분해 데이터 수집 위험을 조기에 표시한다.
 - AI output의 source, assumption, limitation을 남겨 auditability를 강화한다.
 
+현재 수작업 중심의 사전검토 흐름과 제안 시스템 적용 후 흐름은 다음과 같이 비교할 수 있다.
+
+| 구분 | 현재 수작업 중심 흐름 | 제안 시스템 적용 후 흐름 |
+| --- | --- | --- |
+| 프로토콜 초안 검토 | 담당자가 문서를 직접 읽고 누락 항목을 개별 메모 | 체크리스트 기반 누락/불명확 항목 자동 정리 |
+| 유사 임상시험 확인 | ClinicalTrials.gov 또는 문헌을 수동 검색 | 공개 trial registry query와 source trace 자동 저장 |
+| 병원 데이터 가능성 논의 | 회의 중 경험 기반으로 데이터 가능성 추정 | routine, mixed, research-only/manual 항목으로 1차 분류 |
+| 안전성 및 한계 점검 | 담당자 경험에 의존 | critic loop로 승인/치료추천/규제보증 표현 사전 차단 |
+| 전문가 follow-up | 흩어진 메모를 바탕으로 질문 작성 | PI, CRC, 데이터 담당자에게 전달할 질문 목록 생성 |
+
+따라서 본 시스템의 기대효과는 검증되지 않은 시간/비용 절감 수치를 주장하는 것이 아니라, 반복적인 수동 cross-check를 줄이고 전문가 검토 준비도를 높일 가능성을 scenario-based evaluation으로 검증하는 데 있다.
+
 ### 6.2 대상 사용자
 
 주요 대상 사용자는 다음과 같다.
@@ -263,6 +307,17 @@ flowchart TD
 - PI, CRC, sponsor, IRB, regulatory, statistician, clinical expert review 대체
 
 WHO의 AI for health ethics guidance와 FDA Clinical Decision Support Software guidance를 고려할 때, 의료 영역의 AI는 명확한 책임 경계와 인간 전문가 검토 가능성을 유지해야 한다. 따라서 본 시스템은 전문가 판단을 대체하지 않고, 검토 전 준비자료를 구조화하는 역할로 제한한다.
+
+운영 정책은 다음 원칙을 따른다.
+
+| 원칙 | 적용 방식 |
+| --- | --- |
+| 실제 환자 데이터 미사용 | MVP와 공개 portfolio에서는 synthetic scenario와 public source만 사용 |
+| source logging | 모든 공개 API query, NCT ID, 참고 근거를 산출물에 기록 |
+| limitation by default | 최종 보고서에는 항상 assumption, limitation, expert follow-up question 포함 |
+| human review required | 산출물은 전문가 검토 전 보조자료이며 실행 판단으로 사용하지 않음 |
+| no hidden recommendation | 진단, 치료, 실제 환자 선별, 규제 적합성 판단을 암시하지 않음 |
+| auditability | JSON/Markdown 산출물을 GitHub에서 추적 가능하게 관리 |
 
 ### 6.4 향후 확장 방향
 
@@ -295,6 +350,6 @@ WHO의 AI for health ethics guidance와 FDA Clinical Decision Support Software g
 - 팀명 확정
 - 실제 제출 양식 문항별 글자 수 및 페이지 분량 조정
 - 한국어 문장 다듬기
-- 평가 기준표 기준 자체 검토
+- 평가 기준표 기준 자체 검토 및 1차 보완 반영
 - Mermaid 다이어그램을 제출 양식용 이미지로 변환할지 결정
 - 최종 제출용 HWPX 또는 PDF 작성 여부 결정

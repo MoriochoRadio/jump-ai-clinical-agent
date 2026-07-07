@@ -49,6 +49,7 @@ GitHub repository:
 - `proposal/proposal_draft_ko.md`
 - `proposal/proposal_draft_scoring_review.md`
 - `proposal/proposal_outline.md`
+- `proposal/proposal_revision_log.md`
 - `proposal/rubric_mapping.md`
 - `proposal/scenario_001_evaluation_alignment.md`
 - `proposal/template_fields.md`
