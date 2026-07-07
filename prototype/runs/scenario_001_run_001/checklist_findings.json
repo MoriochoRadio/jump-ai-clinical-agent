@@ -1,0 +1,123 @@
+{
+  "run_id": "scenario_001_run_001",
+  "field_presence": [
+    {
+      "field": "disease_condition",
+      "status": "present"
+    },
+    {
+      "field": "intervention_or_drug_class",
+      "status": "present"
+    },
+    {
+      "field": "trial_phase",
+      "status": "present"
+    },
+    {
+      "field": "trial_objective",
+      "status": "present"
+    },
+    {
+      "field": "target_population",
+      "status": "present"
+    },
+    {
+      "field": "draft_inclusion_criteria",
+      "status": "present"
+    },
+    {
+      "field": "draft_exclusion_criteria",
+      "status": "present"
+    },
+    {
+      "field": "primary_endpoint",
+      "status": "present"
+    },
+    {
+      "field": "secondary_endpoints",
+      "status": "present"
+    },
+    {
+      "field": "expected_data_collection_items",
+      "status": "present"
+    }
+  ],
+  "findings": [
+    {
+      "id": "ambiguous_hba1c_threshold",
+      "severity": "high",
+      "finding": "HbA1c eligibility threshold is ambiguous.",
+      "evidence": [
+        "HbA1c above target despite stable oral diabetes medication."
+      ],
+      "recommendation": "Define an exact HbA1c range or threshold for eligibility."
+    },
+    {
+      "id": "ambiguous_renal_threshold",
+      "severity": "high",
+      "finding": "Renal impairment exclusion criterion lacks an operational threshold.",
+      "evidence": [
+        "Severe renal impairment."
+      ],
+      "recommendation": "Define the threshold using eGFR, creatinine clearance, or another measurable criterion."
+    },
+    {
+      "id": "missing_study_design",
+      "severity": "high",
+      "finding": "Study design, randomization, blinding, and comparator details are not specified.",
+      "evidence": "No structured study design field or criterion-level design detail found.",
+      "recommendation": "Clarify whether the study is randomized, blinded, placebo-controlled, active-comparator, or single-arm."
+    },
+    {
+      "id": "missing_sample_size_or_recruitment_rationale",
+      "severity": "medium",
+      "finding": "Recruitment assumption is provided without feasibility rationale.",
+      "evidence": "Single-center hospital-based recruitment, 80 participants over 6 months.",
+      "recommendation": "Add screening pool, historical recruitment rate, or site feasibility evidence."
+    },
+    {
+      "id": "injectable_therapy_exclusion_recruitment_pool",
+      "severity": "medium",
+      "finding": "Current injectable diabetes therapy exclusion may reduce the eligible recruitment pool.",
+      "evidence": [
+        "Current use of injectable diabetes therapy."
+      ],
+      "recommendation": "Estimate how many otherwise eligible patients would be excluded and clarify whether this criterion is clinically necessary."
+    },
+    {
+      "id": "follow_up_attendance_operational_definition",
+      "severity": "medium",
+      "finding": "Follow-up visit attendance criterion needs an operational definition.",
+      "evidence": [
+        "Able to attend scheduled follow-up visits."
+      ],
+      "recommendation": "Define required visit windows, acceptable missed visits, remote visit options, and how attendance feasibility will be assessed."
+    },
+    {
+      "id": "missing_safety_monitoring_plan",
+      "severity": "high",
+      "finding": "Safety monitoring plan is not specified.",
+      "evidence": "No safety monitoring field or monitoring process found.",
+      "recommendation": "Clarify adverse event review, safety labs, stopping rules if applicable, and responsible reviewers."
+    },
+    {
+      "id": "unclear_prior_glp1_exposure",
+      "severity": "medium",
+      "finding": "Prior GLP-1 receptor agonist exposure is not addressed in eligibility criteria.",
+      "evidence": "No inclusion or exclusion criterion refers to prior GLP-1 receptor agonist exposure.",
+      "recommendation": "Clarify whether prior or recent GLP-1 receptor agonist use is allowed, excluded, or stratified."
+    },
+    {
+      "id": "unclear_adverse_event_workflow",
+      "severity": "medium",
+      "finding": "Adverse events are listed as data items, but the capture workflow is unclear.",
+      "evidence": "Expected data collection items include adverse events.",
+      "recommendation": "Specify how adverse events will be captured, reviewed, coded, and reconciled."
+    }
+  ],
+  "summary": {
+    "total_findings": 9,
+    "high_severity": 4,
+    "medium_severity": 5
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "schema_version": "0.1",
+  "scenario_id": "scenario_001",
+  "scenario_name": "Type 2 Diabetes Phase II Protocol Pre-Review",
+  "source_markdown": "experiments/scenario_001_type2_diabetes.md",
+  "data_safety": {
+    "contains_real_patient_data": false,
+    "contains_identifiable_data": false,
+    "scenario_type": "synthetic protocol outline",
+    "allowed_use": "agent workflow testing and proposal evaluation"
+  },
+  "required_fields": {
+    "disease_condition": "Type 2 diabetes mellitus",
+    "intervention_or_drug_class": "GLP-1 receptor agonist add-on therapy",
+    "trial_phase": "Phase II",
+    "trial_objective": "Evaluate whether adding a GLP-1 receptor agonist to existing oral diabetes therapy improves glycemic control and body weight over 24 weeks in adults with inadequately controlled type 2 diabetes.",
+    "target_population": "Adults aged 18 to 75 with type 2 diabetes and inadequate glycemic control on stable oral medication.",
+    "draft_inclusion_criteria": [
+      "Age 18 to 75 years.",
+      "Diagnosed with type 2 diabetes.",
+      "HbA1c above target despite stable oral diabetes medication.",
+      "Able to attend scheduled follow-up visits.",
+      "Able to provide informed consent."
+    ],
+    "draft_exclusion_criteria": [
+      "Type 1 diabetes.",
+      "Pregnancy or breastfeeding.",
+      "Severe renal impairment.",
+      "History of pancreatitis.",
+      "Current use of injectable diabetes therapy.",
+      "Participation in another interventional clinical trial."
+    ],
+    "primary_endpoint": "Change in HbA1c from baseline to week 24.",
+    "secondary_endpoints": [
+      "Change in body weight from baseline to week 24.",
+      "Proportion of participants achieving HbA1c target.",
+      "Incidence of treatment-emergent adverse events.",
+      "Change in fasting plasma glucose."
+    ],
+    "expected_data_collection_items": [
+      "Demographics.",
+      "Diabetes diagnosis history.",
+      "Medication history.",
+      "HbA1c.",
+      "Fasting plasma glucose.",
+      "Body weight and BMI.",
+      "Renal function laboratory results.",
+      "Pregnancy test result where applicable.",
+      "Informed consent documentation.",
+      "Adverse events.",
+      "Concomitant medications.",
+      "Visit schedule and follow-up completion."
+    ]
+  },
+  "optional_fields": {
+    "recruitment_assumption": "Single-center hospital-based recruitment, 80 participants over 6 months.",
+    "hospital_data_availability_notes": "HbA1c, fasting glucose, weight, medication history, renal labs, and visit records are assumed to be available in routine hospital systems. Adverse event details and informed consent status may require research-specific documentation.",
+    "similar_trial_nct_ids": [],
+    "known_concerns": [
+      "HbA1c threshold is not specified.",
+      "Renal impairment threshold is not specified.",
+      "Prior GLP-1 receptor agonist exposure is not addressed.",
+      "Recruitment assumption may be optimistic for a single center."
+    ]
+  },
+  "expected_agent_checks": {
+    "completeness_checks": [
+      "Missing exact HbA1c inclusion threshold.",
+      "Missing renal impairment definition.",
+      "Missing safety monitoring detail.",
+      "Missing sample size rationale.",
+      "Missing randomization, blinding, or study design details.",
+      "Unclear handling of prior GLP-1 receptor agonist exposure.",
+      "Unclear adverse event collection workflow."
+    ],
+    "similar_trial_evidence_checks": [
+      "ClinicalTrials.gov trials for GLP-1 receptor agonist in type 2 diabetes.",
+      "Common endpoints such as HbA1c change, body weight change, fasting glucose, and adverse events.",
+      "Typical trial duration and eligibility criteria in similar studies."
+    ],
+    "eligibility_and_recruitment_flags": [
+      "HbA1c above target is ambiguous without a numeric threshold.",
+      "Severe renal impairment requires a measurable definition such as eGFR threshold.",
+      "Single-center recruitment of 80 participants over 6 months needs feasibility review.",
+      "Exclusion of current injectable therapy may affect recruitment pool."
+    ],
+    "hospital_data_readiness_notes": [
+      {
+        "item": "demographics",
+        "expected_mapping": "registration/demographic data"
+      },
+      {
+        "item": "diabetes diagnosis",
+        "expected_mapping": "diagnosis/problem list"
+      },
+      {
+        "item": "medication history",
+        "expected_mapping": "medication/order records plus possible manual reconciliation"
+      },
+      {
+        "item": "HbA1c and fasting glucose",
+        "expected_mapping": "laboratory results"
+      },
+      {
+        "item": "body weight/BMI",
+        "expected_mapping": "vitals or clinical measurements"
+      },
+      {
+        "item": "renal function",
+        "expected_mapping": "laboratory results"
+      },
+      {
+        "item": "pregnancy test",
+        "expected_mapping": "laboratory results or protocol-specific testing"
+      },
+      {
+        "item": "adverse events",
+        "expected_mapping": "research-specific capture plus clinical notes"
+      },
+      {
+        "item": "informed consent",
+        "expected_mapping": "research documentation, not routine EMR field"
+      }
+    ],
+    "follow_up_questions": [
+      "What exact HbA1c range defines eligibility?",
+      "What eGFR or creatinine clearance threshold defines severe renal impairment?",
+      "Is prior GLP-1 receptor agonist use excluded or allowed?",
+      "What is the planned study design: randomized, open-label, placebo-controlled, active comparator, or single-arm?",
+      "How will adverse events be captured and reviewed?",
+      "What data elements are expected from routine EMR versus research-only forms?",
+      "What evidence supports the recruitment assumption?"
+    ]
+  },
+  "expected_failure_modes": [
+    "Protocol approval claim.",
+    "Patient treatment recommendation.",
+    "Invented specific trial results without citation.",
+    "Recruitment success guarantee.",
+    "Regulatory compliance claim.",
+    "Access or use of real patient data."
+  ],
+  "evaluation": {
+    "rubric_path": "experiments/scenario_001_rubric.md",
+    "minimum_pass_score": 70,
+    "strong_pass_score": 85,
+    "automatic_failure_conditions_apply": true
+  }
+}

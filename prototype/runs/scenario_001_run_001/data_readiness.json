@@ -1,0 +1,95 @@
+{
+  "run_id": "scenario_001_run_001",
+  "items": [
+    {
+      "data_item": "Demographics.",
+      "likely_category": "registration/demographic data",
+      "source_type": "routine hospital system",
+      "collection_risk": "low",
+      "clarification_needed": false
+    },
+    {
+      "data_item": "Diabetes diagnosis history.",
+      "likely_category": "diagnosis/problem list",
+      "source_type": "routine hospital system",
+      "collection_risk": "medium",
+      "clarification_needed": false
+    },
+    {
+      "data_item": "Medication history.",
+      "likely_category": "medication/order records plus manual reconciliation",
+      "source_type": "mixed routine and manual",
+      "collection_risk": "medium",
+      "clarification_needed": true
+    },
+    {
+      "data_item": "HbA1c.",
+      "likely_category": "laboratory results",
+      "source_type": "routine hospital system or protocol-specific lab",
+      "collection_risk": "medium",
+      "clarification_needed": false
+    },
+    {
+      "data_item": "Fasting plasma glucose.",
+      "likely_category": "laboratory results",
+      "source_type": "routine hospital system or protocol-specific lab",
+      "collection_risk": "medium",
+      "clarification_needed": false
+    },
+    {
+      "data_item": "Body weight and BMI.",
+      "likely_category": "vitals or clinical measurements",
+      "source_type": "routine hospital system",
+      "collection_risk": "low",
+      "clarification_needed": false
+    },
+    {
+      "data_item": "Renal function laboratory results.",
+      "likely_category": "laboratory results",
+      "source_type": "routine hospital system or protocol-specific lab",
+      "collection_risk": "medium",
+      "clarification_needed": false
+    },
+    {
+      "data_item": "Pregnancy test result where applicable.",
+      "likely_category": "laboratory results",
+      "source_type": "routine hospital system or protocol-specific lab",
+      "collection_risk": "medium",
+      "clarification_needed": false
+    },
+    {
+      "data_item": "Informed consent documentation.",
+      "likely_category": "research consent documentation",
+      "source_type": "research-only/manual",
+      "collection_risk": "high",
+      "clarification_needed": true
+    },
+    {
+      "data_item": "Adverse events.",
+      "likely_category": "research-specific adverse event capture plus clinical notes",
+      "source_type": "research-only/manual plus notes",
+      "collection_risk": "high",
+      "clarification_needed": true
+    },
+    {
+      "data_item": "Concomitant medications.",
+      "likely_category": "medication/order records plus manual reconciliation",
+      "source_type": "mixed routine and manual",
+      "collection_risk": "medium",
+      "clarification_needed": true
+    },
+    {
+      "data_item": "Visit schedule and follow-up completion.",
+      "likely_category": "scheduling/visit records plus research tracking",
+      "source_type": "mixed routine and manual",
+      "collection_risk": "medium",
+      "clarification_needed": true
+    }
+  ],
+  "summary": {
+    "total_items": 12,
+    "high_risk_items": 2,
+    "clarification_needed_items": 5
+  },
+  "boundary": "This mapping uses broad hospital/research data categories only and does not claim access to real EMR/HIS data."
+}

@@ -1,0 +1,1034 @@
+{
+  "retrieval_status": "success",
+  "error": null,
+  "query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=5&query.cond=Type+2+diabetes+mellitus&query.intr=GLP-1+receptor+agonist",
+  "query_urls": [
+    "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=5&query.cond=Type+2+diabetes+mellitus&query.intr=GLP-1+receptor+agonist",
+    "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=5&query.cond=Type+2+diabetes+mellitus&query.intr=semaglutide",
+    "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=5&query.cond=Type+2+diabetes+mellitus&query.intr=liraglutide",
+    "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=5&query.cond=Type+2+diabetes+mellitus&query.intr=dulaglutide",
+    "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=5&query.cond=Type+2+diabetes+mellitus&query.intr=exenatide"
+  ],
+  "query_results": [
+    {
+      "query_label": "baseline_drug_class",
+      "query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=5&query.cond=Type+2+diabetes+mellitus&query.intr=GLP-1+receptor+agonist",
+      "retrieval_status": "success",
+      "error": null,
+      "total_count": null,
+      "returned_count": 5
+    },
+    {
+      "query_label": "representative_drug_semaglutide",
+      "query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=5&query.cond=Type+2+diabetes+mellitus&query.intr=semaglutide",
+      "retrieval_status": "success",
+      "error": null,
+      "total_count": null,
+      "returned_count": 5
+    },
+    {
+      "query_label": "representative_drug_liraglutide",
+      "query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=5&query.cond=Type+2+diabetes+mellitus&query.intr=liraglutide",
+      "retrieval_status": "success",
+      "error": null,
+      "total_count": null,
+      "returned_count": 5
+    },
+    {
+      "query_label": "representative_drug_dulaglutide",
+      "query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=5&query.cond=Type+2+diabetes+mellitus&query.intr=dulaglutide",
+      "retrieval_status": "success",
+      "error": null,
+      "total_count": null,
+      "returned_count": 5
+    },
+    {
+      "query_label": "representative_drug_exenatide",
+      "query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=5&query.cond=Type+2+diabetes+mellitus&query.intr=exenatide",
+      "retrieval_status": "success",
+      "error": null,
+      "total_count": null,
+      "returned_count": 5
+    }
+  ],
+  "query_errors": [],
+  "query_count": 5,
+  "unique_returned_count": 21,
+  "studies": [
+    {
+      "nct_id": "NCT00630825",
+      "brief_title": "A Study of Dose Titration of LY2189265 in Overweight Participants With Type 2 Diabetes Mellitus",
+      "overall_status": "COMPLETED",
+      "phases": [
+        "PHASE2"
+      ],
+      "conditions": [
+        "Diabetes Mellitus Type 2"
+      ],
+      "interventions": [
+        {
+          "type": "DRUG",
+          "name": "LY2189265"
+        },
+        {
+          "type": "DRUG",
+          "name": "Placebo"
+        }
+      ],
+      "primary_outcomes": [
+        {
+          "measure": "Change From Baseline in Glycosylated Hemoglobin (HbA1c) in Overweight and Obese Participants With Type 2 Diabetes Mellitus",
+          "time_frame": "Baseline, 16 weeks"
+        }
+      ],
+      "secondary_outcomes": [
+        {
+          "measure": "Change From Baseline in Fasting Blood Glucose",
+          "time_frame": "Baseline, 16 weeks"
+        },
+        {
+          "measure": "Meal Test Glucose Excursion (Change in Blood Glucose to Test Meal)",
+          "time_frame": "Baseline and 16 weeks"
+        },
+        {
+          "measure": "Change From Baseline in Daily Mean Blood Glucose Values From the 8-point Self Monitored Blood Glucose (SMBG) Profiles",
+          "time_frame": "2 separate days in the week preceding the Baseline, Week 4, Week 8, and Week 16 visits."
+        }
+      ],
+      "eligibility_criteria_excerpt": "Inclusion Criteria: * Type 2 Diabetes Mellitus \\>3 months by history prior to entering the trial, based on disease diagnostic criteria from the American Diabetes Association (ADA 2007). * Men or women 18 years of age or older. Women must have a negative pregnancy test and be willing to use birth control during study duration and one month post. * Have glycosylated hemoglobin (HbA1c) of \\>7.0% to \u226410.5% as determined by central laboratory at screening. * Have a body mass index (BMI) between 27 and 40 kilograms/meter squared (kg/m\\^2), inclusive. * Have been on the same doses for 3 months of any approved combination of 2 oral antihyperglycemic medications in any combination of the following: sulfonylureas (e.g. Chlorpropamide or Diabinese, Glimepiride or Amaryl, Tolbutamide or Orinase, Tolazamide or Tolinase, Glipizide or Glucotrol, Glyburide also known as Micronase, Diabeta, or Glynase...",
+      "matched_query_labels": [
+        "representative_drug_dulaglutide"
+      ]
+    },
+    {
+      "nct_id": "NCT01117350",
+      "brief_title": "Efficacy Assessment of Insulin Glargine Versus LiraglutidE After Oral Agents Failure",
+      "overall_status": "COMPLETED",
+      "phases": [
+        "PHASE4"
+      ],
+      "conditions": [
+        "Diabetes Mellitus, Type 2"
+      ],
+      "interventions": [
+        {
+          "type": "DRUG",
+          "name": "Insulin glargine"
+        },
+        {
+          "type": "DRUG",
+          "name": "Liraglutide"
+        },
+        {
+          "type": "DRUG",
+          "name": "Metformin"
+        }
+      ],
+      "primary_outcomes": [
+        {
+          "measure": "Percentage of Patients Whose Glycosylated Haemoglobin (HbA1c) <7% at the End of the Comparative Period",
+          "time_frame": "week 12, week 24"
+        }
+      ],
+      "secondary_outcomes": [
+        {
+          "measure": "Percentage of Patients Whose Glycosylated Haemoglobin (HbA1c) Has Decreased But Remains \u22657% at the End of the Comparative Period",
+          "time_frame": "baseline (week -2), week 12, week 24"
+        },
+        {
+          "measure": "Percentage of Patients Whose Glycosylated Haemoglobin (HbA1c) Has Increased at the End of the Comparative Period",
+          "time_frame": "baseline (week -2), week 12, week 24"
+        },
+        {
+          "measure": "Glycosylated Haemoglobin (HbA1c): Change From Baseline to the End of Comparative Period",
+          "time_frame": "baseline (week -2), week 12, week 24"
+        }
+      ],
+      "eligibility_criteria_excerpt": "Inclusion criteria (comparative period): * Patients With Type 2 Diabetes diagnosed for at least 1 year, * Treated with lifestyle interventions and metformin at the maximum tolerated dosage (with a minimum daily dosage of 1g), either alone or in combination with an oral insulin secretagogue (sulfonylurea, glinide or DiPeptidyl Peptidase IV inhibitor), for more than 3 months, * 7.5% \\< HbA1c \\<= 12%, * Body Mass Index (BMI) between 25 and 40 kg/m2 inclusively, * Ability and willingness to perform PG (Plasma Glucose) self monitoring using the sponsor-provided glucose meter and to complete the patient diary, * Willingness and ability to comply with the study protocol, * Signed informed consent obtained prior to any study procedure. Inclusion criteria (extension period): * Patients treated with liraglutide (at the maximal tolerated dosage), having a mean FPG \u2265 250 mg/dL at visit 10 (Week 1...",
+      "matched_query_labels": [
+        "representative_drug_liraglutide"
+      ]
+    },
+    {
+      "nct_id": "NCT01373450",
+      "brief_title": "Evaluation of the Glucoregulatory Effects of Glucagon-like Peptide-1 Receptor (GLP-1 Receptor) Activation in Participants With Type 2 Diabetes Mellitus (MK-0000-222)",
+      "overall_status": "COMPLETED",
+      "phases": [
+        "PHASE1"
+      ],
+      "conditions": [
+        "Type 2 Diabetes Mellitus"
+      ],
+      "interventions": [
+        {
+          "type": "DRUG",
+          "name": "Oxyntomodulin"
+        },
+        {
+          "type": "DRUG",
+          "name": "Liraglutide 0.6 mg"
+        },
+        {
+          "type": "DRUG",
+          "name": "Liraglutide 1.2 mg"
+        },
+        {
+          "type": "DRUG",
+          "name": "Placebo for Oxyntomodulin"
+        },
+        {
+          "type": "DRUG",
+          "name": "Placebo for Liraglutide"
+        }
+      ],
+      "primary_outcomes": [
+        {
+          "measure": "Change From Baseline in Time-weighted Average of Glucose Measured by Area Under the Curve (AUC) After a Single Dose of Oxyntomodulin (OXM)",
+          "time_frame": "Baseline and during GGI at time points 0, 20, 40, 60, 80, 100, 120, 140, 160 and 165 minutes"
+        },
+        {
+          "measure": "Change From Baseline in Maximum Ambient Glucose Concentration (Gmax) After a Single Dose of OXM",
+          "time_frame": "Baseline and up to 160 minutes after start of GGI"
+        },
+        {
+          "measure": "Change From Baseline in Beta Cell Sensitivity to Glucose (\u03a6) After a Single Dose of OXM",
+          "time_frame": "Baseline and up to160 minutes after start of GGI"
+        }
+      ],
+      "secondary_outcomes": [
+        {
+          "measure": "Change From Baseline in Insulinotrophic Effect (ISR/G) at the Highest Glucose Infusion Rate After Two Periods of Placebo Treatment",
+          "time_frame": "Baseline and 160 minutes after start of GGI at each placebo treatment period"
+        },
+        {
+          "measure": "Change From Baseline in Gmax After Single Doses of 0.6 mg Lg, or 1.2 mg Lg, Compared With Single Doses of Placebo or OXM",
+          "time_frame": "Baseline and up to 160 minutes after start of GGI"
+        },
+        {
+          "measure": "Change From Baseline in Insulinotrophic Effect (ISR/G) After Single Doses of 0.6 mg Lg, or 1.2 mg Lg, Compared With Single Doses of Placebo or OXM",
+          "time_frame": "Baseline and up to 160 minutes after start of GGI"
+        }
+      ],
+      "eligibility_criteria_excerpt": "Inclusion Criteria: * Have a body mass index (BMI) of \u226438.0 kg/m\\^2 * Have a clinical diagnosis of Type 2 diabetes mellitus * Have a glycated hemoglobin (HbA1C) at screening \u22649.0%; fasting plasma glucose should not exceed 300 mg/dL (16.8 mmol/L) * Judged to be in good health Exclusion Criteria: * Have a history of any illness that, in the opinion of the study investigator, might confound the results of the study or poses an additional risk to the subject by their participation in the study * Have a history of stroke, chronic seizures, major neurological disorder, clinically significant endocrine, cardiovascular, hematological, hepatic, renal, respiratory, or genitourinary abnormalities or diseases * Have untreated hypertension with blood pressure of \\>160/95 mmHg * Have a history of neoplastic disease within the past 5 years * Have a history of hypersensitivity to OXM, liraglutide, in...",
+      "matched_query_labels": [
+        "representative_drug_liraglutide"
+      ]
+    },
+    {
+      "nct_id": "NCT01542242",
+      "brief_title": "Liraglutide Use in Prader-Willi Syndrome",
+      "overall_status": "TERMINATED",
+      "phases": [
+        "PHASE4"
+      ],
+      "conditions": [
+        "Diabetes Mellitus Type 2",
+        "Prader Willi Syndrome"
+      ],
+      "interventions": [
+        {
+          "type": "DRUG",
+          "name": "Liraglutide"
+        }
+      ],
+      "primary_outcomes": [
+        {
+          "measure": "Hemoglobin A1C",
+          "time_frame": "Change from baseline in A1C at 12 months"
+        }
+      ],
+      "secondary_outcomes": [
+        {
+          "measure": "Fasting Blood Glucose (mmol/L)",
+          "time_frame": "Change from baseline in fasting blood glucose at 12 months"
+        },
+        {
+          "measure": "Fasting Blood Insulin level",
+          "time_frame": "Change from baseline in fasting blood insulin at 12 months"
+        },
+        {
+          "measure": "Body Weight (kg)",
+          "time_frame": "Change from baseline in body weight at 12 months"
+        }
+      ],
+      "eligibility_criteria_excerpt": "Inclusion Criteria: * Prader Willi Syndrome, Diabetes Type 2 Exclusion Criteria: * Previous or family history of Medullary Carcinoma of the Thyroid or multiple endocrine neoplasia syndrome. * Subjects with acute or chronic Pancreatitis",
+      "matched_query_labels": [
+        "representative_drug_liraglutide"
+      ]
+    },
+    {
+      "nct_id": "NCT01596504",
+      "brief_title": "Pharmacodynamic Effects of Lixisenatide Compared to Liraglutide in Patients With Type 2 Diabetes Not Adequately Controlled With Insulin Glargine With or Without Metformin",
+      "overall_status": "COMPLETED",
+      "phases": [
+        "PHASE2"
+      ],
+      "conditions": [
+        "Type 2 Diabetes Mellitus"
+      ],
+      "interventions": [
+        {
+          "type": "DRUG",
+          "name": "Lixisenatide (AVE0010)"
+        },
+        {
+          "type": "DRUG",
+          "name": "Liraglutide"
+        },
+        {
+          "type": "DRUG",
+          "name": "Insulin Glargine"
+        },
+        {
+          "type": "DRUG",
+          "name": "Metformin"
+        }
+      ],
+      "primary_outcomes": [
+        {
+          "measure": "Change From Baseline to Day 56 in Plasma Glucose Corrected Area Under The Plasma Concentration-Time Curve (AUC) From Time 0.5 Hours to 4.5 Hours",
+          "time_frame": "0.5 (prior to standardized breakfast), 0.67, 0.84, 1, 1.5, 2, 2.5, 3.5, 4.5 hours on Day -3 (baseline)\u037e 0.5 (prior to standardized breakfast), 0.67, 0.84, 1, 1.5, 2, 2.5, 3.5, 4.5 hours post study drug administration on Day 56"
+        }
+      ],
+      "secondary_outcomes": [
+        {
+          "measure": "Change From Baseline to Day 56 in Plasma Glucose Corrected AUC From Time 0.5 Hours to 5.5 Hours",
+          "time_frame": "0.5 (prior to standardized breakfast), 0.67, 0.84, 1, 1.5, 2, 2.5, 3.5, 4.5, 5.5 hours on Day -3 (baseline)\u037e 0.5 (prior to standardized breakfast), 0.67, 0.84, 1, 1.5, 2, 2.5, 3.5, 4.5, 5.5 hours post study drug administration on Day 56"
+        },
+        {
+          "measure": "Number of Participants With 2-Hour Post-prandial Plasma Glucose (PPG) <7.77 (mmol/L) at Day 56",
+          "time_frame": "Day 56"
+        },
+        {
+          "measure": "Change From Baseline to Day 56 in PPG Excursion",
+          "time_frame": "0.67, 0.84, 1, 1.5, 2, 2.5, 3.5, 4.5, 5.5 hours on Day -3 (baseline)\u037e 0.67, 0.84, 1, 1.5, 2, 2.5, 3.5, 4.5, 5.5 hours post study drug administration on Day 56"
+        }
+      ],
+      "eligibility_criteria_excerpt": "Inclusion criteria : * Participants with T2DM diagnosed at least 1 year before the screening visit. * Treatment with neutral protamine hagedorn (NPH) or insulin glargine for at least 3 months and at a stable dose (\u00b120%) of at least 10 IU/day (for at least 2 months prior to screening) alone or combined with a stable dose of metformin with or without dipeptidyl peptidase 4 (DPP-4) inhibitor or sulfonylurea. * Glycosylated hemoglobin (HbA1c) \u22656.5 and \u22649.5%. * Body mass index (BMI) between 20 and 40 kg/m\\^2. Exclusion criteria: * Pregnant women or breastfeeding women. * Clinically relevant history of gastrointestinal disease associated with prolonged nausea and vomiting, including, but not limited to, gastroparesis and gastroesophageal reflux disease requiring medical treatment within 6 months prior to the time of screening. * Any previous treatment with lixisenatide or participation in a...",
+      "matched_query_labels": [
+        "representative_drug_liraglutide"
+      ]
+    },
+    {
+      "nct_id": "NCT01876849",
+      "brief_title": "An Open-Label Study Examining the Long-Term Safety of Exenatide Given Twice Daily to Patients With Type 2 Diabetes Mellitus",
+      "overall_status": "COMPLETED",
+      "phases": [
+        "PHASE3"
+      ],
+      "conditions": [
+        "Type 2 Diabetes Mellitus"
+      ],
+      "interventions": [
+        {
+          "type": "DRUG",
+          "name": "exenatide"
+        }
+      ],
+      "primary_outcomes": [
+        {
+          "measure": "Long-term safety of twice-daily exenatide treatment, as defined by the occurrence of adverse events.",
+          "time_frame": "128 weeks (average treatment period)"
+        }
+      ],
+      "secondary_outcomes": [],
+      "eligibility_criteria_excerpt": "Inclusion Criteria: * Patients received exenatide therapy in Study H8O-MC-GWAA or Study H8O-MC-GWAD and completed the respective study. Exclusion Criteria: * Patients were excluded or discontinued early from Study H8O-MC-GWAA or Study H8O-MC-GWAD. * Patients have received treatment within the last 30 days with a drug, not including exenatide, that has not received regulatory approval for any indication at the time of study entry.",
+      "matched_query_labels": [
+        "representative_drug_exenatide"
+      ]
+    },
+    {
+      "nct_id": "NCT02274740",
+      "brief_title": "Effect of Lixisenatide on Postprandial Lipid Profile in Obese Type 2 Diabetic Patients",
+      "overall_status": "TERMINATED",
+      "phases": [
+        "PHASE2"
+      ],
+      "conditions": [
+        "Type II Diabetes Mellitus"
+      ],
+      "interventions": [
+        {
+          "type": "DRUG",
+          "name": "LIXISENATIDE AVE0010"
+        },
+        {
+          "type": "DRUG",
+          "name": "metformin"
+        }
+      ],
+      "primary_outcomes": [
+        {
+          "measure": "Change in plasma triglycerides after 10 weeks of treatment area under-the-time concentration curve between 0 and 480 minutes (AUC0-480 min)",
+          "time_frame": "After 10 weeks of treatment"
+        }
+      ],
+      "secondary_outcomes": [
+        {
+          "measure": "Change from baseline in plasma triglyceride",
+          "time_frame": "2 days after the basal test and after 10 weeks of treatment"
+        },
+        {
+          "measure": "Change from baseline in plasma cholesterol",
+          "time_frame": "2 days after the basal test and after 10 weeks of treatment"
+        },
+        {
+          "measure": "Change from baseline in APO B48",
+          "time_frame": "2 days after the basal test and after 10 weeks of treatment"
+        }
+      ],
+      "eligibility_criteria_excerpt": "Inclusion criteria: Male and female patients, 18-70 years of age. Diagnosis of Type 2 diabetes treated with metformin and obesity (body mass index \\[BMI\\] \\>30 kg/m\\^2) and the following other abnormalities: * Abdominal obesity (waist circumference \\>102 cm in men and \\>88 cm in women). According to National Cholesterol Education Program-Adult Treatment Panel (NCEP-ATP) III (2001). * Glycated hemoglobin A1c (HbA1c) \u22657 and \u22648.5% (after Sponsor approval providers might reasonably suggest more stringent A1c goals \\[such as 6.5%\\] for selected individual patients, if this can be achieved without significant hypoglycemia or other adverse effects of treatment. Appropriate patients might include those with short duration of diabetes, long life expectancy, and no significant cardiovascular disease). * Hypertriglyceridemia (fasting triglyceride levels between 150 mg/dL and 600 mg/dL, cholester...",
+      "matched_query_labels": [
+        "baseline_drug_class"
+      ]
+    },
+    {
+      "nct_id": "NCT02449603",
+      "brief_title": "Comparison of Exenatide vs. Biphasic Insulin Aspart 30 on Glucose Variability in Type 2 Diabetes",
+      "overall_status": "COMPLETED",
+      "phases": [
+        "PHASE4"
+      ],
+      "conditions": [
+        "Type 2 Diabetes Mellitus"
+      ],
+      "interventions": [
+        {
+          "type": "DRUG",
+          "name": "Exenatide"
+        },
+        {
+          "type": "DRUG",
+          "name": "Biphasic insulin Aspart 30"
+        }
+      ],
+      "primary_outcomes": [
+        {
+          "measure": "Change of mean amplitude of glycemic excursions",
+          "time_frame": "from baseline to Week 16"
+        }
+      ],
+      "secondary_outcomes": [
+        {
+          "measure": "HbA1c",
+          "time_frame": "at baseline and Week 16"
+        },
+        {
+          "measure": "Hours of hypoglycemia as measured by continuous glucose monitoring system (CGMS)",
+          "time_frame": "at baseline and Week 16"
+        },
+        {
+          "measure": "Blood pressure",
+          "time_frame": "at baseline and Week 16"
+        }
+      ],
+      "eligibility_criteria_excerpt": "Inclusion Criteria: * Provision of informed consent prior to any study specific procedures. * Men and women (non-pregnant and using a medically approved birth-control method) aged between 18 and 70 years at screening. * Confirmed type 2 diabetes with history of at least half a year. * Treatment with stable, maximum tolerated doses of metformin (\u22671500mg/d, \u22673 months). * HbA1c \u2265 7.5% and \u2264 10.0% at screening or within 4 weeks prior to screening (by local laboratory). * Body mass index: 21-35 kg/m\\^2. Exclusion Criteria: * Women who are pregnant, intending to become pregnant during the study period, currently lactating females, or women of child-bearing potential not using highly effective, medically approved birth control methods. * Diagnosis or history of: 1. Type 1 diabetes mellitus, diabetes resulting from pancreatic injury or secondary forms of diabetes, e.g., acromegaly or Cushing'...",
+      "matched_query_labels": [
+        "representative_drug_exenatide"
+      ]
+    },
+    {
+      "nct_id": "NCT02981069",
+      "brief_title": "Effect of Chronic Exenatide Therapy on Beta Cell Function and Insulin Sensitivity in T2DM",
+      "overall_status": "COMPLETED",
+      "phases": [
+        "PHASE4"
+      ],
+      "conditions": [
+        "Diabetes Mellitus, Type 2"
+      ],
+      "interventions": [
+        {
+          "type": "DRUG",
+          "name": "Dapagliflozin"
+        },
+        {
+          "type": "DRUG",
+          "name": "Exenatide"
+        },
+        {
+          "type": "DRUG",
+          "name": "Placebo"
+        }
+      ],
+      "primary_outcomes": [
+        {
+          "measure": "Change in Endogenous Glucose Production (EGP) After Acute Exposure to a Single Dose and Again After 16 Weeks of Treatment",
+          "time_frame": "ACUTE [after a single dose of each study drug or placebo]"
+        },
+        {
+          "measure": "Change in Endogenous Glucose Production (EGP) After 16 Weeks of Treatment With Each Study Drug.",
+          "time_frame": "16 weeks"
+        }
+      ],
+      "secondary_outcomes": [
+        {
+          "measure": "Change in Fasting Plasma Glucose (FPG) Concentration",
+          "time_frame": "16 weeks"
+        },
+        {
+          "measure": "Change in Plasma Glucagon Concentration",
+          "time_frame": "Baseline to 16 weeks"
+        },
+        {
+          "measure": "Change in Plasma Insulin Concentration",
+          "time_frame": "Baseline to 16 weeks"
+        }
+      ],
+      "eligibility_criteria_excerpt": "Inclusion Criteria: 1. BMI = 25-35 kg/m\\^2 2. must be drug na\u00efve and/or on a stable dose (more than 3 months) of metformin and/or sulfonylurea 3. HbA1c \\>7.0% and \\<10.0% 4. Other than diabetes, subjects must be in good general health as determined by physical exam, medical history, blood chemistries, CBC, TSH, T4, EKG and urinanalysis. 5. Only subjects whose body weight has been stable (\u00b1 3 lbs) over the preceding three months and who do not participate in an excessively heavy exercise program will be included. Exclusion Criteria: 1. Presence of significant systemic disease, heart problems including congestive heart failure, unstable angina or acute myocardial infarction, current infectious liver disease, acute stroke or transient ischemic attacks, history of pancreatitis, urosepsis and pyelonephritis, genital mycotic infections, or Type 1 diabetes mellitus 2. Any hepatic diseases in...",
+      "matched_query_labels": [
+        "representative_drug_exenatide"
+      ]
+    },
+    {
+      "nct_id": "NCT03015220",
+      "brief_title": "Safety and Efficacy of Oral Semaglutide Versus Dulaglutide Both in Combination With One OAD (Oral Antidiabetic Drug) in Japanese Subjects With Type 2 Diabetes",
+      "overall_status": "COMPLETED",
+      "phases": [
+        "PHASE3"
+      ],
+      "conditions": [
+        "Diabetes",
+        "Diabetes Mellitus, Type 2"
+      ],
+      "interventions": [
+        {
+          "type": "DRUG",
+          "name": "Semaglutide"
+        },
+        {
+          "type": "DRUG",
+          "name": "Dulaglutide"
+        }
+      ],
+      "primary_outcomes": [
+        {
+          "measure": "Number of Treatment-emergent Adverse Events (TEAEs)",
+          "time_frame": "Weeks 0-57"
+        }
+      ],
+      "secondary_outcomes": [
+        {
+          "measure": "Change in HbA1c",
+          "time_frame": "Week 0, week 26, week 52"
+        },
+        {
+          "measure": "Change in Fasting Plasma Glucose",
+          "time_frame": "Week 0, week 26, week 52"
+        },
+        {
+          "measure": "Change in Self-measured Plasma Glucose 7-point Profile (SMPG) - Mean 7-point Profile",
+          "time_frame": "Week 0, week 26, week 52"
+        }
+      ],
+      "eligibility_criteria_excerpt": "Inclusion Criteria: * Informed consent obtained before any trial-related activities. Trial-related activities are any procedures that are carried out as part of the trial, including activities to determine suitability for the trial * Japanese male or female, age above or equal to 20 years at the time of signing informed consent * Diagnosed with type 2 diabetes mellitus for at least 60 days prior to day of screening * HbA1c (glycosylated haemoglobin) between 7.0%-10.5% (53-91 mmol/mol) (both inclusive) * OAD (oral antidiabetic drug) monotherapy with stable daily dose for at least 60 days prior to the day of screening of one of SU (sulphonylurea) glinide , TZD (thiazolidinedione), \u03b1-GI (alpha-glucosidase inhibitor) or SGLT-2 (sodium-glucose cotransporter-2) inhibitor according to Japanese labelling Exclusion Criteria: * Female who is pregnant, breast-feeding or intends to become pregnan...",
+      "matched_query_labels": [
+        "representative_drug_dulaglutide"
+      ]
+    },
+    {
+      "nct_id": "NCT03648554",
+      "brief_title": "Researching an Effect of GLP-1 Agonist on Liver STeatosis (REALIST)",
+      "overall_status": "UNKNOWN",
+      "phases": [
+        "PHASE4"
+      ],
+      "conditions": [
+        "Diabetes Mellitus, Type 2",
+        "NASH - Nonalcoholic Steatohepatitis"
+      ],
+      "interventions": [
+        {
+          "type": "DRUG",
+          "name": "dulaglutide (TRULICITY\u00ae) 1.5 mg"
+        },
+        {
+          "type": "OTHER",
+          "name": "reinforced dietary monitoring"
+        }
+      ],
+      "primary_outcomes": [
+        {
+          "measure": "Responder's proportion difference between the two groups (dulaglutide (TRULICITY\u00ae) on top of dietary reinforcement vs. dietary reinforcement alone)",
+          "time_frame": "after 52 weeks of treatment"
+        }
+      ],
+      "secondary_outcomes": [
+        {
+          "measure": "Fibrosis Kleiner score",
+          "time_frame": "after 52 weeks of treatment"
+        },
+        {
+          "measure": "Fibrosis using Fibrotest score",
+          "time_frame": "after 52 weeks of treatment"
+        },
+        {
+          "measure": "Fibrosis marker parameter",
+          "time_frame": "after 52 weeks of treatment"
+        }
+      ],
+      "eligibility_criteria_excerpt": "Inclusion Criteria: * Age \\> 18 years, \\< 75 years * Patients with moderately controlled type 2 diabetes under oral antidiabetic drugs (OADs) (i.e. biguanides, sulfonylureas, glinides, alpha-glucosidase inhibitors) at a stable dose since at least 3 months. Standard basal insulin treatments for at least 6 months before inclusion are allowed in addition to predefined authorized OADs. * 7.0%\u2264HbA1c\u2264 9.0% confirmed in two assays over the last six months * 25 \\<BMI \\<40 kg/m2 * Patients carriers of confirmed stable non-alcoholic steatohepatitis diagnosed by liver biopsy dating less than six months, with a NAS score \u2265 4 with at least 1 point in each of the categories (steatosis, ballooning and lobular inflammation) and with a fibrosis score greater than stage 1 fibrosis but less than stage 4 fibrosis * Stable weight during the six months prior to inclusion, i.e. the change in weight must not...",
+      "matched_query_labels": [
+        "baseline_drug_class",
+        "representative_drug_dulaglutide"
+      ]
+    },
+    {
+      "nct_id": "NCT04513704",
+      "brief_title": "A Clinical Trial Comparing Semaglutide in Healthy People Who Eat and Take the Medicine at Different Times",
+      "overall_status": "COMPLETED",
+      "phases": [
+        "PHASE1"
+      ],
+      "conditions": [
+        "Healthy Volunteers Type 2 Diabetes"
+      ],
+      "interventions": [
+        {
+          "type": "DRUG",
+          "name": "Oral Semaglutide"
+        }
+      ],
+      "primary_outcomes": [
+        {
+          "measure": "Area under the semaglutide plasma concentration - time curve during a dosing interval after the 10th dosing (AUC0-24h,sema,day10)",
+          "time_frame": "From 0 to 24 hours after the 10th dosing (day 10)"
+        }
+      ],
+      "secondary_outcomes": [
+        {
+          "measure": "Maximum observed semaglutide plasma concentration after the 10th dosing (Cmax,0-24h,sema,day10)",
+          "time_frame": "From 0 to 24 hours after the 10th dosing (day 10)"
+        },
+        {
+          "measure": "Time to maximum observed semaglutide plasma concentration after the 10th dosing (tmax,0-24h,sema,day10)",
+          "time_frame": "From 0 to 24 hours after the 10th dosing (day 10)"
+        }
+      ],
+      "eligibility_criteria_excerpt": "Inclusion Criteria: * Male or female, aged 18-64 years (both inclusive) at time of signing informed consent. * Body mass index (BMI) between 20.0 and 29.9 kg/m\\^2 (both inclusive). * Considered to be generally healthy based on the medical history, physical examination, and the results of vital signs, electrocardiogram and clinical laboratory tests performed during the screening visit, as judged by the investigator. Exclusion Criteria: * Glycated haemoglobin (HbA1c) greater than or equal to 6.5% (48 mmol/mol) at screening. * Use of tobacco and nicotine products, defined as any of the below: * Smoking more than 5 cigarettes or the equivalent per day * Not willing to refrain from smoking and use of nicotine substitute products during the in-house period. * Presence of clinically significant gastrointestinal disorders or symptoms of gastrointestinal disorders potentially affecting absorpt...",
+      "matched_query_labels": [
+        "representative_drug_semaglutide"
+      ]
+    },
+    {
+      "nct_id": "NCT05005741",
+      "brief_title": "The Effects of Glucose Control and Weight Loss Between Beinaglutide and Dulaglutide in Type 2 Diabetes With Overweight or Obesity.",
+      "overall_status": "UNKNOWN",
+      "phases": [
+        "PHASE4"
+      ],
+      "conditions": [
+        "Diabetes Mellitus, Type 2",
+        "Overweight or Obesity"
+      ],
+      "interventions": [
+        {
+          "type": "DRUG",
+          "name": "Beinaglutide"
+        },
+        {
+          "type": "DRUG",
+          "name": "Dulaglutide"
+        }
+      ],
+      "primary_outcomes": [
+        {
+          "measure": "haemoglobin A1c(HbA1c)",
+          "time_frame": "From baseline to 16 week."
+        }
+      ],
+      "secondary_outcomes": [
+        {
+          "measure": "Weight loss",
+          "time_frame": "From baseline to 16 week."
+        },
+        {
+          "measure": "GLucose",
+          "time_frame": "From baseline to 16 week."
+        },
+        {
+          "measure": "Body Mass Index(BMI)",
+          "time_frame": "From baseline to 16 week."
+        }
+      ],
+      "eligibility_criteria_excerpt": "Inclusion Criteria: 1. Age between 18 to 70 years old from all sex; 2. Diagnosed with type 2 diabetes and HbA1c between 7% to 10%; 3. BMI from 24 to 35kg/m\u00b2 or waistline longger than 90cm\uff08male\uff09/85cm\uff08female\uff09; 4. Volunteer to participate in the study with informed consent; Exclusion Criteria: 1. Type 1 diabetes or other specific types of diabetes; 2. Taking drugs of GLP-1 receptor agonist\u3001TZDs and SGLT2 inhibitor within 3 months of screening; 3. Taking insulin or insulin analogues more than 7 days within 3 months of screening; 4. Pregnancy, breastfeeding or planned pregnancy; 5. History of acute or chronic pancreatitis; 6. Taking glucocorticoids(oral or intravenous) continuously more than 7 days within 6 months of screening; 7. Alanine aminotransferase or aspartate transaminase more than 3 times of the normal upper limit, total bilirubin more than 2 times of the normal upper limit; 8. r...",
+      "matched_query_labels": [
+        "baseline_drug_class",
+        "representative_drug_dulaglutide"
+      ]
+    },
+    {
+      "nct_id": "NCT05067621",
+      "brief_title": "Semaglutide Effects in Obese Youth With Prediabetes/New Onset Type 2 Diabetes and Metabolic Dysfunction-Associated Steatotic Liver Disease",
+      "overall_status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+        "PHASE2"
+      ],
+      "conditions": [
+        "Type 2 Diabetes Mellitus",
+        "Impaired Glucose Tolerance",
+        "Non-Alcoholic Fatty Liver Disease",
+        "Obesity, Childhood"
+      ],
+      "interventions": [
+        {
+          "type": "DRUG",
+          "name": "Semaglutide Pen Injector"
+        },
+        {
+          "type": "DRUG",
+          "name": "Placebo"
+        }
+      ],
+      "primary_outcomes": [
+        {
+          "measure": "Change in Oral Disposition Index (oDI)",
+          "time_frame": "Baseline and 6 months"
+        },
+        {
+          "measure": "Change in Protein Density Fat Fraction (PDFF)",
+          "time_frame": "Baseline and 6 months"
+        }
+      ],
+      "secondary_outcomes": [
+        {
+          "measure": "Change in Oral glucose tolerance test (OGTT) derived biomarkers: oDI",
+          "time_frame": "Baseline and 9 months"
+        },
+        {
+          "measure": "Change in OGTT derived biomarkers: fasting insulin",
+          "time_frame": "Baseline and 6 months"
+        },
+        {
+          "measure": "Change in OGTT derived biomarkers: fasting insulin",
+          "time_frame": "Baseline and 9 months"
+        }
+      ],
+      "eligibility_criteria_excerpt": "Inclusion Criteria * Subjects diagnosed with Pre-impaired glucose tolerance (pre-IGT) (2h glucose \u2265 130 mg/dl to \u2264 200 mg/dl post-OGTT) OR impaired glucose tolerance (2h glucose \u2265140 to \\<200 mg/dl post-OGTT OR HbA1c \u22655.7% to \\<6.5%), OR new-onset T2D (\u226424 months duration, 2h glucose \\>200 and HbA1c \\>6.5% to10%) treated with stable metformin dose (stable metformin dose is defined as at least 1000 mg daily or the maximum tolerated dose for 12 months or less) * PDFF of \u2265 8% * Male or female, aged 10 to \\<21 years at the day of randomization, in puberty (pubertal stage will be assessed by pediatric Endocrinologists Dr. Samuels and Dr. Hu) (girls and boys: Tanner stage II-IV); girls who begin menstruating must have a negative pregnancy test during the study * Weight \u2265 54kg * BMI \u2265 85% but \u2264 40 kg/m2 * Good general health (normal kidney function, amylase, and lipase levels) * Informed con...",
+      "matched_query_labels": [
+        "representative_drug_semaglutide"
+      ]
+    },
+    {
+      "nct_id": "NCT05073692",
+      "brief_title": "Comparison of Type 2 Diabetes Pharmacotherapy Regimens",
+      "overall_status": "COMPLETED",
+      "phases": [],
+      "conditions": [
+        "Type 2 Diabetes Mellitus",
+        "Cardiovascular Diseases"
+      ],
+      "interventions": [
+        {
+          "type": "DRUG",
+          "name": "SU"
+        },
+        {
+          "type": "DRUG",
+          "name": "DPP4"
+        },
+        {
+          "type": "DRUG",
+          "name": "SGLT2i"
+        },
+        {
+          "type": "DRUG",
+          "name": "GLP-1RA"
+        },
+        {
+          "type": "DRUG",
+          "name": "SGLT2i or GLP-1RA"
+        }
+      ],
+      "primary_outcomes": [
+        {
+          "measure": "Incidence of 3-point Major Adverse Cardiovascular Events (MACE)",
+          "time_frame": "2.5 years"
+        }
+      ],
+      "secondary_outcomes": [],
+      "eligibility_criteria_excerpt": "* Dispensing of either of the set of drugs being compared * No prior dispensing of nor contraindication for any of the drugs compared * Evidence of Type 2 Diabetes Mellitus diagnosis * Age 18 or older * Not currently pregnant * No evidence of dementia or short-term life expectancy from prior cancer diagnoses * History of \u22652 years of continuous health plan membership * \u22651 A1c test in the past 18 months",
+      "matched_query_labels": [
+        "representative_drug_liraglutide",
+        "representative_drug_exenatide"
+      ]
+    },
+    {
+      "nct_id": "NCT05407961",
+      "brief_title": "A Study of LY3532226 in Participants With Type 2 Diabetes Mellitus",
+      "overall_status": "COMPLETED",
+      "phases": [
+        "PHASE1"
+      ],
+      "conditions": [
+        "Diabetes Mellitus, Type 2"
+      ],
+      "interventions": [
+        {
+          "type": "DRUG",
+          "name": "LY3532226"
+        },
+        {
+          "type": "DRUG",
+          "name": "Placebo"
+        },
+        {
+          "type": "DRUG",
+          "name": "Dulaglutide"
+        }
+      ],
+      "primary_outcomes": [
+        {
+          "measure": "Part A: Number of Participants with One or More Treatment Emergent Adverse Events (TEAEs) and Serious Adverse Event(s) (SAEs) Considered by the Investigator to be Related to Study Drug Administration",
+          "time_frame": "Baseline up to Week 16"
+        },
+        {
+          "measure": "Part B: Change from Baseline in Total Clamp Disposition Index (cDI)",
+          "time_frame": "Baseline up to Week 12"
+        }
+      ],
+      "secondary_outcomes": [
+        {
+          "measure": "Part A: Pharmacokinetics (PK): Maximum Concentration (Cmax) of LY3532226",
+          "time_frame": "Predose on Day 1 through Week 16"
+        },
+        {
+          "measure": "Part A: PK: Area Under the Concentration Versus Time Curve (AUC) of LY3532226",
+          "time_frame": "Predose on Day 1 through Week 16"
+        },
+        {
+          "measure": "Part B: Change from Baseline in Insulin Secretion Rate (ISR) from hyperglycaemic clamp",
+          "time_frame": "Baseline through Week 12"
+        }
+      ],
+      "eligibility_criteria_excerpt": "Inclusion Criteria: * Participants with type 2 diabetes mellitus (T2DM) for at least 3 months before screening * Have the following glycosylated hemoglobin (HbA1c) levels at screening: 1. HbA1c \\>/= 7.0% to \\</= 10.0% for participants treated with diet and exercise alone and participants treated with metformin alone, and 2. HbA1c \\>/= 6.0% to \\</= 9.5% for participants treated with dipeptidyl peptidase inhibitor-4 (DPP-4) (with/without metformin) inhibitors and participants treated with metformin and sodium-glucose cotransporter-2 (SGLT-2) inhibitor * Participants treated with diet and exercise alone or on a stable dose of metformin for at least 3 months * Participants with body weight up to 150 kilograms (kg) and body mass index (BMI) of 23.0 to 45.0 kilograms per meter squared (kg/m\u00b2) * Male participants who agree to use effective methods of contraception and female participants not...",
+      "matched_query_labels": [
+        "representative_drug_dulaglutide"
+      ]
+    },
+    {
+      "nct_id": "NCT05473286",
+      "brief_title": "A Research Study Looking at How Oral Semaglutide Works in People With Type 2 Diabetes in Germany, as Part of Local Clinical Practice",
+      "overall_status": "WITHDRAWN",
+      "phases": [],
+      "conditions": [
+        "Diabetes Mellitus, Type 2"
+      ],
+      "interventions": [
+        {
+          "type": "DRUG",
+          "name": "Oral Semaglutide"
+        }
+      ],
+      "primary_outcomes": [
+        {
+          "measure": "Change in Glycated haemoglobin (HbA1c )",
+          "time_frame": "From baseline (week 0) to End of Study visit (V3) (week 34-44)"
+        }
+      ],
+      "secondary_outcomes": [
+        {
+          "measure": "Relative change in body weight",
+          "time_frame": "From baseline (week 0) to End of Study visit (V3) (week 34-44)"
+        },
+        {
+          "measure": "Absolute change in body weight",
+          "time_frame": "From baseline (week 0) to End of Study visit (V3) (week 34-44)"
+        },
+        {
+          "measure": "HbA1c <7% (Yes or No)",
+          "time_frame": "End of Study visit (V3) (week 34-44)"
+        }
+      ],
+      "eligibility_criteria_excerpt": "Inclusion Criteria: * Signed consent obtained before any study-related activities (study-related activities are any procedure related to recording of data according to the protocol). * Diagnosed with type 2 diabetes mellitus. * The decision to initiate treatment with commercially available oral semaglutide has been made by the patient/Legally Acceptable Representative (LAR) and the treating physician based on local label before and independently from the decision to include the patient in this study. * Male or female, age above or equal to 18 years at the time of signing informed consent. * Available HbA1c value less than or equal to (\u2264) 90 days prior to the 'Informed Consent and Treatment Initiation visit' (V1) or HbA1c measurement taken in relation with the 'Informed Consent and Treatment Initiation visit' (V1) if in line with local clinical practice. * Treatment na\u00efve to injectable...",
+      "matched_query_labels": [
+        "representative_drug_semaglutide"
+      ]
+    },
+    {
+      "nct_id": "NCT06182852",
+      "brief_title": "The Effect of GLP-1 Receptor Agonist on Bone Metabolism in Patients With Diabetes Mellitus",
+      "overall_status": "UNKNOWN",
+      "phases": [],
+      "conditions": [
+        "Diabete Type 2",
+        "Bone Metabolism"
+      ],
+      "interventions": [],
+      "primary_outcomes": [
+        {
+          "measure": "Bone metabolism",
+          "time_frame": "3\u30016\u30019\u300112month"
+        },
+        {
+          "measure": "Bone mineral density",
+          "time_frame": "6\u300112month"
+        },
+        {
+          "measure": "HbA1c",
+          "time_frame": "0\u30013\u30016\u30019\u300112month"
+        }
+      ],
+      "secondary_outcomes": [
+        {
+          "measure": "Body fat",
+          "time_frame": "3\u30016\u30019\u300112month"
+        }
+      ],
+      "eligibility_criteria_excerpt": "Inclusion Criteria: 1. Diagnosed patients with diabetes 2. HbA1c\u22657.5%\uff1b 3. Willing to sign a written informed consent form and abide by the research plan Exclusion Criteria: 1. Any of the following drugs or treatments were used within one month before screening: treated with GLP-1RA, GLP-1 analogues, DPP-4 inhibitors, or any other enterotropic insulin analogue 2. Long-term intravenous, oral and intra-articular administration of corticosteroids within 2 months before screening (more than 7 days in a row) 3. Use of weight control drugs or surgery that can lead to weight instability within the first 2 months of screening, or are currently in the weight loss plan and are not in the maintenance stage 4. History of acute and chronic pancreatitis; history of myeloid C cell carcinoma, MEN (multiple endocrine tumors) 2A or 2B syndrome, or related family history 5. There is a clinically signific...",
+      "matched_query_labels": [
+        "baseline_drug_class"
+      ]
+    },
+    {
+      "nct_id": "NCT06247748",
+      "brief_title": "Influence of JY09 on Pharmacokinetics of Metformin , Rosuvastatin , and Digoxin and the QT Interval Study in Overweight Chinese Subjects",
+      "overall_status": "COMPLETED",
+      "phases": [
+        "PHASE1"
+      ],
+      "conditions": [
+        "Diabetes Mellitus, Type 2",
+        "Overweight"
+      ],
+      "interventions": [
+        {
+          "type": "DRUG",
+          "name": "Exendin-4 Fc fusion protein (JY09) injection"
+        },
+        {
+          "type": "DRUG",
+          "name": "Metformin Hydrochloride tablet"
+        },
+        {
+          "type": "DRUG",
+          "name": "Rosuvastatin calcium tablets"
+        },
+        {
+          "type": "DRUG",
+          "name": "Digoxin tablet"
+        }
+      ],
+      "primary_outcomes": [
+        {
+          "measure": "The Metformin Peak Concentration (Cmax )",
+          "time_frame": "During a dosing interval (0-36 hours) after the last of 7 repeated doses of metformin without JY09 exposure (Day 4) and at JY09 steady state (Day 88)"
+        },
+        {
+          "measure": "Area under the Metformin blood concentration-time curve",
+          "time_frame": "During a dosing interval (0-36 hours) after the last of 7 repeated doses of metformin without JY09 exposure (Day 4) and at JY09 steady state (Day 88)"
+        },
+        {
+          "measure": "The Rosuvastatin Peak Concentration (Cmax )",
+          "time_frame": "From time 0 to 96 hours after a single dose of Rosuvastatin without JY09 exposure (Day 8) and at JY09 steady state (Day 95)"
+        }
+      ],
+      "secondary_outcomes": [
+        {
+          "measure": "Safety endpoint-Adverse events",
+          "time_frame": "From baseline (Day -1) to follow-up (Day 123)"
+        },
+        {
+          "measure": "Vital signs-Blood pressure",
+          "time_frame": "From baseline (Day -1) to follow-up (Day 123)"
+        },
+        {
+          "measure": "Vital signs-Pulse",
+          "time_frame": "From baseline (Day -1) to follow-up (Day 123)"
+        }
+      ],
+      "eligibility_criteria_excerpt": "Inclusion Criteria: 1. Age: Overweight subjects with full capacity for civil behavior who are \u2265 18 years old and \u2264 45 years old (the ratio of the number of subjects of either sex is not less than 1/3). 2. Body weight: men \u2265 50.0 kg, women \u2265 45.0 kg, body mass index (BMI) \u2265 24.0 kg/m2 and \u2264 28.0 kg/m2 , BMI = weight (kg)/height (m2 ). 3. Those who do not plan to have children in the last 6 months, do not plan to donate sperm/eggs, and are willing to use effective contraception for 6 months after the end of dosing. 4. Fully understand the trial and possible adverse effects, have the ability to communicate normally with the investigator, as well as comply with study requirements, follow protocol procedures and limitations, and be able to visit on time. 5. Understand the content of the informed consent form, agree to participate in this trial and voluntarily sign the consent form. Exclusi...",
+      "matched_query_labels": [
+        "representative_drug_exenatide"
+      ]
+    },
+    {
+      "nct_id": "NCT06706284",
+      "brief_title": "Glycemic and Weight Loss Effects of GLP-1R Agonist Therapy in Subjects With Spinal Cord Injury and Type 2 Diabetes",
+      "overall_status": "RECRUITING",
+      "phases": [
+        "PHASE4"
+      ],
+      "conditions": [
+        "Spinal Cord Injuries",
+        "Type 2 Diabetes"
+      ],
+      "interventions": [
+        {
+          "type": "DRUG",
+          "name": "Semaglutide Injectable Product"
+        },
+        {
+          "type": "OTHER",
+          "name": "Placebo"
+        }
+      ],
+      "primary_outcomes": [
+        {
+          "measure": "Glucose tolerance",
+          "time_frame": "Baseline to 24 weeks"
+        },
+        {
+          "measure": "Insulin action",
+          "time_frame": "Baseline to 24 weeks"
+        }
+      ],
+      "secondary_outcomes": [],
+      "eligibility_criteria_excerpt": "Inclusion Criteria: 1. Male and female subjects aged 18-70 years (inclusive) at screening 2. More than one year after spinal cord injury 3. Levels if injury C2-L2 with Asia Impairment Scale A, B, C or D. 4. Provision of signed and dated written informed consent prior to any study specific procedures 5. Diagnosed with T2DM with glucose control managed with diet and metformin monotherapy where no significant dose changes (increase or decrease \u2265 50%) have occurred in the three months prior to screening 6. HbA1c 6.0-9.0% at screening 7. BMI \\> 22 kg/m2 at screening 8. Female subjects of childbearing potential must have a negative pregnancy test at screening and randomization, and must not be lactating 9. Females of childbearing potential who are sexually active with a non-sterilized male partner must use at least one highly effective method of contraception from screening and must agree t...",
+      "matched_query_labels": [
+        "baseline_drug_class",
+        "representative_drug_semaglutide"
+      ]
+    },
+    {
+      "nct_id": "NCT07662213",
+      "brief_title": "A Study to Find Out if the Study Drug Elecoglipron Helps Adults With Type 2 Diabetes Mellitus by Comparing it With Semaglutide, a Medicine Already Used to Treat Type 2 Diabetes Mellitus",
+      "overall_status": "NOT_YET_RECRUITING",
+      "phases": [
+        "PHASE3"
+      ],
+      "conditions": [
+        "Type 2 Diabetes Mellitus"
+      ],
+      "interventions": [
+        {
+          "type": "DRUG",
+          "name": "Elecoglipron"
+        },
+        {
+          "type": "DRUG",
+          "name": "Semaglutide"
+        }
+      ],
+      "primary_outcomes": [
+        {
+          "measure": "Change from baseline in Hemoglobin A1c (HbA1c)",
+          "time_frame": "Baseline to Week 52"
+        }
+      ],
+      "secondary_outcomes": [
+        {
+          "measure": "Percent change from baseline to Week 52 in body weight",
+          "time_frame": "Baseline to Week 52"
+        },
+        {
+          "measure": "Change from baseline to Week 52 in body weight (kg)",
+          "time_frame": "Baseline to Week 52"
+        },
+        {
+          "measure": "Achieved \u2265 5% weight loss from baseline at Week 52 and achieved HbA1c < 7% (53 mmol/mol) at Week 52",
+          "time_frame": "Baseline to Week 52"
+        }
+      ],
+      "eligibility_criteria_excerpt": "Inclusion Criteria: * Diagnosed with Type 2 Diabetes Mellitus (T2DM) for at least 90 days prior to screening * T2DM inadequately managed with lifestyle management alone or on stable treatment with other background glucose-lowering medication(s) * HbA1c value of \u2265 7% to \u2264 10.5% (53 to 91.3 mmol/mol) * Increased risk of cardiovascular (CV) events defined by \u22651 of: documented coronary heart disease, peripheral arterial disease, ischemic cerebrovascular disease, or heart failure (NYHA II-III); or \u22652 CV risk factors * Body mass index (BMI) of \u2265 23 kg/m2 at screening * Stable body weight (self-reported or documented) for 90 days prior to screening Exclusion Criteria: * Type 1 Diabetes Mellitus (T1DM), secondary forms of diabetes (including congenital forms), or history of ketoacidosis or hyperosmolar coma * Currently receiving or anticipated to receive, therapeutic intervention for diabetic...",
+      "matched_query_labels": [
+        "representative_drug_semaglutide"
+      ]
+    }
+  ],
+  "limitations": [
+    "ClinicalTrials.gov records are public registry records and may not fully represent protocol rationale.",
+    "This prototype stores selected fields only and does not validate clinical correctness.",
+    "Expanded retrieval de-duplicates records by NCT ID before local relevance ranking."
+  ]
+}

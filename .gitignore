@@ -1,0 +1,26 @@
+.env
+.env.*
+*.log
+__pycache__/
+.venv/
+venv/
+node_modules/
+dist/
+build/
+.DS_Store
+*.tmp
+*.cache
+_scratch/
+
+# Competition/private submission files
+proposal/*.hwpx
+proposal/*.hwp
+proposal/*.pdf
+proposal/template_extract/
+proposal/template_preview.txt
+proposal/template_text_nodes.txt
+proposal/template_paragraphs.txt
+
+# Local data and downloaded references
+data/
+downloads/

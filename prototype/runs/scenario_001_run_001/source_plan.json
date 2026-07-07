@@ -1,0 +1,68 @@
+{
+  "run_id": "scenario_001_run_001",
+  "live_retrieval_performed": true,
+  "reason": "Live retrieval requested with --fetch-sources.",
+  "planned_source": "ClinicalTrials.gov API v2",
+  "planned_endpoint": "https://clinicaltrials.gov/api/v2/studies",
+  "planned_query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=5&query.cond=Type+2+diabetes+mellitus&query.intr=GLP-1+receptor+agonist",
+  "planned_queries": [
+    {
+      "label": "baseline_drug_class",
+      "condition": "Type 2 diabetes mellitus",
+      "intervention_keyword": "GLP-1 receptor agonist",
+      "query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=5&query.cond=Type+2+diabetes+mellitus&query.intr=GLP-1+receptor+agonist"
+    },
+    {
+      "label": "representative_drug_semaglutide",
+      "condition": "Type 2 diabetes mellitus",
+      "intervention_keyword": "semaglutide",
+      "query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=5&query.cond=Type+2+diabetes+mellitus&query.intr=semaglutide"
+    },
+    {
+      "label": "representative_drug_liraglutide",
+      "condition": "Type 2 diabetes mellitus",
+      "intervention_keyword": "liraglutide",
+      "query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=5&query.cond=Type+2+diabetes+mellitus&query.intr=liraglutide"
+    },
+    {
+      "label": "representative_drug_dulaglutide",
+      "condition": "Type 2 diabetes mellitus",
+      "intervention_keyword": "dulaglutide",
+      "query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=5&query.cond=Type+2+diabetes+mellitus&query.intr=dulaglutide"
+    },
+    {
+      "label": "representative_drug_exenatide",
+      "condition": "Type 2 diabetes mellitus",
+      "intervention_keyword": "exenatide",
+      "query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=5&query.cond=Type+2+diabetes+mellitus&query.intr=exenatide"
+    }
+  ],
+  "query_concepts": {
+    "condition": "Type 2 diabetes mellitus",
+    "intervention_keyword": "GLP-1 receptor agonist",
+    "representative_drug_terms": [
+      "semaglutide",
+      "liraglutide",
+      "dulaglutide",
+      "exenatide"
+    ],
+    "phase": "Phase II"
+  },
+  "fields_to_compare_later": [
+    "NCT ID",
+    "brief title",
+    "conditions",
+    "interventions",
+    "phase",
+    "primary outcomes",
+    "secondary outcomes",
+    "eligibility criteria",
+    "recruitment status"
+  ],
+  "limitations": [
+    "ClinicalTrials.gov records are public registry records and may not fully represent protocol rationale.",
+    "This prototype stores selected fields only and does not validate clinical correctness.",
+    "Expanded retrieval de-duplicates records by NCT ID before local relevance ranking."
+  ],
+  "retrieval_status": "success"
+}

@@ -1,0 +1,65 @@
+# Next Steps
+
+## Phase 0: Foundation
+
+- [x] Create project workspace.
+- [x] Document competition structure.
+- [x] Document career-fit strategy.
+- [x] Draft initial candidate ideas.
+
+## Phase 1: Problem Selection
+
+- [x] Read the official proposal template.
+- [x] Extract required proposal fields.
+- [x] Compare candidate ideas against the scoring rubric.
+- [x] Choose one final project direction.
+- [x] Define initial target user, workflow, and expected output.
+- [x] Review and refine the one-page concept note.
+- [ ] Identify 3-5 source categories needed to support the concept.
+- [x] Define MVP input/output boundary.
+- [x] Define first synthetic test scenario.
+- [x] Define expected scoring rubric for scenario 001.
+- [x] Review scenario 001 rubric against proposal evaluation criteria.
+- [x] Define MVP agent workflow and tool chain.
+- [x] Define first prototype folder structure and scenario JSON fixture.
+- [x] Review Scenario 001 JSON fixture against Markdown source.
+- [x] Draft first prototype run plan.
+- [x] Decide first implementation style: standard-library Python CLI or dependency-based script.
+- [x] Implement first standard-library Python CLI.
+- [x] Run Scenario 001 deterministic local prototype.
+- [x] Manually score Scenario 001 final report against rubric.
+- [x] Improve deterministic eligibility/recruitment checks from score review.
+- [x] Add live ClinicalTrials.gov retrieval.
+- [x] Review retrieved source relevance.
+- [x] Add local relevance ranking for retrieved ClinicalTrials.gov records.
+- [x] Improve ClinicalTrials.gov query expansion beyond the first broad query.
+- [x] Add compact top-trial source comparison table.
+- [x] Add manually reviewed interpretation notes for the top 3 ranked trials.
+- [x] Render hospital data-readiness notes as a Markdown table.
+- [x] Add informed consent as an explicit expected research documentation item.
+- [x] Review scenario 001 for medical plausibility and safety using current source-backed outputs.
+- [x] Update concept note with current evidence-backed workflow.
+- [x] Prepare first local Git baseline commit.
+- [ ] Create/connect GitHub remote repository and push baseline.
+
+## Phase 2: Research
+
+- [ ] Collect 5-10 credible sources on the chosen workflow.
+- [ ] Identify public APIs/databases.
+- [x] Define realistic tool chain.
+- [ ] Draft evaluation scenarios.
+
+## Phase 3: Proposal
+
+- [x] Write 1-page concept note.
+- [ ] Expand into 10-page proposal structure.
+- [ ] Add architecture diagram.
+- [ ] Add evaluation plan.
+- [ ] Review against scoring criteria.
+
+## Phase 4: Prototype
+
+- [ ] Build a small demo workflow.
+- [ ] Add a user-facing interface.
+- [ ] Log agent steps and citations.
+- [ ] Package and push to GitHub portfolio repository.
