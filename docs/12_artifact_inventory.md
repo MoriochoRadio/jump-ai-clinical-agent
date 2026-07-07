@@ -12,8 +12,12 @@ Git status:
 
 - local Git working tree exists,
 - first local baseline commit has been created,
-- no GitHub remote is currently configured,
-- files are not yet pushed to GitHub.
+- GitHub remote is configured,
+- baseline has been pushed to GitHub.
+
+GitHub repository:
+
+- https://github.com/MoriochoRadio/jump-ai-clinical-agent
 
 ## Main Artifact Groups
 
@@ -90,13 +94,12 @@ This folder is ignored by Git and should not be treated as portfolio output.
 
 Current state:
 
-- project is local,
+- project is versioned locally and pushed to GitHub,
 - durable project artifacts are committed in the local Git repository,
-- no remote repository is configured.
+- `origin` remote points to `https://github.com/MoriochoRadio/jump-ai-clinical-agent.git`.
 
 Recommended next repository step:
 
-- decide GitHub repository name,
-- create remote repository,
-- push to GitHub,
-- then continue future steps through normal commits.
+- continue future steps through small normal commits,
+- keep temporary files in `_scratch/`,
+- do not commit private competition templates, credentials, or real patient data.

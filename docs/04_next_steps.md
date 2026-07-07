@@ -40,7 +40,8 @@
 - [x] Review scenario 001 for medical plausibility and safety using current source-backed outputs.
 - [x] Update concept note with current evidence-backed workflow.
 - [x] Prepare first local Git baseline commit.
-- [ ] Create/connect GitHub remote repository and push baseline.
+- [x] Create/connect GitHub remote repository and push baseline.
+- [ ] Plan next portfolio-facing improvement.
 
 ## Phase 2: Research
 
@@ -62,4 +63,5 @@
 - [ ] Build a small demo workflow.
 - [ ] Add a user-facing interface.
 - [ ] Log agent steps and citations.
-- [ ] Package and push to GitHub portfolio repository.
+- [x] Push first baseline to GitHub portfolio repository.
+- [ ] Package next portfolio milestone.

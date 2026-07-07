@@ -67,7 +67,11 @@ Key current outputs:
 Current repository state:
 
 - first local Git baseline commit created,
-- no GitHub remote repository connected yet,
+- GitHub remote repository connected and pushed,
 - temporary scratch runs and private competition template extracts are excluded by `.gitignore`.
 
-Next goal: connect a GitHub remote repository, push the baseline, and continue future work through small traceable commits.
+GitHub repository:
+
+- https://github.com/MoriochoRadio/jump-ai-clinical-agent
+
+Next goal: continue future work through small traceable commits.
