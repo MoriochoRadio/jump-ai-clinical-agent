@@ -36,6 +36,7 @@ GitHub repository:
 - `docs/10_mvp_io_definition.md`
 - `docs/11_mvp_agent_workflow.md`
 - `docs/12_artifact_inventory.md`
+- `docs/13_portfolio_improvement_plan.md`
 
 ### Scenario And Evaluation Files
 

@@ -41,7 +41,9 @@
 - [x] Update concept note with current evidence-backed workflow.
 - [x] Prepare first local Git baseline commit.
 - [x] Create/connect GitHub remote repository and push baseline.
-- [ ] Plan next portfolio-facing improvement.
+- [x] Plan next portfolio-facing improvement.
+- [x] Improve README for GitHub portfolio review.
+- [x] Add architecture diagram to README.
 
 ## Phase 2: Research
 
@@ -54,7 +56,7 @@
 
 - [x] Write 1-page concept note.
 - [ ] Expand into 10-page proposal structure.
-- [ ] Add architecture diagram.
+- [x] Add architecture diagram.
 - [ ] Add evaluation plan.
 - [ ] Review against scoring criteria.
 
@@ -64,4 +66,5 @@
 - [ ] Add a user-facing interface.
 - [ ] Log agent steps and citations.
 - [x] Push first baseline to GitHub portfolio repository.
-- [ ] Package next portfolio milestone.
+- [x] Package next portfolio milestone.
+- [ ] Collect source-backed evidence for proposal expansion.
