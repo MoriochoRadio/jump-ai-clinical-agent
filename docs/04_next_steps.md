@@ -57,7 +57,7 @@
 - [x] Write 1-page concept note.
 - [x] Expand into 10-page proposal structure.
 - [x] Add architecture diagram.
-- [ ] Add evaluation plan.
+- [x] Add evaluation plan.
 - [ ] Review against scoring criteria.
 
 ## Phase 4: Prototype
@@ -69,4 +69,5 @@
 - [x] Package next portfolio milestone.
 - [x] Collect source-backed evidence for proposal expansion.
 - [x] Integrate source-backed evidence into the expanded proposal outline.
-- [ ] Convert expanded proposal outline into polished Korean proposal draft.
+- [x] Convert expanded proposal outline into polished Korean proposal draft.
+- [ ] Review Korean proposal draft against scoring criteria.
