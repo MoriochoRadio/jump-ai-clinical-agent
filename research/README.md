@@ -18,3 +18,8 @@ Each research note should include:
 - short summary,
 - relevance to proposal,
 - cautions or limitations.
+
+Current source-backed research documents:
+
+- `problem_definition_evidence_review.md`
+- `source_backed_evidence_matrix.md`

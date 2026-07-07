@@ -82,6 +82,7 @@ Key outputs:
 ### Research Notes
 
 - `research/problem_definition_evidence_review.md`
+- `research/source_backed_evidence_matrix.md`
 
 ## Temporary Files
 

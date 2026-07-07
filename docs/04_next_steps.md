@@ -15,7 +15,7 @@
 - [x] Choose one final project direction.
 - [x] Define initial target user, workflow, and expected output.
 - [x] Review and refine the one-page concept note.
-- [ ] Identify 3-5 source categories needed to support the concept.
+- [x] Identify 3-5 source categories needed to support the concept.
 - [x] Define MVP input/output boundary.
 - [x] Define first synthetic test scenario.
 - [x] Define expected scoring rubric for scenario 001.
@@ -47,8 +47,8 @@
 
 ## Phase 2: Research
 
-- [ ] Collect 5-10 credible sources on the chosen workflow.
-- [ ] Identify public APIs/databases.
+- [x] Collect 5-10 credible sources on the chosen workflow.
+- [x] Identify public APIs/databases.
 - [x] Define realistic tool chain.
 - [ ] Draft evaluation scenarios.
 
@@ -67,4 +67,5 @@
 - [ ] Log agent steps and citations.
 - [x] Push first baseline to GitHub portfolio repository.
 - [x] Package next portfolio milestone.
-- [ ] Collect source-backed evidence for proposal expansion.
+- [x] Collect source-backed evidence for proposal expansion.
+- [ ] Integrate source-backed evidence into the expanded proposal outline.

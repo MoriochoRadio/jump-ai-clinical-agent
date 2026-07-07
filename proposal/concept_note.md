@@ -118,6 +118,10 @@ The first source-backed prototype run is documented separately:
 - `prototype/runs/scenario_001_run_001/score.md`
 - `prototype/runs/scenario_001_run_001/medical_plausibility_safety_review.md`
 
+The source-backed evidence matrix for proposal expansion is documented separately:
+
+- `research/source_backed_evidence_matrix.md`
+
 ## MVP Input/Output Boundary
 
 The first MVP should use a hybrid input:
