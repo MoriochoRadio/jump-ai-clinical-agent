@@ -55,7 +55,7 @@
 ## Phase 3: Proposal
 
 - [x] Write 1-page concept note.
-- [ ] Expand into 10-page proposal structure.
+- [x] Expand into 10-page proposal structure.
 - [x] Add architecture diagram.
 - [ ] Add evaluation plan.
 - [ ] Review against scoring criteria.
@@ -68,4 +68,5 @@
 - [x] Push first baseline to GitHub portfolio repository.
 - [x] Package next portfolio milestone.
 - [x] Collect source-backed evidence for proposal expansion.
-- [ ] Integrate source-backed evidence into the expanded proposal outline.
+- [x] Integrate source-backed evidence into the expanded proposal outline.
+- [ ] Convert expanded proposal outline into polished Korean proposal draft.

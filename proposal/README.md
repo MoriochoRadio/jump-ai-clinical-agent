@@ -10,3 +10,11 @@ Recommended files later:
 - `proposal_outline.md`
 - `rubric_mapping.md`
 - `figures/architecture.png`
+
+Current proposal planning files:
+
+- `concept_note.md`
+- `proposal_outline.md`
+- `rubric_mapping.md`
+- `scenario_001_evaluation_alignment.md`
+- `template_fields.md`
