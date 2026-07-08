@@ -55,6 +55,7 @@ GitHub repository:
 - `proposal/scenario_001_evaluation_alignment.md`
 - `proposal/submission_form_condensed_ko.md`
 - `proposal/submission_form_working_text_ko.md`
+- `proposal/submission_format_decision.md`
 - `proposal/submission_packaging_plan.md`
 - `proposal/template_fields.md`
 
@@ -66,12 +67,14 @@ GitHub repository:
 ### Submission Build Helper
 
 - `scripts/build_submission_hwpx.py`
+- `scripts/build_submission_docx.js`
 
 Local-only generated submission draft:
 
 - `proposal/MedIT_Agent_Lab_submission_draft.hwpx`
+- `proposal/MedIT_Agent_Lab_submission_working.docx`
 
-The generated HWPX file is ignored by Git and must be opened locally for visual page/layout verification before official submission.
+Generated submission files are ignored by Git. The final HWPX must be opened locally for visual page/layout verification before official submission.
 
 ### Scenario 001 Run Outputs
 

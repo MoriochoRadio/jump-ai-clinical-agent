@@ -16,6 +16,7 @@ _scratch/
 proposal/*.hwpx
 proposal/*.hwp
 proposal/*.pdf
+proposal/*.docx
 proposal/template_extract/
 proposal/template_preview.txt
 proposal/template_text_nodes.txt

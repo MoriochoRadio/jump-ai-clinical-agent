@@ -78,4 +78,5 @@
 - [x] Prepare official submission working text from the Markdown draft.
 - [x] Draft condensed official submission text for page fitting.
 - [x] Prepare local official HWPX draft document.
+- [x] Prepare DOCX working source for safer editing.
 - [ ] Verify final page and layout fit in the local HWPX/HWP document.
