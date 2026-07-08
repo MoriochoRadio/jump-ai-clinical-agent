@@ -73,4 +73,6 @@
 - [x] Review Korean proposal draft against scoring criteria.
 - [x] Revise Korean proposal draft using scoring review findings.
 - [x] Polish Korean proposal wording and citation formatting.
-- [ ] Decide final team name and submission packaging route.
+- [x] Draft provisional team name and submission packaging route.
+- [ ] Confirm final team name.
+- [ ] Prepare local official submission document from the Markdown draft.

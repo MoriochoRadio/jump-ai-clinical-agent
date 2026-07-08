@@ -8,7 +8,7 @@
 
 팀명:
 
-- TBD
+- MedIT Agent Lab (가칭)
 
 에이전트명:
 
@@ -347,9 +347,9 @@ WHO의 AI for health ethics guidance와 FDA Clinical Decision Support Software g
 
 ## 남은 보완사항
 
-- 팀명 확정
+- 팀명 최종 확정: 현재 가칭은 MedIT Agent Lab
 - 실제 제출 양식 문항별 글자 수 및 페이지 분량 조정
 - 한국어 문장 1차 다듬기 완료, 최종 제출 전 추가 교정 필요
 - 평가 기준표 기준 자체 검토 및 1차 보완 반영
 - Mermaid 다이어그램을 제출 양식용 이미지로 변환할지 결정
-- 최종 제출용 HWPX 또는 PDF 작성 여부 결정
+- 최종 제출용 HWPX/PDF는 로컬 비공개 파일로 작성

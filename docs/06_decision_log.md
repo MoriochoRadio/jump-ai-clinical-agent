@@ -286,3 +286,52 @@ Scenario 001 is:
 > Type 2 diabetes Phase II protocol pre-review for GLP-1 receptor agonist add-on therapy.
 
 This scenario will be used to test missing-item detection, eligibility ambiguity detection, recruitment assumption flags, and hospital data-readiness mapping.
+
+## Decision 005: Submission Packaging And Provisional Team Name
+
+Date: 2026-07-08
+
+Status: provisional working decision
+
+### Context
+
+The project now has a Korean proposal draft, source-backed evidence, a deterministic prototype, and a public GitHub repository. Before preparing the official competition submission file, the project needs a team-name placeholder and a clear rule for which artifacts are public portfolio materials versus private submission materials.
+
+### Options
+
+#### Option A: Use GitHub As The Public Portfolio Record And Keep Final Submission Files Local
+
+Pros:
+
+- avoids accidentally publishing private template files or personal information,
+- keeps the repository useful for portfolio review,
+- preserves a clear audit trail of decisions, evidence, prototype runs, and proposal drafts.
+
+Cons:
+
+- requires one extra local packaging step before submission.
+
+#### Option B: Commit The Final HWPX/PDF Submission To GitHub
+
+Pros:
+
+- makes the final artifact easy to find from the repository.
+
+Cons:
+
+- higher risk of exposing private details,
+- less flexible if the official template contains competition-specific or personal fields.
+
+### Recommendation
+
+Use Option A.
+
+### Decision
+
+The repository remains the public portfolio and reproducibility record. The official HWPX/HWP/PDF submission package stays local and ignored by Git unless a sanitized public copy is intentionally prepared later.
+
+Provisional team name:
+
+> MedIT Agent Lab
+
+This name is career-aligned, short, and does not overclaim clinical or regulatory authority. It should be confirmed before the official submission file is prepared.

@@ -53,6 +53,7 @@ GitHub repository:
 - `proposal/proposal_revision_log.md`
 - `proposal/rubric_mapping.md`
 - `proposal/scenario_001_evaluation_alignment.md`
+- `proposal/submission_packaging_plan.md`
 - `proposal/template_fields.md`
 
 ### Prototype Code
