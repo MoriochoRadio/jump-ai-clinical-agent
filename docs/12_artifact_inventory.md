@@ -63,6 +63,16 @@ GitHub repository:
 - `prototype/run_scenario.py`
 - `prototype/inputs/scenario_001.json`
 
+### Submission Build Helper
+
+- `scripts/build_submission_hwpx.py`
+
+Local-only generated submission draft:
+
+- `proposal/MedIT_Agent_Lab_submission_draft.hwpx`
+
+The generated HWPX file is ignored by Git and must be opened locally for visual page/layout verification before official submission.
+
 ### Scenario 001 Run Outputs
 
 Primary run folder:
