@@ -21,5 +21,6 @@ Current proposal planning files:
 - `proposal_revision_log.md`
 - `rubric_mapping.md`
 - `scenario_001_evaluation_alignment.md`
+- `submission_form_working_text_ko.md`
 - `submission_packaging_plan.md`
 - `template_fields.md`

@@ -6,9 +6,9 @@ This document separates public portfolio materials from private competition subm
 
 The project should remain useful as a GitHub portfolio even if the competition result is uncertain. At the same time, the actual submission package may include private template files, personal information, team information, or exported files that should not be committed without review.
 
-## Provisional Team Name
+## Team Name
 
-Recommended provisional team name:
+Confirmed team name:
 
 - MedIT Agent Lab
 
@@ -27,8 +27,8 @@ Alternative names kept for later review:
 
 Current decision:
 
-- Use `MedIT Agent Lab` as a provisional name in the working proposal draft.
-- Confirm the final team name before preparing the official submission file.
+- Use `MedIT Agent Lab` as the team name in the working proposal draft and submission working text.
+- Reconfirm spelling before preparing the official submission file.
 
 ## Public GitHub Materials
 
@@ -82,4 +82,4 @@ Recommended route:
 
 ## Next Action
 
-Confirm whether `MedIT Agent Lab` should become the final team name. If accepted, the next practical step is preparing the official local submission document from `proposal/proposal_draft_ko.md`.
+Prepare the official local submission document from `proposal/submission_form_working_text_ko.md`, then fit the content to the competition template's page and layout constraints.

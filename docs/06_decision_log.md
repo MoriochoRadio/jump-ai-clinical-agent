@@ -291,7 +291,7 @@ This scenario will be used to test missing-item detection, eligibility ambiguity
 
 Date: 2026-07-08
 
-Status: provisional working decision
+Status: accepted
 
 ### Context
 
@@ -330,8 +330,8 @@ Use Option A.
 
 The repository remains the public portfolio and reproducibility record. The official HWPX/HWP/PDF submission package stays local and ignored by Git unless a sanitized public copy is intentionally prepared later.
 
-Provisional team name:
+Team name:
 
 > MedIT Agent Lab
 
-This name is career-aligned, short, and does not overclaim clinical or regulatory authority. It should be confirmed before the official submission file is prepared.
+This name is career-aligned, short, and does not overclaim clinical or regulatory authority. The official HWPX/HWP/PDF submission package should still remain local and ignored by Git unless a sanitized public copy is intentionally prepared later.
