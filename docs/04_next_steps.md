@@ -76,5 +76,6 @@
 - [x] Draft provisional team name and submission packaging route.
 - [x] Confirm final team name.
 - [x] Prepare official submission working text from the Markdown draft.
+- [x] Draft condensed official submission text for page fitting.
 - [ ] Prepare local official HWPX/HWP submission document.
-- [ ] Fit final submission to page and layout constraints.
+- [ ] Verify final page and layout fit in the local HWPX/HWP document.
