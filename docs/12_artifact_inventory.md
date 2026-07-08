@@ -46,6 +46,7 @@ GitHub repository:
 ### Proposal Files
 
 - `proposal/concept_note.md`
+- `proposal/final_competition_review_ko.md`
 - `proposal/proposal_draft_ko.md`
 - `proposal/proposal_draft_scoring_review.md`
 - `proposal/proposal_outline.md`

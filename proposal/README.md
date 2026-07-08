@@ -16,6 +16,7 @@ Current proposal planning files:
 - `concept_note.md`
 - `proposal_draft_ko.md`
 - `proposal_draft_scoring_review.md`
+- `final_competition_review_ko.md`
 - `proposal_outline.md`
 - `proposal_polishing_log.md`
 - `proposal_revision_log.md`
