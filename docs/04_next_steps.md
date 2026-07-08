@@ -81,4 +81,7 @@
 - [x] Prepare DOCX working source for safer editing.
 - [x] Review final competition fit and competitiveness before HWPX submission.
 - [x] Prepare HWPX paste-ready source text matching the 8-section PDF template.
-- [ ] Verify final page and layout fit in the local HWPX/HWP document.
+- [x] Verify final page and layout fit in the local HWPX/HWP document.
+- [x] Submit competition proposal.
+- [x] Record post-submission portfolio status.
+- [ ] Draft post-submission retrospective for GitHub reviewers.

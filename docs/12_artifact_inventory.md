@@ -37,6 +37,7 @@ GitHub repository:
 - `docs/11_mvp_agent_workflow.md`
 - `docs/12_artifact_inventory.md`
 - `docs/13_portfolio_improvement_plan.md`
+- `docs/14_submission_record.md`
 
 ### Scenario And Evaluation Files
 
@@ -122,10 +123,12 @@ Current state:
 
 - project is versioned locally and pushed to GitHub,
 - durable project artifacts are committed in the local Git repository,
-- `origin` remote points to `https://github.com/MoriochoRadio/jump-ai-clinical-agent.git`.
+- `origin` remote points to `https://github.com/MoriochoRadio/jump-ai-clinical-agent.git`,
+- competition proposal was submitted on 2026-07-08,
+- public post-submission record is tracked in `docs/14_submission_record.md`.
 
 Recommended next repository step:
 
 - continue future steps through small normal commits,
 - keep temporary files in `_scratch/`,
-- do not commit private competition templates, credentials, or real patient data.
+- do not commit private competition templates, credentials, final submitted files with private metadata, or real patient data.

@@ -8,6 +8,19 @@ GitHub repository:
 
 - https://github.com/MoriochoRadio/jump-ai-clinical-agent
 
+## Submission Status
+
+The proposal for the 4th JUMP AI / AI drug development challenge was submitted on 2026-07-08.
+
+Submitted direction:
+
+- field: regulatory response and intelligent clinical trial design,
+- team: MedIT Agent Lab,
+- agent: Clinical Trial Protocol Review Agent,
+- scope: clinical trial protocol pre-review using public or synthetic data only.
+
+The final submitted HWPX/PDF files are not committed to this public repository. The repository keeps the reproducible planning notes, evidence review, prototype code, scenario outputs, and proposal support materials that are safe to publish.
+
 ## Problem
 
 Early clinical trial planning requires repeated checks across protocol completeness, similar trial cases, eligibility assumptions, recruitment feasibility, safety monitoring, and hospital data availability.
@@ -132,13 +145,16 @@ Current stage:
 - first source-backed MVP run completed,
 - local Git baseline created,
 - GitHub remote repository connected and pushed,
-- portfolio-facing README and architecture overview added.
+- portfolio-facing README and architecture overview added,
+- competition proposal submitted on 2026-07-08,
+- post-submission portfolio documentation started.
 
 ## Next Work
 
 Near-term improvements:
 
-- collect 5-10 credible sources supporting the workflow,
+- publish a concise post-submission project retrospective,
 - expand Scenario 002 after Scenario 001 is stable,
-- add a small interface only after the CLI workflow remains reproducible,
-- improve extraction of numeric eligibility thresholds from registry records.
+- add PubMed/NCBI E-utilities retrieval as a documented evidence step,
+- improve extraction of numeric eligibility thresholds from registry records,
+- add a small interface only after the CLI workflow remains reproducible.

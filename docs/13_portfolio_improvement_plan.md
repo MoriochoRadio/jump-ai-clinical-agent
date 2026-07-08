@@ -72,13 +72,15 @@ Update the repository README so that a GitHub visitor can quickly understand:
 - Run instructions added.
 - Safety boundaries made explicit.
 - Near-term roadmap clarified.
+- Competition proposal submission status added after 2026-07-08 submission.
+- Public submission record added in `docs/14_submission_record.md`.
 
 ## Next Recommended Step
 
-Collect 5-10 credible sources supporting the workflow:
+Draft a concise post-submission retrospective for GitHub reviewers:
 
-- clinical trial protocol quality and completeness,
-- recruitment and eligibility feasibility,
-- hospital data-readiness or EHR-based trial operations,
-- public trial registry reuse,
-- safe AI support boundaries in healthcare research workflows.
+- why this problem was selected,
+- how the project connects to Medical IT and hospital research support,
+- how AI assistance was used and checked,
+- what the MVP already does,
+- what will be built next if the proposal advances.
