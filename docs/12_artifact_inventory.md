@@ -47,6 +47,8 @@ GitHub repository:
 
 - `proposal/concept_note.md`
 - `proposal/final_competition_review_ko.md`
+- `proposal/hwpx_paste_ready_ko.md`
+- `proposal/hwpx_paste_ready_plain_ko.txt`
 - `proposal/proposal_draft_ko.md`
 - `proposal/proposal_draft_scoring_review.md`
 - `proposal/proposal_outline.md`

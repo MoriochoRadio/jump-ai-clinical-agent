@@ -17,6 +17,8 @@ Current proposal planning files:
 - `proposal_draft_ko.md`
 - `proposal_draft_scoring_review.md`
 - `final_competition_review_ko.md`
+- `hwpx_paste_ready_ko.md`
+- `hwpx_paste_ready_plain_ko.txt`
 - `proposal_outline.md`
 - `proposal_polishing_log.md`
 - `proposal_revision_log.md`
