@@ -81,6 +81,9 @@ flowchart TD
 | Output | Purpose |
 | --- | --- |
 | `proposal/concept_note.md` | One-page concept note for the selected agent idea |
+| `docs/14_submission_record.md` | Public record of the submitted proposal scope and repository boundary |
+| `docs/15_post_submission_retrospective.md` | Portfolio-oriented retrospective after submission |
+| `docs/16_seed_project_reference_analysis.md` | Analysis of how to adapt the seed-project portfolio structure |
 | `docs/11_mvp_agent_workflow.md` | MVP workflow and tool-chain design |
 | `prototype/run_scenario.py` | Reproducible CLI prototype |
 | `prototype/inputs/scenario_001.json` | Synthetic Type 2 diabetes protocol scenario |
@@ -153,7 +156,7 @@ Current stage:
 
 Near-term improvements:
 
-- publish a concise post-submission project retrospective,
+- adapt the README toward a problem-first portfolio flow inspired by the seed-project structure,
 - expand Scenario 002 after Scenario 001 is stable,
 - add PubMed/NCBI E-utilities retrieval as a documented evidence step,
 - improve extraction of numeric eligibility thresholds from registry records,

@@ -38,6 +38,8 @@ GitHub repository:
 - `docs/12_artifact_inventory.md`
 - `docs/13_portfolio_improvement_plan.md`
 - `docs/14_submission_record.md`
+- `docs/15_post_submission_retrospective.md`
+- `docs/16_seed_project_reference_analysis.md`
 
 ### Scenario And Evaluation Files
 

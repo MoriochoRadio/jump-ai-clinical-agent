@@ -74,13 +74,9 @@ Update the repository README so that a GitHub visitor can quickly understand:
 - Near-term roadmap clarified.
 - Competition proposal submission status added after 2026-07-08 submission.
 - Public submission record added in `docs/14_submission_record.md`.
+- Post-submission retrospective added in `docs/15_post_submission_retrospective.md`.
+- `seed-project` reference structure analyzed in `docs/16_seed_project_reference_analysis.md`.
 
 ## Next Recommended Step
 
-Draft a concise post-submission retrospective for GitHub reviewers:
-
-- why this problem was selected,
-- how the project connects to Medical IT and hospital research support,
-- how AI assistance was used and checked,
-- what the MVP already does,
-- what will be built next if the proposal advances.
+Adapt the README toward a problem-first portfolio flow inspired by `seed-project`, while keeping the tone more conservative because this project is still a submitted proposal plus early MVP.

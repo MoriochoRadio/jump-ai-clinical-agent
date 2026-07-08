@@ -84,4 +84,6 @@
 - [x] Verify final page and layout fit in the local HWPX/HWP document.
 - [x] Submit competition proposal.
 - [x] Record post-submission portfolio status.
-- [ ] Draft post-submission retrospective for GitHub reviewers.
+- [x] Draft post-submission retrospective for GitHub reviewers.
+- [x] Analyze `seed-project` as a reference portfolio structure.
+- [ ] Adapt README toward a problem-first portfolio flow inspired by `seed-project`.
