@@ -1826,6 +1826,106 @@ def bullet_list(items: list[str]) -> str:
     return "\n".join(f"- {item}" for item in items)
 
 
+def parse_markdown_table_row(line: str) -> list[str]:
+    return [cell.strip() for cell in line.strip().strip("|").split("|")]
+
+
+def parse_manual_pubmed_screening_notes(text: str) -> list[dict[str, str]]:
+    entries = []
+    for line in text.splitlines():
+        if not line.startswith("| `"):
+            continue
+        cells = parse_markdown_table_row(line)
+        if len(cells) < 6:
+            continue
+        entries.append(
+            {
+                "pmid": cells[0].strip("`"),
+                "auto_score": cells[1],
+                "auto_decision": cells[2],
+                "manual_decision": cells[3],
+                "rationale": cells[4],
+                "suggested_use": cells[5],
+            }
+        )
+    return entries
+
+
+def manual_literature_screening_notes(
+    normalized: dict[str, Any],
+    manual_screening_entries: list[dict[str, str]],
+) -> str:
+    if not manual_screening_entries:
+        return "\n".join(
+            [
+                "- Manual PubMed screening notes are not available for this run.",
+                "- Treat all PubMed records as unscreened literature candidates.",
+            ]
+        )
+
+    grouped: dict[str, list[dict[str, str]]] = {
+        "primary_support_candidate": [],
+        "context_only": [],
+        "exclude_from_direct_support": [],
+    }
+    for entry in manual_screening_entries:
+        grouped.setdefault(entry["manual_decision"], []).append(entry)
+
+    lines = [
+        "- Manual screening notes available: True",
+        f"- Primary support candidates: {len(grouped.get('primary_support_candidate', []))}",
+        f"- Context-only candidates: {len(grouped.get('context_only', []))}",
+        f"- Excluded from direct support: {len(grouped.get('exclude_from_direct_support', []))}",
+        "",
+        "Primary support candidates:",
+        "",
+    ]
+    primary = grouped.get("primary_support_candidate", [])
+    if primary:
+        for entry in primary:
+            lines.append(f"- PMID `{entry['pmid']}`: {entry['suggested_use']}")
+    else:
+        lines.append("- None.")
+
+    lines.extend(
+        [
+            "",
+            "Context-only candidates:",
+            "",
+        ]
+    )
+    context_only = grouped.get("context_only", [])
+    if context_only:
+        for entry in context_only:
+            lines.append(f"- PMID `{entry['pmid']}`: {entry['suggested_use']}")
+    else:
+        lines.append("- None.")
+
+    lines.extend(
+        [
+            "",
+            "Excluded from direct support:",
+            "",
+        ]
+    )
+    excluded = grouped.get("exclude_from_direct_support", [])
+    if excluded:
+        for entry in excluded:
+            lines.append(f"- PMID `{entry['pmid']}`: {entry['rationale']}")
+    else:
+        lines.append("- None.")
+
+    lines.extend(
+        [
+            "",
+            "Detailed manual screening file:",
+            "",
+            f"- `prototype/runs/{normalized['run_id']}/pubmed_manual_screening_notes.md`",
+        ]
+    )
+    return "\n".join(lines)
+
+
 def make_draft_report(
     normalized: dict[str, Any],
     checklist: dict[str, Any],
@@ -1835,6 +1935,7 @@ def make_draft_report(
     sources_ranked: dict[str, Any],
     pubmed_plan: dict[str, Any],
     pubmed_sources: dict[str, Any],
+    manual_screening_entries: list[dict[str, str]],
 ) -> str:
     protocol = normalized["protocol"]
     optional_context = normalized["optional_context"]
@@ -1886,6 +1987,10 @@ Fields to compare later:
 Detailed PubMed candidate review file:
 
 - `prototype/runs/{normalized['run_id']}/pubmed_relevance_review.md`
+
+## Accepted Literature Candidate Screening
+
+{manual_literature_screening_notes(normalized, manual_screening_entries)}
 
 ## Eligibility And Recruitment Flags
 
@@ -2031,6 +2136,11 @@ def main() -> int:
     args = parse_args()
     input_path = Path(args.input)
     output_root = Path(args.output_root)
+    existing_run_dir = output_root / args.run_id
+    existing_manual_screening_path = existing_run_dir / "pubmed_manual_screening_notes.md"
+    manual_screening_text = ""
+    if existing_manual_screening_path.exists():
+        manual_screening_text = existing_manual_screening_path.read_text(encoding="utf-8")
 
     data = read_json(input_path)
     errors = validate_fixture(data)
@@ -2068,6 +2178,7 @@ def main() -> int:
         pubmed_sources = make_empty_pubmed_sources(pubmed_plan)
     sources_ranked = rank_sources(sources, normalized)
     pubmed_sources = rank_pubmed_sources(pubmed_sources, normalized)
+    manual_screening_entries = parse_manual_pubmed_screening_notes(manual_screening_text)
     draft_report = make_draft_report(
         normalized,
         checklist,
@@ -2077,6 +2188,7 @@ def main() -> int:
         sources_ranked,
         pubmed_plan,
         pubmed_sources,
+        manual_screening_entries,
     )
     critic_review, can_finalize = make_critic_review(draft_report)
     final_report = draft_report.replace(
@@ -2098,6 +2210,8 @@ def main() -> int:
     write_json(run_dir / "sources_ranked.json", sources_ranked)
     write_json(run_dir / "pubmed_plan.json", pubmed_plan)
     write_json(run_dir / "pubmed_sources.json", pubmed_sources)
+    if manual_screening_text:
+        write_text(run_dir / "pubmed_manual_screening_notes.md", manual_screening_text)
     write_text(run_dir / "source_relevance_review.md", source_relevance_review)
     write_text(run_dir / "pubmed_relevance_review.md", pubmed_relevance_review)
     write_text(run_dir / "top_trial_comparison.md", top_trial_comparison)

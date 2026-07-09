@@ -63,6 +63,8 @@ python prototype/run_scenario.py --input prototype/inputs/scenario_002.json --ru
 
 The PubMed path stores article metadata and structured abstract-screening signals. It does not store full abstract text.
 
+If `pubmed_manual_screening_notes.md` already exists in the run folder, `--overwrite` preserves it and includes an accepted-literature grouping section in the regenerated report.
+
 The live retrieval path uses an expanded query set:
 
 - baseline drug class query: `GLP-1 receptor agonist`

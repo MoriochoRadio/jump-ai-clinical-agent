@@ -198,6 +198,40 @@ Detailed PubMed candidate review file:
 
 - `prototype/runs/scenario_002_run_001/pubmed_relevance_review.md`
 
+## Accepted Literature Candidate Screening
+
+- Manual screening notes available: True
+- Primary support candidates: 5
+- Context-only candidates: 5
+- Excluded from direct support: 4
+
+Primary support candidates:
+
+- PMID `38127362`: Compare treatment context, endpoints, safety monitoring, and eligibility structure.
+- PMID `27718847`: Support follow-up questions on PD-L1 rules, prior therapy, endpoints, and safety capture.
+- PMID `29658856`: Compare metastatic NSCLC endpoint framing and safety/AE monitoring expectations.
+- PMID `30280635`: Use as a subtype-aware comparator, not as a universal NSCLC template.
+- PMID `33894335`: Compare PFS/OS/response endpoint language and follow-up assumptions.
+
+Context-only candidates:
+
+- PMID `37478883`: Use only as background for trial design and AE monitoring, not direct protocol support.
+- PMID `39288781`: Use only for broader immunotherapy trial-design context.
+- PMID `40454642`: Use cautiously for endpoint vocabulary only.
+- PMID `38101437`: Use for biomarker/EGFR eligibility handling, not immunotherapy efficacy or safety support.
+- PMID `39270695`: Use only for molecular eligibility and operational trial-design comparison.
+
+Excluded from direct support:
+
+- PMID `34102137`: Nivolumab and safety signals are present, but cancer type differs from NSCLC.
+- PMID `25891173`: Pembrolizumab checkpoint therapy is relevant, but melanoma population is outside the scenario.
+- PMID `26027431`: Nivolumab checkpoint therapy is relevant, but melanoma population is outside the scenario.
+- PMID `34986285`: Nivolumab/immune checkpoint signal is relevant, but melanoma population is outside the scenario.
+
+Detailed manual screening file:
+
+- `prototype/runs/scenario_002_run_001/pubmed_manual_screening_notes.md`
+
 ## Eligibility And Recruitment Flags
 
 - **HIGH**: Study design, randomization, blinding, and comparator details are not specified. Recommendation: Clarify whether the study is randomized, blinded, placebo-controlled, active-comparator, or single-arm.

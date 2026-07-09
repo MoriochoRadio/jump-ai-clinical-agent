@@ -130,6 +130,7 @@ Scenario 002:
 - live ClinicalTrials.gov retrieval produced 23 unique public trial records in `scenario_002_run_001`,
 - live PubMed retrieval produced 14 unique literature candidates and abstract-screening signals in `scenario_002_run_001`,
 - manual PubMed screening separated primary support candidates, context-only candidates, and excluded direct-support candidates,
+- final reports can include accepted-literature grouping from manual PubMed screening notes,
 - manual rubric review scored the run as a strong pass for portfolio evaluation purposes.
 
 ## 06. Artifacts
@@ -214,7 +215,7 @@ python prototype/run_scenario.py --input prototype/inputs/scenario_002.json --ru
 
 Near-term improvements:
 
-- add accepted-literature candidate section to generated reports,
+- convert manual PubMed screening notes into structured JSON input,
 - improve extraction of numeric eligibility thresholds from registry records,
 - generate a cleaner reviewer-facing report from each run,
 - add a small interface only after the CLI workflow remains reproducible.

@@ -94,4 +94,5 @@
 - [x] Add local relevance scoring for PubMed literature candidates.
 - [x] Add abstract-level screening signals for PubMed candidates.
 - [x] Add manual screening notes for PubMed candidates.
-- [ ] Add accepted-literature candidate section to generated reports.
+- [x] Add accepted-literature candidate section to generated reports.
+- [ ] Convert manual PubMed screening notes into structured JSON input.
