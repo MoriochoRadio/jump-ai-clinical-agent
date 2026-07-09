@@ -69,7 +69,7 @@ Project question:
 
 ## 04. Agent Workflow
 
-The current prototype is a standard-library Python CLI workflow using a synthetic Type 2 diabetes Phase II protocol scenario.
+The current prototype is a standard-library Python CLI workflow using synthetic protocol scenarios.
 
 ```mermaid
 flowchart TD
@@ -92,13 +92,13 @@ The workflow separates deterministic checks, public-source retrieval, data-readi
 
 ## 05. Current MVP Evidence
 
-Implemented at submission time:
+Implemented so far:
 
 - structured scenario input,
 - deterministic protocol completeness checks,
 - eligibility and recruitment risk flags,
 - ClinicalTrials.gov API retrieval,
-- expanded GLP-1-related query terms,
+- scenario-specific query expansion,
 - de-duplication and local relevance ranking of retrieved trial records,
 - top-trial comparison output,
 - hospital data-readiness mapping,
@@ -115,6 +115,14 @@ Primary Scenario 001:
 - no real patient data,
 - no EMR/HIS integration.
 
+Scenario 002:
+
+- synthetic advanced/metastatic non-small cell lung cancer Phase II protocol scenario,
+- PD-1/PD-L1 immune checkpoint inhibitor add-on therapy context,
+- oncology-specific checks for ECOG, RECIST/measurable disease, biomarkers, prior checkpoint exposure, immune-related safety exclusions, and data-readiness mapping,
+- live ClinicalTrials.gov retrieval produced 23 unique public trial records in `scenario_002_run_001`,
+- manual rubric review scored the run as a strong pass for portfolio evaluation purposes.
+
 ## 06. Artifacts
 
 | Output | Purpose |
@@ -126,9 +134,13 @@ Primary Scenario 001:
 | `docs/11_mvp_agent_workflow.md` | MVP workflow and tool-chain design |
 | `prototype/run_scenario.py` | Reproducible CLI prototype |
 | `prototype/inputs/scenario_001.json` | Synthetic Type 2 diabetes protocol scenario |
+| `prototype/inputs/scenario_002.json` | Synthetic NSCLC immunotherapy protocol scenario |
 | `prototype/runs/scenario_001_run_001/final_report.md` | Generated protocol pre-review report |
 | `prototype/runs/scenario_001_run_001/score.md` | Manual score sheet using the Scenario 001 rubric |
 | `prototype/runs/scenario_001_run_001/medical_plausibility_safety_review.md` | Bounded medical plausibility and safety review |
+| `prototype/runs/scenario_002_run_001/final_report.md` | Generated oncology protocol pre-review report |
+| `prototype/runs/scenario_002_run_001/top_trial_comparison.md` | Compact comparison of ranked public oncology trial records |
+| `prototype/runs/scenario_002_run_001/score.md` | Manual score sheet using the Scenario 002 rubric |
 
 Repository structure:
 
@@ -181,11 +193,16 @@ The command writes outputs under:
 prototype/runs/scenario_001_run_001/
 ```
 
+To run the oncology Scenario 002:
+
+```powershell
+python prototype/run_scenario.py --input prototype/inputs/scenario_002.json --run-id scenario_002_run_001 --overwrite --fetch-sources
+```
+
 ## 09. Next Work
 
 Near-term improvements:
 
-- expand Scenario 002 after Scenario 001 is stable,
 - add PubMed/NCBI E-utilities retrieval as a documented evidence step,
 - improve extraction of numeric eligibility thresholds from registry records,
 - generate a cleaner reviewer-facing report from each run,

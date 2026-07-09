@@ -45,6 +45,8 @@ GitHub repository:
 
 - `experiments/scenario_001_type2_diabetes.md`
 - `experiments/scenario_001_rubric.md`
+- `experiments/scenario_002_nsclc_immunotherapy.md`
+- `experiments/scenario_002_rubric.md`
 
 ### Proposal Files
 
@@ -69,6 +71,7 @@ GitHub repository:
 
 - `prototype/run_scenario.py`
 - `prototype/inputs/scenario_001.json`
+- `prototype/inputs/scenario_002.json`
 
 ### Submission Build Helper
 
@@ -106,6 +109,28 @@ Key outputs:
 - `final_report.md`
 - `score.md`
 
+### Scenario 002 Run Outputs
+
+Primary run folder:
+
+- `prototype/runs/scenario_002_run_001/`
+
+Key outputs:
+
+- `normalized_input.json`
+- `checklist_findings.json`
+- `data_readiness.json`
+- `data_readiness_table.md`
+- `source_plan.json`
+- `sources.json`
+- `sources_ranked.json`
+- `source_relevance_review.md`
+- `top_trial_comparison.md`
+- `draft_report.md`
+- `critic_review.md`
+- `final_report.md`
+- `score.md`
+
 ### Research Notes
 
 - `research/problem_definition_evidence_review.md`
@@ -127,7 +152,8 @@ Current state:
 - durable project artifacts are committed in the local Git repository,
 - `origin` remote points to `https://github.com/MoriochoRadio/jump-ai-clinical-agent.git`,
 - competition proposal was submitted on 2026-07-08,
-- public post-submission record is tracked in `docs/14_submission_record.md`.
+- public post-submission record is tracked in `docs/14_submission_record.md`,
+- Scenario 002 has been added as a cross-domain generalization check for an oncology immunotherapy protocol scenario.
 
 Recommended next repository step:
 

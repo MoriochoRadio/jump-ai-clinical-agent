@@ -1,0 +1,1743 @@
+{
+  "ranking_status": "success",
+  "source_retrieval_status": "success",
+  "scoring_scale": {
+    "condition": 2,
+    "intervention": 3,
+    "phase": 2,
+    "endpoint": 2,
+    "eligibility": 1,
+    "total": 10
+  },
+  "ranked_count": 23,
+  "ranking_profile": {
+    "condition_terms": [
+      "non-small cell lung cancer",
+      "non small cell lung cancer",
+      "nsclc",
+      "lung cancer"
+    ],
+    "intervention_terms": [
+      "pd-1",
+      "pd-l1",
+      "checkpoint inhibitor",
+      "pembrolizumab",
+      "nivolumab",
+      "atezolizumab",
+      "durvalumab"
+    ],
+    "adjacent_intervention_terms": [
+      "immunotherapy",
+      "immune checkpoint",
+      "anti-pd-1",
+      "anti-pd-l1"
+    ],
+    "endpoint_terms": [
+      "progression-free",
+      "pfs",
+      "objective response",
+      "overall survival",
+      "response",
+      "recist",
+      "adverse",
+      "safety"
+    ],
+    "eligibility_terms": [
+      "ecog",
+      "performance status",
+      "recist",
+      "measurable",
+      "pd-l1",
+      "egfr",
+      "alk",
+      "ros1",
+      "autoimmune",
+      "steroid",
+      "immunosuppress"
+    ]
+  },
+  "ranked_studies": [
+    {
+      "nct_id": "NCT02846792",
+      "brief_title": "Nivolumab and Plinabulin in Treating Patients With Stage IIIB-IV, Recurrent, or Metastatic Non-small Cell Lung Cancer",
+      "relevance_score": 10,
+      "relevance_label": "high",
+      "dimension_scores": {
+        "condition": 2,
+        "intervention": 3,
+        "phase": 2,
+        "endpoint": 2,
+        "eligibility": 1
+      },
+      "dimension_reasons": {
+        "condition": "condition terms match: lung cancer, non-small cell lung cancer, nsclc",
+        "intervention": "direct intervention or representative term match",
+        "phase": "Phase II match",
+        "endpoint": "endpoint terms match: overall survival, response",
+        "eligibility": "eligibility contains useful terms: alk, ecog, egfr, performance status"
+      },
+      "study": {
+        "nct_id": "NCT02846792",
+        "brief_title": "Nivolumab and Plinabulin in Treating Patients With Stage IIIB-IV, Recurrent, or Metastatic Non-small Cell Lung Cancer",
+        "overall_status": "TERMINATED",
+        "phases": [
+          "PHASE1",
+          "PHASE2"
+        ],
+        "conditions": [
+          "ALK Gene Translocation",
+          "EGFR Activating Mutation",
+          "Recurrent Non-Small Cell Lung Carcinoma",
+          "ROS1 Gene Translocation",
+          "Stage IIIB Non-Small Cell Lung Cancer AJCC v7",
+          "Stage IV Non-Small Cell Lung Cancer AJCC v7"
+        ],
+        "interventions": [
+          {
+            "type": "BIOLOGICAL",
+            "name": "Nivolumab"
+          },
+          {
+            "type": "DRUG",
+            "name": "Plinabulin"
+          }
+        ],
+        "primary_outcomes": [
+          {
+            "measure": "Maximum Tolerated Dose of Plinabulin and Nivolumab (Phase I)",
+            "time_frame": "Up to 28 days"
+          },
+          {
+            "measure": "Overall Response Rate (Phase II)",
+            "time_frame": "Time between receipt of first study drug until disease progression date, unacceptable toxicity or withdrawal of patient consent, assessed up to 16 months"
+          }
+        ],
+        "secondary_outcomes": [
+          {
+            "measure": "Disease Control Rate",
+            "time_frame": "Time between receipt of first study drug until disease progression date, unacceptable toxicity or withdrawal of patient consent, assessed up to 16 months"
+          },
+          {
+            "measure": "Duration of Response",
+            "time_frame": "Time between receipt of first study drug until disease progression date, unacceptable toxicity or withdrawal of patient consent, assessed up to 16 months"
+          },
+          {
+            "measure": "Overall Survival",
+            "time_frame": "Time between receipt of first study drug until death date or last known alive date, assessed up to 16 months"
+          }
+        ],
+        "eligibility_criteria_excerpt": "Inclusion Criteria: * Subjects must have histologically or cytologically-documented stage IIIB or stage IV, recurrent, or metastatic non-small cell lung cancer (NSCLC) * Subjects must have received prior platinum doublet based treatment * Up to 2 lines of prior systemic therapy for metastatic disease are permitted * Adjuvant chemotherapy or concurrent chemoradiation for early stage disease does not count as prior therapy unless subject progressed within 6 months of completion of regimen * Patients with known activating mutations in epidermal growth factor receptor (EGFR), or known translocation in anaplastic lymphoma kinase (ALK) or ROS-1 are eligible provided they have progressed on or were intolerant to Food and Drug Administration (FDA) approved targeted therapy * Subjects must have an Eastern Cooperative Oncology Group (ECOG) performance status of 0 to 2 * Subjects, including thos...",
+        "matched_query_labels": [
+          "representative_intervention_nivolumab"
+        ]
+      }
+    },
+    {
+      "nct_id": "NCT04105270",
+      "brief_title": "RMT in Combination With Durvalumab + Chemo in Untreated Adenocarcinoma NSCLC. A Randomized Double Blind Phase II Trial",
+      "relevance_score": 10,
+      "relevance_label": "high",
+      "dimension_scores": {
+        "condition": 2,
+        "intervention": 3,
+        "phase": 2,
+        "endpoint": 2,
+        "eligibility": 1
+      },
+      "dimension_reasons": {
+        "condition": "condition terms match: lung cancer, nsclc",
+        "intervention": "direct intervention or representative term match",
+        "phase": "Phase II match",
+        "endpoint": "endpoint terms match: objective response, overall survival, pfs, recist",
+        "eligibility": "eligibility contains useful terms: alk, egfr, measurable, pd-l1, recist"
+      },
+      "study": {
+        "nct_id": "NCT04105270",
+        "brief_title": "RMT in Combination With Durvalumab + Chemo in Untreated Adenocarcinoma NSCLC. A Randomized Double Blind Phase II Trial",
+        "overall_status": "RECRUITING",
+        "phases": [
+          "PHASE2"
+        ],
+        "conditions": [
+          "Adenocarcinoma of Lung",
+          "Lung Cancer"
+        ],
+        "interventions": [
+          {
+            "type": "DRUG",
+            "name": "Oral Restorative Microbiota Therapy (RMT) Capsules"
+          },
+          {
+            "type": "DRUG",
+            "name": "Durvalumab 1500 mg IV"
+          },
+          {
+            "type": "DRUG",
+            "name": "Cisplatin/pemetrexed or Carboplatin/pemetrexed"
+          },
+          {
+            "type": "OTHER",
+            "name": "Placebo"
+          }
+        ],
+        "primary_outcomes": [
+          {
+            "measure": "Number of patients experiencing Progression Free Survival (PFS)",
+            "time_frame": "3 Years"
+          },
+          {
+            "measure": "Safety and tolerability of RMT",
+            "time_frame": "2 Years"
+          }
+        ],
+        "secondary_outcomes": [
+          {
+            "measure": "Objective Response Rate (ORR) RECIST 1.1",
+            "time_frame": "2 Years"
+          },
+          {
+            "measure": "Duration of Response (DOR)",
+            "time_frame": "2 Years"
+          },
+          {
+            "measure": "Overall Survival (OS)",
+            "time_frame": "3 Years"
+          }
+        ],
+        "eligibility_criteria_excerpt": "Inclusion Criteria: * Histologically or cytologically confirmed adenocarcinoma of the lung that is unresectable stage IIIB/C or stage IV, does not have an EGFR sensitizing (activating) mutation or ALK or ROS1 translocation. BRAF, RET, NTRK, MET ex 14 splice site mutation * Measurable disease based on RECIST 1.1 * Tumor sample requirements * Mandatory provision of an unstained, archived tumor tissue sample in a quantity sufficient to allow for biomarker and genomic analysis. A minimum of 10 unstained slides should be available for evaluation. * Known PD-L1 TC expression status assayed by Ventana SP263. Patients who have known PDL-1 as assayed by PharmDx 22C3 assay may be eligible; however, available archival tissue will be used to assay with Ventana SP263 test. * Prior chemotherapy or immunotherapy as adjuvant therapy for lung cancer is permitted as long as it has been \\>6 months from...",
+        "matched_query_labels": [
+          "representative_intervention_durvalumab"
+        ]
+      }
+    },
+    {
+      "nct_id": "NCT04691817",
+      "brief_title": "Tocilizumab and Atezolizumab in Adults With Locally Advanced or Metastatic Non-Small Cell Lung Cancer Refractory to 1st Line Immune Checkpoint Inhibitor-Based Therapy",
+      "relevance_score": 10,
+      "relevance_label": "high",
+      "dimension_scores": {
+        "condition": 2,
+        "intervention": 3,
+        "phase": 2,
+        "endpoint": 2,
+        "eligibility": 1
+      },
+      "dimension_reasons": {
+        "condition": "condition terms match: lung cancer, non-small cell lung cancer, nsclc",
+        "intervention": "direct intervention or representative term match",
+        "phase": "Phase II match",
+        "endpoint": "endpoint terms match: overall survival, pfs, response",
+        "eligibility": "eligibility contains useful terms: autoimmune, ecog"
+      },
+      "study": {
+        "nct_id": "NCT04691817",
+        "brief_title": "Tocilizumab and Atezolizumab in Adults With Locally Advanced or Metastatic Non-Small Cell Lung Cancer Refractory to 1st Line Immune Checkpoint Inhibitor-Based Therapy",
+        "overall_status": "RECRUITING",
+        "phases": [
+          "PHASE1",
+          "PHASE2"
+        ],
+        "conditions": [
+          "Lung Cancer, Nonsmall Cell"
+        ],
+        "interventions": [
+          {
+            "type": "DRUG",
+            "name": "Atezolizumab"
+          },
+          {
+            "type": "DRUG",
+            "name": "Tocilizumab"
+          }
+        ],
+        "primary_outcomes": [
+          {
+            "measure": "Overall response rate (ORR)",
+            "time_frame": "From first dose of protocol treatment until radiologic disease assessment at 12 weeks."
+          }
+        ],
+        "secondary_outcomes": [
+          {
+            "measure": "Overall survival (OS)",
+            "time_frame": "From first dose of protocol treatment until death due to any cause or last patient contact alive until 3 months after study closure."
+          },
+          {
+            "measure": "Dose Limiting Toxicities of the combination",
+            "time_frame": "From first dose of protocol treatment until 49 days post treatment"
+          },
+          {
+            "measure": "Progression free survival (PFS).",
+            "time_frame": "From 1st dose of treatment until 1st radiologic disease progression, unequivocal clinical progression, or death due to any cause censored at the last scheduled disease assessment on study if no progression date registered, assessed up to 24 months."
+          }
+        ],
+        "eligibility_criteria_excerpt": "Inclusion Criteria: * Advanced non-squamous NSCLC (Stage IV or recurrent after initial curative intent therapy) in adults age 18 or older * Prior exposure to at least 1 line of therapy * Exposure to a including checkpoint inhibitor in line of therapy immediately prior to enrollment on trial * ECOG PS 0-2 Exclusion Criteria: * Presence of a driver mutation that is susceptible to targeted therapy * No greater than CTCAE v5 grade 3 toxicity attributed to prior immunotherapy * Other active invasive malignancy requiring ongoing therapy * Evidence of progressing or untreated brain metastases * Evidence or history of leptomeningeal disease * Uncontrolled tumor related pain * History of an autoimmune disease or IPF",
+        "matched_query_labels": [
+          "representative_intervention_atezolizumab"
+        ]
+      }
+    },
+    {
+      "nct_id": "NCT04984811",
+      "brief_title": "NT-I7 in Combination With Atezolizumab in Previously Untreated, PD-L1-expressing, Locally Advanced or Metastatic NSCLC",
+      "relevance_score": 10,
+      "relevance_label": "high",
+      "dimension_scores": {
+        "condition": 2,
+        "intervention": 3,
+        "phase": 2,
+        "endpoint": 2,
+        "eligibility": 1
+      },
+      "dimension_reasons": {
+        "condition": "condition terms match: lung cancer, non small cell lung cancer, non-small cell lung cancer",
+        "intervention": "direct intervention or representative term match",
+        "phase": "Phase II match",
+        "endpoint": "endpoint terms match: objective response, pfs, response",
+        "eligibility": "eligibility contains useful terms: alk, ecog, egfr, measurable, pd-l1"
+      },
+      "study": {
+        "nct_id": "NCT04984811",
+        "brief_title": "NT-I7 in Combination With Atezolizumab in Previously Untreated, PD-L1-expressing, Locally Advanced or Metastatic NSCLC",
+        "overall_status": "TERMINATED",
+        "phases": [
+          "PHASE2"
+        ],
+        "conditions": [
+          "Carcinoma, Non-Small-Cell Lung",
+          "Non-Small Cell Lung Cancer",
+          "Non-Small Cell Lung Carcinoma",
+          "Nonsmall Cell Lung Cancer",
+          "Non Small Cell Lung Cancer"
+        ],
+        "interventions": [
+          {
+            "type": "DRUG",
+            "name": "efineptakin alfa"
+          },
+          {
+            "type": "DRUG",
+            "name": "Atezolizumab"
+          }
+        ],
+        "primary_outcomes": [
+          {
+            "measure": "Objective Response Rate (ORR)",
+            "time_frame": "The first on-study imaging assessment were performed every 6 weeks for the first 6 months and every 9 weeks, or more frequently if clinically indicated, until disease progression or treatment discontinuation (up to 2 years)."
+          }
+        ],
+        "secondary_outcomes": [
+          {
+            "measure": "Duration of Response (DoR)",
+            "time_frame": "The first on-study imaging assessment were performed every 6 weeks for the first 6 months and every 9 weeks, or more frequently if clinically indicated, until disease progression or treatment discontinuation (up to 2 years)."
+          },
+          {
+            "measure": "Disease Control Rate (DCR)",
+            "time_frame": "The first on-study imaging assessment were performed every 6 weeks for the first 6 months and every 9 weeks, or more frequently if clinically indicated, until disease progression or treatment discontinuation (up to 2 years)."
+          },
+          {
+            "measure": "Progression Free Survival (PFS)",
+            "time_frame": "The first on-study imaging assessment were performed every 6 weeks for the first 6 months and every 9 weeks, or more frequently if clinically indicated, until disease progression or treatment discontinuation (up to 2 years)."
+          }
+        ],
+        "eligibility_criteria_excerpt": "Inclusion Criteria: * Have histologically or cytologically confirmed metastatic or locally advanced NSCLC, and have not received prior systemic therapy. Subjects with locally advanced disease must have Stage III NSCLC and are not candidates for surgical resection or definitive chemoradiation * Tumor PD-L1 expression (TPS\u22651%) as determined by PD-L1 22C3 immunohistochemistry local or central assay. * Have measurable disease * Agree to provide screening biopsy (or archival tissue) at screening to assess PD-L1 * ECOG 0-1 * Adequate hematologic and end organ function Exclusion Criteria: * Prior systemic anti-cancer therapy * NSCLC with EGFR, or ALK, or BRAF or ROS or RED or other genomic tumor aberrations which have available therapy * Prior radiotherapy within 2 weeks of start of study treatment * Known active CNS metastasis or carcinomatous meningitis * Severe reactions to mAbs or IV imm...",
+        "matched_query_labels": [
+          "representative_intervention_atezolizumab"
+        ]
+      }
+    },
+    {
+      "nct_id": "NCT05344209",
+      "brief_title": "Efficacy and Safety of Anti-PD-1/PD-L1 Treatment +/- UV1 Vaccination in Patients With Non-small Cell Lung Cancer",
+      "relevance_score": 10,
+      "relevance_label": "high",
+      "dimension_scores": {
+        "condition": 2,
+        "intervention": 3,
+        "phase": 2,
+        "endpoint": 2,
+        "eligibility": 1
+      },
+      "dimension_reasons": {
+        "condition": "condition terms match: lung cancer, non-small cell lung cancer, nsclc",
+        "intervention": "direct intervention or representative term match",
+        "phase": "Phase II match",
+        "endpoint": "endpoint terms match: pfs, progression-free, recist, response",
+        "eligibility": "eligibility contains useful terms: pd-l1, recist"
+      },
+      "study": {
+        "nct_id": "NCT05344209",
+        "brief_title": "Efficacy and Safety of Anti-PD-1/PD-L1 Treatment +/- UV1 Vaccination in Patients With Non-small Cell Lung Cancer",
+        "overall_status": "RECRUITING",
+        "phases": [
+          "PHASE2"
+        ],
+        "conditions": [
+          "Oncology",
+          "NSCLC Stage IV",
+          "NSCLC, Stage III"
+        ],
+        "interventions": [
+          {
+            "type": "BIOLOGICAL",
+            "name": "UV1"
+          },
+          {
+            "type": "DRUG",
+            "name": "Sagramostim"
+          },
+          {
+            "type": "DRUG",
+            "name": "Anti-PD-1/PD-L1 treatment"
+          }
+        ],
+        "primary_outcomes": [
+          {
+            "measure": "Progression-free survival (PFS) per Response Evaluation Criteria in Solid Tumours (RECIST 1.1) as determined by Blinded Independent Central Review (BICR)",
+            "time_frame": "Up to 2 years"
+          }
+        ],
+        "secondary_outcomes": [
+          {
+            "measure": "Response evaluation",
+            "time_frame": "Throughout trial (up to 2 years)"
+          },
+          {
+            "measure": "monitoring AE",
+            "time_frame": "continously and until 4 months after discontinuation of study treatment"
+          }
+        ],
+        "eligibility_criteria_excerpt": "Inclusion Criteria: * Histologically confirmed NSCLC stage IIIB/IIIC or IV not amenable for curative treatment, with PD-L1 \u2265 50% measured by a validated method, and eligible for pembrolizumab monotherapy in the first-line setting * At least one lesion, not previously irradiated and not chosen for biopsy during the study screening period, that can be accurately measured at baseline according to RECIST 1.1 * Subjects who received previous neo-adjuvant or adjuvant systemic therapy (other than immunotherapies) will be eligible if neo-adjuvant or adjuvant therapy was completed at least 12 months prior to the development of metastatic disease. Last dose of neoadjuvant or adjuvant therapy must be more than 12 months prior to enrollment/randomization * Available unstained archived tumour tissue sample in sufficient quantity to allow for analyses. At least fifteen unstained slides or a tumour...",
+        "matched_query_labels": [
+          "representative_intervention_pembrolizumab",
+          "representative_intervention_atezolizumab"
+        ]
+      }
+    },
+    {
+      "nct_id": "NCT05941897",
+      "brief_title": "A Study to Investigate Efficacy and Safety of Ceralasertib Plus Durvalumab in Participants Aged \u2265 18 Years With Advanced or Metastatic Non-small Cell Lung Cancer Whose Disease Progressed on or After Prior Anti-PD-(L)1 Therapy and Platinum-based Chemotherapy",
+      "relevance_score": 10,
+      "relevance_label": "high",
+      "dimension_scores": {
+        "condition": 2,
+        "intervention": 3,
+        "phase": 2,
+        "endpoint": 2,
+        "eligibility": 1
+      },
+      "dimension_reasons": {
+        "condition": "condition terms match: lung cancer, non-small cell lung cancer, nsclc",
+        "intervention": "direct intervention or representative term match",
+        "phase": "Phase II match",
+        "endpoint": "endpoint terms match: objective response, response",
+        "eligibility": "eligibility contains useful terms: alk, ecog, egfr, performance status"
+      },
+      "study": {
+        "nct_id": "NCT05941897",
+        "brief_title": "A Study to Investigate Efficacy and Safety of Ceralasertib Plus Durvalumab in Participants Aged \u2265 18 Years With Advanced or Metastatic Non-small Cell Lung Cancer Whose Disease Progressed on or After Prior Anti-PD-(L)1 Therapy and Platinum-based Chemotherapy",
+        "overall_status": "ACTIVE_NOT_RECRUITING",
+        "phases": [
+          "PHASE2"
+        ],
+        "conditions": [
+          "Advanced or Metastatic NSCLC"
+        ],
+        "interventions": [
+          {
+            "type": "DRUG",
+            "name": "Ceralasertib"
+          },
+          {
+            "type": "DRUG",
+            "name": "Durvalumab"
+          }
+        ],
+        "primary_outcomes": [
+          {
+            "measure": "Objective response rate (ORR)",
+            "time_frame": "At month 6 after the last patient's first dose (approximately 18 months)."
+          }
+        ],
+        "secondary_outcomes": [
+          {
+            "measure": "Duration of Response (DoR)",
+            "time_frame": "Up to 30 months"
+          },
+          {
+            "measure": "Time to response (TTR)",
+            "time_frame": "Up to 30 months"
+          },
+          {
+            "measure": "Disease control rate (DCR)",
+            "time_frame": "At month 6 after the last patient's first dose (approximately 18 months)."
+          }
+        ],
+        "eligibility_criteria_excerpt": "Inclusion Criteria: * Histologically or cytologically documented NSCLC that is locally advanced or metastatic according to Version 8 of the IASLC Staging Manual in Thoracic Oncology. * Documented epidermal growth receptor factor (EGFR) and anaplastic lymphoma kinase (ALK) wild-type status. * Documented radiological PD whilst on or after receiving the most recent treatment regimen. * Eligible for second- or third-line therapy and must have received an anti-PD-(L)1 therapy and a platinum doublet containing therapy for locally advanced or metastatic NSCLC. * Eastern Cooperative Oncology Group (ECOG)/World Health Organization (WHO) performance status of 0 or 1. * Adequate organ function and marrow reserve. * Body weight \\> 30 kg and no cancer-associated cachexia. Exclusion Criteria: * Participant with mixed SCLC and NSCLC histology. * Brain metastases or spinal cord compression unless the...",
+        "matched_query_labels": [
+          "representative_intervention_durvalumab"
+        ]
+      }
+    },
+    {
+      "nct_id": "NCT06388031",
+      "brief_title": "ICI Rechallenge for Advanced NSCLC With Long-Term Response to First-Line ICI",
+      "relevance_score": 10,
+      "relevance_label": "high",
+      "dimension_scores": {
+        "condition": 2,
+        "intervention": 3,
+        "phase": 2,
+        "endpoint": 2,
+        "eligibility": 1
+      },
+      "dimension_reasons": {
+        "condition": "condition terms match: lung cancer, non-small cell lung cancer, nsclc",
+        "intervention": "direct intervention or representative term match",
+        "phase": "Phase II match",
+        "endpoint": "endpoint terms match: objective response, overall survival, pfs, response",
+        "eligibility": "eligibility contains useful terms: measurable, pd-l1"
+      },
+      "study": {
+        "nct_id": "NCT06388031",
+        "brief_title": "ICI Rechallenge for Advanced NSCLC With Long-Term Response to First-Line ICI",
+        "overall_status": "RECRUITING",
+        "phases": [
+          "PHASE2"
+        ],
+        "conditions": [
+          "Non-small Cell Lung Cancer"
+        ],
+        "interventions": [
+          {
+            "type": "DRUG",
+            "name": "Immune checkpoint inhibitor"
+          }
+        ],
+        "primary_outcomes": [
+          {
+            "measure": "Progression Free Survival (PFS)",
+            "time_frame": "5 months"
+          }
+        ],
+        "secondary_outcomes": [
+          {
+            "measure": "Overall Survival (OS)",
+            "time_frame": "24 months"
+          },
+          {
+            "measure": "Objective Response Rate (ORR)",
+            "time_frame": "5 months"
+          },
+          {
+            "measure": "Progression Free Survival 2 (PFS 2)",
+            "time_frame": "12 months"
+          }
+        ],
+        "eligibility_criteria_excerpt": "Inclusion Criteria: 1. Participants must have a thorough understanding of this study and voluntarily sign an informed consent form (ICF); 2. Age between 18 and 80 years, any gender; 3. Histologically or cytologically confirmed stage III-IV non-small cell lung cancer (NSCLC); 4. Previous treated with first-line immunotherapy (immunotherapeutic agents include currently marketed anti-PD-L1 or anti-PD-1 monoclonal antibodies: pembrolizumab, nivolumab, atezolizumab, durvalumab, tislelizumab, toripalimab, sintilimab, camrelizumab, etc.; investigational drugs not yet marketed need discussion with the study team prior to enrollment; with or without platinum-based doublet chemotherapy) for at least 35 cycles or disease stability confirmed by imaging assessment for at least 2 years, and disease progression; 5. Measurable disease (at least 1 lesion) according to Response Evaluation Criteria in S...",
+        "matched_query_labels": [
+          "baseline_drug_class"
+        ]
+      }
+    },
+    {
+      "nct_id": "NCT02713867",
+      "brief_title": "A Dose Frequency Optimization,Trial of Nivolumab 240 mg Every 2 Weeks vs Nivolumab 480 mg Every 4 Weeks in Subjects With Advanced or Metastatic Non-small Cell Lung Cancer Who Received Up to 12 Months of Nivolumab at 3 mg/kg or 240 mg Every 2 Weeks",
+      "relevance_score": 9,
+      "relevance_label": "high",
+      "dimension_scores": {
+        "condition": 2,
+        "intervention": 3,
+        "phase": 1,
+        "endpoint": 2,
+        "eligibility": 1
+      },
+      "dimension_reasons": {
+        "condition": "condition terms match: lung cancer, non-small cell lung cancer, nsclc",
+        "intervention": "direct intervention or representative term match",
+        "phase": "interventional phase is available but not Phase II",
+        "endpoint": "endpoint terms match: pfs, response",
+        "eligibility": "eligibility contains useful terms: ecog, measurable, performance status"
+      },
+      "study": {
+        "nct_id": "NCT02713867",
+        "brief_title": "A Dose Frequency Optimization,Trial of Nivolumab 240 mg Every 2 Weeks vs Nivolumab 480 mg Every 4 Weeks in Subjects With Advanced or Metastatic Non-small Cell Lung Cancer Who Received Up to 12 Months of Nivolumab at 3 mg/kg or 240 mg Every 2 Weeks",
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "conditions": [
+          "Lung Cancer"
+        ],
+        "interventions": [
+          {
+            "type": "BIOLOGICAL",
+            "name": "Nivolumab"
+          }
+        ],
+        "primary_outcomes": [
+          {
+            "measure": "Progression Free Survival Rate (PFSR) at 6 Months",
+            "time_frame": "At 6 Months"
+          },
+          {
+            "measure": "Progression Free Survival Rate (PFSR) at 12 Months",
+            "time_frame": "At 12 Months"
+          }
+        ],
+        "secondary_outcomes": [
+          {
+            "measure": "Progression Free Survival Rate (PFSR) at 24 Months",
+            "time_frame": "At 24 Months"
+          },
+          {
+            "measure": "Progression Free Survival Rate (PFSR) by Tumor Histology at 12 Months",
+            "time_frame": "At 12 Months"
+          },
+          {
+            "measure": "Progression Free Survival Rate (PFSR) by Response Criteria at 12 Months",
+            "time_frame": "At 12 Months"
+          }
+        ],
+        "eligibility_criteria_excerpt": "For more information regarding Bristol-Myers Squibb Clinical Trial participation, please visit www.BMSStudyConnect.com Inclusion Criteria: * Histologically or cytologically documented Squamous or non-Squamous Non-small cell lung cancer (NSCLC) (Stage IIIB/IV), or recurrent or progressive disease following multimodal therapy * Patients must have received pre-study nivolumab for up to 12 months and have 2 consecutive tumor assessments confirming Complete response (CR), Partial response (PR), or Stable disease (SD) * Measurable disease before start of pre-study nivolumab treatment * Eastern Cooperative Oncology Group (ECOG) Performance status (PS) 0-2 Exclusion Criteria: * Carcinomatous meningitis * Untreated, symptomatic Central nervous system (CNS) metastases * Symptomatic interstitial lung disease Other protocol defined inclusion/exclusion criteria could apply",
+        "matched_query_labels": [
+          "representative_intervention_nivolumab"
+        ]
+      }
+    },
+    {
+      "nct_id": "NCT03829436",
+      "brief_title": "TPST-1120 as Monotherapy and in Combination With Nivolumab in Subjects With Advanced Cancers",
+      "relevance_score": 9,
+      "relevance_label": "high",
+      "dimension_scores": {
+        "condition": 2,
+        "intervention": 3,
+        "phase": 1,
+        "endpoint": 2,
+        "eligibility": 1
+      },
+      "dimension_reasons": {
+        "condition": "condition terms match: lung cancer, non-small cell lung cancer, nsclc",
+        "intervention": "direct intervention or representative term match",
+        "phase": "interventional phase is available but not Phase II",
+        "endpoint": "endpoint terms match: adverse, objective response, response",
+        "eligibility": "eligibility contains useful terms: measurable, performance status, recist"
+      },
+      "study": {
+        "nct_id": "NCT03829436",
+        "brief_title": "TPST-1120 as Monotherapy and in Combination With Nivolumab in Subjects With Advanced Cancers",
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE1"
+        ],
+        "conditions": [
+          "Hepatocellular Carcinoma",
+          "Metastatic Castration Resistant Prostate Cancer",
+          "Renal Cell Carcinoma",
+          "Non-small Cell Lung Cancer",
+          "Colorectal Cancer",
+          "Squamous Cell Carcinoma of Head and Neck",
+          "Triple-Negative Breast Cancer",
+          "Urothelial Carcinoma",
+          "Cholangiocarcinoma",
+          "GastroEsophageal Cancer",
+          "Pancreatic Cancer",
+          "Sarcoma"
+        ],
+        "interventions": [
+          {
+            "type": "DRUG",
+            "name": "Part 1 TPST-1120"
+          },
+          {
+            "type": "DRUG",
+            "name": "Part 2 TPST-1120 + nivolumab"
+          },
+          {
+            "type": "DRUG",
+            "name": "Part 3 TPST-1120"
+          },
+          {
+            "type": "DRUG",
+            "name": "Part 4 TPST-1120 + nivolumab"
+          }
+        ],
+        "primary_outcomes": [
+          {
+            "measure": "Incidence of dose limiting toxicities (DLTs) of TPST-1120 as a single agent and in combination with nivolumab.",
+            "time_frame": "From start of treatment to end of treatment, up to 36 months"
+          },
+          {
+            "measure": "Incidence of treatment-emergent adverse events as assessed by NCI-CTCAE v5.0 of TPST-1120 as a single agent and in combination with nivolumab.",
+            "time_frame": "From start of treatment to end of treatment, up to 36 months"
+          },
+          {
+            "measure": "Identify the maximum tolerated dose",
+            "time_frame": "From start of treatment to end of treatment, up to 36 months"
+          }
+        ],
+        "secondary_outcomes": [
+          {
+            "measure": "Assess pharmacokinetics: Maximum serum concentration (Cmax)",
+            "time_frame": "Day 1, 2, 8 of Cycle 1 and Day 1 of Cycle 3 (cycle can be 21 or 28 days, depending on cohort assignment)"
+          },
+          {
+            "measure": "Assess pharmacokinetics: Area under the curve (AUC)",
+            "time_frame": "Day 1, 2, 8 of Cycle 1 and Day 1 of Cycle 3, Day 1 of Cycles 5+ (cycle can be 21 or 28 days, depending on cohort assignment)"
+          },
+          {
+            "measure": "Objective response rate",
+            "time_frame": "From start of treatment to end of treatment, up to 36 months"
+          }
+        ],
+        "eligibility_criteria_excerpt": "Inclusion Criteria * Eastern Cooperative Oncology Group performance status of 0-1 at enrollment * Progressive disease or previously untreated tumors for which no standard therapy exists or treatment na\u00efve at the time of study entry are eligible * Have at least one measurable lesion according to RECIST v1.1 * Subjects with the following histologies are eligible and who are refractory to, have failed, are intolerant to, are ineligible for standard therapy, or for which no standard therapy exists are eligible: Part 1 (Dose Escalation- Monotherapy): RCC, NSCLC, CRC, metastatic castration resistant prostate cancer (mCRPC), cholangiocarcinoma, TNBC, pancreatic cancer, HCC, gastroesophageal cancer, squamous cell carcinoma of head and neck (SCCHN), urothelial bladder cancer (UBC), and sarcoma (liposarcomas and leiomyosarcomas); Part 2 (Dose Escalation-Combination with nivolumab): RCC, HCC, an...",
+        "matched_query_labels": [
+          "representative_intervention_nivolumab"
+        ]
+      }
+    },
+    {
+      "nct_id": "NCT04423029",
+      "brief_title": "A Study of DF6002 Alone and in Combination With Nivolumab",
+      "relevance_score": 9,
+      "relevance_label": "high",
+      "dimension_scores": {
+        "condition": 2,
+        "intervention": 3,
+        "phase": 1,
+        "endpoint": 2,
+        "eligibility": 1
+      },
+      "dimension_reasons": {
+        "condition": "condition terms match: lung cancer, non-small cell lung cancer",
+        "intervention": "direct intervention or representative term match",
+        "phase": "interventional phase is available but not Phase II",
+        "endpoint": "endpoint terms match: adverse, recist, response",
+        "eligibility": "eligibility contains useful terms: ecog, performance status"
+      },
+      "study": {
+        "nct_id": "NCT04423029",
+        "brief_title": "A Study of DF6002 Alone and in Combination With Nivolumab",
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE1"
+        ],
+        "conditions": [
+          "Solid Tumors"
+        ],
+        "interventions": [
+          {
+            "type": "DRUG",
+            "name": "DF6002"
+          },
+          {
+            "type": "DRUG",
+            "name": "Nivolumab"
+          }
+        ],
+        "primary_outcomes": [
+          {
+            "measure": "Number of participants with dose-limiting toxicities (DLTs)",
+            "time_frame": "During the first 3 weeks of treatment"
+          },
+          {
+            "measure": "Overall Response Rate (ORR) according to Response Evaluation Criteria in Solid Tumors (RECIST) v1.1 per an Independent Endpoint Review Committee (IERC)",
+            "time_frame": "Up to 2 years"
+          }
+        ],
+        "secondary_outcomes": [
+          {
+            "measure": "Amount of Treatment Emergent Adverse Events (TEAEs)",
+            "time_frame": "Up to 2 years"
+          },
+          {
+            "measure": "Severity of TEAEs",
+            "time_frame": "Up to 2 years"
+          },
+          {
+            "measure": "Duration of TEAEs",
+            "time_frame": "Up to 2 years"
+          }
+        ],
+        "eligibility_criteria_excerpt": "Inclusion Criteria: * Advanced/metastatic solid tumors, for which no standard therapy exists or standard therapy has failed among the following tumor types: melanoma, non-small cell lung cancer, small cell lung cancer, head and neck squamous cell, urothelial, gastric, esophageal, cervical, hepatocellular, merkel cell, cutaneous squamous cell carcinoma, renal cell, endometrial, triple-negative breast, ovarian, and prostate * ECOG performance status of 0 or 1 * Clinical or radiological evidence of disease * Adequate hematological, hepatic and renal function * Anticoagulants are required for the following: Khorana Risk Score \u2265 2 or as assessed by Investigator as being at high risk for venous thromboembolism (VTE) or history of VTE \u2265 6 months from enrollment Exclusion Criteria: * Concurrent anticancer treatment (with the exception of palliative bone directed radiotherapy), immune therapy,...",
+        "matched_query_labels": [
+          "representative_intervention_nivolumab"
+        ]
+      }
+    },
+    {
+      "nct_id": "NCT04612751",
+      "brief_title": "Phase 1b Study of Dato-DXd in Combination With Immunotherapy With or Without Carboplatin in Advanced or Metastatic Non-Small Cell Lung Cancer",
+      "relevance_score": 9,
+      "relevance_label": "high",
+      "dimension_scores": {
+        "condition": 2,
+        "intervention": 3,
+        "phase": 1,
+        "endpoint": 2,
+        "eligibility": 1
+      },
+      "dimension_reasons": {
+        "condition": "condition terms match: lung cancer, non-small cell lung cancer, nsclc",
+        "intervention": "direct intervention or representative term match",
+        "phase": "interventional phase is available but not Phase II",
+        "endpoint": "endpoint terms match: recist, response, safety",
+        "eligibility": "eligibility contains useful terms: alk, egfr"
+      },
+      "study": {
+        "nct_id": "NCT04612751",
+        "brief_title": "Phase 1b Study of Dato-DXd in Combination With Immunotherapy With or Without Carboplatin in Advanced or Metastatic Non-Small Cell Lung Cancer",
+        "overall_status": "ACTIVE_NOT_RECRUITING",
+        "phases": [
+          "PHASE1"
+        ],
+        "conditions": [
+          "Advanced or Metastatic NSCLC"
+        ],
+        "interventions": [
+          {
+            "type": "DRUG",
+            "name": "Datopotamab deruxtecan"
+          },
+          {
+            "type": "DRUG",
+            "name": "Durvalumab"
+          },
+          {
+            "type": "DRUG",
+            "name": "Carboplatin"
+          },
+          {
+            "type": "DRUG",
+            "name": "AZD2936"
+          },
+          {
+            "type": "DRUG",
+            "name": "MEDI5752"
+          }
+        ],
+        "primary_outcomes": [
+          {
+            "measure": "Number of participants with DLTs; TEAEs and other safety parameters during the study.",
+            "time_frame": "DLTs: within first cycle (21 days); TEAEs and other safety parameters: when all participants have either discontinued the study or the last participant enrolled in the study has completed at least 9 months of follow-up (approximately 60 months)"
+          }
+        ],
+        "secondary_outcomes": [
+          {
+            "measure": "ORR as assessed by investigator per RECIST Version 1.1",
+            "time_frame": "At the time of the final analysis (when all participants have either discontinued the study or the last participant enrolled in the study has completed at least 9 months of follow-up, approximately 60 months)."
+          },
+          {
+            "measure": "Duration of Response as assessed by investigator per RECIST version 1.1",
+            "time_frame": "At the time of the final analysis (when all participants have either discontinued the study or the last participant enrolled in the study has completed at least 9 months of follow-up, approximately 60 months)."
+          },
+          {
+            "measure": "Disease Control Rate as assessed by the investigator per RECIST version 1.1",
+            "time_frame": "At the time of the final analysis (when all participants have either discontinued the study or the last participant enrolled in the study has completed at least 9 months of follow-up, approximately 60 months)."
+          }
+        ],
+        "eligibility_criteria_excerpt": "Inclusion Criteria: * Participant \u226518 years old on the day of signing the ICF (local regulatory requirement to consent should be followed). * Histologically or cytologically confirmed diagnosis of advanced or metastatic NSCLC, without EGFR or ALK genomic alterations (testing not required for participants with documented squamous histology) and no known genomic alterations in other actionable driver kinases with approved therapies. Participants whose tumors harbor KRAS mutations are eligible for this study. * For Cohorts 1 to 4, participants must be treatment-na\u00efve or have received and radiologically progressed after only 1 prior line of systemic chemotherapy, without concomitant immune checkpoint inhibitors for advanced or metastatic NSCLC. For Cohorts 4a, 5 to 11, and 14, participants must be treatment-na\u00efve for advanced or metastatic NSCLC. For Cohorts 12 to 13, participants must be...",
+        "matched_query_labels": [
+          "representative_intervention_durvalumab"
+        ]
+      }
+    },
+    {
+      "nct_id": "NCT05334329",
+      "brief_title": "Genetically Engineered Natural Killer (NK) Cells With or Without Atezolizumab for the Treatment of Non-small Cell Lung Cancer Previously Treated With PD-1 and/or PD-L1 Immune Checkpoint Inhibitors",
+      "relevance_score": 9,
+      "relevance_label": "high",
+      "dimension_scores": {
+        "condition": 2,
+        "intervention": 3,
+        "phase": 1,
+        "endpoint": 2,
+        "eligibility": 1
+      },
+      "dimension_reasons": {
+        "condition": "condition terms match: lung cancer, non-small cell lung cancer, nsclc",
+        "intervention": "direct intervention or representative term match",
+        "phase": "interventional phase is available but not Phase II",
+        "endpoint": "endpoint terms match: adverse, pfs, progression-free, response",
+        "eligibility": "eligibility contains useful terms: ecog, pd-l1"
+      },
+      "study": {
+        "nct_id": "NCT05334329",
+        "brief_title": "Genetically Engineered Natural Killer (NK) Cells With or Without Atezolizumab for the Treatment of Non-small Cell Lung Cancer Previously Treated With PD-1 and/or PD-L1 Immune Checkpoint Inhibitors",
+        "overall_status": "ACTIVE_NOT_RECRUITING",
+        "phases": [
+          "PHASE1"
+        ],
+        "conditions": [
+          "Advanced Lung Non-Small Cell Carcinoma",
+          "Metastatic Lung Non-Small Cell Carcinoma",
+          "Recurrent Lung Non-Small Cell Carcinoma",
+          "Refractory Lung Non-Small Cell Carcinoma",
+          "Stage III Lung Cancer AJCC v8",
+          "Stage IIIA Lung Cancer AJCC v8",
+          "Stage IIIB Lung Cancer AJCC v8",
+          "Stage IIIC Lung Cancer AJCC v8",
+          "Stage IV Lung Cancer AJCC v8",
+          "Stage IVA Lung Cancer AJCC v8",
+          "Stage IVB Lung Cancer AJCC v8"
+        ],
+        "interventions": [
+          {
+            "type": "BIOLOGICAL",
+            "name": "Antineoplastic Immune Cell"
+          },
+          {
+            "type": "BIOLOGICAL",
+            "name": "Atezolizumab"
+          },
+          {
+            "type": "PROCEDURE",
+            "name": "Biospecimen Collection"
+          },
+          {
+            "type": "DRUG",
+            "name": "Cyclophosphamide"
+          },
+          {
+            "type": "DRUG",
+            "name": "Fludarabine"
+          }
+        ],
+        "primary_outcomes": [
+          {
+            "measure": "Incidence of adverse events - CTCAE",
+            "time_frame": "Up to 2 years"
+          },
+          {
+            "measure": "Incidence of adverse events - ASTCT",
+            "time_frame": "Up to 2 years"
+          },
+          {
+            "measure": "Dose limiting toxicities",
+            "time_frame": "Within 28 days of the first COH06 infusion"
+          }
+        ],
+        "secondary_outcomes": [
+          {
+            "measure": "Overall Response Rate (ORR)",
+            "time_frame": "Up to 2 years"
+          },
+          {
+            "measure": "Disease Control Rate (DCR)",
+            "time_frame": "Up to 2 years"
+          },
+          {
+            "measure": "Progression-Free Survival (PFS)",
+            "time_frame": "From the start of lymphodepletion to the time of disease relapse, progression, or death from any cause, whichever comes first, assessed up to 2 years"
+          }
+        ],
+        "eligibility_criteria_excerpt": "Inclusion Criteria: * Documented informed consent of the participant and/or legally authorized representative * Assent, when appropriate, will be obtained per institutional guidelines * Agreement to allow the use of archival tissue from diagnostic tumor biopsies * Age \\>= 18 years * Eastern Cooperative Oncology Group (ECOG) 0 or 1 * Lung non-small cell carcinoma (NSCLC) patients with advanced, metastatic, or recurrent disease, previously treated with a PD-1 or PD-L1 immune checkpoint inhibitor, either as single agent or in combination with chemotherapy or other immunotherapy or experimental agents * Radiographically demonstrable tumor progression treatment on or after therapy with a PD-1/PD-L1 immune checkpoint inhibitor * Preserved organ function and recovery of prior drug related toxicities (except alopecia or grade 2 anemia) to grade 1 or better * No cytotoxic chemotherapy or immun...",
+        "matched_query_labels": [
+          "baseline_drug_class"
+        ]
+      }
+    },
+    {
+      "nct_id": "NCT05867121",
+      "brief_title": "A Study to Evaluate Safety, Pharmacokinetics, & Activity of RO7496353 in Combination With a Checkpoint Inhibitor With or Without Standard-of-care Chemotherapy in Participants With Locally Advanced or Metastatic Solid Tumors; Urothelial Carcinoma Substudy in Association With RO7496353 Study GO44010",
+      "relevance_score": 9,
+      "relevance_label": "high",
+      "dimension_scores": {
+        "condition": 2,
+        "intervention": 3,
+        "phase": 1,
+        "endpoint": 2,
+        "eligibility": 1
+      },
+      "dimension_reasons": {
+        "condition": "condition terms match: lung cancer, non-small cell lung cancer",
+        "intervention": "direct intervention or representative term match",
+        "phase": "interventional phase is available but not Phase II",
+        "endpoint": "endpoint terms match: adverse, objective response, recist, response",
+        "eligibility": "eligibility contains useful terms: ecog, measurable, performance status, recist"
+      },
+      "study": {
+        "nct_id": "NCT05867121",
+        "brief_title": "A Study to Evaluate Safety, Pharmacokinetics, & Activity of RO7496353 in Combination With a Checkpoint Inhibitor With or Without Standard-of-care Chemotherapy in Participants With Locally Advanced or Metastatic Solid Tumors; Urothelial Carcinoma Substudy in Association With RO7496353 Study GO44010",
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE1"
+        ],
+        "conditions": [
+          "Non-small Cell Lung Cancer",
+          "Gastric Cancer",
+          "Pancreatic Ductal Adenocarcinoma"
+        ],
+        "interventions": [
+          {
+            "type": "DRUG",
+            "name": "RO7496353"
+          },
+          {
+            "type": "DRUG",
+            "name": "Atezolizumab"
+          },
+          {
+            "type": "DRUG",
+            "name": "Capecitabine"
+          },
+          {
+            "type": "DRUG",
+            "name": "S-1"
+          },
+          {
+            "type": "DRUG",
+            "name": "Nivolumab"
+          }
+        ],
+        "primary_outcomes": [
+          {
+            "measure": "Percentage of Participants With Adverse Events (AEs)",
+            "time_frame": "Up to approximately 33 months"
+          }
+        ],
+        "secondary_outcomes": [
+          {
+            "measure": "Plasma Concentration of RO7496353",
+            "time_frame": "Up to approximately 33 months"
+          },
+          {
+            "measure": "Percentage of Participants With Anti-drug Antibody (ADA) to RO7496353",
+            "time_frame": "Up to approximately 33 months"
+          },
+          {
+            "measure": "Confirmed Objective Response Rate (ORR) as Determined by the Investigator per Response Evaluation Criteria in Solid Tumors, Version 1.1 (RECIST v1.1)",
+            "time_frame": "Up to approximately 33 months"
+          }
+        ],
+        "eligibility_criteria_excerpt": "Inclusion Criteria: * Eastern Cooperative Oncology Group (ECOG) performance status of 0 or 1 * Life expectancy of at least 3 months * Adequate hematologic and end-organ function * Histologically confirmed locally advanced, recurrent, or metastatic incurable solid tumor malignancy * Measurable disease according to RECIST v1.1 on computed tomography (CT) or magnetic resonance imaging (MRI) images within 28 days prior to enrollment * Availability of representative tumor specimens in formalin-fixed, paraffin-embedded (FFPE) blocks or at least 15 unstained slides Exclusion Criteria: * Any anti-cancer therapy, whether investigational or approved, including chemotherapy, hormonal therapy, and/or radiotherapy, within 3 weeks prior to initiation of study treatment * Symptomatic, untreated, or actively progressing central nervous system (CNS) metastases * Significant cardiovascular disease (suc...",
+        "matched_query_labels": [
+          "representative_intervention_nivolumab",
+          "representative_intervention_atezolizumab"
+        ]
+      }
+    },
+    {
+      "nct_id": "NCT06635824",
+      "brief_title": "Trial to Evaluate Acasunlimab and Pembrolizumab Combination Superiority Over Standard of Care Docetaxel in Non-Small Cell Lung Cancer (ABBIL1TY NSCLC-06)",
+      "relevance_score": 9,
+      "relevance_label": "high",
+      "dimension_scores": {
+        "condition": 2,
+        "intervention": 3,
+        "phase": 1,
+        "endpoint": 2,
+        "eligibility": 1
+      },
+      "dimension_reasons": {
+        "condition": "condition terms match: lung cancer, non-small cell lung cancer, nsclc",
+        "intervention": "direct intervention or representative term match",
+        "phase": "interventional phase is available but not Phase II",
+        "endpoint": "endpoint terms match: overall survival, pfs, progression-free, response",
+        "eligibility": "eligibility contains useful terms: pd-l1"
+      },
+      "study": {
+        "nct_id": "NCT06635824",
+        "brief_title": "Trial to Evaluate Acasunlimab and Pembrolizumab Combination Superiority Over Standard of Care Docetaxel in Non-Small Cell Lung Cancer (ABBIL1TY NSCLC-06)",
+        "overall_status": "ACTIVE_NOT_RECRUITING",
+        "phases": [
+          "PHASE3"
+        ],
+        "conditions": [
+          "PD-L1-positive, Locally Advanced (Unresectable Stage IIIB/C) or Metastatic NSCLC"
+        ],
+        "interventions": [
+          {
+            "type": "DRUG",
+            "name": "Acasunlimab"
+          },
+          {
+            "type": "DRUG",
+            "name": "Pembrolizumab"
+          },
+          {
+            "type": "DRUG",
+            "name": "Docetaxel"
+          }
+        ],
+        "primary_outcomes": [
+          {
+            "measure": "Overall Survival (OS)",
+            "time_frame": "Up to approximately 5 years"
+          }
+        ],
+        "secondary_outcomes": [
+          {
+            "measure": "Progression-Free Survival (PFS)",
+            "time_frame": "Up to approximately 5 years"
+          },
+          {
+            "measure": "Confirmed Overall Response Rate (ORR)",
+            "time_frame": "Up to approximately 5 years"
+          },
+          {
+            "measure": "Duration of Response (DOR)",
+            "time_frame": "Up to approximately 5 years"
+          }
+        ],
+        "eligibility_criteria_excerpt": "Key Inclusion Criteria: * Participant has histologically or cytologically confirmed locally advanced (unresectable stage IIIB/C) or metastatic NSCLC (stage IV) with known subtype. * Participant has progressed radiographically on or after receiving: * One prior line of therapy (PD-1/PD-L1 inhibitor and platinum-based chemotherapy concomitantly) in the locally advanced (unresectable stage IIIB/C) or metastatic disease setting; OR * No more than 2 prior lines of therapy (PD-1/PD-L1 inhibitor and platinum-based chemotherapy sequentially, irrespective of the order) in the locally advanced (unresectable stage IIIB/C) or metastatic disease setting. * Participant must have positive tumor PD-L1 expression (tumor cells \u22651%) determined prospectively on a tumor sample from the locally advanced (unresectable stage IIIB/C) or metastatic setting at a sponsor-designated central laboratory. * Particip...",
+        "matched_query_labels": [
+          "representative_intervention_pembrolizumab"
+        ]
+      }
+    },
+    {
+      "nct_id": "NCT06875310",
+      "brief_title": "A Study of Adagrasib Plus Pembrolizumab Plus Chemotherapy vs. Placebo Plus Pembrolizumab Plus Chemotherapy in Participants With Previously Untreated Non-squamous Non-small Cell Lung Cancer With KRAS G12C Mutation (KRYSTAL-4)",
+      "relevance_score": 9,
+      "relevance_label": "high",
+      "dimension_scores": {
+        "condition": 2,
+        "intervention": 3,
+        "phase": 1,
+        "endpoint": 2,
+        "eligibility": 1
+      },
+      "dimension_reasons": {
+        "condition": "condition terms match: lung cancer, non-small cell lung cancer, nsclc",
+        "intervention": "direct intervention or representative term match",
+        "phase": "interventional phase is available but not Phase II",
+        "endpoint": "endpoint terms match: overall survival, pfs, recist, response",
+        "eligibility": "eligibility contains useful terms: measurable, pd-l1, recist"
+      },
+      "study": {
+        "nct_id": "NCT06875310",
+        "brief_title": "A Study of Adagrasib Plus Pembrolizumab Plus Chemotherapy vs. Placebo Plus Pembrolizumab Plus Chemotherapy in Participants With Previously Untreated Non-squamous Non-small Cell Lung Cancer With KRAS G12C Mutation (KRYSTAL-4)",
+        "overall_status": "RECRUITING",
+        "phases": [
+          "PHASE3"
+        ],
+        "conditions": [
+          "Carcinoma, Non-Small-Cell Lung"
+        ],
+        "interventions": [
+          {
+            "type": "DRUG",
+            "name": "Adagrasib"
+          },
+          {
+            "type": "DRUG",
+            "name": "Pembrolizumab"
+          },
+          {
+            "type": "DRUG",
+            "name": "Carboplatin"
+          },
+          {
+            "type": "DRUG",
+            "name": "Pemetrexed"
+          },
+          {
+            "type": "DRUG",
+            "name": "Placebo"
+          }
+        ],
+        "primary_outcomes": [
+          {
+            "measure": "Progression Free Survival (PFS) as Assessed per Response Evaluation Criteria in Solid Tumors (RECIST) v1.1 by Blinded Independent Central Review (BICR)",
+            "time_frame": "Up to 7 years"
+          },
+          {
+            "measure": "Overall Survival (OS)",
+            "time_frame": "Up to 7 years"
+          }
+        ],
+        "secondary_outcomes": [
+          {
+            "measure": "Overall Response (OR) as Assessed per RECIST v1.1 by BICR",
+            "time_frame": "Up to 7 years"
+          },
+          {
+            "measure": "Duration of Response (DOR) as Assessed per RECIST 1.1 by BICR",
+            "time_frame": "Up to 7 years"
+          },
+          {
+            "measure": "PFS as Assessed per RECIST v1.1 by Investigator",
+            "time_frame": "Up to 7 years"
+          }
+        ],
+        "eligibility_criteria_excerpt": "Inclusion Criteria: * Histologically or cytologically confirmed diagnosis of non-squamous NSCLC with evidence of KRAS G12C mutation via tumor sample and/or circulating tumor deoxyribonucleic acid (ctDNA). * Locally advanced or metastatic disease. * Measurable disease via computed tomography (CT) or magnetic resonance imaging (MRI) per RECIST v1.1 criteria of at least 1 lesion. * No prior systemic anti-cancer therapy given for advanced or metastatic disease. * Not a candidate for definitive therapy (eg, chemoradiation or complete surgical resection). * Participants with brain metastases are eligible for enrollment, including those with untreated brain metastases. Brain metastases must be asymptomatic and not in need of immediate local therapy. Any untreated brain metastases must be \u2264 20 mm in diameter. * Any PD-L1 expression (0 to 100%) as determined by VENTANA PD-L1 (SP263) assay, Agi...",
+        "matched_query_labels": [
+          "representative_intervention_pembrolizumab"
+        ]
+      }
+    },
+    {
+      "nct_id": "NCT02087423",
+      "brief_title": "A Global Study to Assess the Effects of MEDI4736 (Durvalumab) in Patients With Locally Advanced or Metastatic Non Small Cell Lung Cancer",
+      "relevance_score": 8,
+      "relevance_label": "high",
+      "dimension_scores": {
+        "condition": 2,
+        "intervention": 1,
+        "phase": 2,
+        "endpoint": 2,
+        "eligibility": 1
+      },
+      "dimension_reasons": {
+        "condition": "condition terms match: lung cancer, non small cell lung cancer, non-small cell lung cancer",
+        "intervention": "intervention term appears in title or eligibility context, but not as the extracted intervention",
+        "phase": "Phase II match",
+        "endpoint": "endpoint terms match: objective response, overall survival, response",
+        "eligibility": "eligibility contains useful terms: autoimmune, pd-l1, performance status, steroid"
+      },
+      "study": {
+        "nct_id": "NCT02087423",
+        "brief_title": "A Global Study to Assess the Effects of MEDI4736 (Durvalumab) in Patients With Locally Advanced or Metastatic Non Small Cell Lung Cancer",
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE2"
+        ],
+        "conditions": [
+          "Non-Small Cell Lung Cancer"
+        ],
+        "interventions": [
+          {
+            "type": "DRUG",
+            "name": "MEDI4736"
+          }
+        ],
+        "primary_outcomes": [
+          {
+            "measure": "Objective Response Rate (ORR)",
+            "time_frame": "Responses recorded during initial 12 month treatment period (up to primary analysis DCO)"
+          }
+        ],
+        "secondary_outcomes": [
+          {
+            "measure": "Time to Response (TTR)",
+            "time_frame": "Responses recorded during initial 12 month treatment period (up to primary analysis DCO)"
+          },
+          {
+            "measure": "Duration of Response (DoR)",
+            "time_frame": "Time from response to progression, death, or last assessment (up to approximately 2 years 3 months for the primary analysis DCO)"
+          },
+          {
+            "measure": "Overall Survival (OS)",
+            "time_frame": "From date of first treatment until final DCO (up to approximately 3 years 8 months)"
+          }
+        ],
+        "eligibility_criteria_excerpt": "Inclusion Criteria: * Aged at least 18 years. * Documented evidence of NSCLC (stage IIIB/IV disease) * Disease progression or recurrence after both a platinum-based chemotherapy and at least 1 additional regimen for treatment of NSCLC * World Health Organisation (WHO) Performance Status of 0 or 1 * Estimated life expectancy of more than 12 weeks * Patient's tumour sample must be PD-L1 positive (\u226525%of tumour cells with membrane staining (Cohort 1 and 2) or PD-L1 positive with \u226590% of tumour cells with membrane staining (Cohort 3)) Exclusion Criteria: * Prior exposure to any anti-PD-1 or anti-PD-L1 antibody * Brain metastases or spinal cord compression or unless asymptomatic, treated and stable (not requiring steroids). * Active or prior autoimmune disease or history of immunodeficiency * Evidence of severe or uncontrolled systemic diseases, including active bleeding diatheses or activ...",
+        "matched_query_labels": [
+          "representative_intervention_durvalumab"
+        ]
+      }
+    },
+    {
+      "nct_id": "NCT03556228",
+      "brief_title": "VMD-928 Monotherapy and in Combination With Pembrolizumab to Treat TrkA Overexpression Driven Solid Tumors or Lymphoma",
+      "relevance_score": 8,
+      "relevance_label": "high",
+      "dimension_scores": {
+        "condition": 2,
+        "intervention": 3,
+        "phase": 2,
+        "endpoint": 1,
+        "eligibility": 0
+      },
+      "dimension_reasons": {
+        "condition": "condition terms match: lung cancer, non-small cell lung cancer",
+        "intervention": "direct intervention or representative term match",
+        "phase": "Phase II match",
+        "endpoint": "one endpoint term matches: adverse",
+        "eligibility": "eligibility excerpt has limited usefulness for this scenario"
+      },
+      "study": {
+        "nct_id": "NCT03556228",
+        "brief_title": "VMD-928 Monotherapy and in Combination With Pembrolizumab to Treat TrkA Overexpression Driven Solid Tumors or Lymphoma",
+        "overall_status": "RECRUITING",
+        "phases": [
+          "PHASE1",
+          "PHASE2"
+        ],
+        "conditions": [
+          "Head and Neck Carcinoma",
+          "Adenoid Cystic Carcinoma",
+          "Lung Cancer",
+          "Non-Small Cell Lung Cancer",
+          "Pancreatic Cancer",
+          "Mesothelioma",
+          "Esophageal Cancer",
+          "Any Solid Tumors Progressed After a Prior Immunotherapy",
+          "Head and Neck Squamous Cell Carcinoma",
+          "Head and Neck Squamous Cell Carcinoma HNSCC",
+          "Salivary Gland Carcinomas",
+          "Head and Neck Cancers - Salivary Gland",
+          "Head and Neck Cancers - Nasopharyngeal",
+          "Head and Neck Cancers - Throat",
+          "Small Cell Lung Cancer ( SCLC )",
+          "Lung Cancer (Locally Advanced or Metastatic)",
+          "Head and Neck Cancers - Tonsils",
+          "Head and Neck Cancers Hypopharynx",
+          "Head and Neck Cancers Larynx",
+          "Head and Neck Cancers Lip",
+          "Head and Neck Cancers Nasopharynx",
+          "Head and Neck Cancers Oral Cavity",
+          "Head and Neck Cancers",
+          "Head and Neck Cancers Oropharynx",
+          "Head and Neck Cancers Trachea"
+        ],
+        "interventions": [
+          {
+            "type": "DRUG",
+            "name": "VMD-928 100 mg Tablet"
+          },
+          {
+            "type": "DRUG",
+            "name": "VMD-928 Tablet and Pembrolizumab (200 mg)"
+          }
+        ],
+        "primary_outcomes": [
+          {
+            "measure": "Number and severity of treatment-emergent Adverse Events (Phase 1)",
+            "time_frame": "First cycle (21 days per cycle)"
+          },
+          {
+            "measure": "To determine the recommended Phase 2 dose for VMD-928 (Phase 1)",
+            "time_frame": "First cycle (21 days per cycle)"
+          },
+          {
+            "measure": "To determine the RP2D of VMD-928 in combination with pembrolizumab (Phase 1)",
+            "time_frame": "First cycle (21 days per cycle)"
+          }
+        ],
+        "secondary_outcomes": [
+          {
+            "measure": "Area under the plasma concentration versus time curve (AUC) of VMD-928.",
+            "time_frame": "On Day 1 and Day 15 of Cycle 1 (each cycle is 21 days)"
+          },
+          {
+            "measure": "Peak plasma concentration (Cmax) of VMD-928.",
+            "time_frame": "On Day 1 and Day 15 of Cycle 1 (each cycle is 21 days)"
+          },
+          {
+            "measure": "Incidence of Dose Limiting Toxicities.",
+            "time_frame": "During the Cycle 1 (each cycle is 21 days)"
+          }
+        ],
+        "eligibility_criteria_excerpt": "Key Inclusion Criteria: #. Histologically or cytologically confirmed diagnosis of any type of solid tumor malignancy or lymphoma: Phase 1 Dose Escalation only: Subjects with (A) any advanced solid tumors of 1. Head and Neck Cancers (\"HNC\") (of any types), 2. Esophageal cancer, 3. Lung cancers (of any types), 4. Mesothelioma, 5. Pancreatic cancers, Or, (B) any NTRK1 gene fusion positive (\"NTRK1+\") solid tumors or lymphomas, that is relapsed, refractory or intolerant (R/R/I) to standard of care (SOC) and for which there is no approved or curative therapy. Additionally, patients must not be candidates for or have exhausted regimens known to provide clinical benefit, including hematopoietic stem cell transplantation in lymphoma patients if they are deemed transplant eligible. Phase 2 Monotherapy and Combination with Pembrolizumab only: Subjects must have 1. TrkA-driven HNC, Esophageal, Lu...",
+        "matched_query_labels": [
+          "representative_intervention_pembrolizumab"
+        ]
+      }
+    },
+    {
+      "nct_id": "NCT03673332",
+      "brief_title": "Elderly Cancer PatIents, Safety and qualiTy of Life Under immunOtheraPies",
+      "relevance_score": 8,
+      "relevance_label": "high",
+      "dimension_scores": {
+        "condition": 2,
+        "intervention": 3,
+        "phase": 1,
+        "endpoint": 2,
+        "eligibility": 0
+      },
+      "dimension_reasons": {
+        "condition": "condition terms match: nsclc",
+        "intervention": "direct intervention or representative term match",
+        "phase": "interventional phase is available but not Phase II",
+        "endpoint": "endpoint terms match: adverse, progression-free",
+        "eligibility": "eligibility excerpt has limited usefulness for this scenario"
+      },
+      "study": {
+        "nct_id": "NCT03673332",
+        "brief_title": "Elderly Cancer PatIents, Safety and qualiTy of Life Under immunOtheraPies",
+        "overall_status": "TERMINATED",
+        "phases": [
+          "PHASE4"
+        ],
+        "conditions": [
+          "Advanced or Metastatic Melanoma",
+          "Advanced or Metastatic NSCLC"
+        ],
+        "interventions": [
+          {
+            "type": "DRUG",
+            "name": "immune-checkpoint inhibitors therapies"
+          }
+        ],
+        "primary_outcomes": [
+          {
+            "measure": "Number of participants adverse events as assessed by CTCAE v5.0",
+            "time_frame": "From treatment initiation to 18 weeks after treatment initiation. (up to 24 months)"
+          },
+          {
+            "measure": "European Organization for Research and Treatment of Cancer Quality of Life Core Questionnaire (QLQ-C30) and Elderly Cancer Patients module (QLQ - ELD14), combined to compute a total score (between 44 and 128 points)",
+            "time_frame": "From inclusion until 24 weeks after treatment initiation (up to 24 months)"
+          }
+        ],
+        "secondary_outcomes": [
+          {
+            "measure": "geriatric data modifications under treatment",
+            "time_frame": "From inclusion until treatment discontinuation (up to 24 months)"
+          },
+          {
+            "measure": "compare patients and clinician symptoms reporting",
+            "time_frame": "From treatment initiation to 18 weeks after treatment initiation.(up to 24 months)"
+          },
+          {
+            "measure": "Progression-free survival",
+            "time_frame": "time from treatment beginning to radiological or clinical progression of the disease, or death of any cause. (up to 24 months)"
+          }
+        ],
+        "eligibility_criteria_excerpt": "Inclusion Criteria: * Patients eligible to start a treatment including immune checkpoint inhibitors (Nivolumab, Ipilimumab, Pembrolizumab, and so on\u2026) * Diagnosis of advanced or metastatic melanoma or NSCLC (All treatment lines will be allowed) * Age \u2265 70 years * Having personally signed and dated informed consent * Patient affiliated to the ''National security'' regimen or beneficiary of this regimen Exclusion Criteria: * Immune checkpoint inhibitor therapy initiated before study enrolment * Concomitant participation in other investigational clinical trials involving an immune checkpoint inhibitor * Immune checkpoint inhibitor treatment in a context of other solid tumours * Immune checkpoint inhibitor treatment in a context of haematological malignancies * Being unable or unwilling to comply with the requirements of the protocol, as assessed by the investigator * Patient in urgency s...",
+        "matched_query_labels": [
+          "baseline_drug_class"
+        ]
+      }
+    },
+    {
+      "nct_id": "NCT07218003",
+      "brief_title": "A Phase 1/1b of RNDO-564 Single Agent or in Combination With Pembrolizumab in Bladder Cancer and Other Solid Tumors Associated With Nectin-4",
+      "relevance_score": 8,
+      "relevance_label": "high",
+      "dimension_scores": {
+        "condition": 2,
+        "intervention": 3,
+        "phase": 1,
+        "endpoint": 2,
+        "eligibility": 0
+      },
+      "dimension_reasons": {
+        "condition": "condition terms match: lung cancer, non small cell lung cancer",
+        "intervention": "direct intervention or representative term match",
+        "phase": "interventional phase is available but not Phase II",
+        "endpoint": "endpoint terms match: adverse, safety",
+        "eligibility": "eligibility excerpt has limited usefulness for this scenario"
+      },
+      "study": {
+        "nct_id": "NCT07218003",
+        "brief_title": "A Phase 1/1b of RNDO-564 Single Agent or in Combination With Pembrolizumab in Bladder Cancer and Other Solid Tumors Associated With Nectin-4",
+        "overall_status": "ENROLLING_BY_INVITATION",
+        "phases": [
+          "PHASE1"
+        ],
+        "conditions": [
+          "Non Small Cell Lung Cancer",
+          "Cervical Cancer",
+          "Head and Neck Squamous Cell Cancer",
+          "Triple Negative Breast Cancer (TNBC)",
+          "Urothelial Carcinoma Bladder",
+          "Gastroesophageal Junction (GEJ) Adenocarcinoma",
+          "Esophageal Squamous Cell Cancer",
+          "Gastric Cancer",
+          "Cancer",
+          "Solid Tumors (Phase 1)"
+        ],
+        "interventions": [
+          {
+            "type": "DRUG",
+            "name": "RNDO-564"
+          },
+          {
+            "type": "DRUG",
+            "name": "Pembrolizumab"
+          }
+        ],
+        "primary_outcomes": [
+          {
+            "measure": "All Arms: - Proportion of participants with adverse events (including dose limiting toxicities) as assessed by National Cancer Institute Common Terminology Criteria for Adverse Events (NCI-CTCAE) version 5.0",
+            "time_frame": "From Day 1 to 90-days post last dose"
+          },
+          {
+            "measure": "Dose Optimization Arms: \u2022 Identify one or more recommended Phase 2 doses (RP2D)",
+            "time_frame": "From Day 1 up to 24 months"
+          }
+        ],
+        "secondary_outcomes": [
+          {
+            "measure": "All Arms: To evaluate serum concentrations at specified timepoints of RNDO-564 as a single agent or in combination with pembrolizumab",
+            "time_frame": "From Day 1 up to 25 months (inclusive of 30 day safety follow-up)"
+          },
+          {
+            "measure": "All Arms: Proportion of participants that develop anti-drug antibodies to RNDO-564",
+            "time_frame": "Baseline (predose) up to 25 months (inclusive of 30 day safety follow-up)"
+          },
+          {
+            "measure": "All Arms: Evaluate the prevalence, incidence and impact of anti-drug antibodies to RNDO-564",
+            "time_frame": "From Baseline (predose) up to 25 months (inclusive of the 30 day safety follow-up)."
+          }
+        ],
+        "eligibility_criteria_excerpt": "Inclusion Criteria: 1\\) Eligible tumor types: Histologic documentation of incurable, locally advanced or metastatic solid tumors for which established standard systemic therapies are no longer effective (participant must have experienced progressive disease), are not tolerated, or in the opinion of the Investigator have been considered ineligible for a particular form of standard therapy on medical grounds or have been declined by the participant, with these tumor subtypes: A. Monotherapy and Combination Dose Escalation Arms: * RR la/mUC: Participants with urothelial cancer (transitional cell) with squamous differentiation or mixed cell types are eligible. Participants with upper tract disease, e.g., involving ureters, or renal pelvis, are eligible. Participants may have had up to 2 prior monomethyl auristatin E (MMAE)-containing therapies, assuming any existing peripheral neuropathy...",
+        "matched_query_labels": [
+          "representative_intervention_pembrolizumab"
+        ]
+      }
+    },
+    {
+      "nct_id": "NCT03170960",
+      "brief_title": "Study of Cabozantinib Alone or in Combination With Atezolizumab to Subjects With Locally Advanced or Metastatic Solid Tumors",
+      "relevance_score": 8,
+      "relevance_label": "high",
+      "dimension_scores": {
+        "condition": 2,
+        "intervention": 3,
+        "phase": 1,
+        "endpoint": 1,
+        "eligibility": 1
+      },
+      "dimension_reasons": {
+        "condition": "condition terms match: lung cancer, non-small cell lung cancer, nsclc",
+        "intervention": "direct intervention or representative term match",
+        "phase": "interventional phase is available but not Phase II",
+        "endpoint": "one endpoint term matches: safety",
+        "eligibility": "eligibility contains useful terms: measurable, recist"
+      },
+      "study": {
+        "nct_id": "NCT03170960",
+        "brief_title": "Study of Cabozantinib Alone or in Combination With Atezolizumab to Subjects With Locally Advanced or Metastatic Solid Tumors",
+        "overall_status": "ACTIVE_NOT_RECRUITING",
+        "phases": [
+          "PHASE1"
+        ],
+        "conditions": [
+          "Urothelial Carcinoma",
+          "Renal Cell Carcinoma",
+          "Non-Small Cell Lung Cancer",
+          "Castration-resistant Prostate Cancer",
+          "Triple Negative Breast Cancer",
+          "Ovarian Cancer",
+          "Endometrial Cancer",
+          "Hepatocellular Carcinoma",
+          "Gastric Cancer",
+          "Gastroesophageal Junction Adenocarcinoma",
+          "Colorectal Cancer",
+          "Head and Neck Cancer",
+          "Differentiated Thyroid Cancer",
+          "Lower Esophageal Cancer"
+        ],
+        "interventions": [
+          {
+            "type": "DRUG",
+            "name": "cabozantinib"
+          },
+          {
+            "type": "DRUG",
+            "name": "atezolizumab"
+          },
+          {
+            "type": "DRUG",
+            "name": "cabozantinib"
+          },
+          {
+            "type": "DRUG",
+            "name": "cabozantinib"
+          }
+        ],
+        "primary_outcomes": [
+          {
+            "measure": "Dose Escalation: MTD/Recommended Dose",
+            "time_frame": "Up to Day 21"
+          },
+          {
+            "measure": "Dose Expansion: ORR",
+            "time_frame": "Up to a maximum of 59 months"
+          }
+        ],
+        "secondary_outcomes": [
+          {
+            "measure": "Incidence and severity of nonserious AEs and SAEs (Safety)",
+            "time_frame": "From first dose to 30 days following last dose (up to a maximum of 59 months)"
+          }
+        ],
+        "eligibility_criteria_excerpt": "Inclusion Criteria: 1. Cytologically or histologically and radiologically confirmed solid tumor that is inoperable, locally advanced, metastatic, or recurrent: * Dose-Escalation Stage: * Subjects with UC (including renal pelvis, ureter, bladder, urethra) after prior platinum-based therapy, or * Subjects with RCC (clear cell, non-clear cell histology) with or without prior systemic anticancer therapy * Expansion Stage: * Inoperable locally advanced or metastatic solid tumor (UC, RCC, CRPC, NSCLC, TNBC, OC, EC, HCC, GC/GEJC/LEC, CRC, H\\&N cancer, and DTC as outlined above) 2. Measurable disease per RECIST 1.1 as determined by the investigator. 3. Tumor tissue material available (archival or recent tumor biopsy) 4. Recovery to baseline or \u2264 Grade 1 CTCAE v4 from toxicities related to any prior treatments, unless AE(s) are clinically nonsignificant and/or stable on supportive therapy. 5....",
+        "matched_query_labels": [
+          "baseline_drug_class"
+        ]
+      }
+    },
+    {
+      "nct_id": "NCT04916002",
+      "brief_title": "A Trial To Find Out If Vidutolimod Together With Cemiplimab Is Safe And If It Works In Adult Participants With Advanced Cancer Or Metastatic Cancer",
+      "relevance_score": 7,
+      "relevance_label": "medium",
+      "dimension_scores": {
+        "condition": 2,
+        "intervention": 0,
+        "phase": 2,
+        "endpoint": 2,
+        "eligibility": 1
+      },
+      "dimension_reasons": {
+        "condition": "condition terms match: lung cancer, non-small cell lung cancer",
+        "intervention": "no clear intervention match",
+        "phase": "Phase II match",
+        "endpoint": "endpoint terms match: adverse, objective response, response",
+        "eligibility": "eligibility contains useful terms: ecog, measurable, performance status, recist"
+      },
+      "study": {
+        "nct_id": "NCT04916002",
+        "brief_title": "A Trial To Find Out If Vidutolimod Together With Cemiplimab Is Safe And If It Works In Adult Participants With Advanced Cancer Or Metastatic Cancer",
+        "overall_status": "TERMINATED",
+        "phases": [
+          "PHASE2"
+        ],
+        "conditions": [
+          "Merkel Cell Carcinoma",
+          "Cutaneous Squamous Cell Carcinoma",
+          "Basal Cell Carcinoma",
+          "Triple Negative Breast Cancer",
+          "Non-Small Cell Lung Cancer",
+          "Oropharynx Squamous Cell Carcinoma"
+        ],
+        "interventions": [
+          {
+            "type": "DRUG",
+            "name": "vidutolimod"
+          },
+          {
+            "type": "DRUG",
+            "name": "cemiplimab"
+          }
+        ],
+        "primary_outcomes": [
+          {
+            "measure": "Objective Response Rate (ORR)",
+            "time_frame": "Up to 31.5 Months"
+          }
+        ],
+        "secondary_outcomes": [
+          {
+            "measure": "Number of Participants With Any Treatment-emergent Adverse Event (TEAE), Any Serious TEAE, and Any TEAE Leading to Discontinuation or Death",
+            "time_frame": "Up to 31.5 months"
+          },
+          {
+            "measure": "Severity of TEAEs as Assessed by the National Cancer Institute Common Terminology Criteria for Adverse Events (NCI CTCAE)",
+            "time_frame": "Up to 31.5 months"
+          },
+          {
+            "measure": "Duration of Response (DOR)",
+            "time_frame": "Up to 31.5 months"
+          }
+        ],
+        "eligibility_criteria_excerpt": "Key Inclusion Criteria: Participants enrolled in the study must meet all of the following inclusion criteria to be eligible. 1. Histopathologically-confirmed diagnosis of cancer, as defined by the protocol. 2. Measurable disease, as defined by RECIST v1.1 and as defined in the protocol. Note: CSCC, MCC and BCC subjects without radiographically measurable disease are not excluded if there is at least 1 lesion \u2265 10 mm in at east 1 dimension documented by color photography. 3. Adequate organ function based on most recent laboratory values within 3 weeks before first dose of study treatment on Week 1 Day 1 (W1D1), as defined in the protocol. 4. Eastern Cooperative Oncology Group (ECOG) Performance Status of 0 to 1 at Screening. Key Exclusion Criteria: Participants presenting with any of the following will not qualify for entry into the study: 1. Received radiation therapy (or other non-sy...",
+        "matched_query_labels": [
+          "baseline_drug_class"
+        ]
+      }
+    },
+    {
+      "nct_id": "NCT02454933",
+      "brief_title": "Study of AZD9291 Plus MEDI4736 Versus AZD9291 Monotherapy in NSCLC After Previous EGFR TKI Therapy in T790M Mutation Positive Tumours",
+      "relevance_score": 7,
+      "relevance_label": "medium",
+      "dimension_scores": {
+        "condition": 2,
+        "intervention": 1,
+        "phase": 1,
+        "endpoint": 2,
+        "eligibility": 1
+      },
+      "dimension_reasons": {
+        "condition": "condition terms match: nsclc",
+        "intervention": "intervention term appears in title or eligibility context, but not as the extracted intervention",
+        "phase": "interventional phase is available but not Phase II",
+        "endpoint": "endpoint terms match: adverse, safety",
+        "eligibility": "eligibility contains useful terms: egfr"
+      },
+      "study": {
+        "nct_id": "NCT02454933",
+        "brief_title": "Study of AZD9291 Plus MEDI4736 Versus AZD9291 Monotherapy in NSCLC After Previous EGFR TKI Therapy in T790M Mutation Positive Tumours",
+        "overall_status": "COMPLETED",
+        "phases": [
+          "PHASE3"
+        ],
+        "conditions": [
+          "Locally Advanced or Metastatic EGFR T790M+ NSCLC"
+        ],
+        "interventions": [
+          {
+            "type": "DRUG",
+            "name": "AZD9291"
+          },
+          {
+            "type": "DRUG",
+            "name": "MEDI4736"
+          }
+        ],
+        "primary_outcomes": [
+          {
+            "measure": "Number of Subjects With Adverse Events (AEs) as a Measure of the Safety and Tolerability of Osimertinib in Combination With Durvalumab",
+            "time_frame": "From Baseline up to primary analysis data cut-off (up to 24 months)."
+          }
+        ],
+        "secondary_outcomes": [],
+        "eligibility_criteria_excerpt": "Inclusion Criteria: * Aged at least 18 years. Japan patients aged at least 20 years. * Locally advanced/metastatic NSCLC, not amenable to curative surgery or radiotherapy * Confirmation from a previous archival sample that the tumour harbours an EGFR mutation known to be associated with EGFR TKI sensitivity * Radiological documentation of disease progression while on a previous continuous treatment with an EGFR TKI. Additional other lines of therapy may have been given. All patients must have documented radiological progression on the last treatment administered prior to enrolling in the study. * Patients must have central lab confirmation of tumour T790M status from a biopsy taken after disease progression on the most recent treatment regimen. Only patients with T790M+ will be included in the study * At least one lesion, not previously irradiated and not chosen for biopsy during the...",
+        "matched_query_labels": [
+          "representative_intervention_durvalumab"
+        ]
+      }
+    },
+    {
+      "nct_id": "NCT03911219",
+      "brief_title": "Impact of eHealth Monitoring on Overall Survival in Patients With Metastatic NSCLC / Extensive-stage SCLC / Advanced TNBC Under First-line Treatment With Atezolizumab Plus Chemotherapy",
+      "relevance_score": 6,
+      "relevance_label": "medium",
+      "dimension_scores": {
+        "condition": 2,
+        "intervention": 1,
+        "phase": 0,
+        "endpoint": 2,
+        "eligibility": 1
+      },
+      "dimension_reasons": {
+        "condition": "condition terms match: lung cancer, non-small cell lung cancer, nsclc",
+        "intervention": "intervention term appears in title or eligibility context, but not as the extracted intervention",
+        "phase": "phase not available or not comparable",
+        "endpoint": "endpoint terms match: overall survival, response",
+        "eligibility": "eligibility contains useful terms: pd-l1"
+      },
+      "study": {
+        "nct_id": "NCT03911219",
+        "brief_title": "Impact of eHealth Monitoring on Overall Survival in Patients With Metastatic NSCLC / Extensive-stage SCLC / Advanced TNBC Under First-line Treatment With Atezolizumab Plus Chemotherapy",
+        "overall_status": "COMPLETED",
+        "phases": [],
+        "conditions": [
+          "Stage IV Non-small Cell Lung Cancer",
+          "Extensive-stage Small Cell Lung Cancer",
+          "Advanced (Locally Advanced and Inoperable or Metastatic), PD-L1 IC-positive TNBC"
+        ],
+        "interventions": [
+          {
+            "type": "OTHER",
+            "name": "eHealth system support for symptom management via CANKADO"
+          }
+        ],
+        "primary_outcomes": [
+          {
+            "measure": "Overall Survival (OS)",
+            "time_frame": "72 months"
+          }
+        ],
+        "secondary_outcomes": [
+          {
+            "measure": "Best response",
+            "time_frame": "72 months"
+          },
+          {
+            "measure": "Overall response rate (ORR)",
+            "time_frame": "72 months"
+          },
+          {
+            "measure": "Disease control rate (DCR)",
+            "time_frame": "72 months"
+          }
+        ],
+        "eligibility_criteria_excerpt": "Inclusion criteria 1. Histologically or cytologically confirmed stage IV non-squamous NSCLC or histologically or cytologically confirmed extensive-stage SCLC or histologically or cytologically confirmed advanced (locally advanced and inoperable or metastatic), PD-L1 IC-positive TNBC, respectively 2. Indication and decision for approved therapy with 1. atezolizumab and bevacizumab in combination with carboplatin and paclitaxel induction followed by atezolizumab/bevacizumab maintenance therapy in accordance with the current German SmPC of atezolizumab for first-line treatment of stage IV non-squamous NSCLC 2. atezolizumab in combination with carboplatin and nab-paclitaxel induction followed by atezolizumab maintenance therapy in accordance to the current German SmPC of atezolizumab for first-line treatment of stage IV non-squamous NSCLC 3. atezolizumab in combination with carboplatin an...",
+        "matched_query_labels": [
+          "representative_intervention_atezolizumab"
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "Relevance scoring is deterministic keyword-based screening, not expert clinical judgment.",
+    "High relevance means useful for comparison, not proof that the draft protocol is correct."
+  ]
+}

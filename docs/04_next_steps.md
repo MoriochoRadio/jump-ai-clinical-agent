@@ -87,4 +87,7 @@
 - [x] Draft post-submission retrospective for GitHub reviewers.
 - [x] Analyze `seed-project` as a reference portfolio structure.
 - [x] Adapt README toward a problem-first portfolio flow inspired by `seed-project`.
-- [ ] Add Scenario 002 with a different clinical area.
+- [x] Add Scenario 002 with a different clinical area.
+- [x] Run Scenario 002 with live ClinicalTrials.gov retrieval.
+- [x] Manually score Scenario 002 against its rubric.
+- [ ] Add PubMed/NCBI retrieval as a second public evidence source.

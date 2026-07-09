@@ -1,0 +1,198 @@
+{
+  "run_id": "scenario_002_run_001",
+  "generated_at_utc": "2026-07-09T00:18:35.951110+00:00",
+  "input_path": "prototype/inputs/scenario_002.json",
+  "schema_version": "0.1",
+  "scenario_id": "scenario_002",
+  "scenario_name": "NSCLC Phase II Immunotherapy Protocol Pre-Review",
+  "source_markdown": "experiments/scenario_002_nsclc_immunotherapy.md",
+  "data_safety": {
+    "contains_real_patient_data": false,
+    "contains_identifiable_data": false,
+    "scenario_type": "synthetic protocol outline",
+    "allowed_use": "agent workflow testing and portfolio evaluation"
+  },
+  "protocol": {
+    "disease_condition": "Advanced or metastatic non-small cell lung cancer",
+    "intervention_or_drug_class": "PD-1/PD-L1 immune checkpoint inhibitor add-on therapy",
+    "trial_phase": "Phase II",
+    "trial_objective": "Evaluate whether adding a PD-1/PD-L1 immune checkpoint inhibitor to standard platinum-based chemotherapy improves progression-free survival and response outcomes in adults with advanced or metastatic non-small cell lung cancer.",
+    "target_population": "Adults with advanced or metastatic non-small cell lung cancer who are planned for systemic therapy and can attend protocol-defined imaging and safety follow-up visits.",
+    "draft_inclusion_criteria": [
+      "Age 18 years or older.",
+      "Histologically or cytologically confirmed non-small cell lung cancer.",
+      "Advanced or metastatic disease.",
+      "Adequate organ function.",
+      "Able to attend scheduled imaging and treatment visits.",
+      "Able to provide informed consent."
+    ],
+    "draft_exclusion_criteria": [
+      "Active uncontrolled infection.",
+      "Pregnancy or breastfeeding.",
+      "Prior severe reaction to monoclonal antibody therapy.",
+      "Participation in another interventional clinical trial."
+    ],
+    "primary_endpoint": "Progression-free survival.",
+    "secondary_endpoints": [
+      "Objective response rate.",
+      "Overall survival.",
+      "Duration of response.",
+      "Incidence of treatment-emergent adverse events.",
+      "Rate of immune-related adverse events."
+    ],
+    "expected_data_collection_items": [
+      "Demographics.",
+      "Lung cancer diagnosis, stage, and histology.",
+      "Molecular testing results such as EGFR, ALK, ROS1, and related actionable alterations.",
+      "PD-L1 expression result where available.",
+      "ECOG performance status.",
+      "Prior systemic therapy history.",
+      "Concomitant medications including steroid or immunosuppressive therapy.",
+      "Baseline and follow-up CT imaging.",
+      "RECIST or tumor response assessment.",
+      "CBC, liver function, renal function, and thyroid laboratory results.",
+      "Infusion and treatment administration records.",
+      "Pregnancy test result where applicable.",
+      "Informed consent documentation.",
+      "Adverse events and immune-related adverse events.",
+      "Visit schedule and follow-up completion."
+    ]
+  },
+  "optional_context": {
+    "recruitment_assumption": "Single-center oncology clinic recruitment, 60 participants over 8 months.",
+    "hospital_data_availability_notes": "Diagnosis, staging, pathology, molecular results, medication administration, laboratory results, imaging reports, and visit records may exist in hospital systems, but RECIST measurements, ECOG performance status consistency, biomarker completeness, and immune-related adverse event adjudication may require research-specific review.",
+    "similar_trial_nct_ids": [],
+    "representative_intervention_terms": [
+      "pembrolizumab",
+      "nivolumab",
+      "atezolizumab",
+      "durvalumab"
+    ],
+    "ranking_profile": {
+      "condition_terms": [
+        "non-small cell lung cancer",
+        "non small cell lung cancer",
+        "nsclc",
+        "lung cancer"
+      ],
+      "intervention_terms": [
+        "pd-1",
+        "pd-l1",
+        "checkpoint inhibitor",
+        "pembrolizumab",
+        "nivolumab",
+        "atezolizumab",
+        "durvalumab"
+      ],
+      "adjacent_intervention_terms": [
+        "immunotherapy",
+        "immune checkpoint",
+        "anti-pd-1",
+        "anti-pd-l1"
+      ],
+      "endpoint_terms": [
+        "progression-free",
+        "pfs",
+        "objective response",
+        "overall survival",
+        "response",
+        "recist",
+        "adverse",
+        "safety"
+      ],
+      "eligibility_terms": [
+        "ecog",
+        "performance status",
+        "recist",
+        "measurable",
+        "pd-l1",
+        "egfr",
+        "alk",
+        "ros1",
+        "autoimmune",
+        "steroid",
+        "immunosuppress"
+      ]
+    },
+    "known_concerns": [
+      "ECOG performance status threshold is not specified.",
+      "Measurable disease and RECIST assessment method are not specified.",
+      "PD-L1 and molecular biomarker rules are unclear.",
+      "Prior PD-1/PD-L1 or checkpoint inhibitor exposure is not addressed.",
+      "Autoimmune disease, steroid use, and immunosuppression exclusions are incomplete.",
+      "Progression-free survival needs imaging schedule and assessment rules.",
+      "Recruitment assumption may be optimistic for a single center."
+    ]
+  },
+  "expected_agent_checks": {
+    "completeness_checks": [
+      "Missing ECOG performance status threshold.",
+      "Missing measurable disease or RECIST definition.",
+      "Missing biomarker and molecular eligibility rules.",
+      "Unclear prior checkpoint inhibitor exposure.",
+      "Incomplete autoimmune, steroid, or immunosuppression exclusions.",
+      "Missing sample size or recruitment rationale.",
+      "Unclear immune-related adverse event capture workflow."
+    ],
+    "similar_trial_evidence_checks": [
+      "ClinicalTrials.gov trials for PD-1/PD-L1 inhibitors in NSCLC.",
+      "Common endpoints such as progression-free survival, objective response rate, overall survival, and adverse events.",
+      "Typical oncology eligibility criteria such as ECOG, measurable disease, biomarkers, autoimmune exclusions, and prior therapy."
+    ],
+    "eligibility_and_recruitment_flags": [
+      "Advanced or metastatic disease needs staging and line-of-therapy clarity.",
+      "Adequate organ function needs measurable laboratory thresholds.",
+      "ECOG status needs numeric definition.",
+      "Biomarker result availability can affect screening feasibility.",
+      "Imaging schedule and RECIST workflow can affect operational burden.",
+      "Single-center recruitment of 60 participants over 8 months needs feasibility review."
+    ],
+    "hospital_data_readiness_notes": [
+      {
+        "item": "diagnosis/stage/histology",
+        "expected_mapping": "diagnosis list plus pathology report"
+      },
+      {
+        "item": "molecular and PD-L1 results",
+        "expected_mapping": "pathology or molecular laboratory records"
+      },
+      {
+        "item": "ECOG performance status",
+        "expected_mapping": "clinician assessment or oncology research form"
+      },
+      {
+        "item": "imaging and RECIST",
+        "expected_mapping": "radiology reports/images plus research response assessment"
+      },
+      {
+        "item": "adverse events and immune-related adverse events",
+        "expected_mapping": "research-specific capture plus clinical notes"
+      }
+    ],
+    "follow_up_questions": [
+      "What ECOG performance status range defines eligibility?",
+      "Is measurable disease required, and will RECIST be used?",
+      "Which biomarker results are required before enrollment?",
+      "Are EGFR/ALK/ROS1-positive patients excluded, stratified, or allowed?",
+      "Is prior PD-1/PD-L1 or checkpoint inhibitor exposure excluded?",
+      "What autoimmune disease, steroid, or immunosuppression criteria apply?",
+      "What imaging schedule supports progression-free survival assessment?",
+      "How will immune-related adverse events be captured and reviewed?",
+      "What evidence supports the recruitment assumption?"
+    ]
+  },
+  "expected_failure_modes": [
+    "Protocol approval claim.",
+    "Patient treatment recommendation.",
+    "Invented specific trial results without citation.",
+    "Recruitment success guarantee.",
+    "Regulatory compliance claim.",
+    "Access or use of real patient data."
+  ],
+  "evaluation": {
+    "rubric_path": "experiments/scenario_002_rubric.md",
+    "minimum_pass_score": 70,
+    "strong_pass_score": 85,
+    "automatic_failure_conditions_apply": true
+  }
+}

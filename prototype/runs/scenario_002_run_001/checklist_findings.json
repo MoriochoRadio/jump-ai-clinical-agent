@@ -1,0 +1,117 @@
+{
+  "run_id": "scenario_002_run_001",
+  "field_presence": [
+    {
+      "field": "disease_condition",
+      "status": "present"
+    },
+    {
+      "field": "intervention_or_drug_class",
+      "status": "present"
+    },
+    {
+      "field": "trial_phase",
+      "status": "present"
+    },
+    {
+      "field": "trial_objective",
+      "status": "present"
+    },
+    {
+      "field": "target_population",
+      "status": "present"
+    },
+    {
+      "field": "draft_inclusion_criteria",
+      "status": "present"
+    },
+    {
+      "field": "draft_exclusion_criteria",
+      "status": "present"
+    },
+    {
+      "field": "primary_endpoint",
+      "status": "present"
+    },
+    {
+      "field": "secondary_endpoints",
+      "status": "present"
+    },
+    {
+      "field": "expected_data_collection_items",
+      "status": "present"
+    }
+  ],
+  "findings": [
+    {
+      "id": "missing_study_design",
+      "severity": "high",
+      "finding": "Study design, randomization, blinding, and comparator details are not specified.",
+      "evidence": "No structured study design field or criterion-level design detail found.",
+      "recommendation": "Clarify whether the study is randomized, blinded, placebo-controlled, active-comparator, or single-arm."
+    },
+    {
+      "id": "missing_sample_size_or_recruitment_rationale",
+      "severity": "medium",
+      "finding": "Recruitment assumption is provided without feasibility rationale.",
+      "evidence": "Single-center oncology clinic recruitment, 60 participants over 8 months.",
+      "recommendation": "Add screening pool, historical recruitment rate, or site feasibility evidence."
+    },
+    {
+      "id": "follow_up_attendance_operational_definition",
+      "severity": "medium",
+      "finding": "Follow-up visit attendance criterion needs an operational definition.",
+      "evidence": [
+        "Able to attend scheduled imaging and treatment visits."
+      ],
+      "recommendation": "Define required visit windows, acceptable missed visits, remote visit options, and how attendance feasibility will be assessed."
+    },
+    {
+      "id": "missing_performance_status_definition",
+      "severity": "high",
+      "finding": "Performance status eligibility is not operationally defined.",
+      "evidence": "No ECOG or performance status criterion found.",
+      "recommendation": "Define the accepted ECOG performance status range and how it will be documented."
+    },
+    {
+      "id": "missing_measurable_disease_definition",
+      "severity": "high",
+      "finding": "Measurable disease requirement is not defined.",
+      "evidence": "No RECIST or measurable disease criterion found.",
+      "recommendation": "Clarify whether measurable disease is required and which response assessment standard will be used."
+    },
+    {
+      "id": "missing_biomarker_rules",
+      "severity": "high",
+      "finding": "Biomarker and molecular eligibility rules are unclear.",
+      "evidence": "No EGFR, ALK, ROS1, PD-L1, or biomarker criterion found.",
+      "recommendation": "Define required biomarker testing, exclusion rules, and how missing results will be handled."
+    },
+    {
+      "id": "missing_immunotherapy_safety_exclusions",
+      "severity": "medium",
+      "finding": "Checkpoint-inhibitor safety exclusions are incomplete.",
+      "evidence": "No autoimmune disease, steroid, or immunosuppression criterion found.",
+      "recommendation": "Clarify autoimmune disease, immunosuppressive therapy, and steroid-use exclusions or monitoring rules."
+    },
+    {
+      "id": "unclear_prior_checkpoint_exposure",
+      "severity": "medium",
+      "finding": "Prior checkpoint inhibitor exposure is not clearly addressed.",
+      "evidence": "Eligibility criteria do not clearly state whether prior PD-1/PD-L1 or checkpoint inhibitor therapy is allowed.",
+      "recommendation": "Clarify prior immunotherapy exposure rules and washout requirements."
+    },
+    {
+      "id": "unclear_adverse_event_workflow",
+      "severity": "medium",
+      "finding": "Adverse events are listed as data items, but the capture workflow is unclear.",
+      "evidence": "Expected data collection items include adverse events.",
+      "recommendation": "Specify how adverse events will be captured, reviewed, coded, and reconciled."
+    }
+  ],
+  "summary": {
+    "total_findings": 9,
+    "high_severity": 4,
+    "medium_severity": 5
+  }
+}

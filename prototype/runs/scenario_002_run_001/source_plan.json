@@ -1,0 +1,68 @@
+{
+  "run_id": "scenario_002_run_001",
+  "live_retrieval_performed": true,
+  "reason": "Live retrieval requested with --fetch-sources.",
+  "planned_source": "ClinicalTrials.gov API v2",
+  "planned_endpoint": "https://clinicaltrials.gov/api/v2/studies",
+  "planned_query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=5&query.cond=Advanced+or+metastatic+non-small+cell+lung+cancer&query.intr=PD-1%2FPD-L1+immune+checkpoint+inhibitor",
+  "planned_queries": [
+    {
+      "label": "baseline_drug_class",
+      "condition": "Advanced or metastatic non-small cell lung cancer",
+      "intervention_keyword": "PD-1/PD-L1 immune checkpoint inhibitor",
+      "query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=5&query.cond=Advanced+or+metastatic+non-small+cell+lung+cancer&query.intr=PD-1%2FPD-L1+immune+checkpoint+inhibitor"
+    },
+    {
+      "label": "representative_intervention_pembrolizumab",
+      "condition": "Advanced or metastatic non-small cell lung cancer",
+      "intervention_keyword": "pembrolizumab",
+      "query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=5&query.cond=Advanced+or+metastatic+non-small+cell+lung+cancer&query.intr=pembrolizumab"
+    },
+    {
+      "label": "representative_intervention_nivolumab",
+      "condition": "Advanced or metastatic non-small cell lung cancer",
+      "intervention_keyword": "nivolumab",
+      "query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=5&query.cond=Advanced+or+metastatic+non-small+cell+lung+cancer&query.intr=nivolumab"
+    },
+    {
+      "label": "representative_intervention_atezolizumab",
+      "condition": "Advanced or metastatic non-small cell lung cancer",
+      "intervention_keyword": "atezolizumab",
+      "query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=5&query.cond=Advanced+or+metastatic+non-small+cell+lung+cancer&query.intr=atezolizumab"
+    },
+    {
+      "label": "representative_intervention_durvalumab",
+      "condition": "Advanced or metastatic non-small cell lung cancer",
+      "intervention_keyword": "durvalumab",
+      "query_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=5&query.cond=Advanced+or+metastatic+non-small+cell+lung+cancer&query.intr=durvalumab"
+    }
+  ],
+  "query_concepts": {
+    "condition": "Advanced or metastatic non-small cell lung cancer",
+    "intervention_keyword": "PD-1/PD-L1 immune checkpoint inhibitor",
+    "representative_intervention_terms": [
+      "pembrolizumab",
+      "nivolumab",
+      "atezolizumab",
+      "durvalumab"
+    ],
+    "phase": "Phase II"
+  },
+  "fields_to_compare_later": [
+    "NCT ID",
+    "brief title",
+    "conditions",
+    "interventions",
+    "phase",
+    "primary outcomes",
+    "secondary outcomes",
+    "eligibility criteria",
+    "recruitment status"
+  ],
+  "limitations": [
+    "ClinicalTrials.gov records are public registry records and may not fully represent protocol rationale.",
+    "This prototype stores selected fields only and does not validate clinical correctness.",
+    "Expanded retrieval de-duplicates records by NCT ID before local relevance ranking."
+  ],
+  "retrieval_status": "success"
+}

@@ -56,12 +56,31 @@ FORBIDDEN_CLAIM_PATTERNS = [
     (r"\breal patient data\b.*\brequired\b", "possible real patient data requirement"),
 ]
 
-REPRESENTATIVE_GLP1_TERMS = [
+DEFAULT_REPRESENTATIVE_INTERVENTION_TERMS = [
     "semaglutide",
     "liraglutide",
     "dulaglutide",
     "exenatide",
 ]
+
+DEFAULT_RANKING_PROFILE = {
+    "condition_terms": ["type 2 diabetes", "t2dm", "diabetes mellitus, type 2", "diabetes"],
+    "intervention_terms": [
+        "glp-1 receptor agonist",
+        "glp1 receptor agonist",
+        "glp-1ra",
+        "glp1 ra",
+        "exenatide",
+        "semaglutide",
+        "liraglutide",
+        "dulaglutide",
+        "lixisenatide",
+        "albiglutide",
+    ],
+    "adjacent_intervention_terms": ["glp-1", "glp1", "gpr119", "incretin"],
+    "endpoint_terms": ["hba1c", "a1c", "weight", "glucose", "glycemic", "glycaemic", "metabolic", "adverse", "safety"],
+    "eligibility_terms": ["hba1c", "a1c", "egfr", "renal", "kidney", "pregnancy", "pancreatitis", "insulin", "glp"],
+}
 
 
 def parse_args() -> argparse.Namespace:
@@ -182,6 +201,20 @@ def has_numeric_threshold(text: str) -> bool:
     return bool(re.search(r"\d", cleaned))
 
 
+def scenario_heading(normalized: dict[str, Any], suffix: str) -> str:
+    return f"{normalized['scenario_id']} {suffix}"
+
+
+def get_ranking_profile(normalized: dict[str, Any]) -> dict[str, list[str]]:
+    optional_context = normalized.get("optional_context", {})
+    configured = optional_context.get("ranking_profile", {})
+    profile: dict[str, list[str]] = {}
+    for key, defaults in DEFAULT_RANKING_PROFILE.items():
+        value = configured.get(key, defaults)
+        profile[key] = [str(item).lower() for item in value]
+    return profile
+
+
 def collect_criteria(protocol: dict[str, Any]) -> tuple[list[str], list[str]]:
     inclusion = protocol.get("draft_inclusion_criteria", [])
     exclusion = protocol.get("draft_exclusion_criteria", [])
@@ -294,7 +327,9 @@ def make_checklist_findings(normalized: dict[str, Any]) -> dict[str, Any]:
             }
         )
 
-    if "glp-1" not in all_criteria_text and "glp" not in all_criteria_text:
+    protocol_text = json.dumps(protocol).lower()
+    is_glp1_scenario = "glp-1" in protocol_text or "glp1" in protocol_text
+    if is_glp1_scenario and "glp-1" not in all_criteria_text and "glp" not in all_criteria_text:
         findings.append(
             {
                 "id": "unclear_prior_glp1_exposure",
@@ -304,6 +339,60 @@ def make_checklist_findings(normalized: dict[str, Any]) -> dict[str, Any]:
                 "recommendation": "Clarify whether prior or recent GLP-1 receptor agonist use is allowed, excluded, or stratified.",
             }
         )
+
+    immunotherapy_terms = ["pd-1", "pd-l1", "checkpoint", "pembrolizumab", "nivolumab", "atezolizumab", "durvalumab"]
+    is_checkpoint_scenario = any(term in protocol_text for term in immunotherapy_terms)
+    if is_checkpoint_scenario:
+        if not any(term in all_criteria_text for term in ["ecog", "performance status"]):
+            findings.append(
+                {
+                    "id": "missing_performance_status_definition",
+                    "severity": "high",
+                    "finding": "Performance status eligibility is not operationally defined.",
+                    "evidence": "No ECOG or performance status criterion found.",
+                    "recommendation": "Define the accepted ECOG performance status range and how it will be documented.",
+                }
+            )
+        if not any(term in all_criteria_text for term in ["recist", "measurable disease"]):
+            findings.append(
+                {
+                    "id": "missing_measurable_disease_definition",
+                    "severity": "high",
+                    "finding": "Measurable disease requirement is not defined.",
+                    "evidence": "No RECIST or measurable disease criterion found.",
+                    "recommendation": "Clarify whether measurable disease is required and which response assessment standard will be used.",
+                }
+            )
+        if not any(term in all_criteria_text for term in ["egfr", "alk", "ros1", "pd-l1", "pdl1", "biomarker"]):
+            findings.append(
+                {
+                    "id": "missing_biomarker_rules",
+                    "severity": "high",
+                    "finding": "Biomarker and molecular eligibility rules are unclear.",
+                    "evidence": "No EGFR, ALK, ROS1, PD-L1, or biomarker criterion found.",
+                    "recommendation": "Define required biomarker testing, exclusion rules, and how missing results will be handled.",
+                }
+            )
+        if not any(term in all_criteria_text for term in ["autoimmune", "steroid", "immunosuppress"]):
+            findings.append(
+                {
+                    "id": "missing_immunotherapy_safety_exclusions",
+                    "severity": "medium",
+                    "finding": "Checkpoint-inhibitor safety exclusions are incomplete.",
+                    "evidence": "No autoimmune disease, steroid, or immunosuppression criterion found.",
+                    "recommendation": "Clarify autoimmune disease, immunosuppressive therapy, and steroid-use exclusions or monitoring rules.",
+                }
+            )
+        if "prior" not in all_criteria_text or not any(term in all_criteria_text for term in ["pd-1", "pd-l1", "checkpoint", "immunotherapy"]):
+            findings.append(
+                {
+                    "id": "unclear_prior_checkpoint_exposure",
+                    "severity": "medium",
+                    "finding": "Prior checkpoint inhibitor exposure is not clearly addressed.",
+                    "evidence": "Eligibility criteria do not clearly state whether prior PD-1/PD-L1 or checkpoint inhibitor therapy is allowed.",
+                    "recommendation": "Clarify prior immunotherapy exposure rules and washout requirements.",
+                }
+            )
 
     data_items = " ".join(protocol.get("expected_data_collection_items", [])).lower()
     if "adverse" in data_items and "workflow" not in data_items and "capture" not in data_items:
@@ -333,12 +422,20 @@ def classify_data_item(item: str) -> dict[str, str]:
     text = item.lower()
     if "demographic" in text:
         return ("registration/demographic data", "routine hospital system", "low")
-    if "diagnosis" in text:
-        return ("diagnosis/problem list", "routine hospital system", "medium")
+    if "diagnosis" in text or "stage" in text or "histology" in text:
+        return ("diagnosis/problem list plus pathology report", "mixed routine and manual", "medium")
+    if any(term in text for term in ["molecular", "egfr", "alk", "ros1", "pd-l1", "pdl1", "biomarker"]):
+        return ("pathology or molecular laboratory result", "mixed routine and manual", "high")
+    if any(term in text for term in ["ecog", "performance status"]):
+        return ("clinician assessment or oncology research form", "mixed routine and manual", "high")
+    if any(term in text for term in ["hba1c", "glucose", "renal", "pregnancy test", "cbc", "liver", "thyroid", "laboratory", "lab"]):
+        return ("laboratory results", "routine hospital system or protocol-specific lab", "medium")
+    if any(term in text for term in ["imaging", "mri", "recist", "tumor assessment"]) or re.search(r"\bct\b", text):
+        return ("radiology report/images plus research response assessment", "mixed routine and manual", "high")
+    if "infusion" in text or "treatment administration" in text:
+        return ("medication administration or infusion records", "routine hospital system", "medium")
     if "medication" in text or "concomitant" in text:
         return ("medication/order records plus manual reconciliation", "mixed routine and manual", "medium")
-    if any(term in text for term in ["hba1c", "glucose", "renal", "pregnancy test"]):
-        return ("laboratory results", "routine hospital system or protocol-specific lab", "medium")
     if "weight" in text or "bmi" in text:
         return ("vitals or clinical measurements", "routine hospital system", "low")
     if "consent" in text:
@@ -404,14 +501,21 @@ def make_clinical_trials_query(label: str, condition: str, intervention: str, ma
 
 def make_source_plan(normalized: dict[str, Any], max_studies: int) -> dict[str, Any]:
     protocol = normalized["protocol"]
+    optional_context = normalized["optional_context"]
     condition = protocol["disease_condition"]
     intervention = clean_intervention_query(protocol["intervention_or_drug_class"])
     phase = protocol["trial_phase"]
+    representative_terms = optional_context.get(
+        "representative_intervention_terms",
+        DEFAULT_REPRESENTATIVE_INTERVENTION_TERMS,
+    )
     planned_queries = [
         make_clinical_trials_query("baseline_drug_class", condition, intervention, max_studies)
     ]
-    for term in REPRESENTATIVE_GLP1_TERMS:
-        planned_queries.append(make_clinical_trials_query(f"representative_drug_{term}", condition, term, max_studies))
+    for term in representative_terms:
+        planned_queries.append(
+            make_clinical_trials_query(f"representative_intervention_{term}", condition, str(term), max_studies)
+        )
 
     return {
         "run_id": normalized["run_id"],
@@ -424,7 +528,7 @@ def make_source_plan(normalized: dict[str, Any], max_studies: int) -> dict[str, 
         "query_concepts": {
             "condition": condition,
             "intervention_keyword": intervention,
-            "representative_drug_terms": REPRESENTATIVE_GLP1_TERMS,
+            "representative_intervention_terms": representative_terms,
             "phase": phase,
         },
         "fields_to_compare_later": [
@@ -661,41 +765,29 @@ def study_text(study: dict[str, Any]) -> str:
     return " ".join(parts).lower()
 
 
-def score_condition(study: dict[str, Any]) -> tuple[int, str]:
+def score_condition(study: dict[str, Any], profile: dict[str, list[str]]) -> tuple[int, str]:
     text = study_text(study)
-    if "type 2 diabetes" in text or "t2dm" in text or "diabetes mellitus, type 2" in text:
-        return 2, "matches type 2 diabetes population"
-    if "diabetes" in text:
-        return 1, "mentions diabetes but type/subgroup match is weaker"
-    return 0, "does not clearly match diabetes condition"
+    matches = sorted({term for term in profile["condition_terms"] if term in text})
+    if matches:
+        return 2, "condition terms match: " + ", ".join(matches[:3])
+    return 0, "does not clearly match target condition"
 
 
-def score_intervention(study: dict[str, Any]) -> tuple[int, str]:
+def score_intervention(study: dict[str, Any], profile: dict[str, list[str]]) -> tuple[int, str]:
     intervention_text = " ".join(
         str(intervention.get("name", ""))
         for intervention in study.get("interventions", [])
     ).lower()
     context_text = study_text(study)
-    direct_terms = [
-        "glp-1 receptor agonist",
-        "glp1 receptor agonist",
-        "glp-1ra",
-        "glp1 ra",
-        "exenatide",
-        "semaglutide",
-        "liraglutide",
-        "dulaglutide",
-        "lixisenatide",
-        "albiglutide",
-    ]
-    adjacent_terms = ["glp-1", "glp1", "gpr119", "incretin"]
+    direct_terms = profile["intervention_terms"]
+    adjacent_terms = profile["adjacent_intervention_terms"]
     if any(term in intervention_text for term in direct_terms):
-        return 3, "direct GLP-1 receptor agonist or representative drug match"
+        return 3, "direct intervention or representative term match"
     if any(term in intervention_text for term in adjacent_terms):
-        return 1, "GLP-1-adjacent or incretin-mechanism intervention"
+        return 1, "adjacent mechanism or related intervention match"
     if any(term in context_text for term in direct_terms + adjacent_terms):
-        return 1, "GLP-1 appears in title or eligibility context, but not as the extracted intervention"
-    return 0, "no clear GLP-1 intervention match"
+        return 1, "intervention term appears in title or eligibility context, but not as the extracted intervention"
+    return 0, "no clear intervention match"
 
 
 def score_phase(study: dict[str, Any]) -> tuple[int, str]:
@@ -710,23 +802,23 @@ def score_phase(study: dict[str, Any]) -> tuple[int, str]:
     return 0, "phase not available or not comparable"
 
 
-def score_endpoint(study: dict[str, Any]) -> tuple[int, str]:
+def score_endpoint(study: dict[str, Any], profile: dict[str, list[str]]) -> tuple[int, str]:
     text = " ".join(
         str(outcome.get("measure", "")) + " " + str(outcome.get("time_frame", ""))
         for outcome in study.get("primary_outcomes", []) + study.get("secondary_outcomes", [])
     ).lower()
-    endpoint_terms = ["hba1c", "a1c", "weight", "glucose", "glycemic", "glycaemic", "metabolic", "adverse", "safety"]
+    endpoint_terms = profile["endpoint_terms"]
     matches = sorted({term for term in endpoint_terms if term in text})
     if len(matches) >= 2:
         return 2, "endpoint terms match: " + ", ".join(matches[:4])
     if len(matches) == 1:
         return 1, "one endpoint term matches: " + matches[0]
-    return 0, "no key metabolic/safety endpoint match"
+    return 0, "no key target endpoint or safety match"
 
 
-def score_eligibility(study: dict[str, Any]) -> tuple[int, str]:
+def score_eligibility(study: dict[str, Any], profile: dict[str, list[str]]) -> tuple[int, str]:
     text = str(study.get("eligibility_criteria_excerpt", "")).lower()
-    useful_terms = ["hba1c", "a1c", "egfr", "renal", "kidney", "pregnancy", "pancreatitis", "insulin", "glp"]
+    useful_terms = profile["eligibility_terms"]
     matches = sorted({term for term in useful_terms if term in text})
     if matches:
         return 1, "eligibility contains useful terms: " + ", ".join(matches[:5])
@@ -743,14 +835,15 @@ def relevance_label(score: int) -> str:
     return "not useful"
 
 
-def rank_sources(sources: dict[str, Any]) -> dict[str, Any]:
+def rank_sources(sources: dict[str, Any], normalized: dict[str, Any]) -> dict[str, Any]:
+    profile = get_ranking_profile(normalized)
     ranked = []
     for study in sources.get("studies", []):
-        condition_score, condition_reason = score_condition(study)
-        intervention_score, intervention_reason = score_intervention(study)
+        condition_score, condition_reason = score_condition(study, profile)
+        intervention_score, intervention_reason = score_intervention(study, profile)
         phase_score, phase_reason = score_phase(study)
-        endpoint_score, endpoint_reason = score_endpoint(study)
-        eligibility_score, eligibility_reason = score_eligibility(study)
+        endpoint_score, endpoint_reason = score_endpoint(study, profile)
+        eligibility_score, eligibility_reason = score_eligibility(study, profile)
         total = condition_score + intervention_score + phase_score + endpoint_score + eligibility_score
         ranked.append(
             {
@@ -797,6 +890,7 @@ def rank_sources(sources: dict[str, Any]) -> dict[str, Any]:
             "total": 10,
         },
         "ranked_count": len(ranked),
+        "ranking_profile": profile,
         "ranked_studies": ranked,
         "limitations": [
             "Relevance scoring is deterministic keyword-based screening, not expert clinical judgment.",
@@ -865,7 +959,7 @@ def data_readiness_markdown_table(data_readiness: dict[str, Any]) -> str:
 
 def make_data_readiness_table(normalized: dict[str, Any], data_readiness: dict[str, Any]) -> str:
     summary = data_readiness.get("summary", {})
-    return f"""# Scenario 001 Hospital Data-Readiness Table
+    return f"""# {scenario_heading(normalized, 'Hospital Data-Readiness Table')}
 
 ## Purpose
 
@@ -916,16 +1010,19 @@ def intervention_summary(study: dict[str, Any]) -> str:
     return markdown_cell(", ".join(interventions) or "not listed", max_chars=140)
 
 
-def extract_hba1c_hint(criteria: str) -> str:
+def extract_keyword_hint(criteria: str, keywords: list[str]) -> str:
     text = " ".join(criteria.split())
-    if not re.search(r"hba1c|hemoglobin a1c|glycosylated", text, flags=re.IGNORECASE):
+    if not keywords:
+        return "not found in excerpt"
+    pattern = "|".join(re.escape(keyword) for keyword in keywords if keyword)
+    if not pattern or not re.search(pattern, text, flags=re.IGNORECASE):
         return "not found in excerpt"
 
     sentences = re.split(r"(?<=[.!?])\s+|\s+\*\s+|\s+\d+\.\s+", text)
     candidates = [
         sentence
         for sentence in sentences
-        if re.search(r"hba1c|hemoglobin a1c|glycosylated", sentence, flags=re.IGNORECASE)
+        if re.search(pattern, sentence, flags=re.IGNORECASE)
     ]
     if candidates:
         return markdown_cell(candidates[0], max_chars=170)
@@ -943,8 +1040,9 @@ def top_trial_comparison_table(sources_ranked: dict[str, Any], max_rows: int = 5
     if not studies:
         return "No ranked records are available for comparison."
 
+    profile = sources_ranked.get("ranking_profile", DEFAULT_RANKING_PROFILE)
     rows = [
-        "| Rank | NCT ID | Score | Phase | Intervention | Primary Endpoint | HbA1c Eligibility Hint | Safety/Exclusion Hints |",
+        "| Rank | NCT ID | Score | Phase | Intervention | Primary Endpoint | Eligibility Hint | Safety/Exclusion Hints |",
         "| ---: | --- | ---: | --- | --- | --- | --- | --- |",
     ]
     for index, item in enumerate(studies[:max_rows], start=1):
@@ -953,17 +1051,17 @@ def top_trial_comparison_table(sources_ranked: dict[str, Any], max_rows: int = 5
         phase = markdown_cell(", ".join(study.get("phases", [])) or "not listed", max_chars=60)
         safety_hints = keyword_presence(
             criteria,
-            ["renal", "kidney", "egfr", "pancreatitis", "pregnancy", "pregnant", "glp-1", "glp1", "insulin"],
+            profile.get("eligibility_terms", DEFAULT_RANKING_PROFILE["eligibility_terms"]),
         )
         rows.append(
-            "| {rank} | `{nct}` | {score}/10 | {phase} | {intervention} | {endpoint} | {hba1c} | {safety} |".format(
+            "| {rank} | `{nct}` | {score}/10 | {phase} | {intervention} | {endpoint} | {eligibility_hint} | {safety} |".format(
                 rank=index,
                 nct=item["nct_id"],
                 score=item["relevance_score"],
                 phase=phase,
                 intervention=intervention_summary(study),
                 endpoint=outcome_summary(study.get("primary_outcomes", [])),
-                hba1c=extract_hba1c_hint(criteria),
+                eligibility_hint=extract_keyword_hint(criteria, profile.get("eligibility_terms", [])),
                 safety=markdown_cell(safety_hints, max_chars=120),
             )
         )
@@ -972,7 +1070,7 @@ def top_trial_comparison_table(sources_ranked: dict[str, Any], max_rows: int = 5
 
 def make_top_trial_comparison(normalized: dict[str, Any], sources_ranked: dict[str, Any], max_rows: int = 5) -> str:
     protocol = normalized["protocol"]
-    return f"""# Scenario 001 Top Trial Comparison
+    return f"""# {scenario_heading(normalized, 'Top Trial Comparison')}
 
 ## Purpose
 
@@ -993,14 +1091,14 @@ This file is a screening aid only. It does not prove clinical correctness, regul
 
 ## How To Use This Table
 
-- Use the HbA1c eligibility hints to decide whether the draft protocol needs a numeric HbA1c range.
-- Use the safety/exclusion hints to check whether renal impairment, pancreatitis, pregnancy, prior GLP-1 exposure, and insulin-related criteria need explicit definitions.
-- Use endpoint timing to compare whether week 24 is plausible or whether similar trials use materially different timing.
+- Use the eligibility hints to decide whether the draft protocol needs more specific operational criteria.
+- Use the safety/exclusion hints to check whether important exclusions, biomarkers, and monitoring rules need explicit definitions.
+- Use endpoint timing to compare whether the draft endpoint time frame is plausible or materially different from similar trials.
 - Treat every item as a comparison candidate that still needs clinical expert review.
 
 ## Current Decision
 
-Keep this table as the compact reviewer-facing comparison view for Scenario 001.
+Keep this table as the compact reviewer-facing comparison view for {normalized['scenario_id']}.
 """
 
 
@@ -1021,7 +1119,7 @@ def make_source_relevance_review(normalized: dict[str, Any], sources: dict[str, 
     else:
         ranked_rows = "No ranked records are available for this run."
 
-    return f"""# Scenario 001 Source Relevance Review
+    return f"""# {scenario_heading(normalized, 'Source Relevance Review')}
 
 ## Purpose
 
@@ -1087,7 +1185,7 @@ Keep these retrieved records as comparison candidates.
 
 Next recommended step:
 
-- review whether the expanded query terms should be adjusted before creating Scenario 002.
+- review whether the expanded query terms should be adjusted before adding the next scenario or publishing the run output.
 """
 
 
@@ -1198,7 +1296,7 @@ def make_draft_report(
         source_assumption = "ClinicalTrials.gov lookup is planned but retrieved evidence is unavailable for this run."
         source_limitation = "External trial records were not available for comparison in this run."
 
-    return f"""# Scenario 001 Draft Pre-Review Report
+    return f"""# {scenario_heading(normalized, 'Draft Pre-Review Report')}
 
 ## Review Summary
 
@@ -1306,7 +1404,7 @@ This deterministic critic checks for obvious unsafe claims and required safety b
 
 def make_score_sheet(normalized: dict[str, Any]) -> str:
     evaluation = normalized["evaluation"]
-    return f"""# Scenario 001 Score Sheet
+    return f"""# {scenario_heading(normalized, 'Score Sheet')}
 
 ## Status
 
@@ -1383,12 +1481,12 @@ def main() -> int:
             source_plan["limitations"] = sources.get("limitations", [])
     else:
         sources = make_empty_sources(source_plan)
-    sources_ranked = rank_sources(sources)
+    sources_ranked = rank_sources(sources, normalized)
     draft_report = make_draft_report(normalized, checklist, data_readiness, source_plan, sources, sources_ranked)
     critic_review, can_finalize = make_critic_review(draft_report)
     final_report = draft_report.replace(
-        "# Scenario 001 Draft Pre-Review Report",
-        "# Scenario 001 Final Pre-Review Report",
+        f"# {scenario_heading(normalized, 'Draft Pre-Review Report')}",
+        f"# {scenario_heading(normalized, 'Final Pre-Review Report')}",
         1,
     ) if can_finalize else ""
     score_sheet = make_score_sheet(normalized)
