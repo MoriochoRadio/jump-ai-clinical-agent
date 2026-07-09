@@ -124,7 +124,10 @@ Key outputs:
 - `source_plan.json`
 - `sources.json`
 - `sources_ranked.json`
+- `pubmed_plan.json`
+- `pubmed_sources.json`
 - `source_relevance_review.md`
+- `pubmed_relevance_review.md`
 - `top_trial_comparison.md`
 - `draft_report.md`
 - `critic_review.md`
@@ -153,7 +156,8 @@ Current state:
 - `origin` remote points to `https://github.com/MoriochoRadio/jump-ai-clinical-agent.git`,
 - competition proposal was submitted on 2026-07-08,
 - public post-submission record is tracked in `docs/14_submission_record.md`,
-- Scenario 002 has been added as a cross-domain generalization check for an oncology immunotherapy protocol scenario.
+- Scenario 002 has been added as a cross-domain generalization check for an oncology immunotherapy protocol scenario,
+- PubMed/NCBI E-utilities retrieval has been added as a second public evidence-source step for literature metadata candidates.
 
 Recommended next repository step:
 

@@ -1,0 +1,272 @@
+{
+  "retrieval_status": "success",
+  "error": null,
+  "query_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=json&retmax=5&sort=relevance&term=%28%22Advanced+or+metastatic+non-small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22non-small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22non+small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22nsclc%22%5BTitle%2FAbstract%5D+OR+%22lung+cancer%22%5BTitle%2FAbstract%5D%29+AND+%28%22PD-1%2FPD-L1+immune+checkpoint+inhibitor%22%5BTitle%2FAbstract%5D+OR+%22pd-1%22%5BTitle%2FAbstract%5D+OR+%22pd-l1%22%5BTitle%2FAbstract%5D+OR+%22checkpoint+inhibitor%22%5BTitle%2FAbstract%5D+OR+%22pembrolizumab%22%5BTitle%2FAbstract%5D+OR+%22nivolumab%22%5BTitle%2FAbstract%5D%29+AND+%28clinical+trial%5BPublication+Type%5D+OR+%22clinical+trial%22%5BTitle%2FAbstract%5D+OR+phase%5BTitle%2FAbstract%5D%29",
+  "query_urls": [
+    "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=json&retmax=5&sort=relevance&term=%28%22Advanced+or+metastatic+non-small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22non-small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22non+small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22nsclc%22%5BTitle%2FAbstract%5D+OR+%22lung+cancer%22%5BTitle%2FAbstract%5D%29+AND+%28%22PD-1%2FPD-L1+immune+checkpoint+inhibitor%22%5BTitle%2FAbstract%5D+OR+%22pd-1%22%5BTitle%2FAbstract%5D+OR+%22pd-l1%22%5BTitle%2FAbstract%5D+OR+%22checkpoint+inhibitor%22%5BTitle%2FAbstract%5D+OR+%22pembrolizumab%22%5BTitle%2FAbstract%5D+OR+%22nivolumab%22%5BTitle%2FAbstract%5D%29+AND+%28clinical+trial%5BPublication+Type%5D+OR+%22clinical+trial%22%5BTitle%2FAbstract%5D+OR+phase%5BTitle%2FAbstract%5D%29",
+    "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=json&retmax=5&sort=relevance&term=%28%22Advanced+or+metastatic+non-small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22non-small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22non+small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22nsclc%22%5BTitle%2FAbstract%5D+OR+%22lung+cancer%22%5BTitle%2FAbstract%5D%29+AND+%28eligibility%5BTitle%2FAbstract%5D+OR+recruitment%5BTitle%2FAbstract%5D+OR+protocol%5BTitle%2FAbstract%5D%29+AND+%28clinical+trial%5BPublication+Type%5D+OR+%22clinical+trial%22%5BTitle%2FAbstract%5D+OR+phase%5BTitle%2FAbstract%5D%29",
+    "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=json&retmax=5&sort=relevance&term=%28%22PD-1%2FPD-L1+immune+checkpoint+inhibitor%22%5BTitle%2FAbstract%5D+OR+%22pd-1%22%5BTitle%2FAbstract%5D+OR+%22pd-l1%22%5BTitle%2FAbstract%5D+OR+%22checkpoint+inhibitor%22%5BTitle%2FAbstract%5D+OR+%22pembrolizumab%22%5BTitle%2FAbstract%5D+OR+%22nivolumab%22%5BTitle%2FAbstract%5D%29+AND+%28safety%5BTitle%2FAbstract%5D+OR+adverse+events%5BTitle%2FAbstract%5D%29+AND+%28clinical+trial%5BPublication+Type%5D+OR+%22clinical+trial%22%5BTitle%2FAbstract%5D+OR+phase%5BTitle%2FAbstract%5D%29"
+  ],
+  "query_results": [
+    {
+      "query_label": "baseline_condition_intervention",
+      "query_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=json&retmax=5&sort=relevance&term=%28%22Advanced+or+metastatic+non-small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22non-small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22non+small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22nsclc%22%5BTitle%2FAbstract%5D+OR+%22lung+cancer%22%5BTitle%2FAbstract%5D%29+AND+%28%22PD-1%2FPD-L1+immune+checkpoint+inhibitor%22%5BTitle%2FAbstract%5D+OR+%22pd-1%22%5BTitle%2FAbstract%5D+OR+%22pd-l1%22%5BTitle%2FAbstract%5D+OR+%22checkpoint+inhibitor%22%5BTitle%2FAbstract%5D+OR+%22pembrolizumab%22%5BTitle%2FAbstract%5D+OR+%22nivolumab%22%5BTitle%2FAbstract%5D%29+AND+%28clinical+trial%5BPublication+Type%5D+OR+%22clinical+trial%22%5BTitle%2FAbstract%5D+OR+phase%5BTitle%2FAbstract%5D%29",
+      "retrieval_status": "success",
+      "error": null,
+      "returned_count": 5
+    },
+    {
+      "query_label": "eligibility_protocol",
+      "query_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=json&retmax=5&sort=relevance&term=%28%22Advanced+or+metastatic+non-small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22non-small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22non+small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22nsclc%22%5BTitle%2FAbstract%5D+OR+%22lung+cancer%22%5BTitle%2FAbstract%5D%29+AND+%28eligibility%5BTitle%2FAbstract%5D+OR+recruitment%5BTitle%2FAbstract%5D+OR+protocol%5BTitle%2FAbstract%5D%29+AND+%28clinical+trial%5BPublication+Type%5D+OR+%22clinical+trial%22%5BTitle%2FAbstract%5D+OR+phase%5BTitle%2FAbstract%5D%29",
+      "retrieval_status": "success",
+      "error": null,
+      "returned_count": 5
+    },
+    {
+      "query_label": "safety_monitoring",
+      "query_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=json&retmax=5&sort=relevance&term=%28%22PD-1%2FPD-L1+immune+checkpoint+inhibitor%22%5BTitle%2FAbstract%5D+OR+%22pd-1%22%5BTitle%2FAbstract%5D+OR+%22pd-l1%22%5BTitle%2FAbstract%5D+OR+%22checkpoint+inhibitor%22%5BTitle%2FAbstract%5D+OR+%22pembrolizumab%22%5BTitle%2FAbstract%5D+OR+%22nivolumab%22%5BTitle%2FAbstract%5D%29+AND+%28safety%5BTitle%2FAbstract%5D+OR+adverse+events%5BTitle%2FAbstract%5D%29+AND+%28clinical+trial%5BPublication+Type%5D+OR+%22clinical+trial%22%5BTitle%2FAbstract%5D+OR+phase%5BTitle%2FAbstract%5D%29",
+      "retrieval_status": "success",
+      "error": null,
+      "returned_count": 5
+    }
+  ],
+  "query_errors": [],
+  "query_count": 3,
+  "unique_returned_count": 14,
+  "articles": [
+    {
+      "pmid": "37478883",
+      "title": "Stereotactic ablative radiotherapy with or without immunotherapy for early-stage or isolated lung parenchymal recurrent node-negative non-small-cell lung cancer: an open-label, randomised, phase 2 trial.",
+      "journal": "Lancet (London, England)",
+      "publication_date": "2023 Sep 9",
+      "source": "Lancet",
+      "doi": "10.1016/S0140-6736(23)01384-3",
+      "matched_query_labels": [
+        "eligibility_protocol"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "condition match: lung cancer",
+        "intervention match: immunotherapy",
+        "clinical trial design signal"
+      ]
+    },
+    {
+      "pmid": "38127362",
+      "title": "Atezolizumab and Platinum Plus Pemetrexed With or Without Bevacizumab for Metastatic Nonsquamous Non-Small Cell Lung Cancer: A Phase 3 Randomized Clinical Trial.",
+      "journal": "JAMA oncology",
+      "publication_date": "2024 Mar 1",
+      "source": "JAMA Oncol",
+      "doi": "10.1001/jamaoncol.2023.5258",
+      "matched_query_labels": [
+        "eligibility_protocol"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "condition match: lung cancer, non-small cell lung cancer",
+        "intervention match: atezolizumab",
+        "clinical trial design signal"
+      ]
+    },
+    {
+      "pmid": "39288781",
+      "title": "Neoadjuvant pembrolizumab plus chemotherapy followed by adjuvant pembrolizumab compared with neoadjuvant chemotherapy alone in patients with early-stage non-small-cell lung cancer (KEYNOTE-671): a randomised, double-blind, placebo-controlled, phase 3 trial.",
+      "journal": "Lancet (London, England)",
+      "publication_date": "2024 Sep 28",
+      "source": "Lancet",
+      "doi": "10.1016/S0140-6736(24)01756-2",
+      "matched_query_labels": [
+        "baseline_condition_intervention"
+      ],
+      "relevance_score": 8,
+      "relevance_reasons": [
+        "condition match: lung cancer",
+        "intervention match: pembrolizumab",
+        "clinical trial design signal"
+      ]
+    },
+    {
+      "pmid": "27718847",
+      "title": "Pembrolizumab versus Chemotherapy for PD-L1-Positive Non-Small-Cell Lung Cancer.",
+      "journal": "The New England journal of medicine",
+      "publication_date": "2016 Nov 10",
+      "source": "N Engl J Med",
+      "doi": "10.1056/NEJMoa1606774",
+      "matched_query_labels": [
+        "baseline_condition_intervention",
+        "safety_monitoring"
+      ],
+      "relevance_score": 7,
+      "relevance_reasons": [
+        "condition match: lung cancer",
+        "intervention match: pd-l1, pembrolizumab",
+        "eligibility term: pd-l1"
+      ]
+    },
+    {
+      "pmid": "40454642",
+      "title": "Overall Survival with Neoadjuvant Nivolumab plus Chemotherapy in Lung Cancer.",
+      "journal": "The New England journal of medicine",
+      "publication_date": "2025 Aug 21",
+      "source": "N Engl J Med",
+      "doi": "10.1056/NEJMoa2502931",
+      "matched_query_labels": [
+        "baseline_condition_intervention"
+      ],
+      "relevance_score": 7,
+      "relevance_reasons": [
+        "condition match: lung cancer",
+        "intervention match: nivolumab",
+        "endpoint/safety term: overall survival"
+      ]
+    },
+    {
+      "pmid": "29658856",
+      "title": "Pembrolizumab plus Chemotherapy in Metastatic Non-Small-Cell Lung Cancer.",
+      "journal": "The New England journal of medicine",
+      "publication_date": "2018 May 31",
+      "source": "N Engl J Med",
+      "doi": "10.1056/NEJMoa1801005",
+      "matched_query_labels": [
+        "baseline_condition_intervention"
+      ],
+      "relevance_score": 6,
+      "relevance_reasons": [
+        "condition match: lung cancer",
+        "intervention match: pembrolizumab"
+      ]
+    },
+    {
+      "pmid": "30280635",
+      "title": "Pembrolizumab plus Chemotherapy for Squamous Non-Small-Cell Lung Cancer.",
+      "journal": "The New England journal of medicine",
+      "publication_date": "2018 Nov 22",
+      "source": "N Engl J Med",
+      "doi": "10.1056/NEJMoa1810865",
+      "matched_query_labels": [
+        "baseline_condition_intervention"
+      ],
+      "relevance_score": 6,
+      "relevance_reasons": [
+        "condition match: lung cancer",
+        "intervention match: pembrolizumab"
+      ]
+    },
+    {
+      "pmid": "33894335",
+      "title": "Pemetrexed plus platinum with or without pembrolizumab in patients with previously untreated metastatic nonsquamous NSCLC: protocol-specified final analysis from KEYNOTE-189.",
+      "journal": "Annals of oncology : official journal of the European Society for Medical Oncology",
+      "publication_date": "2021 Jul",
+      "source": "Ann Oncol",
+      "doi": "10.1016/j.annonc.2021.04.008",
+      "matched_query_labels": [
+        "eligibility_protocol"
+      ],
+      "relevance_score": 6,
+      "relevance_reasons": [
+        "condition match: nsclc",
+        "intervention match: pembrolizumab"
+      ]
+    },
+    {
+      "pmid": "38101437",
+      "title": "Sunvozertinib for patients in China with platinum-pretreated locally advanced or metastatic non-small-cell lung cancer and EGFR exon 20 insertion mutation (WU-KONG6): single-arm, open-label, multicentre, phase 2 trial.",
+      "journal": "The Lancet. Respiratory medicine",
+      "publication_date": "2024 Mar",
+      "source": "Lancet Respir Med",
+      "doi": "10.1016/S2213-2600(23)00379-X",
+      "matched_query_labels": [
+        "eligibility_protocol"
+      ],
+      "relevance_score": 6,
+      "relevance_reasons": [
+        "condition match: lung cancer",
+        "clinical trial design signal",
+        "eligibility term: egfr"
+      ]
+    },
+    {
+      "pmid": "34102137",
+      "title": "First-line nivolumab plus chemotherapy versus chemotherapy alone for advanced gastric, gastro-oesophageal junction, and oesophageal adenocarcinoma (CheckMate 649): a randomised, open-label, phase 3 trial.",
+      "journal": "Lancet (London, England)",
+      "publication_date": "2021 Jul 3",
+      "source": "Lancet",
+      "doi": "10.1016/S0140-6736(21)00797-2",
+      "matched_query_labels": [
+        "safety_monitoring"
+      ],
+      "relevance_score": 5,
+      "relevance_reasons": [
+        "intervention match: nivolumab",
+        "clinical trial design signal"
+      ]
+    },
+    {
+      "pmid": "39270695",
+      "title": "Savolitinib in patients in China with locally advanced or metastatic treatment-naive non-small-cell lung cancer harbouring MET exon 14 skipping mutations: results from a single-arm, multicohort, multicentre, open-label, phase 3b confirmatory study.",
+      "journal": "The Lancet. Respiratory medicine",
+      "publication_date": "2024 Dec",
+      "source": "Lancet Respir Med",
+      "doi": "10.1016/S2213-2600(24)00211-X",
+      "matched_query_labels": [
+        "eligibility_protocol"
+      ],
+      "relevance_score": 5,
+      "relevance_reasons": [
+        "condition match: lung cancer",
+        "clinical trial design signal"
+      ]
+    },
+    {
+      "pmid": "25891173",
+      "title": "Pembrolizumab versus Ipilimumab in Advanced Melanoma.",
+      "journal": "The New England journal of medicine",
+      "publication_date": "2015 Jun 25",
+      "source": "N Engl J Med",
+      "doi": "10.1056/NEJMoa1503093",
+      "matched_query_labels": [
+        "safety_monitoring"
+      ],
+      "relevance_score": 3,
+      "relevance_reasons": [
+        "intervention match: pembrolizumab"
+      ]
+    },
+    {
+      "pmid": "26027431",
+      "title": "Combined Nivolumab and Ipilimumab or Monotherapy in Untreated Melanoma.",
+      "journal": "The New England journal of medicine",
+      "publication_date": "2015 Jul 2",
+      "source": "N Engl J Med",
+      "doi": "10.1056/NEJMoa1504030",
+      "matched_query_labels": [
+        "safety_monitoring"
+      ],
+      "relevance_score": 3,
+      "relevance_reasons": [
+        "intervention match: nivolumab"
+      ]
+    },
+    {
+      "pmid": "34986285",
+      "title": "Relatlimab and Nivolumab versus Nivolumab in Untreated Advanced Melanoma.",
+      "journal": "The New England journal of medicine",
+      "publication_date": "2022 Jan 6",
+      "source": "N Engl J Med",
+      "doi": "10.1056/NEJMoa2109970",
+      "matched_query_labels": [
+        "safety_monitoring"
+      ],
+      "relevance_score": 3,
+      "relevance_reasons": [
+        "intervention match: nivolumab"
+      ]
+    }
+  ],
+  "limitations": [
+    "PubMed retrieval returns literature candidates, not proof that a draft protocol is scientifically correct.",
+    "This prototype stores article metadata only and does not perform full-text review.",
+    "Literature records may be broad matches and require human expert screening."
+  ],
+  "ranking_method": "local title/journal metadata heuristic using scenario condition, intervention, endpoint, and eligibility terms"
+}

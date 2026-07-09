@@ -90,4 +90,6 @@
 - [x] Add Scenario 002 with a different clinical area.
 - [x] Run Scenario 002 with live ClinicalTrials.gov retrieval.
 - [x] Manually score Scenario 002 against its rubric.
-- [ ] Add PubMed/NCBI retrieval as a second public evidence source.
+- [x] Add PubMed/NCBI retrieval as a second public evidence source.
+- [x] Add local relevance scoring for PubMed literature candidates.
+- [ ] Add abstract-level extraction or manual screening notes for PubMed candidates.

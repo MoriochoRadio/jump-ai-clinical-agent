@@ -1,0 +1,44 @@
+{
+  "run_id": "scenario_002_run_001",
+  "live_retrieval_performed": true,
+  "reason": "Live retrieval requested with --fetch-pubmed.",
+  "planned_source": "PubMed via NCBI E-utilities",
+  "planned_esearch_endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi",
+  "planned_esummary_endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi",
+  "planned_query_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=json&retmax=5&sort=relevance&term=%28%22Advanced+or+metastatic+non-small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22non-small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22non+small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22nsclc%22%5BTitle%2FAbstract%5D+OR+%22lung+cancer%22%5BTitle%2FAbstract%5D%29+AND+%28%22PD-1%2FPD-L1+immune+checkpoint+inhibitor%22%5BTitle%2FAbstract%5D+OR+%22pd-1%22%5BTitle%2FAbstract%5D+OR+%22pd-l1%22%5BTitle%2FAbstract%5D+OR+%22checkpoint+inhibitor%22%5BTitle%2FAbstract%5D+OR+%22pembrolizumab%22%5BTitle%2FAbstract%5D+OR+%22nivolumab%22%5BTitle%2FAbstract%5D%29+AND+%28clinical+trial%5BPublication+Type%5D+OR+%22clinical+trial%22%5BTitle%2FAbstract%5D+OR+phase%5BTitle%2FAbstract%5D%29",
+  "planned_queries": [
+    {
+      "label": "baseline_condition_intervention",
+      "term": "(\"Advanced or metastatic non-small cell lung cancer\"[Title/Abstract] OR \"non-small cell lung cancer\"[Title/Abstract] OR \"non small cell lung cancer\"[Title/Abstract] OR \"nsclc\"[Title/Abstract] OR \"lung cancer\"[Title/Abstract]) AND (\"PD-1/PD-L1 immune checkpoint inhibitor\"[Title/Abstract] OR \"pd-1\"[Title/Abstract] OR \"pd-l1\"[Title/Abstract] OR \"checkpoint inhibitor\"[Title/Abstract] OR \"pembrolizumab\"[Title/Abstract] OR \"nivolumab\"[Title/Abstract]) AND (clinical trial[Publication Type] OR \"clinical trial\"[Title/Abstract] OR phase[Title/Abstract])",
+      "query_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=json&retmax=5&sort=relevance&term=%28%22Advanced+or+metastatic+non-small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22non-small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22non+small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22nsclc%22%5BTitle%2FAbstract%5D+OR+%22lung+cancer%22%5BTitle%2FAbstract%5D%29+AND+%28%22PD-1%2FPD-L1+immune+checkpoint+inhibitor%22%5BTitle%2FAbstract%5D+OR+%22pd-1%22%5BTitle%2FAbstract%5D+OR+%22pd-l1%22%5BTitle%2FAbstract%5D+OR+%22checkpoint+inhibitor%22%5BTitle%2FAbstract%5D+OR+%22pembrolizumab%22%5BTitle%2FAbstract%5D+OR+%22nivolumab%22%5BTitle%2FAbstract%5D%29+AND+%28clinical+trial%5BPublication+Type%5D+OR+%22clinical+trial%22%5BTitle%2FAbstract%5D+OR+phase%5BTitle%2FAbstract%5D%29"
+    },
+    {
+      "label": "eligibility_protocol",
+      "term": "(\"Advanced or metastatic non-small cell lung cancer\"[Title/Abstract] OR \"non-small cell lung cancer\"[Title/Abstract] OR \"non small cell lung cancer\"[Title/Abstract] OR \"nsclc\"[Title/Abstract] OR \"lung cancer\"[Title/Abstract]) AND (eligibility[Title/Abstract] OR recruitment[Title/Abstract] OR protocol[Title/Abstract]) AND (clinical trial[Publication Type] OR \"clinical trial\"[Title/Abstract] OR phase[Title/Abstract])",
+      "query_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=json&retmax=5&sort=relevance&term=%28%22Advanced+or+metastatic+non-small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22non-small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22non+small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22nsclc%22%5BTitle%2FAbstract%5D+OR+%22lung+cancer%22%5BTitle%2FAbstract%5D%29+AND+%28eligibility%5BTitle%2FAbstract%5D+OR+recruitment%5BTitle%2FAbstract%5D+OR+protocol%5BTitle%2FAbstract%5D%29+AND+%28clinical+trial%5BPublication+Type%5D+OR+%22clinical+trial%22%5BTitle%2FAbstract%5D+OR+phase%5BTitle%2FAbstract%5D%29"
+    },
+    {
+      "label": "safety_monitoring",
+      "term": "(\"PD-1/PD-L1 immune checkpoint inhibitor\"[Title/Abstract] OR \"pd-1\"[Title/Abstract] OR \"pd-l1\"[Title/Abstract] OR \"checkpoint inhibitor\"[Title/Abstract] OR \"pembrolizumab\"[Title/Abstract] OR \"nivolumab\"[Title/Abstract]) AND (safety[Title/Abstract] OR adverse events[Title/Abstract]) AND (clinical trial[Publication Type] OR \"clinical trial\"[Title/Abstract] OR phase[Title/Abstract])",
+      "query_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=json&retmax=5&sort=relevance&term=%28%22PD-1%2FPD-L1+immune+checkpoint+inhibitor%22%5BTitle%2FAbstract%5D+OR+%22pd-1%22%5BTitle%2FAbstract%5D+OR+%22pd-l1%22%5BTitle%2FAbstract%5D+OR+%22checkpoint+inhibitor%22%5BTitle%2FAbstract%5D+OR+%22pembrolizumab%22%5BTitle%2FAbstract%5D+OR+%22nivolumab%22%5BTitle%2FAbstract%5D%29+AND+%28safety%5BTitle%2FAbstract%5D+OR+adverse+events%5BTitle%2FAbstract%5D%29+AND+%28clinical+trial%5BPublication+Type%5D+OR+%22clinical+trial%22%5BTitle%2FAbstract%5D+OR+phase%5BTitle%2FAbstract%5D%29"
+    }
+  ],
+  "query_concepts": {
+    "condition": "Advanced or metastatic non-small cell lung cancer",
+    "intervention_keyword": "PD-1/PD-L1 immune checkpoint inhibitor",
+    "evidence_focus": [
+      "clinical trial",
+      "eligibility",
+      "recruitment",
+      "protocol",
+      "safety",
+      "adverse events"
+    ]
+  },
+  "limitations": [
+    "PubMed retrieval returns literature candidates, not proof that a draft protocol is scientifically correct.",
+    "This prototype stores article metadata only and does not perform full-text review.",
+    "Literature records may be broad matches and require human expert screening."
+  ],
+  "retrieval_status": "success"
+}

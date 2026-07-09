@@ -171,6 +171,31 @@ Fields to compare later:
 - eligibility criteria
 - recruitment status
 
+## PubMed Literature Candidates
+
+- Live PubMed retrieval performed: True
+- Retrieval status: success
+- Query count: 3
+- Retrieved literature candidates: 14
+- Baseline PubMed query URL: `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=json&retmax=5&sort=relevance&term=%28%22Advanced+or+metastatic+non-small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22non-small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22non+small+cell+lung+cancer%22%5BTitle%2FAbstract%5D+OR+%22nsclc%22%5BTitle%2FAbstract%5D+OR+%22lung+cancer%22%5BTitle%2FAbstract%5D%29+AND+%28%22PD-1%2FPD-L1+immune+checkpoint+inhibitor%22%5BTitle%2FAbstract%5D+OR+%22pd-1%22%5BTitle%2FAbstract%5D+OR+%22pd-l1%22%5BTitle%2FAbstract%5D+OR+%22checkpoint+inhibitor%22%5BTitle%2FAbstract%5D+OR+%22pembrolizumab%22%5BTitle%2FAbstract%5D+OR+%22nivolumab%22%5BTitle%2FAbstract%5D%29+AND+%28clinical+trial%5BPublication+Type%5D+OR+%22clinical+trial%22%5BTitle%2FAbstract%5D+OR+phase%5BTitle%2FAbstract%5D%29`
+
+Top literature candidates by local metadata relevance:
+
+- PMID `37478883` (8/10): Stereotactic ablative radiotherapy with or without immunotherapy for early-stage or isolated lung parenchymal recurrent node-negative non-small-cell lung cancer: an open-label, randomised, phase 2 trial. (Lancet (London, England), 2023 Sep 9, DOI: 10.1016/S0140-6736(23)01384-3)
+- PMID `38127362` (8/10): Atezolizumab and Platinum Plus Pemetrexed With or Without Bevacizumab for Metastatic Nonsquamous Non-Small Cell Lung Cancer: A Phase 3 Randomized Clinical Trial. (JAMA oncology, 2024 Mar 1, DOI: 10.1001/jamaoncol.2023.5258)
+- PMID `39288781` (8/10): Neoadjuvant pembrolizumab plus chemotherapy followed by adjuvant pembrolizumab compared with neoadjuvant chemotherapy alone in patients with early-stage non-small-cell lung cancer (KEYNOTE-671): a randomised, double-blind, placebo-controlled, phase 3 trial. (Lancet (London, England), 2024 Sep 28, DOI: 10.1016/S0140-6736(24)01756-2)
+- PMID `27718847` (7/10): Pembrolizumab versus Chemotherapy for PD-L1-Positive Non-Small-Cell Lung Cancer. (The New England journal of medicine, 2016 Nov 10, DOI: 10.1056/NEJMoa1606774)
+- PMID `40454642` (7/10): Overall Survival with Neoadjuvant Nivolumab plus Chemotherapy in Lung Cancer. (The New England journal of medicine, 2025 Aug 21, DOI: 10.1056/NEJMoa2502931)
+- PMID `29658856` (6/10): Pembrolizumab plus Chemotherapy in Metastatic Non-Small-Cell Lung Cancer. (The New England journal of medicine, 2018 May 31, DOI: 10.1056/NEJMoa1801005)
+- PMID `30280635` (6/10): Pembrolizumab plus Chemotherapy for Squamous Non-Small-Cell Lung Cancer. (The New England journal of medicine, 2018 Nov 22, DOI: 10.1056/NEJMoa1810865)
+- PMID `33894335` (6/10): Pemetrexed plus platinum with or without pembrolizumab in patients with previously untreated metastatic nonsquamous NSCLC: protocol-specified final analysis from KEYNOTE-189. (Annals of oncology : official journal of the European Society for Medical Oncology, 2021 Jul, DOI: 10.1016/j.annonc.2021.04.008)
+- PMID `38101437` (6/10): Sunvozertinib for patients in China with platinum-pretreated locally advanced or metastatic non-small-cell lung cancer and EGFR exon 20 insertion mutation (WU-KONG6): single-arm, open-label, multicentre, phase 2 trial. (The Lancet. Respiratory medicine, 2024 Mar, DOI: 10.1016/S2213-2600(23)00379-X)
+- PMID `34102137` (5/10): First-line nivolumab plus chemotherapy versus chemotherapy alone for advanced gastric, gastro-oesophageal junction, and oesophageal adenocarcinoma (CheckMate 649): a randomised, open-label, phase 3 trial. (Lancet (London, England), 2021 Jul 3, DOI: 10.1016/S0140-6736(21)00797-2)
+
+Detailed PubMed candidate review file:
+
+- `prototype/runs/scenario_002_run_001/pubmed_relevance_review.md`
+
 ## Eligibility And Recruitment Flags
 
 - **HIGH**: Study design, randomization, blinding, and comparator details are not specified. Recommendation: Clarify whether the study is randomized, blinded, placebo-controlled, active-comparator, or single-arm.
@@ -238,6 +263,7 @@ Assumptions:
 - The scenario is synthetic and contains no real patient data.
 - Hospital data availability notes are user-provided assumptions, not verified EMR/HIS evidence.
 - ClinicalTrials.gov retrieval was performed with an expanded query set, de-duplicated by NCT ID, and selected public registry fields were stored in `sources.json`.
+- PubMed retrieval was performed with scenario-specific query terms, de-duplicated by PMID, and selected article metadata was stored in `pubmed_sources.json`.
 
 Limitations:
 
@@ -245,6 +271,7 @@ Limitations:
 - It does not validate scientific correctness.
 - It does not replace PI, CRC, IRB/regulatory, sponsor, or medical data-team review.
 - Retrieved ClinicalTrials.gov records are broad public registry matches and may not be Phase II-only or directly equivalent to the draft protocol.
+- Retrieved PubMed records are literature-screening candidates only; this run does not perform full-text review or claim that the articles validate the draft protocol.
 
 Expert follow-up questions:
 

@@ -113,6 +113,11 @@ def parse_args() -> argparse.Namespace:
         help="Fetch live ClinicalTrials.gov records and write sources.json.",
     )
     parser.add_argument(
+        "--fetch-pubmed",
+        action="store_true",
+        help="Fetch live PubMed literature candidates and write pubmed_sources.json.",
+    )
+    parser.add_argument(
         "--max-studies",
         type=int,
         default=5,
@@ -122,7 +127,7 @@ def parse_args() -> argparse.Namespace:
         "--source-timeout",
         type=int,
         default=20,
-        help="ClinicalTrials.gov request timeout in seconds. Defaults to 20.",
+        help="Public source request timeout in seconds. Defaults to 20.",
     )
     return parser.parse_args()
 
@@ -749,6 +754,313 @@ def make_empty_sources(source_plan: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def make_pubmed_query(label: str, term: str, max_records: int) -> dict[str, str]:
+    params = {
+        "db": "pubmed",
+        "retmode": "json",
+        "retmax": str(max_records),
+        "sort": "relevance",
+        "term": term,
+    }
+    return {
+        "label": label,
+        "term": term,
+        "query_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?" + urlencode(params),
+    }
+
+
+def pubmed_or_group(terms: list[str], limit: int = 6) -> str:
+    cleaned = []
+    for term in terms:
+        value = str(term).strip()
+        if value and value not in cleaned:
+            cleaned.append(value)
+    return "(" + " OR ".join(f'"{term}"[Title/Abstract]' for term in cleaned[:limit]) + ")"
+
+
+def make_pubmed_plan(normalized: dict[str, Any], max_records: int) -> dict[str, Any]:
+    protocol = normalized["protocol"]
+    profile = get_ranking_profile(normalized)
+    condition = protocol["disease_condition"]
+    intervention = clean_intervention_query(protocol["intervention_or_drug_class"])
+    condition_terms = [condition] + profile["condition_terms"]
+    intervention_terms = [intervention] + profile["intervention_terms"] + profile["adjacent_intervention_terms"]
+    condition_group = pubmed_or_group(condition_terms)
+    intervention_group = pubmed_or_group(intervention_terms)
+    clinical_trial_group = '(clinical trial[Publication Type] OR "clinical trial"[Title/Abstract] OR phase[Title/Abstract])'
+    planned_queries = [
+        make_pubmed_query(
+            "baseline_condition_intervention",
+            f"{condition_group} AND {intervention_group} AND {clinical_trial_group}",
+            max_records,
+        ),
+        make_pubmed_query(
+            "eligibility_protocol",
+            f"{condition_group} AND (eligibility[Title/Abstract] OR recruitment[Title/Abstract] OR protocol[Title/Abstract]) AND {clinical_trial_group}",
+            max_records,
+        ),
+        make_pubmed_query(
+            "safety_monitoring",
+            f"{intervention_group} AND (safety[Title/Abstract] OR adverse events[Title/Abstract]) AND {clinical_trial_group}",
+            max_records,
+        ),
+    ]
+    return {
+        "run_id": normalized["run_id"],
+        "live_retrieval_performed": False,
+        "reason": "Default run records the PubMed query plan without requiring network access.",
+        "planned_source": "PubMed via NCBI E-utilities",
+        "planned_esearch_endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi",
+        "planned_esummary_endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi",
+        "planned_query_url": planned_queries[0]["query_url"],
+        "planned_queries": planned_queries,
+        "query_concepts": {
+            "condition": condition,
+            "intervention_keyword": intervention,
+            "evidence_focus": ["clinical trial", "eligibility", "recruitment", "protocol", "safety", "adverse events"],
+        },
+        "limitations": [
+            "PubMed retrieval returns literature candidates, not proof that a draft protocol is scientifically correct.",
+            "This prototype stores article metadata only and does not perform full-text review.",
+            "Literature records may be broad matches and require human expert screening.",
+        ],
+    }
+
+
+def extract_pubmed_article(summary: dict[str, Any]) -> dict[str, Any]:
+    doi = ""
+    for article_id in summary.get("articleids", []):
+        if article_id.get("idtype") == "doi":
+            doi = str(article_id.get("value", ""))
+            break
+    return {
+        "pmid": str(summary.get("uid", "")),
+        "title": str(summary.get("title", "")),
+        "journal": str(summary.get("fulljournalname", "")),
+        "publication_date": str(summary.get("pubdate", "")),
+        "source": str(summary.get("source", "")),
+        "doi": doi,
+    }
+
+
+def fetch_pubmed_summaries(pmids: list[str], timeout: int) -> tuple[list[dict[str, Any]], str | None]:
+    if not pmids:
+        return [], None
+    params = {
+        "db": "pubmed",
+        "retmode": "json",
+        "id": ",".join(pmids),
+    }
+    query_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?" + urlencode(params)
+    request = Request(query_url, headers={"User-Agent": "jump-ai-clinical-agent-prototype/0.1"})
+    try:
+        with urlopen(request, timeout=timeout) as response:
+            payload = json.loads(response.read().decode("utf-8"))
+    except (HTTPError, URLError, TimeoutError, json.JSONDecodeError) as exc:
+        return [], str(exc)
+
+    result = payload.get("result", {})
+    articles = []
+    for pmid in pmids:
+        summary = result.get(pmid)
+        if isinstance(summary, dict):
+            articles.append(extract_pubmed_article(summary))
+    return articles, None
+
+
+def fetch_single_pubmed_query(query: dict[str, str], timeout: int) -> dict[str, Any]:
+    request = Request(query["query_url"], headers={"User-Agent": "jump-ai-clinical-agent-prototype/0.1"})
+    try:
+        with urlopen(request, timeout=timeout) as response:
+            payload = json.loads(response.read().decode("utf-8"))
+    except HTTPError as exc:
+        return {
+            "retrieval_status": "http_error",
+            "error": f"HTTP {exc.code}: {exc.reason}",
+            "query_label": query["label"],
+            "query_url": query["query_url"],
+            "pmids": [],
+            "articles": [],
+        }
+    except URLError as exc:
+        return {
+            "retrieval_status": "url_error",
+            "error": str(exc.reason),
+            "query_label": query["label"],
+            "query_url": query["query_url"],
+            "pmids": [],
+            "articles": [],
+        }
+    except TimeoutError:
+        return {
+            "retrieval_status": "timeout",
+            "error": f"request exceeded {timeout} seconds",
+            "query_label": query["label"],
+            "query_url": query["query_url"],
+            "pmids": [],
+            "articles": [],
+        }
+    except json.JSONDecodeError as exc:
+        return {
+            "retrieval_status": "invalid_json",
+            "error": str(exc),
+            "query_label": query["label"],
+            "query_url": query["query_url"],
+            "pmids": [],
+            "articles": [],
+        }
+
+    pmids = payload.get("esearchresult", {}).get("idlist", [])
+    articles, summary_error = fetch_pubmed_summaries(pmids, timeout)
+    if summary_error:
+        return {
+            "retrieval_status": "summary_error",
+            "error": summary_error,
+            "query_label": query["label"],
+            "query_url": query["query_url"],
+            "pmids": pmids,
+            "articles": [],
+        }
+    return {
+        "retrieval_status": "success",
+        "error": None,
+        "query_label": query["label"],
+        "query_url": query["query_url"],
+        "pmids": pmids,
+        "returned_count": len(articles),
+        "articles": articles,
+    }
+
+
+def fetch_pubmed_sources(pubmed_plan: dict[str, Any], timeout: int) -> dict[str, Any]:
+    query_results = []
+    articles_by_pmid: dict[str, dict[str, Any]] = {}
+    query_errors = []
+
+    for query in pubmed_plan.get("planned_queries", []):
+        result = fetch_single_pubmed_query(query, timeout)
+        query_results.append(
+            {
+                "query_label": result.get("query_label"),
+                "query_url": result.get("query_url"),
+                "retrieval_status": result.get("retrieval_status"),
+                "error": result.get("error"),
+                "returned_count": result.get("returned_count", 0),
+            }
+        )
+        if result.get("retrieval_status") != "success":
+            query_errors.append(
+                {
+                    "query_label": result.get("query_label"),
+                    "error": result.get("error"),
+                    "retrieval_status": result.get("retrieval_status"),
+                }
+            )
+            continue
+
+        for article in result.get("articles", []):
+            pmid = article.get("pmid", "")
+            if not pmid:
+                continue
+            if pmid not in articles_by_pmid:
+                article["matched_query_labels"] = [result["query_label"]]
+                articles_by_pmid[pmid] = article
+            else:
+                labels = articles_by_pmid[pmid].setdefault("matched_query_labels", [])
+                if result["query_label"] not in labels:
+                    labels.append(result["query_label"])
+
+    retrieval_status = "success" if articles_by_pmid else "no_results"
+    if query_errors and articles_by_pmid:
+        retrieval_status = "partial_success"
+
+    articles = sorted(articles_by_pmid.values(), key=lambda article: article.get("pmid", ""))
+    return {
+        "retrieval_status": retrieval_status,
+        "error": None if retrieval_status in ["success", "partial_success"] else "No PubMed records returned by query set.",
+        "query_url": pubmed_plan["planned_query_url"],
+        "query_urls": [query["query_url"] for query in pubmed_plan.get("planned_queries", [])],
+        "query_results": query_results,
+        "query_errors": query_errors,
+        "query_count": len(pubmed_plan.get("planned_queries", [])),
+        "unique_returned_count": len(articles),
+        "articles": articles,
+        "limitations": pubmed_plan["limitations"],
+    }
+
+
+def make_empty_pubmed_sources(pubmed_plan: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "retrieval_status": "not_requested",
+        "error": None,
+        "query_url": pubmed_plan["planned_query_url"],
+        "query_urls": [query["query_url"] for query in pubmed_plan.get("planned_queries", [])],
+        "query_count": len(pubmed_plan.get("planned_queries", [])),
+        "articles": [],
+        "limitations": [
+            "Live PubMed retrieval was not requested.",
+            "Run with --fetch-pubmed to retrieve public literature metadata.",
+        ],
+    }
+
+
+def score_pubmed_article(article: dict[str, Any], normalized: dict[str, Any]) -> tuple[int, list[str]]:
+    profile = get_ranking_profile(normalized)
+    text = " ".join(
+        [
+            str(article.get("title", "")),
+            str(article.get("journal", "")),
+            str(article.get("source", "")),
+        ]
+    ).lower()
+    score = 0
+    reasons = []
+    condition_matches = sorted({term for term in profile["condition_terms"] if term in text})
+    intervention_matches = sorted(
+        {
+            term
+            for term in profile["intervention_terms"] + profile["adjacent_intervention_terms"]
+            if term in text
+        }
+    )
+    endpoint_matches = sorted({term for term in profile["endpoint_terms"] if term in text})
+    eligibility_matches = sorted({term for term in profile["eligibility_terms"] if term in text})
+
+    if condition_matches:
+        score += 3
+        reasons.append("condition match: " + ", ".join(condition_matches[:3]))
+    if intervention_matches:
+        score += 3
+        reasons.append("intervention match: " + ", ".join(intervention_matches[:3]))
+    if any(term in text for term in ["clinical trial", "phase", "randomized", "randomised"]):
+        score += 2
+        reasons.append("clinical trial design signal")
+    if endpoint_matches:
+        score += 1
+        reasons.append("endpoint/safety term: " + ", ".join(endpoint_matches[:3]))
+    if eligibility_matches:
+        score += 1
+        reasons.append("eligibility term: " + ", ".join(eligibility_matches[:3]))
+    if not reasons:
+        reasons.append("weak local metadata match")
+    return min(score, 10), reasons
+
+
+def rank_pubmed_sources(pubmed_sources: dict[str, Any], normalized: dict[str, Any]) -> dict[str, Any]:
+    ranked_articles = []
+    for article in pubmed_sources.get("articles", []):
+        score, reasons = score_pubmed_article(article, normalized)
+        ranked = dict(article)
+        ranked["relevance_score"] = score
+        ranked["relevance_reasons"] = reasons
+        ranked_articles.append(ranked)
+    ranked_articles.sort(key=lambda article: (-article["relevance_score"], article.get("pmid", "")))
+    ranked = dict(pubmed_sources)
+    ranked["articles"] = ranked_articles
+    ranked["ranking_method"] = "local title/journal metadata heuristic using scenario condition, intervention, endpoint, and eligibility terms"
+    return ranked
+
+
 def study_text(study: dict[str, Any]) -> str:
     parts: list[str] = [
         str(study.get("brief_title", "")),
@@ -1267,6 +1579,98 @@ def source_notes(source_plan: dict[str, Any], sources: dict[str, Any], sources_r
     )
 
 
+def pubmed_notes(pubmed_plan: dict[str, Any], pubmed_sources: dict[str, Any]) -> str:
+    status = pubmed_sources.get("retrieval_status", "unknown")
+    articles = pubmed_sources.get("articles", [])
+    if status in ["success", "partial_success"] and articles:
+        lines = [
+            "- Live PubMed retrieval performed: True",
+            f"- Retrieval status: {status}",
+            f"- Query count: {pubmed_sources.get('query_count', 1)}",
+            f"- Retrieved literature candidates: {len(articles)}",
+            f"- Baseline PubMed query URL: `{pubmed_sources['query_url']}`",
+            "",
+            "Top literature candidates by local metadata relevance:",
+            "",
+        ]
+        for article in articles[:10]:
+            doi = f", DOI: {article['doi']}" if article.get("doi") else ""
+            score = article.get("relevance_score", "not scored")
+            lines.append(
+                f"- PMID `{article.get('pmid', '')}` ({score}/10): {article.get('title', '')} "
+                f"({article.get('journal', '')}, {article.get('publication_date', '')}{doi})"
+            )
+        return "\n".join(lines)
+
+    if status == "not_requested":
+        return "\n".join(
+            [
+                f"- Planned source: {pubmed_plan['planned_source']}",
+                f"- Planned query URL: `{pubmed_plan['planned_query_url']}`",
+                "- Live PubMed retrieval performed: False",
+                "- Limitation: literature metadata was not retrieved in this run.",
+            ]
+        )
+
+    return "\n".join(
+        [
+            "- Live PubMed retrieval attempted: True",
+            f"- Retrieval status: {status}",
+            f"- Query URL: `{pubmed_sources.get('query_url', pubmed_plan['planned_query_url'])}`",
+            f"- Error: {pubmed_sources.get('error')}",
+            "- Limitation: report must not treat unavailable literature metadata as evidence.",
+        ]
+    )
+
+
+def make_pubmed_relevance_review(normalized: dict[str, Any], pubmed_sources: dict[str, Any]) -> str:
+    articles = pubmed_sources.get("articles", [])
+    rows = [
+        "| PMID | Score | Title | Journal | Publication Date | Query Labels | Relevance Reasons |",
+        "| --- | ---: | --- | --- | --- | --- | --- |",
+    ]
+    for article in articles[:15]:
+        labels = ", ".join(article.get("matched_query_labels", [])) or "not tracked"
+        reasons = "; ".join(article.get("relevance_reasons", [])) or "not scored"
+        rows.append(
+            "| `{pmid}` | {score}/10 | {title} | {journal} | {date} | {labels} | {reasons} |".format(
+                pmid=article.get("pmid", ""),
+                score=article.get("relevance_score", "NA"),
+                title=markdown_cell(article.get("title", ""), max_chars=120),
+                journal=markdown_cell(article.get("journal", ""), max_chars=60),
+                date=markdown_cell(article.get("publication_date", ""), max_chars=40),
+                labels=markdown_cell(labels, max_chars=80),
+                reasons=markdown_cell(reasons, max_chars=100),
+            )
+        )
+
+    if not articles:
+        rows.append("| none | 0/10 | No PubMed records available for this run. |  |  |  |  |")
+
+    return f"""# {scenario_heading(normalized, 'PubMed Literature Candidate Review')}
+
+## Purpose
+
+Review public PubMed metadata candidates that may support later expert literature screening.
+
+This file does not claim that any article validates the draft protocol. It is a traceable search output for human review.
+
+## Retrieval Summary
+
+- retrieval status: {pubmed_sources.get('retrieval_status')}
+- query count: {pubmed_sources.get('query_count', 0)}
+- unique literature candidates: {len(articles)}
+
+## Candidate Articles
+
+{chr(10).join(rows)}
+
+## Current Decision
+
+Use these articles only as literature-screening candidates. A future version should add abstract-level extraction and human review notes before citing them as substantive evidence.
+"""
+
+
 def bullet_list(items: list[str]) -> str:
     return "\n".join(f"- {item}" for item in items)
 
@@ -1278,6 +1682,8 @@ def make_draft_report(
     source_plan: dict[str, Any],
     sources: dict[str, Any],
     sources_ranked: dict[str, Any],
+    pubmed_plan: dict[str, Any],
+    pubmed_sources: dict[str, Any],
 ) -> str:
     protocol = normalized["protocol"]
     optional_context = normalized["optional_context"]
@@ -1295,6 +1701,12 @@ def make_draft_report(
     else:
         source_assumption = "ClinicalTrials.gov lookup is planned but retrieved evidence is unavailable for this run."
         source_limitation = "External trial records were not available for comparison in this run."
+    if pubmed_sources.get("retrieval_status") in ["success", "partial_success"] and pubmed_sources.get("articles"):
+        literature_assumption = "PubMed retrieval was performed with scenario-specific query terms, de-duplicated by PMID, and selected article metadata was stored in `pubmed_sources.json`."
+        literature_limitation = "Retrieved PubMed records are literature-screening candidates only; this run does not perform full-text review or claim that the articles validate the draft protocol."
+    else:
+        literature_assumption = "PubMed lookup is planned but retrieved literature metadata is unavailable for this run."
+        literature_limitation = "Literature records were not available for review in this run."
 
     return f"""# {scenario_heading(normalized, 'Draft Pre-Review Report')}
 
@@ -1315,6 +1727,14 @@ This report is for planning and expert review preparation only. It does not appr
 Fields to compare later:
 
 {bullet_list(source_plan['fields_to_compare_later'])}
+
+## PubMed Literature Candidates
+
+{pubmed_notes(pubmed_plan, pubmed_sources)}
+
+Detailed PubMed candidate review file:
+
+- `prototype/runs/{normalized['run_id']}/pubmed_relevance_review.md`
 
 ## Eligibility And Recruitment Flags
 
@@ -1345,6 +1765,7 @@ Assumptions:
 - The scenario is synthetic and contains no real patient data.
 - Hospital data availability notes are user-provided assumptions, not verified EMR/HIS evidence.
 - {source_assumption}
+- {literature_assumption}
 
 Limitations:
 
@@ -1352,6 +1773,7 @@ Limitations:
 - It does not validate scientific correctness.
 - It does not replace PI, CRC, IRB/regulatory, sponsor, or medical data-team review.
 - {source_limitation}
+- {literature_limitation}
 
 Expert follow-up questions:
 
@@ -1472,6 +1894,7 @@ def main() -> int:
     checklist = make_checklist_findings(normalized)
     data_readiness = make_data_readiness(normalized)
     source_plan = make_source_plan(normalized, args.max_studies)
+    pubmed_plan = make_pubmed_plan(normalized, args.max_studies)
     if args.fetch_sources:
         sources = fetch_clinical_trials_sources(source_plan, args.source_timeout)
         source_plan["live_retrieval_performed"] = sources.get("retrieval_status") in ["success", "partial_success"]
@@ -1481,8 +1904,27 @@ def main() -> int:
             source_plan["limitations"] = sources.get("limitations", [])
     else:
         sources = make_empty_sources(source_plan)
+    if args.fetch_pubmed:
+        pubmed_sources = fetch_pubmed_sources(pubmed_plan, args.source_timeout)
+        pubmed_plan["live_retrieval_performed"] = pubmed_sources.get("retrieval_status") in ["success", "partial_success"]
+        pubmed_plan["retrieval_status"] = pubmed_sources.get("retrieval_status")
+        pubmed_plan["reason"] = "Live retrieval requested with --fetch-pubmed."
+        if pubmed_sources.get("retrieval_status") in ["success", "partial_success"]:
+            pubmed_plan["limitations"] = pubmed_sources.get("limitations", [])
+    else:
+        pubmed_sources = make_empty_pubmed_sources(pubmed_plan)
     sources_ranked = rank_sources(sources, normalized)
-    draft_report = make_draft_report(normalized, checklist, data_readiness, source_plan, sources, sources_ranked)
+    pubmed_sources = rank_pubmed_sources(pubmed_sources, normalized)
+    draft_report = make_draft_report(
+        normalized,
+        checklist,
+        data_readiness,
+        source_plan,
+        sources,
+        sources_ranked,
+        pubmed_plan,
+        pubmed_sources,
+    )
     critic_review, can_finalize = make_critic_review(draft_report)
     final_report = draft_report.replace(
         f"# {scenario_heading(normalized, 'Draft Pre-Review Report')}",
@@ -1491,6 +1933,7 @@ def main() -> int:
     ) if can_finalize else ""
     score_sheet = make_score_sheet(normalized)
     source_relevance_review = make_source_relevance_review(normalized, sources, sources_ranked)
+    pubmed_relevance_review = make_pubmed_relevance_review(normalized, pubmed_sources)
     top_trial_comparison = make_top_trial_comparison(normalized, sources_ranked)
     data_readiness_table = make_data_readiness_table(normalized, data_readiness)
 
@@ -1500,7 +1943,10 @@ def main() -> int:
     write_json(run_dir / "source_plan.json", source_plan)
     write_json(run_dir / "sources.json", sources)
     write_json(run_dir / "sources_ranked.json", sources_ranked)
+    write_json(run_dir / "pubmed_plan.json", pubmed_plan)
+    write_json(run_dir / "pubmed_sources.json", pubmed_sources)
     write_text(run_dir / "source_relevance_review.md", source_relevance_review)
+    write_text(run_dir / "pubmed_relevance_review.md", pubmed_relevance_review)
     write_text(run_dir / "top_trial_comparison.md", top_trial_comparison)
     write_text(run_dir / "data_readiness_table.md", data_readiness_table)
     write_text(run_dir / "draft_report.md", draft_report)

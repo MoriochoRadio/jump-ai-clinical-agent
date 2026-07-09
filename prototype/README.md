@@ -2,7 +2,7 @@
 
 This folder contains the first implementation area for the Clinical Trial Protocol Review Agent.
 
-The first prototype should be command-line or notebook-style before any web UI. The goal is to create one traceable pre-review report and one score sheet for Scenario 001.
+The first prototype is command-line based before any web UI. The goal is to create traceable pre-review reports and score sheets for synthetic protocol scenarios.
 
 ## Folder Structure
 
@@ -10,6 +10,7 @@ The first prototype should be command-line or notebook-style before any web UI. 
 prototype/
   inputs/
     scenario_001.json
+    scenario_002.json
   prompts/
     protocol_checklist.md
     trial_case_evidence.md
@@ -22,10 +23,10 @@ prototype/
 
 ## Current MVP Path
 
-1. Read `prototype/inputs/scenario_001.json`.
+1. Read a scenario fixture from `prototype/inputs/`.
 2. Normalize the input.
 3. Run checklist and hospital data-readiness checks.
-4. Query or plan a ClinicalTrials.gov lookup.
+4. Query or plan ClinicalTrials.gov and PubMed lookups.
 5. Produce a draft pre-review report.
 6. Run safety critic checks.
 7. Save final report and score under `prototype/runs/`.
@@ -54,6 +55,12 @@ To retrieve live public ClinicalTrials.gov records:
 python prototype/run_scenario.py --input prototype/inputs/scenario_001.json --run-id scenario_001_run_001 --overwrite --fetch-sources
 ```
 
+To retrieve both ClinicalTrials.gov records and PubMed literature metadata candidates:
+
+```powershell
+python prototype/run_scenario.py --input prototype/inputs/scenario_002.json --run-id scenario_002_run_001 --overwrite --fetch-sources --fetch-pubmed
+```
+
 The live retrieval path uses an expanded query set:
 
 - baseline drug class query: `GLP-1 receptor agonist`
@@ -72,6 +79,12 @@ When `--fetch-sources` is used, the run also writes:
 - `source_relevance_review.md`
 - `top_trial_comparison.md`
 - `data_readiness_table.md`
+
+When `--fetch-pubmed` is used, the run also writes:
+
+- `pubmed_plan.json`
+- `pubmed_sources.json`
+- `pubmed_relevance_review.md`
 
 The reviewed Scenario 001 run also includes manual post-run review notes:
 
