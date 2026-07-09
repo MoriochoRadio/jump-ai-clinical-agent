@@ -157,7 +157,7 @@ Current state:
 - competition proposal was submitted on 2026-07-08,
 - public post-submission record is tracked in `docs/14_submission_record.md`,
 - Scenario 002 has been added as a cross-domain generalization check for an oncology immunotherapy protocol scenario,
-- PubMed/NCBI E-utilities retrieval has been added as a second public evidence-source step for literature metadata candidates.
+- PubMed/NCBI E-utilities retrieval has been added as a second public evidence-source step with literature metadata candidates and abstract-screening signals.
 
 Recommended next repository step:
 

@@ -61,6 +61,8 @@ To retrieve both ClinicalTrials.gov records and PubMed literature metadata candi
 python prototype/run_scenario.py --input prototype/inputs/scenario_002.json --run-id scenario_002_run_001 --overwrite --fetch-sources --fetch-pubmed
 ```
 
+The PubMed path stores article metadata and structured abstract-screening signals. It does not store full abstract text.
+
 The live retrieval path uses an expanded query set:
 
 - baseline drug class query: `GLP-1 receptor agonist`

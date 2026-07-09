@@ -44,11 +44,44 @@
       "matched_query_labels": [
         "eligibility_protocol"
       ],
-      "relevance_score": 8,
+      "abstract_available": true,
+      "screening_decision": "high_priority_screen",
+      "screening_reasons": [
+        "abstract condition signal: lung cancer, nsclc",
+        "abstract intervention signal: immunotherapy, nivolumab",
+        "abstract trial-design signal: open-label, phase, randomised",
+        "abstract endpoint/safety signal: adverse"
+      ],
+      "abstract_signal_matches": {
+        "condition": [
+          "lung cancer",
+          "nsclc"
+        ],
+        "intervention": [
+          "immunotherapy",
+          "nivolumab"
+        ],
+        "trial_design": [
+          "open-label",
+          "phase",
+          "randomised"
+        ],
+        "endpoint": [
+          "adverse"
+        ],
+        "eligibility": [],
+        "safety": [
+          "adverse event",
+          "adverse events",
+          "toxicity"
+        ]
+      },
+      "relevance_score": 10,
       "relevance_reasons": [
         "condition match: lung cancer",
         "intervention match: immunotherapy",
-        "clinical trial design signal"
+        "clinical trial design signal",
+        "abstract screening: high priority"
       ]
     },
     {
@@ -61,11 +94,51 @@
       "matched_query_labels": [
         "eligibility_protocol"
       ],
-      "relevance_score": 8,
+      "abstract_available": true,
+      "screening_decision": "high_priority_screen",
+      "screening_reasons": [
+        "abstract condition signal: lung cancer, non-small cell lung cancer, nsclc",
+        "abstract intervention signal: atezolizumab, pd-1, pd-l1",
+        "abstract trial-design signal: clinical trial, open-label, phase",
+        "abstract endpoint/safety signal: pfs, progression-free, safety",
+        "abstract eligibility signal: immunosuppress, pd-l1"
+      ],
+      "abstract_signal_matches": {
+        "condition": [
+          "lung cancer",
+          "non-small cell lung cancer",
+          "nsclc"
+        ],
+        "intervention": [
+          "atezolizumab",
+          "pd-1",
+          "pd-l1"
+        ],
+        "trial_design": [
+          "clinical trial",
+          "open-label",
+          "phase",
+          "randomized"
+        ],
+        "endpoint": [
+          "pfs",
+          "progression-free",
+          "safety"
+        ],
+        "eligibility": [
+          "immunosuppress",
+          "pd-l1"
+        ],
+        "safety": [
+          "safety"
+        ]
+      },
+      "relevance_score": 10,
       "relevance_reasons": [
         "condition match: lung cancer, non-small cell lung cancer",
         "intervention match: atezolizumab",
-        "clinical trial design signal"
+        "clinical trial design signal",
+        "abstract screening: high priority"
       ]
     },
     {
@@ -78,11 +151,48 @@
       "matched_query_labels": [
         "baseline_condition_intervention"
       ],
-      "relevance_score": 8,
+      "abstract_available": true,
+      "screening_decision": "high_priority_screen",
+      "screening_reasons": [
+        "abstract condition signal: lung cancer, nsclc",
+        "abstract intervention signal: pd-l1, pembrolizumab",
+        "abstract trial-design signal: phase",
+        "abstract endpoint/safety signal: adverse, overall survival, response",
+        "abstract eligibility signal: pd-l1"
+      ],
+      "abstract_signal_matches": {
+        "condition": [
+          "lung cancer",
+          "nsclc"
+        ],
+        "intervention": [
+          "pd-l1",
+          "pembrolizumab"
+        ],
+        "trial_design": [
+          "phase"
+        ],
+        "endpoint": [
+          "adverse",
+          "overall survival",
+          "response",
+          "safety"
+        ],
+        "eligibility": [
+          "pd-l1"
+        ],
+        "safety": [
+          "adverse event",
+          "adverse events",
+          "safety"
+        ]
+      },
+      "relevance_score": 10,
       "relevance_reasons": [
         "condition match: lung cancer",
         "intervention match: pembrolizumab",
-        "clinical trial design signal"
+        "clinical trial design signal",
+        "abstract screening: high priority"
       ]
     },
     {
@@ -96,11 +206,51 @@
         "baseline_condition_intervention",
         "safety_monitoring"
       ],
-      "relevance_score": 7,
+      "abstract_available": true,
+      "screening_decision": "high_priority_screen",
+      "screening_reasons": [
+        "abstract condition signal: lung cancer, nsclc",
+        "abstract intervention signal: pd-1, pd-l1, pembrolizumab",
+        "abstract trial-design signal: open-label, phase",
+        "abstract endpoint/safety signal: adverse, objective response, overall survival",
+        "abstract eligibility signal: pd-l1"
+      ],
+      "abstract_signal_matches": {
+        "condition": [
+          "lung cancer",
+          "nsclc"
+        ],
+        "intervention": [
+          "pd-1",
+          "pd-l1",
+          "pembrolizumab"
+        ],
+        "trial_design": [
+          "open-label",
+          "phase"
+        ],
+        "endpoint": [
+          "adverse",
+          "objective response",
+          "overall survival",
+          "progression-free",
+          "response"
+        ],
+        "eligibility": [
+          "pd-l1"
+        ],
+        "safety": [
+          "adverse event",
+          "adverse events",
+          "safety"
+        ]
+      },
+      "relevance_score": 9,
       "relevance_reasons": [
         "condition match: lung cancer",
         "intervention match: pd-l1, pembrolizumab",
-        "eligibility term: pd-l1"
+        "eligibility term: pd-l1",
+        "abstract screening: high priority"
       ]
     },
     {
@@ -113,11 +263,42 @@
       "matched_query_labels": [
         "baseline_condition_intervention"
       ],
-      "relevance_score": 7,
+      "abstract_available": true,
+      "screening_decision": "high_priority_screen",
+      "screening_reasons": [
+        "abstract condition signal: lung cancer, nsclc",
+        "abstract intervention signal: nivolumab",
+        "abstract trial-design signal: open-label, phase",
+        "abstract endpoint/safety signal: overall survival, response, safety"
+      ],
+      "abstract_signal_matches": {
+        "condition": [
+          "lung cancer",
+          "nsclc"
+        ],
+        "intervention": [
+          "nivolumab"
+        ],
+        "trial_design": [
+          "open-label",
+          "phase"
+        ],
+        "endpoint": [
+          "overall survival",
+          "response",
+          "safety"
+        ],
+        "eligibility": [],
+        "safety": [
+          "safety"
+        ]
+      },
+      "relevance_score": 9,
       "relevance_reasons": [
         "condition match: lung cancer",
         "intervention match: nivolumab",
-        "endpoint/safety term: overall survival"
+        "endpoint/safety term: overall survival",
+        "abstract screening: high priority"
       ]
     },
     {
@@ -130,10 +311,49 @@
       "matched_query_labels": [
         "baseline_condition_intervention"
       ],
-      "relevance_score": 6,
+      "abstract_available": true,
+      "screening_decision": "high_priority_screen",
+      "screening_reasons": [
+        "abstract condition signal: lung cancer, nsclc",
+        "abstract intervention signal: pd-l1, pembrolizumab",
+        "abstract trial-design signal: double-blind, phase",
+        "abstract endpoint/safety signal: adverse, overall survival, progression-free",
+        "abstract eligibility signal: alk, egfr, pd-l1"
+      ],
+      "abstract_signal_matches": {
+        "condition": [
+          "lung cancer",
+          "nsclc"
+        ],
+        "intervention": [
+          "pd-l1",
+          "pembrolizumab"
+        ],
+        "trial_design": [
+          "double-blind",
+          "phase"
+        ],
+        "endpoint": [
+          "adverse",
+          "overall survival",
+          "progression-free",
+          "response"
+        ],
+        "eligibility": [
+          "alk",
+          "egfr",
+          "pd-l1"
+        ],
+        "safety": [
+          "adverse event",
+          "adverse events"
+        ]
+      },
+      "relevance_score": 8,
       "relevance_reasons": [
         "condition match: lung cancer",
-        "intervention match: pembrolizumab"
+        "intervention match: pembrolizumab",
+        "abstract screening: high priority"
       ]
     },
     {
@@ -146,10 +366,46 @@
       "matched_query_labels": [
         "baseline_condition_intervention"
       ],
-      "relevance_score": 6,
+      "abstract_available": true,
+      "screening_decision": "high_priority_screen",
+      "screening_reasons": [
+        "abstract condition signal: lung cancer, nsclc",
+        "abstract intervention signal: pd-l1, pembrolizumab",
+        "abstract trial-design signal: double-blind, phase",
+        "abstract endpoint/safety signal: adverse, overall survival, progression-free",
+        "abstract eligibility signal: pd-l1"
+      ],
+      "abstract_signal_matches": {
+        "condition": [
+          "lung cancer",
+          "nsclc"
+        ],
+        "intervention": [
+          "pd-l1",
+          "pembrolizumab"
+        ],
+        "trial_design": [
+          "double-blind",
+          "phase"
+        ],
+        "endpoint": [
+          "adverse",
+          "overall survival",
+          "progression-free"
+        ],
+        "eligibility": [
+          "pd-l1"
+        ],
+        "safety": [
+          "adverse event",
+          "adverse events"
+        ]
+      },
+      "relevance_score": 8,
       "relevance_reasons": [
         "condition match: lung cancer",
-        "intervention match: pembrolizumab"
+        "intervention match: pembrolizumab",
+        "abstract screening: high priority"
       ]
     },
     {
@@ -162,10 +418,45 @@
       "matched_query_labels": [
         "eligibility_protocol"
       ],
-      "relevance_score": 6,
+      "abstract_available": true,
+      "screening_decision": "high_priority_screen",
+      "screening_reasons": [
+        "abstract condition signal: lung cancer, nsclc",
+        "abstract intervention signal: pembrolizumab",
+        "abstract trial-design signal: phase, randomized",
+        "abstract endpoint/safety signal: adverse, objective response, overall survival"
+      ],
+      "abstract_signal_matches": {
+        "condition": [
+          "lung cancer",
+          "nsclc"
+        ],
+        "intervention": [
+          "pembrolizumab"
+        ],
+        "trial_design": [
+          "phase",
+          "randomized"
+        ],
+        "endpoint": [
+          "adverse",
+          "objective response",
+          "overall survival",
+          "pfs",
+          "progression-free"
+        ],
+        "eligibility": [],
+        "safety": [
+          "adverse event",
+          "adverse events",
+          "toxicity"
+        ]
+      },
+      "relevance_score": 8,
       "relevance_reasons": [
         "condition match: nsclc",
-        "intervention match: pembrolizumab"
+        "intervention match: pembrolizumab",
+        "abstract screening: high priority"
       ]
     },
     {
@@ -178,11 +469,50 @@
       "matched_query_labels": [
         "eligibility_protocol"
       ],
-      "relevance_score": 6,
+      "abstract_available": true,
+      "screening_decision": "high_priority_screen",
+      "screening_reasons": [
+        "abstract condition signal: lung cancer, non-small cell lung cancer, nsclc",
+        "abstract intervention signal: immunotherapy",
+        "abstract trial-design signal: open-label, phase, randomised",
+        "abstract endpoint/safety signal: adverse, objective response, response",
+        "abstract eligibility signal: egfr"
+      ],
+      "abstract_signal_matches": {
+        "condition": [
+          "lung cancer",
+          "non-small cell lung cancer",
+          "nsclc"
+        ],
+        "intervention": [
+          "immunotherapy"
+        ],
+        "trial_design": [
+          "open-label",
+          "phase",
+          "randomised"
+        ],
+        "endpoint": [
+          "adverse",
+          "objective response",
+          "response",
+          "safety"
+        ],
+        "eligibility": [
+          "egfr"
+        ],
+        "safety": [
+          "adverse event",
+          "adverse events",
+          "safety"
+        ]
+      },
+      "relevance_score": 8,
       "relevance_reasons": [
         "condition match: lung cancer",
         "clinical trial design signal",
-        "eligibility term: egfr"
+        "eligibility term: egfr",
+        "abstract screening: high priority"
       ]
     },
     {
@@ -195,10 +525,47 @@
       "matched_query_labels": [
         "safety_monitoring"
       ],
-      "relevance_score": 5,
+      "abstract_available": true,
+      "screening_decision": "safety_background_candidate",
+      "screening_reasons": [
+        "abstract intervention signal: nivolumab, pd-1, pd-l1",
+        "abstract trial-design signal: open-label, phase, randomised",
+        "abstract endpoint/safety signal: adverse, overall survival, pfs",
+        "abstract eligibility signal: pd-l1"
+      ],
+      "abstract_signal_matches": {
+        "condition": [],
+        "intervention": [
+          "nivolumab",
+          "pd-1",
+          "pd-l1"
+        ],
+        "trial_design": [
+          "open-label",
+          "phase",
+          "randomised"
+        ],
+        "endpoint": [
+          "adverse",
+          "overall survival",
+          "pfs",
+          "progression-free",
+          "response"
+        ],
+        "eligibility": [
+          "pd-l1"
+        ],
+        "safety": [
+          "adverse event",
+          "adverse events",
+          "safety"
+        ]
+      },
+      "relevance_score": 6,
       "relevance_reasons": [
         "intervention match: nivolumab",
-        "clinical trial design signal"
+        "clinical trial design signal",
+        "abstract screening: safety background"
       ]
     },
     {
@@ -211,10 +578,42 @@
       "matched_query_labels": [
         "eligibility_protocol"
       ],
-      "relevance_score": 5,
+      "abstract_available": true,
+      "screening_decision": "medium_priority_screen",
+      "screening_reasons": [
+        "abstract condition signal: lung cancer, nsclc",
+        "abstract trial-design signal: open-label, phase",
+        "abstract endpoint/safety signal: adverse, objective response, response"
+      ],
+      "abstract_signal_matches": {
+        "condition": [
+          "lung cancer",
+          "nsclc"
+        ],
+        "intervention": [],
+        "trial_design": [
+          "open-label",
+          "phase"
+        ],
+        "endpoint": [
+          "adverse",
+          "objective response",
+          "response",
+          "safety"
+        ],
+        "eligibility": [],
+        "safety": [
+          "adverse event",
+          "adverse events",
+          "safety",
+          "toxicity"
+        ]
+      },
+      "relevance_score": 6,
       "relevance_reasons": [
         "condition match: lung cancer",
-        "clinical trial design signal"
+        "clinical trial design signal",
+        "abstract screening: medium priority"
       ]
     },
     {
@@ -227,9 +626,43 @@
       "matched_query_labels": [
         "safety_monitoring"
       ],
-      "relevance_score": 3,
+      "abstract_available": true,
+      "screening_decision": "safety_background_candidate",
+      "screening_reasons": [
+        "abstract intervention signal: anti-pd-1, checkpoint inhibitor, immune checkpoint",
+        "abstract trial-design signal: phase, randomized",
+        "abstract endpoint/safety signal: adverse, overall survival, progression-free"
+      ],
+      "abstract_signal_matches": {
+        "condition": [],
+        "intervention": [
+          "anti-pd-1",
+          "checkpoint inhibitor",
+          "immune checkpoint",
+          "pd-1",
+          "pembrolizumab"
+        ],
+        "trial_design": [
+          "phase",
+          "randomized"
+        ],
+        "endpoint": [
+          "adverse",
+          "overall survival",
+          "progression-free",
+          "response"
+        ],
+        "eligibility": [],
+        "safety": [
+          "adverse event",
+          "adverse events",
+          "toxicity"
+        ]
+      },
+      "relevance_score": 4,
       "relevance_reasons": [
-        "intervention match: pembrolizumab"
+        "intervention match: pembrolizumab",
+        "abstract screening: safety background"
       ]
     },
     {
@@ -242,9 +675,44 @@
       "matched_query_labels": [
         "safety_monitoring"
       ],
-      "relevance_score": 3,
+      "abstract_available": true,
+      "screening_decision": "safety_background_candidate",
+      "screening_reasons": [
+        "abstract intervention signal: checkpoint inhibitor, nivolumab, pd-1",
+        "abstract trial-design signal: double-blind, phase, randomized",
+        "abstract endpoint/safety signal: adverse, overall survival, progression-free",
+        "abstract eligibility signal: pd-l1"
+      ],
+      "abstract_signal_matches": {
+        "condition": [],
+        "intervention": [
+          "checkpoint inhibitor",
+          "nivolumab",
+          "pd-1",
+          "pd-l1"
+        ],
+        "trial_design": [
+          "double-blind",
+          "phase",
+          "randomized"
+        ],
+        "endpoint": [
+          "adverse",
+          "overall survival",
+          "progression-free"
+        ],
+        "eligibility": [
+          "pd-l1"
+        ],
+        "safety": [
+          "adverse event",
+          "adverse events"
+        ]
+      },
+      "relevance_score": 4,
       "relevance_reasons": [
-        "intervention match: nivolumab"
+        "intervention match: nivolumab",
+        "abstract screening: safety background"
       ]
     },
     {
@@ -257,9 +725,41 @@
       "matched_query_labels": [
         "safety_monitoring"
       ],
-      "relevance_score": 3,
+      "abstract_available": true,
+      "screening_decision": "safety_background_candidate",
+      "screening_reasons": [
+        "abstract intervention signal: immune checkpoint, nivolumab, pd-1",
+        "abstract trial-design signal: double-blind, phase, randomized",
+        "abstract endpoint/safety signal: adverse, progression-free, safety"
+      ],
+      "abstract_signal_matches": {
+        "condition": [],
+        "intervention": [
+          "immune checkpoint",
+          "nivolumab",
+          "pd-1"
+        ],
+        "trial_design": [
+          "double-blind",
+          "phase",
+          "randomized"
+        ],
+        "endpoint": [
+          "adverse",
+          "progression-free",
+          "safety"
+        ],
+        "eligibility": [],
+        "safety": [
+          "adverse event",
+          "adverse events",
+          "safety"
+        ]
+      },
+      "relevance_score": 4,
       "relevance_reasons": [
-        "intervention match: nivolumab"
+        "intervention match: nivolumab",
+        "abstract screening: safety background"
       ]
     }
   ],
@@ -268,5 +768,14 @@
     "This prototype stores article metadata only and does not perform full-text review.",
     "Literature records may be broad matches and require human expert screening."
   ],
+  "abstract_screening": {
+    "performed": true,
+    "status": "success",
+    "error": null,
+    "source": "PubMed efetch XML",
+    "stored_full_abstract_text": false,
+    "screened_article_count": 14,
+    "abstracts_available_count": 14
+  },
   "ranking_method": "local title/journal metadata heuristic using scenario condition, intervention, endpoint, and eligibility terms"
 }

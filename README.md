@@ -80,10 +80,12 @@ flowchart TD
     B --> E["Hospital Data-Readiness Mapping"]
     D --> F["Source De-duplication And Ranking"]
     M --> N["Literature Candidate Ranking"]
+    M --> O["Abstract Signal Screening"]
     C --> G["Draft Pre-Review Report"]
     E --> G
     F --> G
     N --> G
+    O --> G
     G --> H["Safety Critic Checks"]
     H --> I["Final Pre-Review Report"]
     I --> J["Scenario Rubric Score"]
@@ -104,7 +106,7 @@ Implemented so far:
 - PubMed/NCBI E-utilities metadata retrieval,
 - scenario-specific query expansion,
 - de-duplication and local relevance ranking of retrieved trial records,
-- literature candidate review with local metadata relevance scoring,
+- literature candidate review with local metadata and abstract-signal scoring,
 - top-trial comparison output,
 - hospital data-readiness mapping,
 - safety critic checks,
@@ -126,7 +128,7 @@ Scenario 002:
 - PD-1/PD-L1 immune checkpoint inhibitor add-on therapy context,
 - oncology-specific checks for ECOG, RECIST/measurable disease, biomarkers, prior checkpoint exposure, immune-related safety exclusions, and data-readiness mapping,
 - live ClinicalTrials.gov retrieval produced 23 unique public trial records in `scenario_002_run_001`,
-- live PubMed retrieval produced 14 unique literature candidates in `scenario_002_run_001`,
+- live PubMed retrieval produced 14 unique literature candidates and abstract-screening signals in `scenario_002_run_001`,
 - manual rubric review scored the run as a strong pass for portfolio evaluation purposes.
 
 ## 06. Artifacts
@@ -146,7 +148,7 @@ Scenario 002:
 | `prototype/runs/scenario_001_run_001/medical_plausibility_safety_review.md` | Bounded medical plausibility and safety review |
 | `prototype/runs/scenario_002_run_001/final_report.md` | Generated oncology protocol pre-review report |
 | `prototype/runs/scenario_002_run_001/top_trial_comparison.md` | Compact comparison of ranked public oncology trial records |
-| `prototype/runs/scenario_002_run_001/pubmed_relevance_review.md` | Ranked PubMed literature metadata candidates |
+| `prototype/runs/scenario_002_run_001/pubmed_relevance_review.md` | Ranked PubMed literature candidates with abstract-screening signals |
 | `prototype/runs/scenario_002_run_001/score.md` | Manual score sheet using the Scenario 002 rubric |
 
 Repository structure:
@@ -210,7 +212,7 @@ python prototype/run_scenario.py --input prototype/inputs/scenario_002.json --ru
 
 Near-term improvements:
 
-- add abstract-level extraction or manual screening notes for PubMed candidates,
+- add manual expert screening notes for PubMed candidates,
 - improve extraction of numeric eligibility thresholds from registry records,
 - generate a cleaner reviewer-facing report from each run,
 - add a small interface only after the CLI workflow remains reproducible.

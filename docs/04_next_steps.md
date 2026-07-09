@@ -92,4 +92,5 @@
 - [x] Manually score Scenario 002 against its rubric.
 - [x] Add PubMed/NCBI retrieval as a second public evidence source.
 - [x] Add local relevance scoring for PubMed literature candidates.
-- [ ] Add abstract-level extraction or manual screening notes for PubMed candidates.
+- [x] Add abstract-level screening signals for PubMed candidates.
+- [ ] Add manual expert screening notes for PubMed candidates.

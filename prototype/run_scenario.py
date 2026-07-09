@@ -12,6 +12,7 @@ import json
 import re
 import shutil
 import sys
+import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -1004,6 +1005,132 @@ def make_empty_pubmed_sources(pubmed_plan: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def fetch_pubmed_abstract_texts(pmids: list[str], timeout: int) -> tuple[dict[str, str], str | None]:
+    if not pmids:
+        return {}, None
+    params = {
+        "db": "pubmed",
+        "retmode": "xml",
+        "id": ",".join(pmids),
+    }
+    query_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?" + urlencode(params)
+    request = Request(query_url, headers={"User-Agent": "jump-ai-clinical-agent-prototype/0.1"})
+    try:
+        with urlopen(request, timeout=timeout) as response:
+            raw_xml = response.read()
+    except (HTTPError, URLError, TimeoutError) as exc:
+        return {}, str(exc)
+
+    try:
+        root = ET.fromstring(raw_xml)
+    except ET.ParseError as exc:
+        return {}, str(exc)
+
+    abstracts_by_pmid: dict[str, str] = {}
+    for article in root.findall(".//PubmedArticle"):
+        pmid = article.findtext(".//MedlineCitation/PMID")
+        if not pmid:
+            continue
+        abstract_parts = []
+        for abstract_text in article.findall(".//Abstract/AbstractText"):
+            text = " ".join("".join(abstract_text.itertext()).split())
+            if text:
+                label = abstract_text.attrib.get("Label")
+                abstract_parts.append(f"{label}: {text}" if label else text)
+        if abstract_parts:
+            abstracts_by_pmid[pmid] = " ".join(abstract_parts)
+    return abstracts_by_pmid, None
+
+
+def find_term_matches(text: str, terms: list[str], limit: int = 5) -> list[str]:
+    return sorted({term for term in terms if term and term in text})[:limit]
+
+
+def screen_pubmed_abstract(abstract_text: str, normalized: dict[str, Any]) -> dict[str, Any]:
+    if not abstract_text:
+        return {
+            "abstract_available": False,
+            "screening_decision": "no_abstract_available",
+            "screening_reasons": ["No abstract text available from PubMed XML."],
+            "abstract_signal_matches": {},
+        }
+
+    profile = get_ranking_profile(normalized)
+    text = abstract_text.lower()
+    condition_matches = find_term_matches(text, profile["condition_terms"])
+    intervention_matches = find_term_matches(text, profile["intervention_terms"] + profile["adjacent_intervention_terms"])
+    endpoint_matches = find_term_matches(text, profile["endpoint_terms"])
+    eligibility_matches = find_term_matches(text, profile["eligibility_terms"])
+    design_matches = find_term_matches(text, ["clinical trial", "phase", "randomized", "randomised", "open-label", "double-blind"])
+    safety_matches = find_term_matches(text, ["safety", "adverse event", "adverse events", "toxicity", "immune-related", "immune related"])
+
+    reasons = []
+    if condition_matches:
+        reasons.append("abstract condition signal: " + ", ".join(condition_matches[:3]))
+    if intervention_matches:
+        reasons.append("abstract intervention signal: " + ", ".join(intervention_matches[:3]))
+    if design_matches:
+        reasons.append("abstract trial-design signal: " + ", ".join(design_matches[:3]))
+    if endpoint_matches:
+        reasons.append("abstract endpoint/safety signal: " + ", ".join(endpoint_matches[:3]))
+    if eligibility_matches:
+        reasons.append("abstract eligibility signal: " + ", ".join(eligibility_matches[:3]))
+    if safety_matches and not endpoint_matches:
+        reasons.append("abstract safety signal: " + ", ".join(safety_matches[:3]))
+
+    if condition_matches and intervention_matches and design_matches:
+        decision = "high_priority_screen"
+    elif condition_matches and (intervention_matches or design_matches):
+        decision = "medium_priority_screen"
+    elif intervention_matches and safety_matches:
+        decision = "safety_background_candidate"
+    else:
+        decision = "low_priority_or_background"
+
+    return {
+        "abstract_available": True,
+        "screening_decision": decision,
+        "screening_reasons": reasons or ["No strong scenario-specific abstract signal found."],
+        "abstract_signal_matches": {
+            "condition": condition_matches,
+            "intervention": intervention_matches,
+            "trial_design": design_matches,
+            "endpoint": endpoint_matches,
+            "eligibility": eligibility_matches,
+            "safety": safety_matches,
+        },
+    }
+
+
+def add_pubmed_abstract_screening(
+    pubmed_sources: dict[str, Any],
+    normalized: dict[str, Any],
+    timeout: int,
+) -> dict[str, Any]:
+    articles = pubmed_sources.get("articles", [])
+    pmids = [article.get("pmid", "") for article in articles if article.get("pmid")]
+    abstracts_by_pmid, error = fetch_pubmed_abstract_texts(pmids, timeout)
+    screened_articles = []
+    for article in articles:
+        screened = dict(article)
+        screening = screen_pubmed_abstract(abstracts_by_pmid.get(article.get("pmid", ""), ""), normalized)
+        screened.update(screening)
+        screened_articles.append(screened)
+
+    updated = dict(pubmed_sources)
+    updated["articles"] = screened_articles
+    updated["abstract_screening"] = {
+        "performed": True,
+        "status": "success" if error is None else "partial_error",
+        "error": error,
+        "source": "PubMed efetch XML",
+        "stored_full_abstract_text": False,
+        "screened_article_count": len(screened_articles),
+        "abstracts_available_count": sum(1 for article in screened_articles if article.get("abstract_available")),
+    }
+    return updated
+
+
 def score_pubmed_article(article: dict[str, Any], normalized: dict[str, Any]) -> tuple[int, list[str]]:
     profile = get_ranking_profile(normalized)
     text = " ".join(
@@ -1041,6 +1168,16 @@ def score_pubmed_article(article: dict[str, Any], normalized: dict[str, Any]) ->
     if eligibility_matches:
         score += 1
         reasons.append("eligibility term: " + ", ".join(eligibility_matches[:3]))
+    screening_decision = article.get("screening_decision")
+    if screening_decision == "high_priority_screen":
+        score += 2
+        reasons.append("abstract screening: high priority")
+    elif screening_decision == "medium_priority_screen":
+        score += 1
+        reasons.append("abstract screening: medium priority")
+    elif screening_decision == "safety_background_candidate":
+        score += 1
+        reasons.append("abstract screening: safety background")
     if not reasons:
         reasons.append("weak local metadata match")
     return min(score, 10), reasons
@@ -1588,6 +1725,8 @@ def pubmed_notes(pubmed_plan: dict[str, Any], pubmed_sources: dict[str, Any]) ->
             f"- Retrieval status: {status}",
             f"- Query count: {pubmed_sources.get('query_count', 1)}",
             f"- Retrieved literature candidates: {len(articles)}",
+            f"- Abstract screening performed: {pubmed_sources.get('abstract_screening', {}).get('performed', False)}",
+            f"- Abstracts available: {pubmed_sources.get('abstract_screening', {}).get('abstracts_available_count', 0)}",
             f"- Baseline PubMed query URL: `{pubmed_sources['query_url']}`",
             "",
             "Top literature candidates by local metadata relevance:",
@@ -1626,26 +1765,35 @@ def pubmed_notes(pubmed_plan: dict[str, Any], pubmed_sources: dict[str, Any]) ->
 def make_pubmed_relevance_review(normalized: dict[str, Any], pubmed_sources: dict[str, Any]) -> str:
     articles = pubmed_sources.get("articles", [])
     rows = [
-        "| PMID | Score | Title | Journal | Publication Date | Query Labels | Relevance Reasons |",
-        "| --- | ---: | --- | --- | --- | --- | --- |",
+        "| PMID | Score | Screening Decision | Title | Journal | Publication Date | Query Labels | Abstract Signals | Relevance Reasons |",
+        "| --- | ---: | --- | --- | --- | --- | --- | --- | --- |",
     ]
     for article in articles[:15]:
         labels = ", ".join(article.get("matched_query_labels", [])) or "not tracked"
         reasons = "; ".join(article.get("relevance_reasons", [])) or "not scored"
+        abstract_signals = article.get("abstract_signal_matches", {})
+        signal_parts = []
+        for key in ["condition", "intervention", "trial_design", "endpoint", "eligibility", "safety"]:
+            values = abstract_signals.get(key, [])
+            if values:
+                signal_parts.append(f"{key}: {', '.join(values[:3])}")
+        signal_text = "; ".join(signal_parts) or "no stored abstract signal"
         rows.append(
-            "| `{pmid}` | {score}/10 | {title} | {journal} | {date} | {labels} | {reasons} |".format(
+            "| `{pmid}` | {score}/10 | {decision} | {title} | {journal} | {date} | {labels} | {signals} | {reasons} |".format(
                 pmid=article.get("pmid", ""),
                 score=article.get("relevance_score", "NA"),
+                decision=markdown_cell(article.get("screening_decision", "not_screened"), max_chars=40),
                 title=markdown_cell(article.get("title", ""), max_chars=120),
                 journal=markdown_cell(article.get("journal", ""), max_chars=60),
                 date=markdown_cell(article.get("publication_date", ""), max_chars=40),
                 labels=markdown_cell(labels, max_chars=80),
+                signals=markdown_cell(signal_text, max_chars=120),
                 reasons=markdown_cell(reasons, max_chars=100),
             )
         )
 
     if not articles:
-        rows.append("| none | 0/10 | No PubMed records available for this run. |  |  |  |  |")
+        rows.append("| none | 0/10 | not_screened | No PubMed records available for this run. |  |  |  |  |  |")
 
     return f"""# {scenario_heading(normalized, 'PubMed Literature Candidate Review')}
 
@@ -1660,6 +1808,9 @@ This file does not claim that any article validates the draft protocol. It is a 
 - retrieval status: {pubmed_sources.get('retrieval_status')}
 - query count: {pubmed_sources.get('query_count', 0)}
 - unique literature candidates: {len(articles)}
+- abstract screening performed: {pubmed_sources.get('abstract_screening', {}).get('performed', False)}
+- abstracts available: {pubmed_sources.get('abstract_screening', {}).get('abstracts_available_count', 0)}
+- stored full abstract text: {pubmed_sources.get('abstract_screening', {}).get('stored_full_abstract_text', False)}
 
 ## Candidate Articles
 
@@ -1667,7 +1818,7 @@ This file does not claim that any article validates the draft protocol. It is a 
 
 ## Current Decision
 
-Use these articles only as literature-screening candidates. A future version should add abstract-level extraction and human review notes before citing them as substantive evidence.
+Use these articles only as literature-screening candidates. Abstract screening is keyword-based and stores structured signals only, not full abstract text. A future version should add manual expert screening notes before citing articles as substantive evidence.
 """
 
 
@@ -1702,8 +1853,8 @@ def make_draft_report(
         source_assumption = "ClinicalTrials.gov lookup is planned but retrieved evidence is unavailable for this run."
         source_limitation = "External trial records were not available for comparison in this run."
     if pubmed_sources.get("retrieval_status") in ["success", "partial_success"] and pubmed_sources.get("articles"):
-        literature_assumption = "PubMed retrieval was performed with scenario-specific query terms, de-duplicated by PMID, and selected article metadata was stored in `pubmed_sources.json`."
-        literature_limitation = "Retrieved PubMed records are literature-screening candidates only; this run does not perform full-text review or claim that the articles validate the draft protocol."
+        literature_assumption = "PubMed retrieval was performed with scenario-specific query terms, de-duplicated by PMID, and selected article metadata plus abstract-screening signals were stored in `pubmed_sources.json`."
+        literature_limitation = "Retrieved PubMed records are literature-screening candidates only; this run does not store full abstract text, perform full-text review, or claim that the articles validate the draft protocol."
     else:
         literature_assumption = "PubMed lookup is planned but retrieved literature metadata is unavailable for this run."
         literature_limitation = "Literature records were not available for review in this run."
@@ -1906,6 +2057,8 @@ def main() -> int:
         sources = make_empty_sources(source_plan)
     if args.fetch_pubmed:
         pubmed_sources = fetch_pubmed_sources(pubmed_plan, args.source_timeout)
+        if pubmed_sources.get("retrieval_status") in ["success", "partial_success"]:
+            pubmed_sources = add_pubmed_abstract_screening(pubmed_sources, normalized, args.source_timeout)
         pubmed_plan["live_retrieval_performed"] = pubmed_sources.get("retrieval_status") in ["success", "partial_success"]
         pubmed_plan["retrieval_status"] = pubmed_sources.get("retrieval_status")
         pubmed_plan["reason"] = "Live retrieval requested with --fetch-pubmed."
