@@ -80,6 +80,7 @@ When `--fetch-sources` is used, the run also writes:
 
 - `sources.json`
 - `sources_ranked.json`
+- `eligibility_criteria_extraction.json`
 - `source_relevance_review.md`
 - `top_trial_comparison.md`
 - `data_readiness_table.md`

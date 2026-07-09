@@ -124,6 +124,7 @@ Key outputs:
 - `source_plan.json`
 - `sources.json`
 - `sources_ranked.json`
+- `eligibility_criteria_extraction.json`
 - `pubmed_plan.json`
 - `pubmed_sources.json`
 - `source_relevance_review.md`
@@ -159,7 +160,8 @@ Current state:
 - competition proposal was submitted on 2026-07-08,
 - public post-submission record is tracked in `docs/14_submission_record.md`,
 - Scenario 002 has been added as a cross-domain generalization check for an oncology immunotherapy protocol scenario,
-- PubMed/NCBI E-utilities retrieval has been added as a second public evidence-source step with literature metadata candidates, abstract-screening signals, structured manual screening decisions, and accepted-literature grouping in generated reports.
+- PubMed/NCBI E-utilities retrieval has been added as a second public evidence-source step with literature metadata candidates, abstract-screening signals, structured manual screening decisions, and accepted-literature grouping in generated reports,
+- comparator trial eligibility extraction now captures screening signals such as ECOG, PD-L1 thresholds, RECIST, stage/extent, biomarker rules, safety exclusions, and endpoint timing.
 
 Recommended next repository step:
 

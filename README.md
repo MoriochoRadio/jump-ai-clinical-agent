@@ -131,6 +131,7 @@ Scenario 002:
 - live PubMed retrieval produced 14 unique literature candidates and abstract-screening signals in `scenario_002_run_001`,
 - manual PubMed screening separated primary support candidates, context-only candidates, and excluded direct-support candidates,
 - final reports can include accepted-literature grouping from manual PubMed screening notes,
+- top trial comparison extracts structured criteria such as ECOG, PD-L1 thresholds, RECIST, stage/extent, biomarker rules, safety exclusions, and endpoint timing,
 - manual rubric review scored the run as a strong pass for portfolio evaluation purposes.
 
 ## 06. Artifacts
@@ -150,6 +151,7 @@ Scenario 002:
 | `prototype/runs/scenario_001_run_001/medical_plausibility_safety_review.md` | Bounded medical plausibility and safety review |
 | `prototype/runs/scenario_002_run_001/final_report.md` | Generated oncology protocol pre-review report |
 | `prototype/runs/scenario_002_run_001/top_trial_comparison.md` | Compact comparison of ranked public oncology trial records |
+| `prototype/runs/scenario_002_run_001/eligibility_criteria_extraction.json` | Structured extraction of comparator eligibility criteria and endpoint timing |
 | `prototype/runs/scenario_002_run_001/pubmed_relevance_review.md` | Ranked PubMed literature candidates with abstract-screening signals |
 | `prototype/runs/scenario_002_run_001/pubmed_manual_screening.json` | Structured manual PubMed screening decisions used by report generation |
 | `prototype/runs/scenario_002_run_001/pubmed_manual_screening_notes.md` | Manual screening notes for PubMed literature candidates |
@@ -216,7 +218,6 @@ python prototype/run_scenario.py --input prototype/inputs/scenario_002.json --ru
 
 Near-term improvements:
 
-- improve extraction of numeric eligibility thresholds from registry records,
 - generate a cleaner reviewer-facing report from each run,
 - add a small interface only after the CLI workflow remains reproducible.
 

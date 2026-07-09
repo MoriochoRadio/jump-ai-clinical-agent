@@ -1478,6 +1478,81 @@ def extract_keyword_hint(criteria: str, keywords: list[str]) -> str:
     return markdown_cell(text, max_chars=170)
 
 
+def unique_matches(pattern: str, text: str, flags: int = re.IGNORECASE, limit: int = 5) -> list[str]:
+    matches = []
+    seen = set()
+    for match in re.finditer(pattern, text, flags=flags):
+        value = " ".join(match.group(0).split())
+        normalized_value = value.lower()
+        if value and normalized_value not in seen:
+            matches.append(value)
+            seen.add(normalized_value)
+        if len(matches) >= limit:
+            break
+    return matches
+
+
+def extract_numeric_criteria_signals(criteria: str, outcomes: list[dict[str, Any]]) -> dict[str, list[str]]:
+    criteria_text = " ".join(criteria.split())
+    outcome_text = " ".join(
+        " ".join(
+            [
+                str(outcome.get("measure", "")),
+                str(outcome.get("time_frame", "")),
+            ]
+        )
+        for outcome in outcomes
+    )
+    combined_text = " ".join([criteria_text, outcome_text])
+
+    signals = {
+        "ecog": unique_matches(
+            r"(?:ECOG|Eastern Cooperative Oncology Group|performance status|PS)\s*(?:score|status|PS)?\s*(?:of\s*)?(?:[0-5]\s*[-–]\s*[0-5]|[<>]=?\s*[0-5]|[0-5])",
+            criteria_text,
+        ),
+        "pd_l1": unique_matches(
+            r"(?:PD-L1|PDL1|TPS)[^.;,\n]{0,80}(?:(?:>=|≥|>|=|at least|minimum)\s*\d+\s*%\)?|\d+\s*%\)?)",
+            criteria_text,
+        ),
+        "recist": unique_matches(r"RECIST\s*(?:v|version)?\s*\d+(?:\.\d+)?", combined_text),
+        "imaging_or_endpoint_timing": unique_matches(
+            r"(?:every\s+\d+\s+weeks?|at\s+\d+\s+weeks?|up to\s+\d+\s+(?:weeks?|months?|years?))",
+            combined_text,
+        ),
+        "stage_or_extent": unique_matches(
+            r"(?:stage\s+[IVX]{1,4}[A-C]?|locally advanced|metastatic|unresectable)",
+            criteria_text,
+        ),
+        "biomarker_rules": unique_matches(
+            r"(?:EGFR|ALK|ROS-?1|PD-L1|PDL1|biomarker|mutation)[^.;,\n]{0,80}",
+            criteria_text,
+        ),
+        "safety_exclusions": unique_matches(
+            r"(?:autoimmune|steroid|immunosuppress\w*|immune-related|interstitial lung disease|pneumonitis)[^.;,\n]{0,80}",
+            criteria_text,
+        ),
+    }
+    return signals
+
+
+def format_criteria_signals(signals: dict[str, list[str]]) -> str:
+    labels = [
+        ("ECOG", "ecog"),
+        ("PD-L1", "pd_l1"),
+        ("RECIST", "recist"),
+        ("Timing", "imaging_or_endpoint_timing"),
+        ("Stage", "stage_or_extent"),
+        ("Biomarker", "biomarker_rules"),
+        ("Safety", "safety_exclusions"),
+    ]
+    parts = []
+    for label, key in labels:
+        values = signals.get(key, [])
+        if values:
+            parts.append(f"{label}: {', '.join(values[:2])}")
+    return markdown_cell("; ".join(parts) or "not extracted", max_chars=210)
+
+
 def keyword_presence(criteria: str, keywords: list[str]) -> str:
     lower = criteria.lower()
     found = [keyword for keyword in keywords if keyword in lower]
@@ -1491,19 +1566,23 @@ def top_trial_comparison_table(sources_ranked: dict[str, Any], max_rows: int = 5
 
     profile = sources_ranked.get("ranking_profile", DEFAULT_RANKING_PROFILE)
     rows = [
-        "| Rank | NCT ID | Score | Phase | Intervention | Primary Endpoint | Eligibility Hint | Safety/Exclusion Hints |",
-        "| ---: | --- | ---: | --- | --- | --- | --- | --- |",
+        "| Rank | NCT ID | Score | Phase | Intervention | Primary Endpoint | Eligibility Hint | Extracted Criteria | Safety/Exclusion Hints |",
+        "| ---: | --- | ---: | --- | --- | --- | --- | --- | --- |",
     ]
     for index, item in enumerate(studies[:max_rows], start=1):
         study = item["study"]
         criteria = study.get("eligibility_criteria_excerpt", "")
+        extracted_signals = extract_numeric_criteria_signals(
+            criteria,
+            study.get("primary_outcomes", []) + study.get("secondary_outcomes", []),
+        )
         phase = markdown_cell(", ".join(study.get("phases", [])) or "not listed", max_chars=60)
         safety_hints = keyword_presence(
             criteria,
             profile.get("eligibility_terms", DEFAULT_RANKING_PROFILE["eligibility_terms"]),
         )
         rows.append(
-            "| {rank} | `{nct}` | {score}/10 | {phase} | {intervention} | {endpoint} | {eligibility_hint} | {safety} |".format(
+            "| {rank} | `{nct}` | {score}/10 | {phase} | {intervention} | {endpoint} | {eligibility_hint} | {extracted} | {safety} |".format(
                 rank=index,
                 nct=item["nct_id"],
                 score=item["relevance_score"],
@@ -1511,10 +1590,43 @@ def top_trial_comparison_table(sources_ranked: dict[str, Any], max_rows: int = 5
                 intervention=intervention_summary(study),
                 endpoint=outcome_summary(study.get("primary_outcomes", [])),
                 eligibility_hint=extract_keyword_hint(criteria, profile.get("eligibility_terms", [])),
+                extracted=format_criteria_signals(extracted_signals),
                 safety=markdown_cell(safety_hints, max_chars=120),
             )
         )
     return "\n".join(rows)
+
+
+def make_eligibility_criteria_extraction(sources_ranked: dict[str, Any], max_rows: int = 10) -> dict[str, Any]:
+    rows = []
+    for item in sources_ranked.get("ranked_studies", [])[:max_rows]:
+        study = item["study"]
+        criteria = study.get("eligibility_criteria_excerpt", "")
+        signals = extract_numeric_criteria_signals(
+            criteria,
+            study.get("primary_outcomes", []) + study.get("secondary_outcomes", []),
+        )
+        rows.append(
+            {
+                "nct_id": item.get("nct_id"),
+                "relevance_score": item.get("relevance_score"),
+                "brief_title": study.get("brief_title", ""),
+                "matched_query_labels": study.get("matched_query_labels", []),
+                "extracted_signals": signals,
+                "extraction_summary": format_criteria_signals(signals),
+            }
+        )
+    return {
+        "extraction_status": "success" if rows else "no_ranked_studies",
+        "method": "deterministic regex extraction over ClinicalTrials.gov eligibility excerpts and endpoint timing fields",
+        "limitations": [
+            "Eligibility excerpts may be truncated before extraction.",
+            "Regex extraction can miss criteria expressed in unusual wording.",
+            "Extracted criteria are screening aids and require human review before use as evidence.",
+        ],
+        "extracted_count": len(rows),
+        "records": rows,
+    }
 
 
 def make_top_trial_comparison(normalized: dict[str, Any], sources_ranked: dict[str, Any], max_rows: int = 5) -> str:
@@ -1548,6 +1660,10 @@ This file is a screening aid only. It does not prove clinical correctness, regul
 ## Current Decision
 
 Keep this table as the compact reviewer-facing comparison view for {normalized['scenario_id']}.
+
+Structured extraction file:
+
+- `prototype/runs/{normalized['run_id']}/eligibility_criteria_extraction.json`
 """
 
 
@@ -2254,6 +2370,7 @@ def main() -> int:
     source_relevance_review = make_source_relevance_review(normalized, sources, sources_ranked)
     pubmed_relevance_review = make_pubmed_relevance_review(normalized, pubmed_sources)
     top_trial_comparison = make_top_trial_comparison(normalized, sources_ranked)
+    eligibility_criteria_extraction = make_eligibility_criteria_extraction(sources_ranked)
     data_readiness_table = make_data_readiness_table(normalized, data_readiness)
 
     write_json(run_dir / "normalized_input.json", normalized)
@@ -2264,6 +2381,7 @@ def main() -> int:
     write_json(run_dir / "sources_ranked.json", sources_ranked)
     write_json(run_dir / "pubmed_plan.json", pubmed_plan)
     write_json(run_dir / "pubmed_sources.json", pubmed_sources)
+    write_json(run_dir / "eligibility_criteria_extraction.json", eligibility_criteria_extraction)
     if manual_screening_json_text:
         write_text(run_dir / "pubmed_manual_screening.json", manual_screening_json_text)
     if manual_screening_markdown_text:

@@ -96,4 +96,5 @@
 - [x] Add manual screening notes for PubMed candidates.
 - [x] Add accepted-literature candidate section to generated reports.
 - [x] Convert manual PubMed screening notes into structured JSON input.
-- [ ] Improve extraction of numeric eligibility thresholds from registry records.
+- [x] Improve extraction of numeric eligibility thresholds from registry records.
+- [ ] Generate a cleaner reviewer-facing report from each run.
