@@ -76,7 +76,8 @@ Update the repository README so that a GitHub visitor can quickly understand:
 - Public submission record added in `docs/14_submission_record.md`.
 - Post-submission retrospective added in `docs/15_post_submission_retrospective.md`.
 - `seed-project` reference structure analyzed in `docs/16_seed_project_reference_analysis.md`.
+- README adapted into a problem-first portfolio flow inspired by `seed-project`.
 
 ## Next Recommended Step
 
-Adapt the README toward a problem-first portfolio flow inspired by `seed-project`, while keeping the tone more conservative because this project is still a submitted proposal plus early MVP.
+Add Scenario 002 with a different clinical area, while keeping the same traceable evaluation structure used for Scenario 001.

@@ -2,13 +2,27 @@
 
 Clinical trial protocol pre-review agent prototype for the 4th JUMP AI / AI drug development challenge.
 
-This project explores a Medical IT-oriented agentic AI workflow for early clinical trial protocol review. The goal is not to replace clinical, regulatory, IRB, or sponsor review. The goal is to prepare a traceable pre-review packet that helps hospital clinical research and medical information teams identify missing protocol elements, evidence gaps, data-readiness risks, and safety-review questions earlier.
+This project explores a Medical IT-oriented agentic AI workflow for early clinical trial protocol review. It does not replace clinical, regulatory, IRB, sponsor, or statistician review. It prepares a traceable pre-review packet that helps hospital clinical research and medical information teams identify missing protocol elements, evidence gaps, data-readiness risks, and safety-review questions earlier.
 
 GitHub repository:
 
 - https://github.com/MoriochoRadio/jump-ai-clinical-agent
 
-## Submission Status
+## Contents
+
+| Section | Purpose |
+| --- | --- |
+| [01. Submission Status](#01-submission-status) | Competition submission state and public repository boundary |
+| [02. Why This Problem](#02-why-this-problem) | Medical IT and clinical research workflow fit |
+| [03. Problem Definition](#03-problem-definition) | Operational problem addressed by the agent |
+| [04. Agent Workflow](#04-agent-workflow) | How the prototype is structured |
+| [05. Current MVP Evidence](#05-current-mvp-evidence) | What is already implemented and reproducible |
+| [06. Artifacts](#06-artifacts) | Main documents, code, and generated outputs |
+| [07. Safety Boundary](#07-safety-boundary) | What this system does not claim to do |
+| [08. Quick Start](#08-quick-start) | How to run the current CLI prototype |
+| [09. Next Work](#09-next-work) | Recommended post-submission build plan |
+
+## 01. Submission Status
 
 The proposal for the 4th JUMP AI / AI drug development challenge was submitted on 2026-07-08.
 
@@ -19,45 +33,43 @@ Submitted direction:
 - agent: Clinical Trial Protocol Review Agent,
 - scope: clinical trial protocol pre-review using public or synthetic data only.
 
-The final submitted HWPX/PDF files are not committed to this public repository. The repository keeps the reproducible planning notes, evidence review, prototype code, scenario outputs, and proposal support materials that are safe to publish.
+The final submitted HWPX/PDF files are not committed to this public repository. The repository keeps reproducible planning notes, evidence review, prototype code, scenario outputs, and proposal support materials that are safe to publish.
 
-## Problem
+## 02. Why This Problem
 
-Early clinical trial planning requires repeated checks across protocol completeness, similar trial cases, eligibility assumptions, recruitment feasibility, safety monitoring, and hospital data availability.
+Clinical trial protocols connect medical reasoning, regulatory expectations, operational feasibility, and hospital data workflows.
 
-This is difficult because the relevant information is spread across:
+For a Medical IT portfolio, this is a useful problem because it sits between:
 
-- protocol drafts,
-- trial registries,
-- biomedical evidence sources,
-- hospital information systems,
-- research documentation workflows,
-- safety and regulatory-style review expectations.
+- clinical research documentation,
+- hospital information system readiness,
+- public trial registry reuse,
+- AI-assisted evidence organization,
+- human expert review.
 
-For a Medical IT portfolio, this project focuses on the operational question:
+The project intentionally avoids a broad "AI doctor" or "drug discovery model" claim. It focuses on a narrower review-support workflow where an agent can organize information before a human expert makes decisions.
+
+## 03. Problem Definition
+
+Early clinical trial planning requires repeated checks across:
+
+- protocol completeness,
+- eligibility criteria,
+- recruitment assumptions,
+- endpoint and safety monitoring details,
+- similar public trial cases,
+- hospital data availability,
+- documentation and follow-up questions.
+
+This is difficult because the relevant information is spread across protocol drafts, trial registries, biomedical evidence sources, hospital information systems, research documentation workflows, and safety or regulatory-style review expectations.
+
+Project question:
 
 > Can an agentic AI workflow help a hospital research support team prepare a safer, more traceable protocol pre-review packet before expert review?
 
-## Current MVP
+## 04. Agent Workflow
 
-The current MVP is a standard-library Python CLI workflow using a synthetic Type 2 diabetes Phase II protocol scenario.
-
-It currently supports:
-
-- structured scenario input,
-- deterministic protocol completeness checks,
-- eligibility and recruitment risk flags,
-- ClinicalTrials.gov API retrieval,
-- expanded GLP-1-related query terms,
-- de-duplication and local relevance ranking of retrieved trial records,
-- top-trial comparison output,
-- hospital data-readiness mapping,
-- safety critic checks,
-- final pre-review report generation,
-- manual rubric scoring,
-- bounded medical plausibility and safety review.
-
-## Architecture
+The current prototype is a standard-library Python CLI workflow using a synthetic Type 2 diabetes Phase II protocol scenario.
 
 ```mermaid
 flowchart TD
@@ -76,7 +88,34 @@ flowchart TD
     I --> L["Medical Plausibility And Safety Review"]
 ```
 
-## Key Outputs
+The workflow separates deterministic checks, public-source retrieval, data-readiness mapping, and safety review so that each step can be inspected.
+
+## 05. Current MVP Evidence
+
+Implemented at submission time:
+
+- structured scenario input,
+- deterministic protocol completeness checks,
+- eligibility and recruitment risk flags,
+- ClinicalTrials.gov API retrieval,
+- expanded GLP-1-related query terms,
+- de-duplication and local relevance ranking of retrieved trial records,
+- top-trial comparison output,
+- hospital data-readiness mapping,
+- safety critic checks,
+- final pre-review report generation,
+- manual rubric scoring,
+- bounded medical plausibility and safety review.
+
+Primary Scenario 001:
+
+- synthetic Type 2 diabetes Phase II protocol scenario,
+- GLP-1 receptor agonist add-on therapy context,
+- public ClinicalTrials.gov retrieval only,
+- no real patient data,
+- no EMR/HIS integration.
+
+## 06. Artifacts
 
 | Output | Purpose |
 | --- | --- |
@@ -91,7 +130,32 @@ flowchart TD
 | `prototype/runs/scenario_001_run_001/score.md` | Manual score sheet using the Scenario 001 rubric |
 | `prototype/runs/scenario_001_run_001/medical_plausibility_safety_review.md` | Bounded medical plausibility and safety review |
 
-## How To Run
+Repository structure:
+
+```text
+docs/        Competition analysis, career fit, workflow design, project tracking
+proposal/    Concept note, rubric mapping, proposal support material
+research/    Evidence review and problem-definition notes
+experiments/ Scenario definitions and scoring rubrics
+prototype/   CLI prototype, input fixtures, prompts, and run outputs
+```
+
+## 07. Safety Boundary
+
+This project does not:
+
+- use real patient data,
+- connect to real EMR/HIS systems,
+- approve clinical trial protocols,
+- certify regulatory compliance,
+- replace PI, CRC, sponsor, IRB, regulatory, statistician, or clinical expert review,
+- make patient-specific diagnosis or treatment recommendations,
+- determine real patient eligibility,
+- guarantee recruitment success.
+
+The prototype uses public or synthetic information only and is intended as a planning and review-support demonstration.
+
+## 08. Quick Start
 
 Requirements:
 
@@ -117,47 +181,14 @@ The command writes outputs under:
 prototype/runs/scenario_001_run_001/
 ```
 
-## Repository Structure
-
-```text
-docs/        Competition analysis, career fit, workflow design, project tracking
-proposal/    Concept note, rubric mapping, proposal support material
-research/    Evidence review and problem-definition notes
-experiments/ Scenario definitions and scoring rubrics
-prototype/   CLI prototype, input fixtures, prompts, and run outputs
-```
-
-## Safety Boundaries
-
-This project does not:
-
-- use real patient data,
-- connect to real EMR/HIS systems,
-- approve clinical trial protocols,
-- certify regulatory compliance,
-- replace PI, CRC, sponsor, IRB, regulatory, statistician, or clinical expert review,
-- make patient-specific diagnosis or treatment recommendations,
-- guarantee recruitment success.
-
-The prototype uses public or synthetic information only and is intended as a planning and review-support demonstration.
-
-## Current Status
-
-Current stage:
-
-- first source-backed MVP run completed,
-- local Git baseline created,
-- GitHub remote repository connected and pushed,
-- portfolio-facing README and architecture overview added,
-- competition proposal submitted on 2026-07-08,
-- post-submission portfolio documentation started.
-
-## Next Work
+## 09. Next Work
 
 Near-term improvements:
 
-- adapt the README toward a problem-first portfolio flow inspired by the seed-project structure,
 - expand Scenario 002 after Scenario 001 is stable,
 - add PubMed/NCBI E-utilities retrieval as a documented evidence step,
 - improve extraction of numeric eligibility thresholds from registry records,
+- generate a cleaner reviewer-facing report from each run,
 - add a small interface only after the CLI workflow remains reproducible.
+
+The project should continue to prioritize traceability, safety boundaries, and reproducibility over UI polish.

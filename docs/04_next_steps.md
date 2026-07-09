@@ -86,4 +86,5 @@
 - [x] Record post-submission portfolio status.
 - [x] Draft post-submission retrospective for GitHub reviewers.
 - [x] Analyze `seed-project` as a reference portfolio structure.
-- [ ] Adapt README toward a problem-first portfolio flow inspired by `seed-project`.
+- [x] Adapt README toward a problem-first portfolio flow inspired by `seed-project`.
+- [ ] Add Scenario 002 with a different clinical area.
