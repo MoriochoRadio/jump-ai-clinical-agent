@@ -93,4 +93,5 @@
 - [x] Add PubMed/NCBI retrieval as a second public evidence source.
 - [x] Add local relevance scoring for PubMed literature candidates.
 - [x] Add abstract-level screening signals for PubMed candidates.
-- [ ] Add manual expert screening notes for PubMed candidates.
+- [x] Add manual screening notes for PubMed candidates.
+- [ ] Add accepted-literature candidate section to generated reports.

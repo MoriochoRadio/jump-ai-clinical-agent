@@ -128,6 +128,7 @@ Key outputs:
 - `pubmed_sources.json`
 - `source_relevance_review.md`
 - `pubmed_relevance_review.md`
+- `pubmed_manual_screening_notes.md`
 - `top_trial_comparison.md`
 - `draft_report.md`
 - `critic_review.md`
@@ -157,7 +158,7 @@ Current state:
 - competition proposal was submitted on 2026-07-08,
 - public post-submission record is tracked in `docs/14_submission_record.md`,
 - Scenario 002 has been added as a cross-domain generalization check for an oncology immunotherapy protocol scenario,
-- PubMed/NCBI E-utilities retrieval has been added as a second public evidence-source step with literature metadata candidates and abstract-screening signals.
+- PubMed/NCBI E-utilities retrieval has been added as a second public evidence-source step with literature metadata candidates, abstract-screening signals, and manual screening notes.
 
 Recommended next repository step:
 
