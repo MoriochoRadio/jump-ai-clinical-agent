@@ -151,6 +151,7 @@ Scenario 002:
 | `prototype/runs/scenario_002_run_001/final_report.md` | Generated oncology protocol pre-review report |
 | `prototype/runs/scenario_002_run_001/top_trial_comparison.md` | Compact comparison of ranked public oncology trial records |
 | `prototype/runs/scenario_002_run_001/pubmed_relevance_review.md` | Ranked PubMed literature candidates with abstract-screening signals |
+| `prototype/runs/scenario_002_run_001/pubmed_manual_screening.json` | Structured manual PubMed screening decisions used by report generation |
 | `prototype/runs/scenario_002_run_001/pubmed_manual_screening_notes.md` | Manual screening notes for PubMed literature candidates |
 | `prototype/runs/scenario_002_run_001/score.md` | Manual score sheet using the Scenario 002 rubric |
 
@@ -215,7 +216,6 @@ python prototype/run_scenario.py --input prototype/inputs/scenario_002.json --ru
 
 Near-term improvements:
 
-- convert manual PubMed screening notes into structured JSON input,
 - improve extraction of numeric eligibility thresholds from registry records,
 - generate a cleaner reviewer-facing report from each run,
 - add a small interface only after the CLI workflow remains reproducible.

@@ -95,4 +95,5 @@
 - [x] Add abstract-level screening signals for PubMed candidates.
 - [x] Add manual screening notes for PubMed candidates.
 - [x] Add accepted-literature candidate section to generated reports.
-- [ ] Convert manual PubMed screening notes into structured JSON input.
+- [x] Convert manual PubMed screening notes into structured JSON input.
+- [ ] Improve extraction of numeric eligibility thresholds from registry records.

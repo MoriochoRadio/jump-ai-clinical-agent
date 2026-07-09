@@ -201,6 +201,7 @@ Detailed PubMed candidate review file:
 ## Accepted Literature Candidate Screening
 
 - Manual screening notes available: True
+- Manual screening source: json
 - Primary support candidates: 5
 - Context-only candidates: 5
 - Excluded from direct support: 4
@@ -230,6 +231,7 @@ Excluded from direct support:
 
 Detailed manual screening file:
 
+- `prototype/runs/scenario_002_run_001/pubmed_manual_screening.json`
 - `prototype/runs/scenario_002_run_001/pubmed_manual_screening_notes.md`
 
 ## Eligibility And Recruitment Flags

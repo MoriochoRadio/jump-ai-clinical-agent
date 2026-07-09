@@ -58,4 +58,4 @@ The automated abstract-screening step is useful for surfacing candidate records,
 
 ## Next Recommended Step
 
-Add a compact `accepted_literature_candidates` section to future report generation so the final report can distinguish direct-support candidates from context-only or excluded records.
+Maintain `pubmed_manual_screening.json` as the structured source for accepted-literature grouping, and keep this Markdown file as the human-readable screening note.

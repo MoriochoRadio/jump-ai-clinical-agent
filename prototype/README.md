@@ -63,7 +63,7 @@ python prototype/run_scenario.py --input prototype/inputs/scenario_002.json --ru
 
 The PubMed path stores article metadata and structured abstract-screening signals. It does not store full abstract text.
 
-If `pubmed_manual_screening_notes.md` already exists in the run folder, `--overwrite` preserves it and includes an accepted-literature grouping section in the regenerated report.
+If `pubmed_manual_screening.json` already exists in the run folder, `--overwrite` preserves it and includes an accepted-literature grouping section in the regenerated report. Markdown notes are preserved as a human-readable companion file.
 
 The live retrieval path uses an expanded query set:
 
@@ -89,6 +89,7 @@ When `--fetch-pubmed` is used, the run also writes:
 - `pubmed_plan.json`
 - `pubmed_sources.json`
 - `pubmed_relevance_review.md`
+- `pubmed_manual_screening.json`
 - `pubmed_manual_screening_notes.md`
 
 The reviewed Scenario 001 run also includes manual post-run review notes:

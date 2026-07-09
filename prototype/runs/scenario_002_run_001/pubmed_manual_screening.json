@@ -1,0 +1,136 @@
+{
+  "schema_version": "0.1",
+  "scenario_id": "scenario_002",
+  "screening_type": "manual_pubmed_candidate_screening",
+  "screening_boundary": {
+    "scenario": "NSCLC Phase II Immunotherapy Protocol Pre-Review",
+    "target_use": "support protocol pre-review questions about trial design, eligibility, endpoints, biomarker handling, and safety monitoring",
+    "stored_full_abstract_text": false,
+    "review_boundary": "Portfolio screening note only; not a clinical guideline review, systematic review, regulatory assessment, or expert oncology opinion."
+  },
+  "decision_categories": {
+    "primary_support_candidate": "Closely aligned with NSCLC immunotherapy and useful for endpoint, eligibility, biomarker, safety, or protocol-comparison context.",
+    "context_only": "Useful background, but population, treatment setting, phase, or cancer type differs from the Scenario 002 draft.",
+    "exclude_from_direct_support": "Not suitable as direct support for this scenario; may remain only as a retrieval-quality example."
+  },
+  "entries": [
+    {
+      "pmid": "38127362",
+      "auto_score": "10/10",
+      "auto_decision": "high_priority_screen",
+      "manual_decision": "primary_support_candidate",
+      "rationale": "Metastatic nonsquamous NSCLC and atezolizumab-containing randomized clinical trial context are closely aligned with the scenario's immunotherapy comparison needs.",
+      "suggested_use": "Compare treatment context, endpoints, safety monitoring, and eligibility structure."
+    },
+    {
+      "pmid": "27718847",
+      "auto_score": "9/10",
+      "auto_decision": "high_priority_screen",
+      "manual_decision": "primary_support_candidate",
+      "rationale": "Directly relevant PD-L1-positive NSCLC pembrolizumab trial; useful for biomarker and eligibility review.",
+      "suggested_use": "Support follow-up questions on PD-L1 rules, prior therapy, endpoints, and safety capture."
+    },
+    {
+      "pmid": "29658856",
+      "auto_score": "8/10",
+      "auto_decision": "high_priority_screen",
+      "manual_decision": "primary_support_candidate",
+      "rationale": "Metastatic NSCLC pembrolizumab plus chemotherapy trial; aligned with immunotherapy-plus-background-treatment protocol comparison.",
+      "suggested_use": "Compare metastatic NSCLC endpoint framing and safety/AE monitoring expectations."
+    },
+    {
+      "pmid": "30280635",
+      "auto_score": "8/10",
+      "auto_decision": "high_priority_screen",
+      "manual_decision": "primary_support_candidate",
+      "rationale": "Squamous NSCLC pembrolizumab plus chemotherapy trial; relevant but subtype-specific.",
+      "suggested_use": "Use as a subtype-aware comparator, not as a universal NSCLC template."
+    },
+    {
+      "pmid": "33894335",
+      "auto_score": "8/10",
+      "auto_decision": "high_priority_screen",
+      "manual_decision": "primary_support_candidate",
+      "rationale": "Protocol-specified final analysis from KEYNOTE-189 in metastatic nonsquamous NSCLC; highly useful for endpoint and analysis framing.",
+      "suggested_use": "Compare PFS/OS/response endpoint language and follow-up assumptions."
+    },
+    {
+      "pmid": "37478883",
+      "auto_score": "10/10",
+      "auto_decision": "high_priority_screen",
+      "manual_decision": "context_only",
+      "rationale": "NSCLC and immunotherapy signals are strong, but early-stage or isolated recurrence plus radiotherapy differs from advanced/metastatic systemic add-on therapy.",
+      "suggested_use": "Use only as background for trial design and AE monitoring, not direct protocol support."
+    },
+    {
+      "pmid": "39288781",
+      "auto_score": "10/10",
+      "auto_decision": "high_priority_screen",
+      "manual_decision": "context_only",
+      "rationale": "Pembrolizumab and NSCLC are relevant, but neoadjuvant early-stage setting differs from the scenario's advanced/metastatic protocol.",
+      "suggested_use": "Use only for broader immunotherapy trial-design context."
+    },
+    {
+      "pmid": "40454642",
+      "auto_score": "9/10",
+      "auto_decision": "high_priority_screen",
+      "manual_decision": "context_only",
+      "rationale": "Nivolumab lung cancer trial with OS signal, but neoadjuvant setting differs from Scenario 002.",
+      "suggested_use": "Use cautiously for endpoint vocabulary only."
+    },
+    {
+      "pmid": "38101437",
+      "auto_score": "8/10",
+      "auto_decision": "high_priority_screen",
+      "manual_decision": "context_only",
+      "rationale": "NSCLC and EGFR eligibility are relevant, but the intervention is targeted therapy rather than PD-1/PD-L1 checkpoint therapy.",
+      "suggested_use": "Use for biomarker/EGFR eligibility handling, not immunotherapy efficacy or safety support."
+    },
+    {
+      "pmid": "39270695",
+      "auto_score": "6/10",
+      "auto_decision": "medium_priority_screen",
+      "manual_decision": "context_only",
+      "rationale": "NSCLC eligibility and phase signals are useful, but MET-targeted therapy differs from checkpoint-inhibitor intervention.",
+      "suggested_use": "Use only for molecular eligibility and operational trial-design comparison."
+    },
+    {
+      "pmid": "34102137",
+      "auto_score": "6/10",
+      "auto_decision": "safety_background_candidate",
+      "manual_decision": "exclude_from_direct_support",
+      "rationale": "Nivolumab and safety signals are present, but cancer type differs from NSCLC.",
+      "suggested_use": "Do not use as Scenario 002 support except as a retrieval false-positive/background example."
+    },
+    {
+      "pmid": "25891173",
+      "auto_score": "4/10",
+      "auto_decision": "safety_background_candidate",
+      "manual_decision": "exclude_from_direct_support",
+      "rationale": "Pembrolizumab checkpoint therapy is relevant, but melanoma population is outside the scenario.",
+      "suggested_use": "Exclude from direct support."
+    },
+    {
+      "pmid": "26027431",
+      "auto_score": "4/10",
+      "auto_decision": "safety_background_candidate",
+      "manual_decision": "exclude_from_direct_support",
+      "rationale": "Nivolumab checkpoint therapy is relevant, but melanoma population is outside the scenario.",
+      "suggested_use": "Exclude from direct support."
+    },
+    {
+      "pmid": "34986285",
+      "auto_score": "4/10",
+      "auto_decision": "safety_background_candidate",
+      "manual_decision": "exclude_from_direct_support",
+      "rationale": "Nivolumab/immune checkpoint signal is relevant, but melanoma population is outside the scenario.",
+      "suggested_use": "Exclude from direct support."
+    }
+  ],
+  "summary": {
+    "primary_support_candidate": 5,
+    "context_only": 5,
+    "exclude_from_direct_support": 4
+  },
+  "next_recommended_step": "Use this JSON file as the structured source for accepted-literature grouping in generated reports."
+}

@@ -1851,9 +1851,61 @@ def parse_manual_pubmed_screening_notes(text: str) -> list[dict[str, str]]:
     return entries
 
 
+def parse_manual_pubmed_screening_json(data: dict[str, Any]) -> list[dict[str, str]]:
+    entries = []
+    for item in data.get("entries", []):
+        if not isinstance(item, dict):
+            continue
+        pmid = str(item.get("pmid", "")).strip()
+        manual_decision = str(item.get("manual_decision", "")).strip()
+        if not pmid or not manual_decision:
+            continue
+        entries.append(
+            {
+                "pmid": pmid,
+                "auto_score": str(item.get("auto_score", "")),
+                "auto_decision": str(item.get("auto_decision", "")),
+                "manual_decision": manual_decision,
+                "rationale": str(item.get("rationale", "")),
+                "suggested_use": str(item.get("suggested_use", "")),
+            }
+        )
+    return entries
+
+
+def read_manual_pubmed_screening(existing_run_dir: Path) -> tuple[list[dict[str, str]], str, str, str]:
+    json_path = existing_run_dir / "pubmed_manual_screening.json"
+    markdown_path = existing_run_dir / "pubmed_manual_screening_notes.md"
+    json_text = ""
+    markdown_text = ""
+    entries: list[dict[str, str]] = []
+    source_type = "none"
+
+    if json_path.exists():
+        json_text = json_path.read_text(encoding="utf-8")
+        try:
+            payload = json.loads(json_text)
+        except json.JSONDecodeError:
+            payload = {}
+        if isinstance(payload, dict):
+            entries = parse_manual_pubmed_screening_json(payload)
+        if entries:
+            source_type = "json"
+
+    if markdown_path.exists():
+        markdown_text = markdown_path.read_text(encoding="utf-8")
+        if not entries:
+            entries = parse_manual_pubmed_screening_notes(markdown_text)
+            if entries:
+                source_type = "markdown_fallback"
+
+    return entries, json_text, markdown_text, source_type
+
+
 def manual_literature_screening_notes(
     normalized: dict[str, Any],
     manual_screening_entries: list[dict[str, str]],
+    manual_screening_source_type: str,
 ) -> str:
     if not manual_screening_entries:
         return "\n".join(
@@ -1873,6 +1925,7 @@ def manual_literature_screening_notes(
 
     lines = [
         "- Manual screening notes available: True",
+        f"- Manual screening source: {manual_screening_source_type}",
         f"- Primary support candidates: {len(grouped.get('primary_support_candidate', []))}",
         f"- Context-only candidates: {len(grouped.get('context_only', []))}",
         f"- Excluded from direct support: {len(grouped.get('exclude_from_direct_support', []))}",
@@ -1920,6 +1973,7 @@ def manual_literature_screening_notes(
             "",
             "Detailed manual screening file:",
             "",
+            f"- `prototype/runs/{normalized['run_id']}/pubmed_manual_screening.json`",
             f"- `prototype/runs/{normalized['run_id']}/pubmed_manual_screening_notes.md`",
         ]
     )
@@ -1936,6 +1990,7 @@ def make_draft_report(
     pubmed_plan: dict[str, Any],
     pubmed_sources: dict[str, Any],
     manual_screening_entries: list[dict[str, str]],
+    manual_screening_source_type: str,
 ) -> str:
     protocol = normalized["protocol"]
     optional_context = normalized["optional_context"]
@@ -1990,7 +2045,7 @@ Detailed PubMed candidate review file:
 
 ## Accepted Literature Candidate Screening
 
-{manual_literature_screening_notes(normalized, manual_screening_entries)}
+{manual_literature_screening_notes(normalized, manual_screening_entries, manual_screening_source_type)}
 
 ## Eligibility And Recruitment Flags
 
@@ -2137,10 +2192,9 @@ def main() -> int:
     input_path = Path(args.input)
     output_root = Path(args.output_root)
     existing_run_dir = output_root / args.run_id
-    existing_manual_screening_path = existing_run_dir / "pubmed_manual_screening_notes.md"
-    manual_screening_text = ""
-    if existing_manual_screening_path.exists():
-        manual_screening_text = existing_manual_screening_path.read_text(encoding="utf-8")
+    manual_screening_entries, manual_screening_json_text, manual_screening_markdown_text, manual_screening_source_type = (
+        read_manual_pubmed_screening(existing_run_dir)
+    )
 
     data = read_json(input_path)
     errors = validate_fixture(data)
@@ -2178,7 +2232,6 @@ def main() -> int:
         pubmed_sources = make_empty_pubmed_sources(pubmed_plan)
     sources_ranked = rank_sources(sources, normalized)
     pubmed_sources = rank_pubmed_sources(pubmed_sources, normalized)
-    manual_screening_entries = parse_manual_pubmed_screening_notes(manual_screening_text)
     draft_report = make_draft_report(
         normalized,
         checklist,
@@ -2189,6 +2242,7 @@ def main() -> int:
         pubmed_plan,
         pubmed_sources,
         manual_screening_entries,
+        manual_screening_source_type,
     )
     critic_review, can_finalize = make_critic_review(draft_report)
     final_report = draft_report.replace(
@@ -2210,8 +2264,10 @@ def main() -> int:
     write_json(run_dir / "sources_ranked.json", sources_ranked)
     write_json(run_dir / "pubmed_plan.json", pubmed_plan)
     write_json(run_dir / "pubmed_sources.json", pubmed_sources)
-    if manual_screening_text:
-        write_text(run_dir / "pubmed_manual_screening_notes.md", manual_screening_text)
+    if manual_screening_json_text:
+        write_text(run_dir / "pubmed_manual_screening.json", manual_screening_json_text)
+    if manual_screening_markdown_text:
+        write_text(run_dir / "pubmed_manual_screening_notes.md", manual_screening_markdown_text)
     write_text(run_dir / "source_relevance_review.md", source_relevance_review)
     write_text(run_dir / "pubmed_relevance_review.md", pubmed_relevance_review)
     write_text(run_dir / "top_trial_comparison.md", top_trial_comparison)
