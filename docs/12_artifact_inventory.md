@@ -41,6 +41,7 @@ GitHub repository:
 - `docs/15_post_submission_retrospective.md`
 - `docs/16_seed_project_reference_analysis.md`
 - `docs/17_reviewer_workflow_diagram.md`
+- `docs/18_next_portfolio_improvement_decision.md`
 
 ### Scenario And Evaluation Files
 
@@ -169,7 +170,8 @@ Current state:
 - Scenario 002 now includes a concise reviewer-facing summary report for faster portfolio inspection,
 - focused regression tests now cover reviewer summary generation and oncology eligibility criteria extraction,
 - GitHub Actions now runs the regression tests on push and pull request,
-- a reviewer-oriented workflow diagram now summarizes the input, checks, evidence path, outputs, and safety boundary.
+- a reviewer-oriented workflow diagram now summarizes the input, checks, evidence path, outputs, and safety boundary,
+- the next portfolio improvement decision selects a minimal static reviewer dashboard over Scenario 003.
 
 Recommended next repository step:
 

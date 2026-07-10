@@ -80,4 +80,10 @@ Update the repository README so that a GitHub visitor can quickly understand:
 
 ## Next Recommended Step
 
-Add Scenario 002 with a different clinical area, while keeping the same traceable evaluation structure used for Scenario 001.
+Scenario 002, reviewer summaries, regression tests, CI, and reviewer workflow diagrams have now been added.
+
+The next recommended step is a minimal static reviewer dashboard for `scenario_002_run_001`. The dashboard should be read-only, use committed outputs, avoid patient-level workflows, and keep the CLI prototype as the source of truth.
+
+Decision record:
+
+- `docs/18_next_portfolio_improvement_decision.md`

@@ -102,4 +102,5 @@
 - [x] Add a lightweight GitHub Actions check for the regression tests.
 - [x] Confirm the GitHub Actions run passes after push.
 - [x] Add a small architecture or workflow diagram for reviewer orientation.
-- [ ] Decide whether the next portfolio improvement should be a small UI or another scenario.
+- [x] Decide whether the next portfolio improvement should be a small UI or another scenario.
+- [ ] Build a minimal static reviewer dashboard for `scenario_002_run_001`.

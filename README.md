@@ -165,6 +165,7 @@ Scenario 002:
 | `docs/15_post_submission_retrospective.md` | Portfolio-oriented retrospective after submission |
 | `docs/16_seed_project_reference_analysis.md` | Analysis of how to adapt the seed-project portfolio structure |
 | `docs/17_reviewer_workflow_diagram.md` | Reviewer-oriented workflow and evidence path diagram |
+| `docs/18_next_portfolio_improvement_decision.md` | Decision record selecting a small reviewer-facing UI as the next improvement |
 | `docs/11_mvp_agent_workflow.md` | MVP workflow and tool-chain design |
 | `prototype/run_scenario.py` | Reproducible CLI prototype |
 | `prototype/inputs/scenario_001.json` | Synthetic Type 2 diabetes protocol scenario |
@@ -251,7 +252,7 @@ GitHub Actions runs the same regression test command on push and pull request.
 
 Near-term improvements:
 
-- decide whether the next portfolio improvement should be a small UI or another scenario,
-- add a small interface only after the CLI workflow remains reproducible.
+- build a minimal static reviewer dashboard for `scenario_002_run_001`,
+- keep the CLI workflow as the source of truth while adding the UI.
 
 The project should continue to prioritize traceability, safety boundaries, and reproducibility over UI polish.
