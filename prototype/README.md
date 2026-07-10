@@ -61,6 +61,12 @@ To retrieve both ClinicalTrials.gov records and PubMed literature metadata candi
 python prototype/run_scenario.py --input prototype/inputs/scenario_002.json --run-id scenario_002_run_001 --overwrite --fetch-sources --fetch-pubmed
 ```
 
+To run focused regression tests from the project root:
+
+```powershell
+python -m unittest discover -s tests
+```
+
 The PubMed path stores article metadata and structured abstract-screening signals. It does not store full abstract text.
 
 If `pubmed_manual_screening.json` already exists in the run folder, `--overwrite` preserves it and includes an accepted-literature grouping section in the regenerated report. Markdown notes are preserved as a human-readable companion file.

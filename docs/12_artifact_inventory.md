@@ -72,6 +72,7 @@ GitHub repository:
 - `prototype/run_scenario.py`
 - `prototype/inputs/scenario_001.json`
 - `prototype/inputs/scenario_002.json`
+- `tests/test_run_scenario.py`
 
 ### Submission Build Helper
 
@@ -163,7 +164,8 @@ Current state:
 - Scenario 002 has been added as a cross-domain generalization check for an oncology immunotherapy protocol scenario,
 - PubMed/NCBI E-utilities retrieval has been added as a second public evidence-source step with literature metadata candidates, abstract-screening signals, structured manual screening decisions, and accepted-literature grouping in generated reports,
 - comparator trial eligibility extraction now captures screening signals such as ECOG, PD-L1 thresholds, RECIST, stage/extent, biomarker rules, safety exclusions, and endpoint timing,
-- Scenario 002 now includes a concise reviewer-facing summary report for faster portfolio inspection.
+- Scenario 002 now includes a concise reviewer-facing summary report for faster portfolio inspection,
+- focused regression tests now cover reviewer summary generation and oncology eligibility criteria extraction.
 
 Recommended next repository step:
 

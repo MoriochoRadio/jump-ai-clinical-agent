@@ -98,4 +98,5 @@
 - [x] Convert manual PubMed screening notes into structured JSON input.
 - [x] Improve extraction of numeric eligibility thresholds from registry records.
 - [x] Generate a cleaner reviewer-facing report from each run.
-- [ ] Add focused regression tests for reviewer summary and criteria extraction behavior.
+- [x] Add focused regression tests for reviewer summary and criteria extraction behavior.
+- [ ] Add a lightweight GitHub Actions check for the regression tests.

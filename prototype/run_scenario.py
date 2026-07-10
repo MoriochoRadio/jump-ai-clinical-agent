@@ -1507,11 +1507,11 @@ def extract_numeric_criteria_signals(criteria: str, outcomes: list[dict[str, Any
 
     signals = {
         "ecog": unique_matches(
-            r"(?:ECOG|Eastern Cooperative Oncology Group|performance status|PS)\s*(?:score|status|PS)?\s*(?:of\s*)?(?:[0-5]\s*[-–]\s*[0-5]|[<>]=?\s*[0-5]|[0-5])",
+            r"\b(?:ECOG|Eastern Cooperative Oncology Group|performance status|PS)\b\s*(?:score|status|PS)?\s*(?:of\s*)?(?:[0-5]\s*(?:-|\u2013|to)\s*[0-5]|[<>]=?\s*[0-5]|[0-5])",
             criteria_text,
         ),
         "pd_l1": unique_matches(
-            r"(?:PD-L1|PDL1|TPS)[^.;,\n]{0,80}(?:(?:>=|≥|>|=|at least|minimum)\s*\d+\s*%\)?|\d+\s*%\)?)",
+            r"\b(?:PD-L1|PDL1|TPS)\b[^.;,\n]{0,80}(?:(?:>=|\u2265|>|=|at least|minimum)\s*\d+\s*%\)?|\d+\s*%\)?)",
             criteria_text,
         ),
         "recist": unique_matches(r"RECIST\s*(?:v|version)?\s*\d+(?:\.\d+)?", combined_text),

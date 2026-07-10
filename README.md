@@ -147,6 +147,7 @@ Scenario 002:
 | `prototype/run_scenario.py` | Reproducible CLI prototype |
 | `prototype/inputs/scenario_001.json` | Synthetic Type 2 diabetes protocol scenario |
 | `prototype/inputs/scenario_002.json` | Synthetic NSCLC immunotherapy protocol scenario |
+| `tests/test_run_scenario.py` | Focused regression tests for summary generation and criteria extraction |
 | `prototype/runs/scenario_001_run_001/final_report.md` | Generated protocol pre-review report |
 | `prototype/runs/scenario_001_run_001/score.md` | Manual score sheet using the Scenario 001 rubric |
 | `prototype/runs/scenario_001_run_001/medical_plausibility_safety_review.md` | Bounded medical plausibility and safety review |
@@ -216,11 +217,17 @@ To run the oncology Scenario 002:
 python prototype/run_scenario.py --input prototype/inputs/scenario_002.json --run-id scenario_002_run_001 --overwrite --fetch-sources --fetch-pubmed
 ```
 
+To run the focused regression tests:
+
+```powershell
+python -m unittest discover -s tests
+```
+
 ## 09. Next Work
 
 Near-term improvements:
 
-- add focused regression tests for reviewer summary and criteria extraction behavior,
+- add a lightweight GitHub Actions check for the regression tests,
 - add a small interface only after the CLI workflow remains reproducible.
 
 The project should continue to prioritize traceability, safety boundaries, and reproducibility over UI polish.
