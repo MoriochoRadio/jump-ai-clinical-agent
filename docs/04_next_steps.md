@@ -101,4 +101,5 @@
 - [x] Add focused regression tests for reviewer summary and criteria extraction behavior.
 - [x] Add a lightweight GitHub Actions check for the regression tests.
 - [x] Confirm the GitHub Actions run passes after push.
-- [ ] Add a small architecture or workflow diagram for reviewer orientation.
+- [x] Add a small architecture or workflow diagram for reviewer orientation.
+- [ ] Decide whether the next portfolio improvement should be a small UI or another scenario.

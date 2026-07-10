@@ -71,6 +71,27 @@ Project question:
 
 The current prototype is a standard-library Python CLI workflow using synthetic protocol scenarios.
 
+Reviewer orientation:
+
+```mermaid
+flowchart LR
+    A["Synthetic protocol scenario"] --> B["Pre-review workflow"]
+    B --> C["Completeness checks"]
+    B --> D["Public evidence lookup"]
+    B --> E["Data-readiness mapping"]
+    C --> F["Traceable report packet"]
+    D --> F
+    E --> F
+    F --> G["Safety critic"]
+    G --> H["Final report"]
+    G --> I["Reviewer summary"]
+    G --> J["Score sheet"]
+```
+
+Detailed reviewer workflow diagram:
+
+- `docs/17_reviewer_workflow_diagram.md`
+
 ```mermaid
 flowchart TD
     A["Synthetic protocol scenario JSON"] --> B["Input Normalizer"]
@@ -143,6 +164,7 @@ Scenario 002:
 | `docs/14_submission_record.md` | Public record of the submitted proposal scope and repository boundary |
 | `docs/15_post_submission_retrospective.md` | Portfolio-oriented retrospective after submission |
 | `docs/16_seed_project_reference_analysis.md` | Analysis of how to adapt the seed-project portfolio structure |
+| `docs/17_reviewer_workflow_diagram.md` | Reviewer-oriented workflow and evidence path diagram |
 | `docs/11_mvp_agent_workflow.md` | MVP workflow and tool-chain design |
 | `prototype/run_scenario.py` | Reproducible CLI prototype |
 | `prototype/inputs/scenario_001.json` | Synthetic Type 2 diabetes protocol scenario |
@@ -229,7 +251,7 @@ GitHub Actions runs the same regression test command on push and pull request.
 
 Near-term improvements:
 
-- add a small architecture or workflow diagram for reviewer orientation,
+- decide whether the next portfolio improvement should be a small UI or another scenario,
 - add a small interface only after the CLI workflow remains reproducible.
 
 The project should continue to prioritize traceability, safety boundaries, and reproducibility over UI polish.
