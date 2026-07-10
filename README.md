@@ -223,11 +223,13 @@ To run the focused regression tests:
 python -m unittest discover -s tests
 ```
 
+GitHub Actions runs the same regression test command on push and pull request.
+
 ## 09. Next Work
 
 Near-term improvements:
 
-- add a lightweight GitHub Actions check for the regression tests,
+- confirm the GitHub Actions run passes after push,
 - add a small interface only after the CLI workflow remains reproducible.
 
 The project should continue to prioritize traceability, safety boundaries, and reproducibility over UI polish.

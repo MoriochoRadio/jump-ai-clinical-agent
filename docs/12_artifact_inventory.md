@@ -69,6 +69,7 @@ GitHub repository:
 
 ### Prototype Code
 
+- `.github/workflows/ci.yml`
 - `prototype/run_scenario.py`
 - `prototype/inputs/scenario_001.json`
 - `prototype/inputs/scenario_002.json`
@@ -165,7 +166,8 @@ Current state:
 - PubMed/NCBI E-utilities retrieval has been added as a second public evidence-source step with literature metadata candidates, abstract-screening signals, structured manual screening decisions, and accepted-literature grouping in generated reports,
 - comparator trial eligibility extraction now captures screening signals such as ECOG, PD-L1 thresholds, RECIST, stage/extent, biomarker rules, safety exclusions, and endpoint timing,
 - Scenario 002 now includes a concise reviewer-facing summary report for faster portfolio inspection,
-- focused regression tests now cover reviewer summary generation and oncology eligibility criteria extraction.
+- focused regression tests now cover reviewer summary generation and oncology eligibility criteria extraction,
+- GitHub Actions now runs the regression tests on push and pull request.
 
 Recommended next repository step:
 
