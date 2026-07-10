@@ -38,6 +38,89 @@
       "extraction_summary": "ECOG: performance status of 0; Timing: up to 16 months; Stage: stage IIIB, stage IV; Biomarker: mutations in epidermal growth factor receptor (EGFR), ALK) or ROS-1 are eligible provided they have progressed..."
     },
     {
+      "nct_id": "NCT02848651",
+      "relevance_score": 10,
+      "brief_title": "A Study of Atezolizumab as First-line Monotherapy for Advanced or Metastatic Non-Small Cell Lung Cancer",
+      "matched_query_labels": [
+        "representative_intervention_atezolizumab"
+      ],
+      "extracted_signals": {
+        "ecog": [
+          "performance status of 0"
+        ],
+        "pd_l1": [],
+        "recist": [
+          "RECIST v1.1"
+        ],
+        "imaging_or_endpoint_timing": [
+          "up to 32 months"
+        ],
+        "stage_or_extent": [
+          "Stage IIIB",
+          "metastatic"
+        ],
+        "biomarker_rules": [
+          "PD-L1) test result by immunohistochemistry (IHC) are eligible for the study * Partici",
+          "PD-L1 test result are eligible for the study * Measurable disease per RECIST v1"
+        ],
+        "safety_exclusions": []
+      },
+      "extraction_summary": "ECOG: performance status of 0; RECIST: RECIST v1.1; Timing: up to 32 months; Stage: Stage IIIB, metastatic; Biomarker: PD-L1) test result by immunohistochemistry (IHC) are eligible for the study * Partici, P..."
+    },
+    {
+      "nct_id": "NCT03023423",
+      "relevance_score": 10,
+      "brief_title": "A Study of Daratumumab in Combination With Atezolizumab Compared With Atezolizumab Alone in Participants With Previously Treated Advanced or Metastatic Non-Small Cell Lung Cancer",
+      "matched_query_labels": [
+        "representative_intervention_atezolizumab"
+      ],
+      "extracted_signals": {
+        "ecog": [
+          "performance status of 0"
+        ],
+        "pd_l1": [],
+        "recist": [],
+        "imaging_or_endpoint_timing": [],
+        "stage_or_extent": [
+          "metastatic",
+          "Stage IIIb"
+        ],
+        "biomarker_rules": [
+          "PD-L1) score of tumor cells (TC)1-3 and immune cell PD-L1 score of tumor-infiltrating"
+        ],
+        "safety_exclusions": []
+      },
+      "extraction_summary": "ECOG: performance status of 0; Stage: metastatic, Stage IIIb; Biomarker: PD-L1) score of tumor cells (TC)1-3 and immune cell PD-L1 score of tumor-infiltrating"
+    },
+    {
+      "nct_id": "NCT03050060",
+      "relevance_score": 10,
+      "brief_title": "Image Guided Hypofractionated Radiation Therapy, Nelfinavir Mesylate, Pembrolizumab, Nivolumab and Atezolizumab in Treating Patients With Advanced Melanoma, Lung, or Kidney Cancer",
+      "matched_query_labels": [
+        "representative_intervention_pembrolizumab",
+        "representative_intervention_nivolumab",
+        "representative_intervention_atezolizumab"
+      ],
+      "extracted_signals": {
+        "ecog": [],
+        "pd_l1": [],
+        "recist": [],
+        "imaging_or_endpoint_timing": [
+          "Up to 6 months",
+          "up to 2 years"
+        ],
+        "stage_or_extent": [
+          "stage IV",
+          "metastatic"
+        ],
+        "biomarker_rules": [
+          "PDL1 immune checkpoint inhibitor and nelfinavir as per standard of care * Ability"
+        ],
+        "safety_exclusions": []
+      },
+      "extraction_summary": "Timing: Up to 6 months, up to 2 years; Stage: stage IV, metastatic; Biomarker: PDL1 immune checkpoint inhibitor and nelfinavir as per standard of care * Ability"
+    },
+    {
       "nct_id": "NCT04105270",
       "relevance_score": 10,
       "brief_title": "RMT in Combination With Durvalumab + Chemo in Untreated Adenocarcinoma NSCLC. A Randomized Double Blind Phase II Trial",
@@ -67,127 +150,6 @@
       "extraction_summary": "RECIST: RECIST 1.1; Stage: unresectable, stage IIIB; Biomarker: EGFR sensitizing (activating) mutation or ALK or ROS1 translocation, mutation * Measurable disease based on RECIST 1"
     },
     {
-      "nct_id": "NCT04691817",
-      "relevance_score": 10,
-      "brief_title": "Tocilizumab and Atezolizumab in Adults With Locally Advanced or Metastatic Non-Small Cell Lung Cancer Refractory to 1st Line Immune Checkpoint Inhibitor-Based Therapy",
-      "matched_query_labels": [
-        "representative_intervention_atezolizumab"
-      ],
-      "extracted_signals": {
-        "ecog": [
-          "ECOG PS 0-2"
-        ],
-        "pd_l1": [],
-        "recist": [],
-        "imaging_or_endpoint_timing": [
-          "at 12 weeks",
-          "up to 24 months"
-        ],
-        "stage_or_extent": [
-          "Stage IV"
-        ],
-        "biomarker_rules": [
-          "mutation that is susceptible to targeted therapy * No greater than CTCAE v5 grade 3 toxi"
-        ],
-        "safety_exclusions": [
-          "autoimmune disease or IPF"
-        ]
-      },
-      "extraction_summary": "ECOG: ECOG PS 0-2; Timing: at 12 weeks, up to 24 months; Stage: Stage IV; Biomarker: mutation that is susceptible to targeted therapy * No greater than CTCAE v5 grade 3 toxi; Safety: autoimmune disease or IPF"
-    },
-    {
-      "nct_id": "NCT04984811",
-      "relevance_score": 10,
-      "brief_title": "NT-I7 in Combination With Atezolizumab in Previously Untreated, PD-L1-expressing, Locally Advanced or Metastatic NSCLC",
-      "matched_query_labels": [
-        "representative_intervention_atezolizumab"
-      ],
-      "extracted_signals": {
-        "ecog": [
-          "ECOG 0-1"
-        ],
-        "pd_l1": [
-          "PD-L1 expression (TPS\u22651%)"
-        ],
-        "recist": [],
-        "imaging_or_endpoint_timing": [
-          "every 6 weeks",
-          "every 9 weeks",
-          "up to 2 years"
-        ],
-        "stage_or_extent": [
-          "metastatic",
-          "locally advanced",
-          "Stage III"
-        ],
-        "biomarker_rules": [
-          "PD-L1 expression (TPS\u22651%) as determined by PD-L1 22C3 immunohistochemistry local or c",
-          "PD-L1 * ECOG 0-1 * Adequate hematologic and end organ function Exclusion Criteria: *",
-          "EGFR",
-          "ALK"
-        ],
-        "safety_exclusions": []
-      },
-      "extraction_summary": "ECOG: ECOG 0-1; PD-L1: PD-L1 expression (TPS>=1%); Timing: every 6 weeks, every 9 weeks; Stage: metastatic, locally advanced; Biomarker: PD-L1 expression (TPS>=1%) as determined by PD-L1 22C3 immunohistochem..."
-    },
-    {
-      "nct_id": "NCT05344209",
-      "relevance_score": 10,
-      "brief_title": "Efficacy and Safety of Anti-PD-1/PD-L1 Treatment +/- UV1 Vaccination in Patients With Non-small Cell Lung Cancer",
-      "matched_query_labels": [
-        "representative_intervention_pembrolizumab",
-        "representative_intervention_atezolizumab"
-      ],
-      "extracted_signals": {
-        "ecog": [],
-        "pd_l1": [
-          "PD-L1 \u2265 50%"
-        ],
-        "recist": [
-          "RECIST 1.1"
-        ],
-        "imaging_or_endpoint_timing": [
-          "Up to 2 years"
-        ],
-        "stage_or_extent": [
-          "stage IIIB",
-          "metastatic"
-        ],
-        "biomarker_rules": [
-          "PD-L1 \u2265 50% measured by a validated method"
-        ],
-        "safety_exclusions": []
-      },
-      "extraction_summary": "PD-L1: PD-L1 >= 50%; RECIST: RECIST 1.1; Timing: Up to 2 years; Stage: stage IIIB, metastatic; Biomarker: PD-L1 >= 50% measured by a validated method"
-    },
-    {
-      "nct_id": "NCT05941897",
-      "relevance_score": 10,
-      "brief_title": "A Study to Investigate Efficacy and Safety of Ceralasertib Plus Durvalumab in Participants Aged \u2265 18 Years With Advanced or Metastatic Non-small Cell Lung Cancer Whose Disease Progressed on or After Prior Anti-PD-(L)1 Therapy and Platinum-based Chemotherapy",
-      "matched_query_labels": [
-        "representative_intervention_durvalumab"
-      ],
-      "extracted_signals": {
-        "ecog": [
-          "performance status of 0"
-        ],
-        "pd_l1": [],
-        "recist": [],
-        "imaging_or_endpoint_timing": [
-          "Up to 30 months"
-        ],
-        "stage_or_extent": [
-          "locally advanced",
-          "metastatic"
-        ],
-        "biomarker_rules": [
-          "EGFR) and anaplastic lymphoma kinase (ALK) wild-type status"
-        ],
-        "safety_exclusions": []
-      },
-      "extraction_summary": "ECOG: performance status of 0; Timing: Up to 30 months; Stage: locally advanced, metastatic; Biomarker: EGFR) and anaplastic lymphoma kinase (ALK) wild-type status"
-    },
-    {
       "nct_id": "NCT06388031",
       "relevance_score": 10,
       "brief_title": "ICI Rechallenge for Advanced NSCLC With Long-Term Response to First-Line ICI",
@@ -208,6 +170,48 @@
         "safety_exclusions": []
       },
       "extraction_summary": "Stage: stage III; Biomarker: PD-L1 or anti-PD-1 monoclonal antibodies: pembrolizumab"
+    },
+    {
+      "nct_id": "NCT06731907",
+      "relevance_score": 10,
+      "brief_title": "A Study of Pembrolizumab With or Without Chemotherapy in Combination With Additional Treatments for Advanced Non-Small Cell Lung Cancer (NSCLC) (MK-3475-01G/KEYMAKER U01)",
+      "matched_query_labels": [
+        "representative_intervention_pembrolizumab"
+      ],
+      "extracted_signals": {
+        "ecog": [],
+        "pd_l1": [],
+        "recist": [],
+        "imaging_or_endpoint_timing": [],
+        "stage_or_extent": [
+          "Stage IV"
+        ],
+        "biomarker_rules": [],
+        "safety_exclusions": []
+      },
+      "extraction_summary": "Stage: Stage IV"
+    },
+    {
+      "nct_id": "NCT06644768",
+      "relevance_score": 9,
+      "brief_title": "A Study of Valemetostat Tosylate Plus Pembrolizumab Versus Pembrolizumab Alone in First-Line NSCLC Without Actionable Genomic Alterations",
+      "matched_query_labels": [
+        "baseline_drug_class"
+      ],
+      "extracted_signals": {
+        "ecog": [],
+        "pd_l1": [],
+        "recist": [],
+        "imaging_or_endpoint_timing": [],
+        "stage_or_extent": [
+          "metastatic",
+          "Stage IIIB",
+          "Stage IV"
+        ],
+        "biomarker_rules": [],
+        "safety_exclusions": []
+      },
+      "extraction_summary": "Stage: metastatic, Stage IIIB"
     },
     {
       "nct_id": "NCT02713867",
@@ -234,54 +238,33 @@
       "extraction_summary": "Timing: up to 12 months; Stage: Stage IIIB; Safety: interstitial lung disease Other protocol defined inclusion/exclusion criteria could apply"
     },
     {
-      "nct_id": "NCT03829436",
+      "nct_id": "NCT03191786",
       "relevance_score": 9,
-      "brief_title": "TPST-1120 as Monotherapy and in Combination With Nivolumab in Subjects With Advanced Cancers",
+      "brief_title": "A Study of Atezolizumab Compared With a Single-Agent Chemotherapy in Treatment Na\u00efve Participants With Locally Advanced or Recurrent or Metastatic Non-Small Cell Lung Cancer Who Are Deemed Unsuitable For Platinum-Doublet Chemotherapy",
       "matched_query_labels": [
-        "representative_intervention_nivolumab"
+        "representative_intervention_atezolizumab"
       ],
       "extracted_signals": {
         "ecog": [
-          "performance status of 0-1"
+          "performance status of 2-3",
+          "ECOG PS of 0"
         ],
         "pd_l1": [],
         "recist": [
           "RECIST v1.1"
         ],
-        "imaging_or_endpoint_timing": [
-          "up to 36 months"
-        ],
+        "imaging_or_endpoint_timing": [],
         "stage_or_extent": [
-          "metastatic"
+          "Stage IIIB",
+          "metastatic",
+          "Stage IV"
         ],
-        "biomarker_rules": [],
+        "biomarker_rules": [
+          "EGFR) mutation (L858R or exon 19 deletions) or anaplastic lymphoma kinase (ALK) fusi"
+        ],
         "safety_exclusions": []
       },
-      "extraction_summary": "ECOG: performance status of 0-1; RECIST: RECIST v1.1; Timing: up to 36 months; Stage: metastatic"
-    },
-    {
-      "nct_id": "NCT04423029",
-      "relevance_score": 9,
-      "brief_title": "A Study of DF6002 Alone and in Combination With Nivolumab",
-      "matched_query_labels": [
-        "representative_intervention_nivolumab"
-      ],
-      "extracted_signals": {
-        "ecog": [
-          "performance status of 0"
-        ],
-        "pd_l1": [],
-        "recist": [],
-        "imaging_or_endpoint_timing": [
-          "Up to 2 years"
-        ],
-        "stage_or_extent": [
-          "metastatic"
-        ],
-        "biomarker_rules": [],
-        "safety_exclusions": []
-      },
-      "extraction_summary": "ECOG: performance status of 0; Timing: Up to 2 years; Stage: metastatic"
+      "extraction_summary": "ECOG: performance status of 2-3, ECOG PS of 0; RECIST: RECIST v1.1; Stage: Stage IIIB, metastatic; Biomarker: EGFR) mutation (L858R or exon 19 deletions) or anaplastic lymphoma kinase (ALK) fusi"
     }
   ]
 }

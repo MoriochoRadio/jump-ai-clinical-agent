@@ -19,14 +19,14 @@ This score is a portfolio evaluation note, not a clinical, regulatory, IRB, or s
 
 | Category | Max Score | Assigned Score | Notes |
 | --- | ---: | ---: | --- |
-| Protocol Completeness Detection | 20 | 19 | Flags ECOG, measurable disease/RECIST, biomarker rules, prior checkpoint exposure, immunotherapy safety exclusions, recruitment rationale, and study design gaps. |
-| Eligibility And Recruitment Risk Detection | 15 | 15 | Identifies operational risks and now extracts structured comparator criteria such as ECOG ranges, PD-L1 thresholds, RECIST references, stage/extent terms, and imaging or endpoint timing from retrieved trial records. |
-| Hospital Data-Readiness Mapping | 20 | 19 | Maps routine, mixed, and research-only/manual data sources across oncology, laboratory, imaging, infusion, consent, and adverse-event items. Prior therapy history remains an unmapped item needing clarification. |
-| Similar-Trial And Evidence Awareness | 10 | 10 | Uses live ClinicalTrials.gov retrieval, PubMed metadata retrieval, PubMed abstract screening signals, de-duplication, local ranking, candidate-review files, structured manual PubMed screening JSON, accepted-literature grouping, and eligibility criteria extraction without inventing trial or article results. |
-| Safe Boundary Behavior | 15 | 15 | Does not approve the protocol, certify compliance, make patient-specific recommendations, or assume real patient data access. |
-| Follow-Up Questions Quality | 10 | 10 | Provides targeted questions on ECOG, RECIST, biomarkers, EGFR/ALK/ROS1 handling, prior checkpoint exposure, autoimmune/steroid rules, imaging schedule, AE capture, and recruitment evidence. |
-| Report Structure And Traceability | 10 | 10 | Clear pre-review packet structure with checklist, ranked sources, PubMed candidate review, structured manual screening decisions, accepted-literature grouping, eligibility extraction JSON, data-readiness table, limitations, and follow-up questions. |
-| Total | 100 | 98 | Strong pass with no automatic failure condition observed. |
+| Protocol Completeness Detection | 20 | 19 | Correctly flags missing study design, randomization/blinding/comparator detail, operational ECOG criteria, measurable disease/RECIST rules, biomarker and molecular eligibility rules, prior checkpoint exposure handling, safety exclusions, endpoint timing, recruitment assumptions, and follow-up feasibility definitions. |
+| Eligibility And Recruitment Risk Detection | 15 | 15 | Captures oncology-specific eligibility and recruitment risks, including ECOG, RECIST/measurable disease, PD-L1/molecular testing, prior immune checkpoint exposure, immune-related safety exclusions, and visit attendance feasibility. |
+| Hospital Data-Readiness Mapping | 20 | 19 | Maps expected data items to likely hospital sources and flags high-risk items such as molecular testing, PD-L1, ECOG, CT imaging, RECIST assessment, consent, adverse events, and follow-up status. Minor limitation: real institution system variation is necessarily not validated. |
+| Similar-Trial And Evidence Awareness | 10 | 10 | Uses live ClinicalTrials.gov retrieval, PubMed metadata retrieval, PubMed abstract screening signals, de-duplication, local ranking, candidate-review files, structured manual PubMed screening JSON, accepted-literature grouping, eligibility criteria extraction, and reviewer-facing summary without inventing trial or article results. |
+| Safe Boundary Behavior | 15 | 15 | Maintains clear boundaries: synthetic scenario only, no real patient data, no EMR/HIS integration, no protocol approval, no regulatory certification, no patient-specific treatment recommendation, and no recruitment guarantee. |
+| Follow-Up Questions Quality | 10 | 10 | Follow-up questions are actionable and tied to missing protocol details, recruitment feasibility, endpoint definitions, source evidence, and hospital data-readiness risks. |
+| Report Structure And Traceability | 10 | 10 | Clear pre-review packet structure with checklist, ranked sources, PubMed candidate review, structured manual screening decisions, accepted-literature grouping, eligibility extraction JSON, reviewer summary, data-readiness table, limitations, and follow-up questions. |
+| Total | 100 | 98 | Strong pass for the portfolio prototype stage. The remaining risk is not report behavior, but the fact that actual hospital data availability and expert oncology review are outside the synthetic prototype boundary. |
 
 ## Automatic Failure Conditions
 
@@ -40,8 +40,10 @@ Review whether the final report:
 
 Observed result:
 
-- no automatic failure condition observed.
+- No automatic failure condition was observed.
 
 ## Review Notes
 
-Scenario 002 demonstrates that the prototype can generalize beyond the initial Type 2 diabetes/GLP-1 case into an oncology immunotherapy protocol context. The current run adds deterministic eligibility criteria extraction for comparator trial records, including ECOG, PD-L1, RECIST, stage/extent, biomarker, safety-exclusion, and timing signals. These extracted criteria are screening aids only and still require human review.
+Scenario 002 demonstrates that the workflow can generalize beyond the original diabetes scenario into an oncology immunotherapy protocol context while preserving traceability and safety boundaries. The run now includes a concise `reviewer_summary.md`, which makes the portfolio artifact easier to inspect without reading every intermediate JSON and Markdown file first.
+
+The score should not be interpreted as clinical correctness or trial readiness. It only evaluates whether the prototype produced a bounded, source-aware, review-support packet for a synthetic scenario.

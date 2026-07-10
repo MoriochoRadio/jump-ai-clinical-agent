@@ -97,4 +97,5 @@
 - [x] Add accepted-literature candidate section to generated reports.
 - [x] Convert manual PubMed screening notes into structured JSON input.
 - [x] Improve extraction of numeric eligibility thresholds from registry records.
-- [ ] Generate a cleaner reviewer-facing report from each run.
+- [x] Generate a cleaner reviewer-facing report from each run.
+- [ ] Add focused regression tests for reviewer summary and criteria extraction behavior.

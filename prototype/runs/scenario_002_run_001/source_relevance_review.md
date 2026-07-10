@@ -43,28 +43,28 @@ Interpretation:
 | Rank | NCT ID | Relevance | Score | Main Reason |
 | ---: | --- | --- | ---: | --- |
 | 1 | `NCT02846792` | high | 10/10 | direct intervention or representative term match |
-| 2 | `NCT04105270` | high | 10/10 | direct intervention or representative term match |
-| 3 | `NCT04691817` | high | 10/10 | direct intervention or representative term match |
-| 4 | `NCT04984811` | high | 10/10 | direct intervention or representative term match |
-| 5 | `NCT05344209` | high | 10/10 | direct intervention or representative term match |
-| 6 | `NCT05941897` | high | 10/10 | direct intervention or representative term match |
-| 7 | `NCT06388031` | high | 10/10 | direct intervention or representative term match |
-| 8 | `NCT02713867` | high | 9/10 | direct intervention or representative term match |
-| 9 | `NCT03829436` | high | 9/10 | direct intervention or representative term match |
-| 10 | `NCT04423029` | high | 9/10 | direct intervention or representative term match |
-| 11 | `NCT04612751` | high | 9/10 | direct intervention or representative term match |
-| 12 | `NCT05334329` | high | 9/10 | direct intervention or representative term match |
-| 13 | `NCT05867121` | high | 9/10 | direct intervention or representative term match |
-| 14 | `NCT06635824` | high | 9/10 | direct intervention or representative term match |
-| 15 | `NCT06875310` | high | 9/10 | direct intervention or representative term match |
-| 16 | `NCT02087423` | high | 8/10 | intervention term appears in title or eligibility context, but not as the extracted intervention |
-| 17 | `NCT03556228` | high | 8/10 | direct intervention or representative term match |
-| 18 | `NCT03673332` | high | 8/10 | direct intervention or representative term match |
-| 19 | `NCT07218003` | high | 8/10 | direct intervention or representative term match |
-| 20 | `NCT03170960` | high | 8/10 | direct intervention or representative term match |
-| 21 | `NCT04916002` | medium | 7/10 | no clear intervention match |
-| 22 | `NCT02454933` | medium | 7/10 | intervention term appears in title or eligibility context, but not as the extracted intervention |
-| 23 | `NCT03911219` | medium | 6/10 | intervention term appears in title or eligibility context, but not as the extracted intervention |
+| 2 | `NCT02848651` | high | 10/10 | direct intervention or representative term match |
+| 3 | `NCT03023423` | high | 10/10 | direct intervention or representative term match |
+| 4 | `NCT03050060` | high | 10/10 | direct intervention or representative term match |
+| 5 | `NCT04105270` | high | 10/10 | direct intervention or representative term match |
+| 6 | `NCT06388031` | high | 10/10 | direct intervention or representative term match |
+| 7 | `NCT06731907` | high | 10/10 | direct intervention or representative term match |
+| 8 | `NCT06644768` | high | 9/10 | direct intervention or representative term match |
+| 9 | `NCT02713867` | high | 9/10 | direct intervention or representative term match |
+| 10 | `NCT03191786` | high | 9/10 | direct intervention or representative term match |
+| 11 | `NCT03265080` | high | 9/10 | direct intervention or representative term match |
+| 12 | `NCT03829436` | high | 9/10 | direct intervention or representative term match |
+| 13 | `NCT04423029` | high | 9/10 | direct intervention or representative term match |
+| 14 | `NCT04612751` | high | 9/10 | direct intervention or representative term match |
+| 15 | `NCT05687266` | high | 9/10 | direct intervention or representative term match |
+| 16 | `NCT07361510` | high | 9/10 | direct intervention or representative term match |
+| 17 | `NCT02250326` | high | 8/10 | intervention term appears in title or eligibility context, but not as the extracted intervention |
+| 18 | `NCT05431270` | high | 8/10 | intervention term appears in title or eligibility context, but not as the extracted intervention |
+| 19 | `NCT03329950` | high | 8/10 | direct intervention or representative term match |
+| 20 | `NCT03673332` | high | 8/10 | direct intervention or representative term match |
+| 21 | `NCT03559647` | medium | 7/10 | direct intervention or representative term match |
+| 22 | `NCT05008861` | medium | 6/10 | intervention term appears in title or eligibility context, but not as the extracted intervention |
+| 23 | `NCT03307785` | medium | 5/10 | no clear intervention match |
 
 ## Overall Assessment
 

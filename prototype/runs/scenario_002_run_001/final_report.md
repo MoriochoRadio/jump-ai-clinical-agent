@@ -32,10 +32,10 @@ Ranked source candidates:
 | Rank | NCT ID | Score | Relevance | Phase | Key Reason |
 | ---: | --- | ---: | --- | --- | --- |
 | 1 | `NCT02846792` | 10/10 | high | PHASE1, PHASE2 | direct intervention or representative term match |
-| 2 | `NCT04105270` | 10/10 | high | PHASE2 | direct intervention or representative term match |
-| 3 | `NCT04691817` | 10/10 | high | PHASE1, PHASE2 | direct intervention or representative term match |
-| 4 | `NCT04984811` | 10/10 | high | PHASE2 | direct intervention or representative term match |
-| 5 | `NCT05344209` | 10/10 | high | PHASE2 | direct intervention or representative term match |
+| 2 | `NCT02848651` | 10/10 | high | PHASE2 | direct intervention or representative term match |
+| 3 | `NCT03023423` | 10/10 | high | PHASE1, PHASE2 | direct intervention or representative term match |
+| 4 | `NCT03050060` | 10/10 | high | PHASE2 | direct intervention or representative term match |
+| 5 | `NCT04105270` | 10/10 | high | PHASE2 | direct intervention or representative term match |
 
 Top-trial comparison file:
 
@@ -43,16 +43,11 @@ Top-trial comparison file:
 
 Retrieved study summaries:
 
-- `NCT02087423`: A Global Study to Assess the Effects of MEDI4736 (Durvalumab) in Patients With Locally Advanced or Metastatic Non Small Cell Lung Cancer
+- `NCT02250326`: Safety and Efficacy Study of Nab®-Paclitaxel With CC-486 or Nab®-Paclitaxel With Durvalumab, and Nab®-Paclitaxel Monotherapy as Second/Third-line Treatment for Advanced Non-small Cell Lung Cancer
   - status: COMPLETED
   - phase: PHASE2
-  - interventions: MEDI4736
-  - primary outcomes: Objective Response Rate (ORR)
-- `NCT02454933`: Study of AZD9291 Plus MEDI4736 Versus AZD9291 Monotherapy in NSCLC After Previous EGFR TKI Therapy in T790M Mutation Positive Tumours
-  - status: COMPLETED
-  - phase: PHASE3
-  - interventions: AZD9291, MEDI4736
-  - primary outcomes: Number of Subjects With Adverse Events (AEs) as a Measure of the Safety and Tolerability of Osimertinib in Combination With Durvalumab
+  - interventions: nab-paclitaxel IV, CC-486, Duravalumab
+  - primary outcomes: Kaplan Meier Estimate of Progression-Free Survival (PFS) as Assessed by the Investigator
 - `NCT02713867`: A Dose Frequency Optimization,Trial of Nivolumab 240 mg Every 2 Weeks vs Nivolumab 480 mg Every 4 Weeks in Subjects With Advanced or Metastatic Non-small Cell Lung Cancer Who Received Up to 12 Months of Nivolumab at 3 mg/kg or 240 mg Every 2 Weeks
   - status: COMPLETED
   - phase: PHASE3
@@ -63,16 +58,46 @@ Retrieved study summaries:
   - phase: PHASE1, PHASE2
   - interventions: Nivolumab, Plinabulin
   - primary outcomes: Maximum Tolerated Dose of Plinabulin and Nivolumab (Phase I), Overall Response Rate (Phase II)
-- `NCT03170960`: Study of Cabozantinib Alone or in Combination With Atezolizumab to Subjects With Locally Advanced or Metastatic Solid Tumors
-  - status: ACTIVE_NOT_RECRUITING
-  - phase: PHASE1
-  - interventions: cabozantinib, atezolizumab, cabozantinib, cabozantinib
-  - primary outcomes: Dose Escalation: MTD/Recommended Dose, Dose Expansion: ORR
-- `NCT03556228`: VMD-928 Monotherapy and in Combination With Pembrolizumab to Treat TrkA Overexpression Driven Solid Tumors or Lymphoma
-  - status: RECRUITING
+- `NCT02848651`: A Study of Atezolizumab as First-line Monotherapy for Advanced or Metastatic Non-Small Cell Lung Cancer
+  - status: COMPLETED
+  - phase: PHASE2
+  - interventions: Atezolizumab
+  - primary outcomes: Percentage of Participants With Objective Response Per Response Evaluation Criteria in Solid Tumors Version 1.1 (RECIST v1.1) as Determined by Investigator, Progression-Free Survival (PFS) Per RECIST v1.1 as Determined by Investigator, by Positive Versus Negative bTMB Groups
+- `NCT03023423`: A Study of Daratumumab in Combination With Atezolizumab Compared With Atezolizumab Alone in Participants With Previously Treated Advanced or Metastatic Non-Small Cell Lung Cancer
+  - status: COMPLETED
   - phase: PHASE1, PHASE2
-  - interventions: VMD-928 100 mg Tablet, VMD-928 Tablet and Pembrolizumab (200 mg)
-  - primary outcomes: Number and severity of treatment-emergent Adverse Events (Phase 1), To determine the recommended Phase 2 dose for VMD-928 (Phase 1), To determine the RP2D of VMD-928 in combination with pembrolizumab (Phase 1)
+  - interventions: Atezolizumab, Daratumumab
+  - primary outcomes: Percentage of Participants With Overall Response Rate (ORR)
+- `NCT03050060`: Image Guided Hypofractionated Radiation Therapy, Nelfinavir Mesylate, Pembrolizumab, Nivolumab and Atezolizumab in Treating Patients With Advanced Melanoma, Lung, or Kidney Cancer
+  - status: TERMINATED
+  - phase: PHASE2
+  - interventions: Atezolizumab, Hypofractionated Radiation Therapy, Laboratory Biomarker Analysis, Nelfinavir Mesylate, Nivolumab
+  - primary outcomes: Response Rate
+- `NCT03191786`: A Study of Atezolizumab Compared With a Single-Agent Chemotherapy in Treatment Naïve Participants With Locally Advanced or Recurrent or Metastatic Non-Small Cell Lung Cancer Who Are Deemed Unsuitable For Platinum-Doublet Chemotherapy
+  - status: COMPLETED
+  - phase: PHASE3
+  - interventions: Atezolizumab (MPDL3280A), an engineered anti-PD-L1 antibody, Vinorelbine, Gemcitabine
+  - primary outcomes: Overall Survival (OS)
+- `NCT03265080`: A Study of ADXS-NEO Expressing Personalized Tumor Antigens
+  - status: TERMINATED
+  - phase: PHASE1
+  - interventions: ADXS-NEO, Pembrolizumab
+  - primary outcomes: Incidence of Treatment-Emergent Adverse Events, Maximum tolerated dose
+- `NCT03307785`: Study of Niraparib, TSR-022, Bevacizumab, and Platinum-Based Doublet Chemotherapy in Combination With TSR-042
+  - status: COMPLETED
+  - phase: PHASE1
+  - interventions: Niraparib, TSR-042, Carboplatin-Paclitaxel, Bevacizumab, TSR-022
+  - primary outcomes: Part A: Number of Participants With Dose-limiting Toxicity (DLT), Part B: Number of Participants With DLT, Part C: Number of Participants With DLT
+- `NCT03329950`: A Study of CDX-1140 (CD40) as Monotherapy or in Combination in Patients With Advanced Malignancies
+  - status: COMPLETED
+  - phase: PHASE1
+  - interventions: CDX-1140, CDX-301, pembrolizumab, Chemotherapy
+  - primary outcomes: Safety and Tolerability of CDX-1140 as assessed by CTCAE v5.0
+- `NCT03559647`: The Effectiveness Of Atezolizumab In Patients With Locally-Advanced Or Metastatic Non-Small Cell Lung Cancer After Prior Chemotherapy
+  - status: COMPLETED
+  - phase: not listed
+  - interventions: Atezolizumab
+  - primary outcomes: Time to loss of clinical benefit (TTLCB) from Atezolizumab treatment, Duration of response (DOR) to Atezolizumab treatment
 - `NCT03673332`: Elderly Cancer PatIents, Safety and qualiTy of Life Under immunOtheraPies
   - status: TERMINATED
   - phase: PHASE4
@@ -83,11 +108,6 @@ Retrieved study summaries:
   - phase: PHASE1
   - interventions: Part 1 TPST-1120, Part 2 TPST-1120 + nivolumab, Part 3 TPST-1120, Part 4 TPST-1120 + nivolumab
   - primary outcomes: Incidence of dose limiting toxicities (DLTs) of TPST-1120 as a single agent and in combination with nivolumab., Incidence of treatment-emergent adverse events as assessed by NCI-CTCAE v5.0 of TPST-1120 as a single agent and in combination with nivolumab., Identify the maximum tolerated dose
-- `NCT03911219`: Impact of eHealth Monitoring on Overall Survival in Patients With Metastatic NSCLC / Extensive-stage SCLC / Advanced TNBC Under First-line Treatment With Atezolizumab Plus Chemotherapy
-  - status: COMPLETED
-  - phase: not listed
-  - interventions: eHealth system support for symptom management via CANKADO
-  - primary outcomes: Overall Survival (OS)
 - `NCT04105270`: RMT in Combination With Durvalumab + Chemo in Untreated Adenocarcinoma NSCLC. A Randomized Double Blind Phase II Trial
   - status: RECRUITING
   - phase: PHASE2
@@ -103,61 +123,41 @@ Retrieved study summaries:
   - phase: PHASE1
   - interventions: Datopotamab deruxtecan, Durvalumab, Carboplatin, AZD2936, MEDI5752
   - primary outcomes: Number of participants with DLTs; TEAEs and other safety parameters during the study.
-- `NCT04691817`: Tocilizumab and Atezolizumab in Adults With Locally Advanced or Metastatic Non-Small Cell Lung Cancer Refractory to 1st Line Immune Checkpoint Inhibitor-Based Therapy
+- `NCT05008861`: Gut Microbiota Reconstruction for NSCLC Immunotherapy
+  - status: UNKNOWN
+  - phase: PHASE1
+  - interventions: Capsulized Fecal Microbiota Transplant, Anti-programmed cell death protein 1/programmed death-ligand 1 monoclonal antibody, Platinum based chemotherapy
+  - primary outcomes: Incidence of FMT-related Adverse Events, Incidence of anti-PD-1/PD-L1-related Adverse Events
+- `NCT05431270`: Dose Escalation/Expansion Study of Mavrostobart (PT199), an Anti-CD73 mAb, Administered Alone and in Combination With a PD-1 Inhibitor or Chemotherapy (the MORNINGSTAR Study)
   - status: RECRUITING
   - phase: PHASE1, PHASE2
-  - interventions: Atezolizumab, Tocilizumab
-  - primary outcomes: Overall response rate (ORR)
-- `NCT04916002`: A Trial To Find Out If Vidutolimod Together With Cemiplimab Is Safe And If It Works In Adult Participants With Advanced Cancer Or Metastatic Cancer
-  - status: TERMINATED
-  - phase: PHASE2
-  - interventions: vidutolimod, cemiplimab
-  - primary outcomes: Objective Response Rate (ORR)
-- `NCT04984811`: NT-I7 in Combination With Atezolizumab in Previously Untreated, PD-L1-expressing, Locally Advanced or Metastatic NSCLC
-  - status: TERMINATED
-  - phase: PHASE2
-  - interventions: efineptakin alfa, Atezolizumab
-  - primary outcomes: Objective Response Rate (ORR)
-- `NCT05334329`: Genetically Engineered Natural Killer (NK) Cells With or Without Atezolizumab for the Treatment of Non-small Cell Lung Cancer Previously Treated With PD-1 and/or PD-L1 Immune Checkpoint Inhibitors
+  - interventions: Mavrostobart (PT199), Tislelizumab, Gemcitabine + nab-Paclitaxel, Docetaxel, Pemetrexed
+  - primary outcomes: To determine the maximum tolerated dose (MTD), if reached., Recommended Phase 2 Dose of Mavrostobart (PT199) as a single agent and/or in combination with a PD-1 inhibitor., Dose Limiting Toxicity (DLT).
+- `NCT05687266`: Phase III, Open-label, First-line Study of Dato-DXd in Combination With Durvalumab and Carboplatin for Advanced NSCLC Without Actionable Genomic Alterations
   - status: ACTIVE_NOT_RECRUITING
-  - phase: PHASE1
-  - interventions: Antineoplastic Immune Cell, Atezolizumab, Biospecimen Collection, Cyclophosphamide, Fludarabine
-  - primary outcomes: Incidence of adverse events - CTCAE, Incidence of adverse events - ASTCT, Dose limiting toxicities
-- `NCT05344209`: Efficacy and Safety of Anti-PD-1/PD-L1 Treatment +/- UV1 Vaccination in Patients With Non-small Cell Lung Cancer
-  - status: RECRUITING
-  - phase: PHASE2
-  - interventions: UV1, Sagramostim, Anti-PD-1/PD-L1 treatment
-  - primary outcomes: Progression-free survival (PFS) per Response Evaluation Criteria in Solid Tumours (RECIST 1.1) as determined by Blinded Independent Central Review (BICR)
-- `NCT05867121`: A Study to Evaluate Safety, Pharmacokinetics, & Activity of RO7496353 in Combination With a Checkpoint Inhibitor With or Without Standard-of-care Chemotherapy in Participants With Locally Advanced or Metastatic Solid Tumors; Urothelial Carcinoma Substudy in Association With RO7496353 Study GO44010
-  - status: COMPLETED
-  - phase: PHASE1
-  - interventions: RO7496353, Atezolizumab, Capecitabine, S-1, Nivolumab
-  - primary outcomes: Percentage of Participants With Adverse Events (AEs)
-- `NCT05941897`: A Study to Investigate Efficacy and Safety of Ceralasertib Plus Durvalumab in Participants Aged ≥ 18 Years With Advanced or Metastatic Non-small Cell Lung Cancer Whose Disease Progressed on or After Prior Anti-PD-(L)1 Therapy and Platinum-based Chemotherapy
-  - status: ACTIVE_NOT_RECRUITING
-  - phase: PHASE2
-  - interventions: Ceralasertib, Durvalumab
-  - primary outcomes: Objective response rate (ORR)
+  - phase: PHASE3
+  - interventions: Datopotamab deruxtecan, Durvalumab, Carboplatin, Pembrolizumab, Cisplatin
+  - primary outcomes: Progression-Free Survival (PFS) by blinded independent central review (BICR) in the non-squamous TROP2 biomarker positive population, Overall Survival (OS) in the non-squamous TROP2 biomarker positive population, PFS by BICR in the non-squamous population
 - `NCT06388031`: ICI Rechallenge for Advanced NSCLC With Long-Term Response to First-Line ICI
   - status: RECRUITING
   - phase: PHASE2
   - interventions: Immune checkpoint inhibitor
   - primary outcomes: Progression Free Survival (PFS)
-- `NCT06635824`: Trial to Evaluate Acasunlimab and Pembrolizumab Combination Superiority Over Standard of Care Docetaxel in Non-Small Cell Lung Cancer (ABBIL1TY NSCLC-06)
-  - status: ACTIVE_NOT_RECRUITING
-  - phase: PHASE3
-  - interventions: Acasunlimab, Pembrolizumab, Docetaxel
-  - primary outcomes: Overall Survival (OS)
-- `NCT06875310`: A Study of Adagrasib Plus Pembrolizumab Plus Chemotherapy vs. Placebo Plus Pembrolizumab Plus Chemotherapy in Participants With Previously Untreated Non-squamous Non-small Cell Lung Cancer With KRAS G12C Mutation (KRYSTAL-4)
+- `NCT06644768`: A Study of Valemetostat Tosylate Plus Pembrolizumab Versus Pembrolizumab Alone in First-Line NSCLC Without Actionable Genomic Alterations
+  - status: RECRUITING
+  - phase: PHASE1, PHASE2
+  - interventions: valemetostat tosylate, pembrolizumab
+  - primary outcomes: Phase 1b: Number of Participants with Dose-Limiting Toxicities, Phase 1b: Number of Participants with Treatment-Emergent Adverse Events, Phase 2: Progression-Free Survival by BICR
+- `NCT06731907`: A Study of Pembrolizumab With or Without Chemotherapy in Combination With Additional Treatments for Advanced Non-Small Cell Lung Cancer (NSCLC) (MK-3475-01G/KEYMAKER U01)
+  - status: RECRUITING
+  - phase: PHASE2
+  - interventions: Pembrolizumab, Carboplatin, Paclitaxel, Nab-paclitaxel, Pemetrexed
+  - primary outcomes: Overall Response Rate (ORR), Number of Participants with Adverse Events (AEs), Number of Participants Discontinuing Study Drug Due to AEs
+- `NCT07361510`: A Study to Evaluate the Efficacy of Pumitamig Versus Pembrolizumab in Participants With Previously Untreated Advanced Non-Small Cell Lung Cancer and PD-L1 ≥ 50%. (ROSETTA Lung-202)
   - status: RECRUITING
   - phase: PHASE3
-  - interventions: Adagrasib, Pembrolizumab, Carboplatin, Pemetrexed, Placebo
-  - primary outcomes: Progression Free Survival (PFS) as Assessed per Response Evaluation Criteria in Solid Tumors (RECIST) v1.1 by Blinded Independent Central Review (BICR), Overall Survival (OS)
-- `NCT07218003`: A Phase 1/1b of RNDO-564 Single Agent or in Combination With Pembrolizumab in Bladder Cancer and Other Solid Tumors Associated With Nectin-4
-  - status: ENROLLING_BY_INVITATION
-  - phase: PHASE1
-  - interventions: RNDO-564, Pembrolizumab
-  - primary outcomes: All Arms: - Proportion of participants with adverse events (including dose limiting toxicities) as assessed by National Cancer Institute Common Terminology Criteria for Adverse Events (NCI-CTCAE) version 5.0, Dose Optimization Arms: • Identify one or more recommended Phase 2 doses (RP2D)
+  - interventions: Pumitamig, Pembrolizumab
+  - primary outcomes: Progression-free Survival (PFS) by Blinded Independent Central Review (BICR) according to Response Evaluation Criteria in Solid Tumors (RECIST) v1.1, Overall survival (OS)
 
 Fields to compare later:
 

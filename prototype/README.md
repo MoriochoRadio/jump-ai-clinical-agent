@@ -92,6 +92,7 @@ When `--fetch-pubmed` is used, the run also writes:
 - `pubmed_relevance_review.md`
 - `pubmed_manual_screening.json`
 - `pubmed_manual_screening_notes.md`
+- `reviewer_summary.md`
 
 The reviewed Scenario 001 run also includes manual post-run review notes:
 

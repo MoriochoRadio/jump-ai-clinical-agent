@@ -132,6 +132,7 @@ Scenario 002:
 - manual PubMed screening separated primary support candidates, context-only candidates, and excluded direct-support candidates,
 - final reports can include accepted-literature grouping from manual PubMed screening notes,
 - top trial comparison extracts structured criteria such as ECOG, PD-L1 thresholds, RECIST, stage/extent, biomarker rules, safety exclusions, and endpoint timing,
+- reviewer-facing summary report condenses key risks, evidence trace, data-readiness signals, and output files,
 - manual rubric review scored the run as a strong pass for portfolio evaluation purposes.
 
 ## 06. Artifacts
@@ -155,6 +156,7 @@ Scenario 002:
 | `prototype/runs/scenario_002_run_001/pubmed_relevance_review.md` | Ranked PubMed literature candidates with abstract-screening signals |
 | `prototype/runs/scenario_002_run_001/pubmed_manual_screening.json` | Structured manual PubMed screening decisions used by report generation |
 | `prototype/runs/scenario_002_run_001/pubmed_manual_screening_notes.md` | Manual screening notes for PubMed literature candidates |
+| `prototype/runs/scenario_002_run_001/reviewer_summary.md` | Concise reviewer-facing summary of the generated pre-review packet |
 | `prototype/runs/scenario_002_run_001/score.md` | Manual score sheet using the Scenario 002 rubric |
 
 Repository structure:
@@ -218,7 +220,7 @@ python prototype/run_scenario.py --input prototype/inputs/scenario_002.json --ru
 
 Near-term improvements:
 
-- generate a cleaner reviewer-facing report from each run,
+- add focused regression tests for reviewer summary and criteria extraction behavior,
 - add a small interface only after the CLI workflow remains reproducible.
 
 The project should continue to prioritize traceability, safety boundaries, and reproducibility over UI polish.

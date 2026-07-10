@@ -1,8 +1,8 @@
 """Run a local deterministic prototype workflow for a protocol scenario.
 
-This script intentionally avoids external APIs, LLM calls, and third-party
-dependencies. It creates traceable files that can be reviewed in GitHub before
-the project grows into a larger agent system.
+By default this script avoids external APIs, LLM calls, and third-party
+dependencies. Optional flags can fetch public ClinicalTrials.gov and PubMed
+records while keeping all outputs traceable for GitHub review.
 """
 
 from __future__ import annotations
@@ -2096,6 +2096,139 @@ def manual_literature_screening_notes(
     return "\n".join(lines)
 
 
+def count_manual_screening_entries(manual_screening_entries: list[dict[str, str]]) -> dict[str, int]:
+    counts: dict[str, int] = {
+        "primary_support_candidate": 0,
+        "context_only": 0,
+        "exclude_from_direct_support": 0,
+    }
+    for entry in manual_screening_entries:
+        decision = entry.get("manual_decision", "")
+        counts[decision] = counts.get(decision, 0) + 1
+    return counts
+
+
+def reviewer_bullets(items: list[str], empty_message: str = "None.") -> str:
+    if not items:
+        return f"- {empty_message}"
+    return "\n".join(f"- {item}" for item in items)
+
+
+def make_reviewer_summary(
+    normalized: dict[str, Any],
+    checklist: dict[str, Any],
+    data_readiness: dict[str, Any],
+    sources: dict[str, Any],
+    sources_ranked: dict[str, Any],
+    pubmed_sources: dict[str, Any],
+    manual_screening_entries: list[dict[str, str]],
+    eligibility_criteria_extraction: dict[str, Any],
+    can_finalize: bool,
+) -> str:
+    protocol = normalized["protocol"]
+    findings = checklist.get("findings", [])
+    high_findings = [item for item in findings if item.get("severity") == "high"]
+    medium_findings = [item for item in findings if item.get("severity") == "medium"]
+    top_risks = [
+        f"**{item.get('severity', '').upper()}**: {item.get('finding')} -> {item.get('recommendation')}"
+        for item in (high_findings + medium_findings)[:6]
+    ]
+
+    data_summary = data_readiness.get("summary", {})
+    high_data_items = [
+        f"{item.get('data_item')} ({item.get('likely_category')})"
+        for item in data_readiness.get("items", [])
+        if item.get("collection_risk") == "high"
+    ][:6]
+
+    ranked_trials = sources_ranked.get("ranked_studies", [])[:5]
+    trial_bullets = [
+        f"`{item.get('nct_id')}` ({item.get('relevance_score')}/10): {item.get('study', {}).get('brief_title', '')}"
+        for item in ranked_trials
+    ]
+
+    extraction_bullets = [
+        f"`{record.get('nct_id')}`: {record.get('extraction_summary')}"
+        for record in eligibility_criteria_extraction.get("records", [])[:5]
+        if record.get("extraction_summary") and record.get("extraction_summary") != "not extracted"
+    ]
+
+    manual_counts = count_manual_screening_entries(manual_screening_entries)
+    primary_literature = [
+        f"PMID `{entry.get('pmid')}`: {entry.get('suggested_use')}"
+        for entry in manual_screening_entries
+        if entry.get("manual_decision") == "primary_support_candidate"
+    ][:5]
+
+    return f"""# {scenario_heading(normalized, 'Reviewer Summary')}
+
+## Reviewer Takeaway
+
+This run demonstrates a traceable protocol pre-review workflow for a synthetic {protocol['disease_condition']} scenario. It identifies missing protocol details, compares public trial records, screens PubMed literature candidates, maps hospital data-readiness risks, and preserves safety boundaries.
+
+Safety critic status: {"pass" if can_finalize else "blocked"}
+
+## Scenario Scope
+
+- intervention: {protocol['intervention_or_drug_class']}
+- trial phase: {protocol['trial_phase']}
+- primary endpoint: {protocol['primary_endpoint']}
+- data boundary: synthetic scenario only; no real patient data and no EMR/HIS integration
+
+## Main Pre-Review Risks
+
+{reviewer_bullets(top_risks)}
+
+## Public Evidence Trace
+
+- ClinicalTrials.gov retrieval status: {sources.get('retrieval_status')}
+- unique ClinicalTrials.gov records: {len(sources.get('studies', []))}
+- PubMed retrieval status: {pubmed_sources.get('retrieval_status')}
+- PubMed literature candidates: {len(pubmed_sources.get('articles', []))}
+- primary PubMed support candidates after manual screening: {manual_counts.get('primary_support_candidate', 0)}
+- context-only candidates: {manual_counts.get('context_only', 0)}
+- excluded direct-support candidates: {manual_counts.get('exclude_from_direct_support', 0)}
+
+Top ranked trial comparators:
+
+{reviewer_bullets(trial_bullets)}
+
+## Extracted Comparator Criteria
+
+{reviewer_bullets(extraction_bullets, "No structured criteria extracted.")}
+
+## Accepted Literature Candidates
+
+{reviewer_bullets(primary_literature, "No primary support candidates accepted.")}
+
+## Hospital Data-Readiness Signals
+
+- total mapped items: {data_summary.get('total_items', 0)}
+- high-risk items: {data_summary.get('high_risk_items', 0)}
+- items needing clarification: {data_summary.get('clarification_needed_items', 0)}
+
+High-risk or research-heavy data items:
+
+{reviewer_bullets(high_data_items)}
+
+## Key Output Files
+
+- `prototype/runs/{normalized['run_id']}/final_report.md`
+- `prototype/runs/{normalized['run_id']}/top_trial_comparison.md`
+- `prototype/runs/{normalized['run_id']}/eligibility_criteria_extraction.json`
+- `prototype/runs/{normalized['run_id']}/pubmed_relevance_review.md`
+- `prototype/runs/{normalized['run_id']}/pubmed_manual_screening.json`
+- `prototype/runs/{normalized['run_id']}/data_readiness_table.md`
+
+## Limitations
+
+- This is not protocol approval, regulatory certification, medical advice, or patient eligibility determination.
+- Regex and keyword extraction can miss or over-capture criteria.
+- Public registry and PubMed records require human expert review before being used as evidence.
+- Hospital data-readiness mapping is a planning aid and must be validated against the actual hospital system configuration.
+"""
+
+
 def make_draft_report(
     normalized: dict[str, Any],
     checklist: dict[str, Any],
@@ -2371,6 +2504,17 @@ def main() -> int:
     pubmed_relevance_review = make_pubmed_relevance_review(normalized, pubmed_sources)
     top_trial_comparison = make_top_trial_comparison(normalized, sources_ranked)
     eligibility_criteria_extraction = make_eligibility_criteria_extraction(sources_ranked)
+    reviewer_summary = make_reviewer_summary(
+        normalized,
+        checklist,
+        data_readiness,
+        sources,
+        sources_ranked,
+        pubmed_sources,
+        manual_screening_entries,
+        eligibility_criteria_extraction,
+        can_finalize,
+    )
     data_readiness_table = make_data_readiness_table(normalized, data_readiness)
 
     write_json(run_dir / "normalized_input.json", normalized)
@@ -2389,6 +2533,7 @@ def main() -> int:
     write_text(run_dir / "source_relevance_review.md", source_relevance_review)
     write_text(run_dir / "pubmed_relevance_review.md", pubmed_relevance_review)
     write_text(run_dir / "top_trial_comparison.md", top_trial_comparison)
+    write_text(run_dir / "reviewer_summary.md", reviewer_summary)
     write_text(run_dir / "data_readiness_table.md", data_readiness_table)
     write_text(run_dir / "draft_report.md", draft_report)
     write_text(run_dir / "critic_review.md", critic_review)
