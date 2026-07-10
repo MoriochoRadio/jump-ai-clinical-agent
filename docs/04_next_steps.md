@@ -100,4 +100,5 @@
 - [x] Generate a cleaner reviewer-facing report from each run.
 - [x] Add focused regression tests for reviewer summary and criteria extraction behavior.
 - [x] Add a lightweight GitHub Actions check for the regression tests.
-- [ ] Confirm the GitHub Actions run passes after push.
+- [x] Confirm the GitHub Actions run passes after push.
+- [ ] Add a small architecture or workflow diagram for reviewer orientation.

@@ -229,7 +229,7 @@ GitHub Actions runs the same regression test command on push and pull request.
 
 Near-term improvements:
 
-- confirm the GitHub Actions run passes after push,
+- add a small architecture or workflow diagram for reviewer orientation,
 - add a small interface only after the CLI workflow remains reproducible.
 
 The project should continue to prioritize traceability, safety boundaries, and reproducibility over UI polish.
