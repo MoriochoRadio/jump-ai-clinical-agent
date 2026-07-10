@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scenario 002 Reviewer Dashboard</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f7f5;
+      --surface: #ffffff;
+      --surface-soft: #eef4f1;
+      --ink: #202623;
+      --muted: #66736d;
+      --line: #d9e0dc;
+      --teal: #0f766e;
+      --teal-soft: #d9f0ec;
+      --red: #b42318;
+      --red-soft: #fde7e3;
+      --amber: #9a6500;
+      --amber-soft: #fff0c2;
+      --blue: #2563a7;
+      --blue-soft: #e2eefc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      min-height: 100vh;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .header-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 24px 22px;
+    }
+
+    .eyebrow {
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 8px 0 8px;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 860px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .boundary {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(260px, .6fr);
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .notice,
+    .metric,
+    .risk,
+    .artifact,
+    .timeline-step {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .notice {
+      padding: 18px;
+    }
+
+    .notice strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--red);
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 18px;
+    }
+
+    .status-value {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--teal-soft);
+      color: var(--teal);
+      font-weight: 700;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin: 20px 0;
+    }
+
+    .metric {
+      padding: 16px;
+      min-height: 116px;
+    }
+
+    .metric-label {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .metric-value {
+      margin-top: 10px;
+      font-size: 34px;
+      line-height: 1;
+      font-weight: 800;
+    }
+
+    .metric-note {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .panel {
+      margin-bottom: 28px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(120px, 1fr));
+      gap: 10px;
+    }
+
+    .timeline-step {
+      min-height: 98px;
+      padding: 12px;
+      background: var(--surface-soft);
+    }
+
+    .timeline-step span {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .risks {
+      display: grid;
+      gap: 10px;
+    }
+
+    .risk {
+      padding: 12px;
+      border-left: 5px solid var(--red);
+    }
+
+    .risk.medium {
+      border-left-color: var(--amber);
+    }
+
+    .severity {
+      display: inline-block;
+      min-width: 72px;
+      margin-right: 8px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--red-soft);
+      color: var(--red);
+      font-size: 12px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .severity.medium {
+      background: var(--amber-soft);
+      color: var(--amber);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 680px;
+      border-collapse: collapse;
+      background: var(--surface);
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f0f3f1;
+      color: #39433f;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 0 6px 6px 0;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .tag.red {
+      background: var(--red-soft);
+      color: var(--red);
+    }
+
+    .artifacts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .artifact {
+      min-height: 88px;
+      padding: 12px;
+    }
+
+    .artifact p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px 32px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .boundary,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .workflow {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .header-inner,
+      main,
+      footer {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .metrics,
+      .artifacts {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="header-inner">
+        <div class="eyebrow">Clinical Trial Protocol Pre-Review</div>
+        <h1>Scenario 002 Reviewer Dashboard</h1>
+        <p class="lead">
+          Read-only portfolio view for a synthetic advanced or metastatic NSCLC Phase II immunotherapy protocol review run.
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <section class="boundary" aria-label="Scope and safety status">
+        <div class="notice">
+          <strong>Safety boundary</strong>
+          Synthetic scenario only. No real patient data, no EMR/HIS integration, no protocol approval, no regulatory certification, and no patient-specific treatment recommendation.
+        </div>
+        <div class="status">
+          <div>
+            <h2>Safety critic</h2>
+            <p>Latest committed run result</p>
+          </div>
+          <span class="status-value">Pass</span>
+        </div>
+      </section>
+
+      <section class="metrics" aria-label="Key scenario metrics">
+        <div class="metric">
+          <div class="metric-label">Manual score</div>
+          <div class="metric-value">98</div>
+          <div class="metric-note">out of 100, portfolio rubric</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Trial records</div>
+          <div class="metric-value">23</div>
+          <div class="metric-note">unique ClinicalTrials.gov records</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">PubMed candidates</div>
+          <div class="metric-value">14</div>
+          <div class="metric-note">metadata candidates screened</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Data readiness</div>
+          <div class="metric-value">7</div>
+          <div class="metric-note">high-risk mapped items</div>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Workflow summary">
+        <h2>Workflow Map</h2>
+        <div class="workflow">
+          <div class="timeline-step">
+            <span>Input</span>
+            <h3>Scenario JSON</h3>
+            <p>Synthetic NSCLC immunotherapy protocol outline.</p>
+          </div>
+          <div class="timeline-step">
+            <span>Checks</span>
+            <h3>Protocol Review</h3>
+            <p>Completeness, eligibility, recruitment, endpoint, and safety gaps.</p>
+          </div>
+          <div class="timeline-step">
+            <span>Evidence</span>
+            <h3>Public Sources</h3>
+            <p>ClinicalTrials.gov records plus PubMed metadata candidates.</p>
+          </div>
+          <div class="timeline-step">
+            <span>Operations</span>
+            <h3>Data Readiness</h3>
+            <p>Hospital/research data capture risks and clarification needs.</p>
+          </div>
+          <div class="timeline-step">
+            <span>Output</span>
+            <h3>Review Packet</h3>
+            <p>Final report, reviewer summary, score sheet, and trace files.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="grid">
+        <section class="panel" aria-label="Main pre-review risks">
+          <h2>Main Pre-Review Risks</h2>
+          <div class="risks">
+            <div class="risk">
+              <h3><span class="severity">High</span>Study design is underspecified</h3>
+              <p>Clarify randomization, blinding, comparator, and whether the trial is single-arm or controlled.</p>
+            </div>
+            <div class="risk">
+              <h3><span class="severity">High</span>ECOG rule is not operational</h3>
+              <p>Define accepted ECOG performance status range and documentation method.</p>
+            </div>
+            <div class="risk">
+              <h3><span class="severity">High</span>Measurable disease rule is missing</h3>
+              <p>Clarify whether measurable disease is required and which response assessment standard applies.</p>
+            </div>
+            <div class="risk">
+              <h3><span class="severity">High</span>Biomarker rules are unclear</h3>
+              <p>Define required biomarker testing, exclusions, and handling of missing results.</p>
+            </div>
+            <div class="risk medium">
+              <h3><span class="severity medium">Medium</span>Recruitment rationale is thin</h3>
+              <p>Add screening pool, historical recruitment rate, or site feasibility evidence.</p>
+            </div>
+            <div class="risk medium">
+              <h3><span class="severity medium">Medium</span>Follow-up attendance needs definition</h3>
+              <p>Define visit windows, acceptable missed visits, remote options, and feasibility checks.</p>
+            </div>
+          </div>
+        </section>
+
+        <aside class="panel" aria-label="Scenario scope">
+          <h2>Scenario Scope</h2>
+          <p><strong>Condition:</strong> Advanced or metastatic non-small cell lung cancer</p>
+          <p><strong>Intervention:</strong> PD-1/PD-L1 immune checkpoint inhibitor add-on therapy</p>
+          <p><strong>Phase:</strong> Phase II</p>
+          <p><strong>Primary endpoint:</strong> Progression-free survival</p>
+          <div>
+            <span class="tag red">Synthetic only</span>
+            <span class="tag red">No patient data</span>
+            <span class="tag red">No EMR integration</span>
+            <span class="tag">Public evidence trace</span>
+            <span class="tag">CLI source of truth</span>
+          </div>
+        </aside>
+      </div>
+
+      <section class="panel" aria-label="Top public trial comparators">
+        <h2>Top Ranked Public Trial Comparators</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>NCT ID</th>
+                <th>Score</th>
+                <th>Title</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>NCT02846792</td>
+                <td>10/10</td>
+                <td>Nivolumab and Plinabulin in Treating Patients With Stage IIIB-IV, Recurrent, or Metastatic Non-small Cell Lung Cancer</td>
+              </tr>
+              <tr>
+                <td>NCT02848651</td>
+                <td>10/10</td>
+                <td>A Study of Atezolizumab as First-line Monotherapy for Advanced or Metastatic Non-Small Cell Lung Cancer</td>
+              </tr>
+              <tr>
+                <td>NCT03023423</td>
+                <td>10/10</td>
+                <td>Daratumumab in Combination With Atezolizumab Compared With Atezolizumab Alone in Previously Treated Advanced or Metastatic NSCLC</td>
+              </tr>
+              <tr>
+                <td>NCT03050060</td>
+                <td>10/10</td>
+                <td>Image Guided Hypofractionated Radiation Therapy With Nelfinavir and Checkpoint Inhibitors in Advanced Cancer</td>
+              </tr>
+              <tr>
+                <td>NCT04105270</td>
+                <td>10/10</td>
+                <td>RMT in Combination With Durvalumab and Chemotherapy in Untreated Adenocarcinoma NSCLC</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Hospital data readiness">
+        <h2>High-Risk Hospital Data-Readiness Items</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Data item</th>
+                <th>Likely source category</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Molecular testing results such as EGFR, ALK, ROS1, and related actionable alterations</td>
+                <td>Pathology or molecular laboratory result</td>
+              </tr>
+              <tr>
+                <td>PD-L1 expression result where available</td>
+                <td>Pathology or molecular laboratory result</td>
+              </tr>
+              <tr>
+                <td>ECOG performance status</td>
+                <td>Clinician assessment or oncology research form</td>
+              </tr>
+              <tr>
+                <td>Baseline and follow-up CT imaging</td>
+                <td>Radiology report/images plus research response assessment</td>
+              </tr>
+              <tr>
+                <td>RECIST or tumor response assessment</td>
+                <td>Radiology report/images plus research response assessment</td>
+              </tr>
+              <tr>
+                <td>Informed consent documentation</td>
+                <td>Research consent documentation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Artifact links">
+        <h2>Traceable Artifacts</h2>
+        <div class="artifacts">
+          <div class="artifact">
+            <h3><a href="../prototype/runs/scenario_002_run_001/reviewer_summary.md">Reviewer summary</a></h3>
+            <p>Fast read of risks, evidence trace, data-readiness signals, and limits.</p>
+          </div>
+          <div class="artifact">
+            <h3><a href="../prototype/runs/scenario_002_run_001/final_report.md">Final report</a></h3>
+            <p>Full generated pre-review packet for the synthetic oncology scenario.</p>
+          </div>
+          <div class="artifact">
+            <h3><a href="../prototype/runs/scenario_002_run_001/top_trial_comparison.md">Top trial comparison</a></h3>
+            <p>Compact comparison of ranked public trial registry records.</p>
+          </div>
+          <div class="artifact">
+            <h3><a href="../prototype/runs/scenario_002_run_001/eligibility_criteria_extraction.json">Eligibility extraction JSON</a></h3>
+            <p>Structured extraction of comparator criteria and endpoint timing signals.</p>
+          </div>
+          <div class="artifact">
+            <h3><a href="../prototype/runs/scenario_002_run_001/pubmed_manual_screening.json">PubMed manual screening JSON</a></h3>
+            <p>Structured decisions for primary support, context-only, and excluded candidates.</p>
+          </div>
+          <div class="artifact">
+            <h3><a href="../prototype/runs/scenario_002_run_001/score.md">Score sheet</a></h3>
+            <p>Manual portfolio rubric review. Not a clinical, regulatory, or IRB assessment.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Source of truth: committed CLI outputs under prototype/runs/scenario_002_run_001. Dashboard scope: read-only portfolio review aid.
+    </footer>
+  </div>
+</body>
+</html>

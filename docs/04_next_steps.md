@@ -103,4 +103,5 @@
 - [x] Confirm the GitHub Actions run passes after push.
 - [x] Add a small architecture or workflow diagram for reviewer orientation.
 - [x] Decide whether the next portfolio improvement should be a small UI or another scenario.
-- [ ] Build a minimal static reviewer dashboard for `scenario_002_run_001`.
+- [x] Build a minimal static reviewer dashboard for `scenario_002_run_001`.
+- [ ] Review the static dashboard locally and decide whether to publish a hosted demo later.

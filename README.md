@@ -167,6 +167,7 @@ Scenario 002:
 | `docs/17_reviewer_workflow_diagram.md` | Reviewer-oriented workflow and evidence path diagram |
 | `docs/18_next_portfolio_improvement_decision.md` | Decision record selecting a small reviewer-facing UI as the next improvement |
 | `docs/11_mvp_agent_workflow.md` | MVP workflow and tool-chain design |
+| `dashboard/scenario_002_review.html` | Static read-only reviewer dashboard for Scenario 002 |
 | `prototype/run_scenario.py` | Reproducible CLI prototype |
 | `prototype/inputs/scenario_001.json` | Synthetic Type 2 diabetes protocol scenario |
 | `prototype/inputs/scenario_002.json` | Synthetic NSCLC immunotherapy protocol scenario |
@@ -248,11 +249,17 @@ python -m unittest discover -s tests
 
 GitHub Actions runs the same regression test command on push and pull request.
 
+To inspect the static reviewer dashboard, open:
+
+```text
+dashboard/scenario_002_review.html
+```
+
 ## 09. Next Work
 
 Near-term improvements:
 
-- build a minimal static reviewer dashboard for `scenario_002_run_001`,
+- review the static dashboard locally and decide whether to publish a hosted demo later,
 - keep the CLI workflow as the source of truth while adding the UI.
 
 The project should continue to prioritize traceability, safety boundaries, and reproducibility over UI polish.

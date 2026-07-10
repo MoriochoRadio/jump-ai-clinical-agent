@@ -72,6 +72,8 @@ GitHub repository:
 ### Prototype Code
 
 - `.github/workflows/ci.yml`
+- `dashboard/README.md`
+- `dashboard/scenario_002_review.html`
 - `prototype/run_scenario.py`
 - `prototype/inputs/scenario_001.json`
 - `prototype/inputs/scenario_002.json`
@@ -171,7 +173,8 @@ Current state:
 - focused regression tests now cover reviewer summary generation and oncology eligibility criteria extraction,
 - GitHub Actions now runs the regression tests on push and pull request,
 - a reviewer-oriented workflow diagram now summarizes the input, checks, evidence path, outputs, and safety boundary,
-- the next portfolio improvement decision selects a minimal static reviewer dashboard over Scenario 003.
+- the next portfolio improvement decision selects a minimal static reviewer dashboard over Scenario 003,
+- a static read-only Scenario 002 reviewer dashboard has been added.
 
 Recommended next repository step:
 

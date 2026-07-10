@@ -100,6 +100,11 @@ A small read-only UI has higher immediate portfolio value because it can show:
 
 Build a minimal static reviewer dashboard for `scenario_002_run_001`.
 
+Implementation status:
+
+- completed as `dashboard/scenario_002_review.html`,
+- guarded by a regression test in `tests/test_dashboard_artifact.py`.
+
 Initial constraints:
 
 - static HTML/CSS/JavaScript is enough,
